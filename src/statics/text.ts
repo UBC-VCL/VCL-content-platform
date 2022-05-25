@@ -52,6 +52,13 @@ const TEXT = {
       EMAIL: 'vclmanager@gmail.com',
       DRRENSINK_CONTACT: 'rensink@psych.ubc.ca',
       CAMPUS: 'Vancouver Campus'
+  },
+
+  LANDING_PAGE: {
+      TITLE: 'Investigating Visual Intelligence',
+      DESCRIPTION: 'What is the Visual Cognition Lab? We investigate visual intelligence – '+ 
+                  'the way in which the human visual system uses the light entering the eyes to create a variety of perceptual experiences.',
+      UBC_PAGE_BUTTON: 'Official UBC Home Page'      
   }
 } as const;
 

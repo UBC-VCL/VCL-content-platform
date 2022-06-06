@@ -3,15 +3,23 @@ import { useAppSelector } from '@redux/hooks';
 import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link'
 import { ROUTES } from '@statics';
+import "./ProjectOverview.css";
 
 const ProjectOverview = () => {
     const projects = useAppSelector(selectProjects); 
 
     return (
-        <div>
+        <div className='project-overview-container'>
             <div>
-                All Projects
+                <h2 className='project-overview-title'>All Projects</h2>
+                <hr/>
             </div>
+            <div className='button-container'>
+                <button className="project-button">Correlation</button>
+                <button className="project-button">IDEO</button>
+                <button className="project-button">Image Transitions</button>
+                <button className="project-button">NOVA</button>
+                <button className="project-button">Perceptual Modes</button>
             <div>
                 {projects.map((project, i) => {
                     return (
@@ -21,6 +29,7 @@ const ProjectOverview = () => {
                         </li>
                     )
                 })}
+            </div>
             </div>
         </div>
            )

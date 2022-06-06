@@ -1,0 +1,43 @@
+.project-overview-container {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 130px;
+    padding-right: 130px;
+    text-align: left;
+}
+
+.project-overview-title {
+    color: #1C426D;
+    letter-spacing: 1px;
+}
+
+hr {
+    border-top: 2px solid #8EA9D2;
+    width: 80%;
+    margin-left: 0px;
+    margin-top: -7px;
+}
+
+.button-container {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.project-button {
+    background-color: #AEC7E3;
+    width: 12em;
+    height: 8em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.project-button:hover {
+    background-color: #1C426D;;
+}

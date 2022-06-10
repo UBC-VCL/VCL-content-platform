@@ -17,28 +17,30 @@ const Footer = () => {
         {
             name: "Project1"
         }, {
-            name: "Project1"
+            name: "Project2"
         }, {
-            name: "Project1"
+            name: "Project3"
         }, {
-            name: "Project1"
+            name: "Project4"
         }, {
-            name: "Project1"
+            name: "Project5"
         }]
 
 
     return (
 
         <div className="footer">
+            <div className="ubc-logo">
+            <img src="images/ubc_logo.jpg"/>
+            </div>
             <div className="footer-main">
                 <div className="footer-column">
-                    <h3 className="footer-heading"> Heading One</h3>
-                    <li className="footer-link">Tel {666666}</li>
-                    <li className="footer-link">Fax {33333}</li>
-                    <li className="footer-link">Lab: {555}</li>
-                    <li className="footer-link">contact</li>
-                    <li className="footer-link">title</li>
+                    <li className="footer-link"><b>Tel</b> {TEXT.LAB_INFO.TEL}</li>
+                    <li className="footer-link"><b>Fax</b> {TEXT.LAB_INFO.FAX}</li>
+                    <li className="footer-link"><b>Lab:</b> {TEXT.LAB_INFO.EMAIL}</li>
+                    <li className="footer-link"><b>Dr. Rensink:</b> {TEXT.LAB_INFO.DRRENSINK_CONTACT}</li>
                 </div>
+
                 <div className="footer-column">
                     <h3 className="footer-heading"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
                     {NAV.map(({TITLE, REF}) => {
@@ -67,7 +69,8 @@ const Footer = () => {
 
 
             </div>
-
+            <div className="horizontalLine"></div>
+            <li className="campus-text"><b>UBC Visual Cognition Lab</b> {TEXT.LAB_INFO.CAMPUS}</li>
         </div>
 
     )

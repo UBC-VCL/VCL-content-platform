@@ -1,17 +1,21 @@
+.ubc-logo{
+    margin-right: 80%;
+}
+
 .footer{
-    background-color: gray;
+    background-color: #F2F2F2;
     padding: 4rem 1rem;
-    max-width: 1200px;
     margin: 0 auto;
 }
 
 .footer a{
-    color: white;
     text-decoration: none;
+    color: black;
 }
 
 .footer li{
     list-style: none;
+
 }
 
 .footer-main{
@@ -23,17 +27,32 @@
     flex-basis: 200px;
     flex-grow: 1;
     text-align: center;
+
 }
 
 .footer-heading{
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .footer-link{
     display: block;
-    width: max-content;
+
     padding: 5px 10px;
     margin: 0 auto;
+    text-align: left;
+
+}
+
+.horizontalLine {
+    border: none;
+    border-bottom: 1px solid gainsboro;
+    max-width: 80%;
+}
+
+.campus-text{
+    margin-top: 2%;
+    text-align: left;
 }
 
 @media only screen and (max-width: 768px){

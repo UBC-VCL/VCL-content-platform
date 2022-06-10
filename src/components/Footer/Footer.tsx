@@ -1,56 +1,77 @@
 import React from 'react';
-import { TEXT, NAV, ROUTES } from '@statics';
-import { useAppSelector } from '@redux/hooks';
-import { selectProjects } from '@redux/slices/ProjectRedux';
+import {TEXT, NAV, ROUTES} from '@statics';
+import {useAppSelector} from '@redux/hooks';
+import {selectProjects} from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
 import './Footer.css'
 
+
+
+
 const Footer = () => {
 
-    const projects = useAppSelector(selectProjects);
+    // const projects = useAppSelector(selectProjects);
+    const projects = [{
+        name: "Project1"
+    },
+        {
+            name: "Project1"
+        }, {
+            name: "Project1"
+        }, {
+            name: "Project1"
+        }, {
+            name: "Project1"
+        }, {
+            name: "Project1"
+        }]
+
 
     return (
-            <div className="footer">
-                {/* TODO: insert UBC logo */}
-                {/* lab information */}
-                <div className="info">
-                    <li>Tel {TEXT.LAB_INFO.TEL}</li>
-                    <li>Fax {TEXT.LAB_INFO.FAX}</li>
-                    <li>Lab {TEXT.LAB_INFO.EMAIL}</li>
-                    <li>Dr. Rensink {TEXT.LAB_INFO.DRRENSINK_CONTACT}</li>
-                    <li>{TEXT.COMMON.TITLE} {TEXT.LAB_INFO.CAMPUS}</li>
-                </div>
 
-                {/* navigation links */}
-                <div className="nav">
-                    {TEXT.PAGE_TITLES.NAVIGATE} 
-                    {NAV.map(({ TITLE, REF }) => {
+        <div className="footer">
+            <div className="footer-main">
+                <div className="footer-column">
+                    <h3 className="footer-heading"> Heading One</h3>
+                    <li className="footer-link">Tel {666666}</li>
+                    <li className="footer-link">Fax {33333}</li>
+                    <li className="footer-link">Lab: {555}</li>
+                    <li className="footer-link">contact</li>
+                    <li className="footer-link">title</li>
+                </div>
+                <div className="footer-column">
+                    <h3 className="footer-heading"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
+                    {NAV.map(({TITLE, REF}) => {
                         return (
-                            <li key={REF}>
+                            <li className="footer-link" key={REF}>
                                 <GenericLink name={TITLE} to={REF}/>
                             </li>
                         )
                     })}
                 </div>
-
-                {/* project links */}
-                <div className="project">
-                    {TEXT.PAGE_TITLES.PROJECTS} 
+                <div className="footer-column">
+                    <h3 className="footer-heading"> {TEXT.PAGE_TITLES.PROJECTS}</h3>
                     {projects.map((project, i) => {
                         return (
-                            <li key={i}>
-                                <GenericLink 
+                            <li className="footer-link" key={i}>
+                                <GenericLink
                                     name={project.name}
                                     to={`${ROUTES.PROJECT.BASE}/${project.name}`}
                                 />
                             </li>
-                        ) 
+                        )
                     })}
+
+
                 </div>
+
+
             </div>
 
-           )       
+        </div>
+
+    )
 }
-        
+
 
 export default Footer;

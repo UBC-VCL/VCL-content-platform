@@ -1,47 +1,41 @@
 import React from 'react';
 import {TEXT, NAV, ROUTES} from '@statics';
-import {useAppSelector} from '@redux/hooks';
-import {selectProjects} from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
 import './Footer.css'
 
-
-
-
 const Footer = () => {
-
-    // const projects = useAppSelector(selectProjects);
     const projects = [{
-        name: "Project1"
+        name: "Correlation"
     },
         {
-            name: "Project1"
+            name: "Nova"
         }, {
-            name: "Project2"
+            name: "Perceptual Modes"
         }, {
-            name: "Project3"
+            name: "IDEO"
         }, {
-            name: "Project4"
+            name: "IT"
         }, {
-            name: "Project5"
+            name: "Dormant"
         }]
-
 
     return (
 
+        <div className="container">
         <div className="footer">
-            <div className="ubc-logo">
-            <img src="images/ubc_logo.jpg"/>
-            </div>
             <div className="footer-main">
-                <div className="footer-column">
+                <div className="footer-left">
+            <img src="images/ubc_logo.jpg" className="ubc-logo"/>
+
+                <div className="footer-column-lab-info">
                     <li className="footer-link"><b>Tel</b> {TEXT.LAB_INFO.TEL}</li>
                     <li className="footer-link"><b>Fax</b> {TEXT.LAB_INFO.FAX}</li>
                     <li className="footer-link"><b>Lab:</b> {TEXT.LAB_INFO.EMAIL}</li>
                     <li className="footer-link"><b>Dr. Rensink:</b> {TEXT.LAB_INFO.DRRENSINK_CONTACT}</li>
                 </div>
-
-                <div className="footer-column">
+                </div>
+                <div className="footer-right">
+                <div className="footer-column-navigate">
                     <h3 className="footer-heading"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
                     {NAV.map(({TITLE, REF}) => {
                         return (
@@ -51,7 +45,7 @@ const Footer = () => {
                         )
                     })}
                 </div>
-                <div className="footer-column">
+                <div className="footer-column-projects">
                     <h3 className="footer-heading"> {TEXT.PAGE_TITLES.PROJECTS}</h3>
                     {projects.map((project, i) => {
                         return (
@@ -64,17 +58,15 @@ const Footer = () => {
                         )
                     })}
 
-
                 </div>
-
-
+                </div>
             </div>
             <div className="horizontalLine"></div>
             <li className="campus-text"><b>UBC Visual Cognition Lab</b> {TEXT.LAB_INFO.CAMPUS}</li>
         </div>
+        </div>
 
     )
 }
-
 
 export default Footer;

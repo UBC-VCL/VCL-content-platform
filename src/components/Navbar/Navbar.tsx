@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink} from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -16,7 +16,6 @@ import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectProjects } from '@redux/slices/ProjectRedux';
-import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {
@@ -69,14 +68,12 @@ const Navbar: React.FC<{}> = () => {
         return (
               <React.Fragment key={REF}>
                 <Button
-                    id='basic-button'
+                    variant="text"
                     onClick={handleProjectMenuClick}
-                    aria-controls={projectOpen ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={projectOpen ? 'true' : undefined}
+                    className={`nav-link ${active}`}
                     style={{textTransform: "none"}}
                 >
-                    {TEXT.PAGE_TITLES.PROJECTS} 
+                    {TITLE} 
                 </Button>
                 <Menu
                     id="basic-menu" 
@@ -88,7 +85,7 @@ const Navbar: React.FC<{}> = () => {
                     }}
                 >
                     <MenuItem onClick={handleProjectMenuClose}>
-                                <GenericLink name="Overview" to={`${ROUTES.PROJECT.BASE}`}/>
+                                <NavLink to={`${ROUTES.PROJECT.BASE}`}>Overview</NavLink>
                     </MenuItem>
                     {
                         projects.map((e, i) => {
@@ -96,10 +93,9 @@ const Navbar: React.FC<{}> = () => {
                                 <MenuItem 
                                 key={i}
                                 onClick={handleProjectMenuClose}>
-                                    <GenericLink
-                                        name={e.name}
-                                        to={`${ROUTES.PROJECT.BASE}/${e.name}`}
-                                    />
+                                    <NavLink to={`${ROUTES.PROJECT.BASE}/${e.name}`}>
+                                        {e.name}
+                                    </NavLink>
                                 </MenuItem>
                             )
                         })
@@ -109,12 +105,11 @@ const Navbar: React.FC<{}> = () => {
             )
     } else {
         return (
-            <GenericLink 
-                key={REF} 
-                name={TITLE} 
-                to={REF} 
-                className={`nav-link ${active}`}
-            />
+            <Button variant="text">  
+                <NavLink className={`nav-link ${active}`} to={REF}>
+                    {TITLE}
+                </NavLink>
+            </Button>
             )
     };
   });

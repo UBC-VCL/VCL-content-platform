@@ -15,7 +15,7 @@
 
 .nav-link {
 	text-decoration: none;
-	color: black;
+	color: black !important;
 	padding: 0 2vw;
 }
 
@@ -24,5 +24,6 @@
 }
 
 .nav-rendered-links {
+    display: flex;
 	margin-left: auto;
 }

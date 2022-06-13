@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '@redux/hooks';
 import { selectProjects } from '@redux/slices/ProjectRedux';
-import GenericLink from '@components/generics/Link'
 import { ROUTES } from '@statics';
 
 const ProjectOverview = () => {
@@ -16,8 +16,9 @@ const ProjectOverview = () => {
                 {projects.map((project, i) => {
                     return (
                         <li key={i}>
-                            <GenericLink name={project.name} 
-                                        to={`${ROUTES.PROJECT.BASE}/${project.name}`}/>
+                            <Link to={`${ROUTES.PROJECT.BASE}/${project.name}`}>
+                                {project.name}
+                            </Link>
                         </li>
                     )
                 })}

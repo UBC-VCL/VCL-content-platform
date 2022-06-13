@@ -1,24 +1,31 @@
-.footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    right: 0;
+.footer-wrapper {
     list-style: none;
-    padding-left: 0;
     text-align: left;
 }
 
+.footer {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
 .info {
-    position: absolute;
-    left: 5vw;
+    display: inline-block;
+    vertical-align: top;
+    width: 80vw;
+}
+
+.footer-links {
+    display: inline-block;
 }
 
 .nav {
-    position: absolute;
-    right: 15vw;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1vw;
 }
 
 .project {
-    position: absolute;
-    right: 5vw;
+    display: inline-block;
+    margin-right:0;
+    vertical-align: top;
 }

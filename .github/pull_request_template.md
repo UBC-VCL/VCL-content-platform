@@ -13,4 +13,4 @@
 - [ ] Requested at least one reviewer
 
 Connecting your PR to the corresponding ticket:
-You will see a "GitHub" button on the right side of your ticket, click this -> Attach PR -> VCL-content-platform -> find your PR from the dropdown.
+You will see a "GitHub" button on the right side of your ticket, click this -> Attach PR -> VCL-content-platform-server -> find your PR from the dropdown.

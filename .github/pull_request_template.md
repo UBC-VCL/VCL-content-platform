@@ -2,7 +2,7 @@
 
 [Please enter a brief description of the PR]
 
-### Updates
+## Updates
 
 [Please enter a brief summary of updates to this PR during code review - if any]
 

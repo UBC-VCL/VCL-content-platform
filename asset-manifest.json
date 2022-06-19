@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/VCL-content-platform/static/css/main.bac49011.chunk.css",
+    "main.js": "/VCL-content-platform/static/js/main.b5d1ba11.chunk.js",
+    "main.js.map": "/VCL-content-platform/static/js/main.b5d1ba11.chunk.js.map",
+    "runtime-main.js": "/VCL-content-platform/static/js/runtime-main.d0631e66.js",
+    "runtime-main.js.map": "/VCL-content-platform/static/js/runtime-main.d0631e66.js.map",
+    "static/js/2.71d89682.chunk.js": "/VCL-content-platform/static/js/2.71d89682.chunk.js",
+    "static/js/2.71d89682.chunk.js.map": "/VCL-content-platform/static/js/2.71d89682.chunk.js.map",
+    "static/js/3.6cb1dc2e.chunk.js": "/VCL-content-platform/static/js/3.6cb1dc2e.chunk.js",
+    "static/js/3.6cb1dc2e.chunk.js.map": "/VCL-content-platform/static/js/3.6cb1dc2e.chunk.js.map",
+    "index.html": "/VCL-content-platform/index.html",
+    "static/css/main.bac49011.chunk.css.map": "/VCL-content-platform/static/css/main.bac49011.chunk.css.map",
+    "static/js/2.71d89682.chunk.js.LICENSE.txt": "/VCL-content-platform/static/js/2.71d89682.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d0631e66.js",
+    "static/js/2.71d89682.chunk.js",
+    "static/css/main.bac49011.chunk.css",
+    "static/js/main.b5d1ba11.chunk.js"
+  ]
+}

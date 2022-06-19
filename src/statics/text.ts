@@ -39,6 +39,14 @@ const TEXT = {
       CONTACT: 'Contact',
   },
 
+  PROJECT_NAMES: {
+    CORRELATION: 'Correlation',
+    IDEO: 'IDEO',
+    IMG_TRANSITIONS: 'Image Transitions',
+    NOVA: 'NOVA',
+    PERCEPTUAL_MODES: 'Perceptual Modes',
+},
+
   ALERTS: {
     AUTH_SUCCESS: 'Authentication successful.',
     AUTH_FAILED: 'Authentication failed.',

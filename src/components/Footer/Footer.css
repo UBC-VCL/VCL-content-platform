@@ -1,24 +1,119 @@
-.footer {
+.container{
     position: relative;
-    left: 0;
+    min-height: 100vh;
+}
+
+.ubc-logo{
+    margin-right: 70%;
+    padding-bottom: 40px;
+    max-width: 100%;
+}
+
+.footer{
+    background-color: #F2F2F2;
+    padding: 40px 120px 2.5rem;
+    margin: 0 auto;
+    position: absolute;
     bottom: 0;
+    left: 0;
     right: 0;
+}
+
+.footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.footer li{
     list-style: none;
-    padding-left: 0;
+
+}
+
+.footer-main{
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.footer-column{
+    flex-basis: 200px;
+    flex-grow: 1;
+}
+
+.footer-heading{
+    margin-bottom: 1rem;
     text-align: left;
 }
 
-.info {
-    position: absolute;
-    left: 5vw;
+.footer-link{
+    display: block;
+    padding: 5px 10px;
+    margin: 0 auto;
+    text-align: left;
 }
 
-.nav {
-    position: absolute;
-    right: 15vw;
+.footer-right{
+    margin-left: auto;
+    display: flex;
+    gap: 50px;
 }
 
-.project {
-    position: absolute;
-    right: 5vw;
+.horizontalLine {
+    border: none;
+    border-bottom: 1px solid gainsboro;
+    margin-left: 0.5%;
 }
+
+.campus-text{
+    text-align: left;
+    margin-left: 0.5%;
+    margin-top: 1%;
+}
+
+@media only screen and (max-width: 768px){
+    .footer{
+        padding: 5px 15px 2.5rem;
+    }
+
+    .ubc-logo{
+        padding-bottom: 0;
+    }
+    .footer-main{
+        flex-direction: column;
+    }
+    .footer-column-navigate{
+        margin-left: 1%;
+    }
+    .footer-column-lab-info{
+        margin-left: 4%;
+        margin-top: 0;
+    }
+
+    .campus-text{
+        margin-top: 1%;
+        text-align: left;
+        margin-left: 0;
+    }
+    .footer-column-projects{
+        margin-left: 1%;
+    }
+    .footer-right{
+        flex-direction: column;
+        margin-left: 0;
+        gap: 0;
+    }
+
+    .footer-link{
+        padding: 3px 5px;
+    }
+
+    .footer-column-lab-info{
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .footer-heading{
+        margin-bottom: 0;
+    }
+
+}
+

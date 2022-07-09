@@ -21,7 +21,12 @@ const PROJECT_NAV = [
 	{
 		TITLE: TEXT.PROJECT_NAV.CONTACT,
 		REF: ROUTES.CONTACT
-	}
+	},
+	// {
+	// 	TITLE: TEXT.PROJECT_NAV.VIEW_OTHER_PROJECTS,
+	// 	REF: ""
+	// },
+
 ];
 
 export default PROJECT_NAV;

@@ -37,6 +37,7 @@ const TEXT = {
       RESOURCES: 'Resources',
       TEAM: 'Team',
       CONTACT: 'Contact',
+      VIEW_OTHER_PROJECTS: 'View Other Projects'
   },
 
   ALERTS: {

@@ -6,6 +6,7 @@ import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker
 } from "@material-ui/pickers";
+import Box from "@mui/material/Box";
 
 
 const DatePicker = () => {
@@ -20,21 +21,19 @@ const DatePicker = () => {
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid container justify="space-around">
                 <KeyboardDatePicker
                     disableToolbar
                     variant="inline"
                     format="yyyy/MM/dd"
                     margin="normal"
                     id="date-picker-inline"
-                    label="Select a date"
                     value={selectedDate}
                     onChange={handleDateChange}
                     KeyboardButtonProps={{
                         "aria-label": "change date"
                     }}
                 />
-            </Grid>
+
         </MuiPickersUtilsProvider>
     );
 }

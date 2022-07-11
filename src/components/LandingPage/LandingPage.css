@@ -1,0 +1,179 @@
+.landing_page_top_section {
+    font-style: normal;
+    position: relative;
+    color: #000000;
+    max-width: 100% !important;
+    width: 80%;
+    margin: 6.25rem 10% 6.25rem 10%;
+    text-align: left;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing_page_title {
+    float: left;
+    height: 10.438rem;
+    max-width: 21.75rem;
+    font-weight: 700;
+    font-size: 3.375rem;
+    line-height: 3.5rem;
+    letter-spacing: 0.035em;
+    padding-bottom: 1.25rem;
+    position: relative;
+}
+
+.landing_page_description {
+    float: left;
+    max-width: 45%;
+    font-weight: 400;
+    margin-right: 50%;
+    margin-top: -7.5em;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.04em;
+    position: relative;
+}
+
+.img_placeholder {
+    float: right;
+    margin-top: -7em;
+    width: 30.688rem;
+    height: 18.5rem;
+    left: 55.063rem;
+    top: 12.438rem;
+    background-color: #C4C4C4;
+    background-size: contain;
+    max-width: 50%;
+}
+
+.btn_ubc_home {
+    float: left;
+    width: 219px;
+    height: 42px;
+    left: 0px;
+    top: 8px;
+    background-color: #77B0F3;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 15px;
+    line-height: 19px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 6px;
+}
+  
+.t_row {
+    display: flex;
+    position: relative;
+    max-width: 100% !important;
+    content: "";
+    display: table;
+    clear: both;
+    justify-items: center;
+}
+
+a:link { text-decoration: none; }
+
+a:visited { text-decoration: none; }
+
+a:hover { text-decoration: none; }
+
+a:active { text-decoration: none; }
+
+/* for tablet and/or small browser windows, pc screens */
+@media (max-width:900px){
+    .landing_page_top_section {
+        text-align: center;
+    }
+
+    .landing_page_title {
+        float: none;
+        display: inline-block;
+        max-width: 100%;
+        letter-spacing: 0.035em;
+        font-size: 2.8rem;
+    }
+
+    .landing_page_description {
+        float: none;
+        display: inline-block;
+        max-width: 100%;
+        min-width: 100%;
+        letter-spacing: 0.05em;
+        margin-top: 1px;
+        font-size: 1rem;
+    }
+
+    .btn_ubc_home {
+        float: none;
+        display: inline-block;
+        max-width: 100%;
+        text-align: center;
+        font-size: 13px;
+        line-height: 16px;
+        padding-top: 0.02em;
+    }
+
+    .img_placeholder {
+        max-width: 80%;
+        float: none;
+        display: inline-block;
+        background-color: #C4C4C4;
+        margin-top: 1px;
+    }
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 4%;
+}
+
+/* for mobile */
+@media (max-width:550px){
+    .landing_page_top_section {
+        text-align: center;
+    }
+
+    .landing_page_title {
+        float: none;
+        display: inline-block;
+        max-width: 100%;
+        letter-spacing: 0.035em;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .landing_page_description {
+        max-width: 100%;
+        min-width: 100%;
+        letter-spacing: 0.05em;
+        left: 7.2%;
+        right: 6.93%;
+        top: 22.35%;
+        bottom: 74.78%;
+        font-family: 'Arial';
+        font-size: 12px !important;
+        line-height: 14px;
+        color: #535353;
+    }
+
+    .btn_ubc_home {
+        float: none;
+        max-width: 100%;
+        text-align: center;
+        font-size: 13px;
+        line-height: 16px;
+        padding-top: 0.02em;
+    }
+
+    .img_placeholder {
+        display: inline-block;
+        float: none;
+        width: 225px;
+        height: 152px;
+        margin-top: -28%;
+    }
+}

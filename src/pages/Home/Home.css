@@ -1,6 +1,15 @@
-.card-container {
+
+.Home {
+    font-family: 'Source Sans Pro';
+    position: relative;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 4%;
+} 
+
+@media (max-height:300px) {
+    .Home {
+        font-family: 'Source Sans Pro';
+        position: relative;
+        display: flex;
+        margin-bottom: 300px;
+    } 
 }

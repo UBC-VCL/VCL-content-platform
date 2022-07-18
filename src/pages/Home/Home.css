@@ -6,3 +6,56 @@
     max-width: 100%;
     position: relative;
 }
+
+/* mission statement section */
+.mission_statement_title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+    letter-spacing: 0.035em;
+    padding-top: 4em;
+}
+
+.horizontal_divider {
+    border-top: 4px solid #77B0F3;
+    width: 16%;
+    margin-left: 42%;
+    margin-top: -0.50em;
+    margin-bottom: 1.25em;
+}
+
+.mission_statement {
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+.mission_img_container {
+    margin-top: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mission_img_placeholder{
+    margin-left: 15px;
+    background: #d3d3d3;
+    border-radius: 8px;
+    padding: 10px;
+    width: 350px;
+    height: 200px;
+}
+
+@media (max-width:550px){
+    .mission_img_container {
+        flex-direction: column;
+        margin-top: -10px;
+    }
+
+    .mission_img_placeholder {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 250px;
+        height: 150px;
+    }
+}

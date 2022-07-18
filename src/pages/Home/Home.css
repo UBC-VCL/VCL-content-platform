@@ -8,7 +8,7 @@
 }
 
 /* mission statement section */
-.mission_statement_title {
+.mission-statement-title {
     text-align: center;
     font-weight: 700;
     font-size: 2em;
@@ -16,27 +16,28 @@
     padding-top: 4em;
 }
 
-.horizontal_divider {
-    border-top: 4px solid #77B0F3;
-    width: 16%;
-    margin-left: 42%;
-    margin-top: -0.50em;
-    margin-bottom: 1.25em;
+.horizontal-divider {
+    max-width: 100%; 
+    width: 7.5em;
+    border-bottom: 1px solid #77B0F3; 
+    line-height: 0.1em;
+    margin: -15px 20em 1.25em; 
 }
 
-.mission_statement {
-    margin-bottom: 3em;
+.mission-statement {
     text-align: center;
+    max-width: 75%;
+    margin: 0 15em 3em;
 }
 
-.mission_img_container {
+.mission-img-container {
     margin-top: 5em;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.mission_img_placeholder{
+.mission-img-placeholder{
     margin-left: 15px;
     background: #d3d3d3;
     border-radius: 8px;
@@ -46,12 +47,17 @@
 }
 
 @media (max-width:550px){
-    .mission_img_container {
+    .mission-statement {
+        width: 25%;
+        margin-left: 36.5em;
+    }
+
+    .mission-img-container {
         flex-direction: column;
         margin-top: -10px;
     }
 
-    .mission_img_placeholder {
+    .mission-img-placeholder {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;

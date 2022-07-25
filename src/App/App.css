@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  width: 100% !important;
+}
+
+#root {
+  width: 100%;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');

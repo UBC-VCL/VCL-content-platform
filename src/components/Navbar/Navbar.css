@@ -1,3 +1,33 @@
+.nav {
+	height: auto;
+	margin-bottom: 35px;
+}
+
+.hamburger-menu {
+	display: none;
+}
+
+.navbar-menu {
+	display: block;
+	height: auto;
+}
+
+
+@media only screen and (max-width: 700px) {
+	.hamburger-menu {
+	  display: block;
+	}
+
+	.navbar-menu {
+	  display: none;
+	  height: 0% !important;
+	}
+
+	.nav {
+		height: 100px;
+	}
+}
+
 .nav-appbar {
 	margin-bottom: 10px;
 }
@@ -5,8 +35,14 @@
 .nav-toolbar {
 	box-sizing: border-box;
 	display: flex;
-	background-color: whitesmoke;
+	background-color: rgb(255, 255, 255);
 	color: black;
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 22.5px;
+	text-transform: uppercase;
 }
 
 .nav-toolbar .nav-title {
@@ -20,9 +56,18 @@
 }
 
 .nav-link.active {
-	color: darkblue;
+	color: #4C6199;
 }
 
 .nav-rendered-links {
 	margin-left: auto;
 }
+
+.login-icon {
+	background-image: url('/src/statics/images/search-icon.svg');
+	width: 50px;
+	height: 50px;
+	display: flex;
+	position: relative;
+}
+

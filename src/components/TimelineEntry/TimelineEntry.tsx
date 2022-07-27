@@ -1,22 +1,23 @@
 import {Button, Stack, Typography} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import React, {useEffect, useState} from 'react';
-import {format} from 'date-fns';
-import {DayPicker} from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import {LocalizationProvider} from "@mui/lab";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import DatePicker from "@components/DatePicker/DatePicker";
-import Chip from "@mui/material/Chip";
-import MultipleSelect from "@components/MultiSelect/MultiSelect";
 import './TimelineEntry.css';
 import {Autocomplete} from "@material-ui/lab";
 import Box from "@mui/material/Box";
+import {ROUTES} from "@statics";
+import {useNavigate} from "react-router-dom";
 
 
 const TimelineEntry = () => {
+    const navigate = useNavigate();
     const [selectedProject, setSelectedProject] = useState([])
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [author, setAuthor] = useState("");
+    const [title, setTitle] = useState("");
+    const [contributors, setContributors] = useState("");
+
 
 
     //TODO replace dummy projects
@@ -86,25 +87,41 @@ const TimelineEntry = () => {
     // }
 
 
+
+    const handleSubmit = () => {
+        console.log("submit")
+        navigate(`/${ROUTES.TIMELINE}`)
+    }
+
+
+
+
     return (
 
         <div className="form-container">
-<Box sx={{ display: 'inline-flex', flexDirection: 'column', }}>
+<Box sx={{ display: 'inline-flex', flexDirection: 'column', }}  textAlign='center' component="form" onSubmit={handleSubmit}>
     <div className="text">
-        <Typography style={{ fontWeight: 600 }} variant="h5"  >
+        <Typography align="left" style={{ fontWeight: 600 }} variant="h5"  >
             Add Timeline Entry
         </Typography>
     <p>Fill in the blanks below to add a timeline entry</p>
     </div>
 
             <div>
-                <TextField sx={{width: 317}} id="standard-basic" label="Author" variant="standard"/>
+                <TextField value={author} onChange={(event) => {
+                    setAuthor(event.target.value)
+                }} required sx={{width: 317}} id="standard-basic" label="Author" variant="standard"/>
             </div>
             <div>
-                <TextField sx={{width: 317}} id="standard-basic" label="Title" variant="standard"/>
+                <TextField value={title} onChange={(event) => {
+                    setTitle(event.target.value)}}
+                           required sx={{width: 317}} id="standard-basic" label="Title" variant="standard"/>
             </div>
             <div>
-                <TextField sx={{width: 317}} id="standard-basic" label="Contributors" variant="standard"/>
+                <TextField value={contributors} onChange={(event) => {
+                    setContributors(event.target.value)
+                }}
+                           required sx={{width: 317}} id="standard-basic" label="Contributors" variant="standard"/>
             </div>
             <Typography align="left" sx={{paddingTop: 3,textDecoration: 'underline'}}>
                 Select a Date
@@ -116,11 +133,10 @@ const TimelineEntry = () => {
 
             {/*{renderProjects()}*/}
             <Autocomplete
+                multiple
                 style={{
                     width: 317,
                     paddingBottom: 30,
-
-
                 }}
                 filterSelectedOptions
                 getOptionSelected={(option, value) => option.name === value.name}
@@ -134,10 +150,11 @@ const TimelineEntry = () => {
                     }
                 }}
                 id="tags-standard"
-                options={projects}
+                options={selectedProject.length === 0 ? projects: []}
                 getOptionLabel={option => option.name}
                 renderInput={params => (
                     <TextField
+                        required = {selectedProject.length === 0}
                         {...params}
                         style={{
                             borderRadius: "10px",
@@ -169,8 +186,6 @@ const TimelineEntry = () => {
             <Autocomplete
                 style={{
                     width: 317,
-
-
                 }}
                 multiple
                 filterSelectedOptions
@@ -195,12 +210,23 @@ const TimelineEntry = () => {
                         }}
                         variant="outlined"
                         label="Categories"
+                        required = {selectedCategories.length === 0}
                         id="custom-css-outlined-input"
-
-
                     />
                 )}
             />
+    <div>
+    <Button
+        type="submit"
+        variant="outlined" style={{
+        backgroundColor: "#1E5487",
+        color: "white",
+        width: 200,
+        marginTop: 50
+    }}>
+        Add Update
+    </Button>
+    </div>
 </Box>
         </div>
 

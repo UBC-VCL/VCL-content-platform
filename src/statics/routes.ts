@@ -6,6 +6,7 @@ const ROUTES = {
     OVERVIEW: '/projects/overview',
   },
   TIMELINE: '/timeline',
+  TIMELINE_CREATE: '/timeline/create',
   ABOUT: '/about',
   RESOURCES: '/resources',
   PROJECT_DESCRIPTION: '/',

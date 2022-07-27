@@ -17,11 +17,13 @@ const DatePicker = () => {
 
     const handleDateChange = (date: any) => {
         setSelectedDate(date);
+        console.log(selectedDate)
     };
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
+                    required
                     disableToolbar
                     variant="inline"
                     format="yyyy/MM/dd"

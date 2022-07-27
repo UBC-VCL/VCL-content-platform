@@ -6,7 +6,6 @@ interface TimelineProps {}
 
 const Timeline: React.FC<TimelineProps> = (props) => {
   return <div>This is a timeline
-  <TimelineEntry></TimelineEntry>
   </div>;
 };
 

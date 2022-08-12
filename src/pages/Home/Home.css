@@ -97,12 +97,13 @@
     }
 
     .footer-divider {
-        margin-left: 25%;
+        width: 200px;
+        margin-left: 15%;
     }
 
     .mission-statement-footer {
-        padding-left: 25%;
-        padding-right: 25%;
+        padding-left: 28%;
+        padding-right: 28%;
         margin-left: 25%;
         margin-bottom: 5%;
     }

@@ -26,9 +26,9 @@
     overflow: scroll;
 }
 
-.horizontal-divider {
+.title-underline {
     max-width: 100%; 
-    width: 7.5em;
+    width: 7em;
     border-bottom: 1px solid #77B0F3; 
     line-height: 0.1em;
     margin: -15px 20em 1.25em; 
@@ -45,13 +45,30 @@
     justify-content: center;
 }
 
-.mission-img-placeholder{
+.mission-img-placeholder {
     margin-left: 15px;
     background: #d3d3d3;
     border-radius: 8px;
     padding: 10px;
     width: 350px;
     height: 200px;
+}
+
+.footer-divider {
+    width: 225px;
+    border-bottom: 2px solid #7C9DAF; 
+    margin-left: 40%;
+    margin-bottom: 3rem;
+    margin-top: -10px;
+}
+
+.mission-statement-footer {
+    margin-top: 5%;
+    padding: 70px 190px 50px;
+    background-color: #D9E3E7;
+    text-align: relative;
+    font-size: 14px;
+    letter-spacing: 0.035em;
 }
 
 @media (max-width:1025px){
@@ -77,5 +94,16 @@
         margin-bottom: 20px;
         width: 300px;
         height: 200px;
+    }
+
+    .footer-divider {
+        margin-left: 25%;
+    }
+
+    .mission-statement-footer {
+        padding-left: 25%;
+        padding-right: 25%;
+        margin-left: 25%;
+        margin-bottom: 5%;
     }
 }

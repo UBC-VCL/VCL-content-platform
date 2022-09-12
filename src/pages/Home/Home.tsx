@@ -18,7 +18,7 @@ const Home: React.FC<HomeProps> = (props) => {
       <div className="mission-statement-container">
         <div className="mission-statement-title">
             <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.TITLE}</p>
-            <hr className="horizontal-divider"/>
+            <hr className="title-underline"/>
         </div>
         <div>
           <p className="mission-statement">{TEXT.LANDING_PAGE.MISSION_STATEMENT.LAB_GOALS}</p>
@@ -28,6 +28,10 @@ const Home: React.FC<HomeProps> = (props) => {
       <div className="mission-img-container">
         <div className="mission-img-placeholder"></div>
         <div className="mission-img-placeholder"></div>
+      </div>
+      <div className="mission-statement-footer">
+        <hr className="footer-divider"/>
+        <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.LAB_GOALS}</p>
       </div>
     </div>
   );

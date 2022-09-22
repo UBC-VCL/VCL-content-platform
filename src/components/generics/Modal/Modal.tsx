@@ -2,9 +2,9 @@ import React from 'react';
 import { useAppSelector, useAppDispatch } from '@redux/hooks';
 import Modal from '@mui/material/Modal';
 import {
-  ValidModalKey,
-  selectModal,
-  appActions,
+	ValidModalKey,
+	selectModal,
+	appActions,
 } from '@redux/slices/AppRedux';
 import './Modal.css';
 
@@ -21,28 +21,28 @@ export interface ModalInjectedProps {
 }
 
 const ModalWrapper: React.FC<ModalWrapperProps> = (props) => {
-  const dispatch = useAppDispatch();
-  const modal = useAppSelector(selectModal(props.modalKey));
+	const dispatch = useAppDispatch();
+	const modal = useAppSelector(selectModal(props.modalKey));
 
-  const handleClose = () => {
-    dispatch(appActions.closeModal({ key: props.modalKey }));
-  };
+	const handleClose = () => {
+		dispatch(appActions.closeModal({ key: props.modalKey }));
+	};
 
-  const injectedProps: ModalInjectedProps = {
-    modalData: modal?.data,
-    handleClose,
-  };
+	const injectedProps: ModalInjectedProps = {
+		modalData: modal?.data,
+		handleClose,
+	};
 
-  return (
-    <Modal
-      open={modal?.visible}
-      className={`web-app-modal ${props.name}-modal`}
-      onClose={props.disableDefaultClose ? () => {} : handleClose}>
-        <div className='web-app-modal-content'>
-          {React.cloneElement(props.children, injectedProps)}
-        </div>
-    </Modal>
-  );
+	return (
+		<Modal
+			open={modal?.visible}
+			className={`web-app-modal ${props.name}-modal`}
+			onClose={props.disableDefaultClose ? () => {} : handleClose}>
+			<div className='web-app-modal-content'>
+				{React.cloneElement(props.children, injectedProps)}
+			</div>
+		</Modal>
+	);
 };
 
 export default ModalWrapper;

@@ -8,14 +8,14 @@ interface LinkProps {
 }
 
 const GenericLink: React.FC<LinkProps> = (props) => {
-    const { name , to, className } = props;
+	const { name , to, className } = props;
 
-    return (
-        <React.Fragment key={to}>
-            <Link className={className} to={to}>{name}</Link>
-        </React.Fragment>
-    )
+	return (
+		<React.Fragment key={to}>
+			<Link className={className} to={to}>{name}</Link>
+		</React.Fragment>
+	);
 
-}
+};
 
 export default GenericLink;

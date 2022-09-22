@@ -10,23 +10,23 @@ import projectReducer from './slices/ProjectRedux';
 
 // Persist config
 const createPersistConfig = (key: string, blacklist?: string[]) => ({
-  key,
-  storage,
-  blacklist,
+	key,
+	storage,
+	blacklist,
 });
 
 const rootReducer = combineReducers({
-  app: appReducer,
-  auth: persistReducer(createPersistConfig('auth'), authReducer),
-  project: projectReducer
+	app: appReducer,
+	auth: persistReducer(createPersistConfig('auth'), authReducer),
+	project: projectReducer
 });
 
 export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+	reducer: rootReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 
 export const persistor = persistStore(store);

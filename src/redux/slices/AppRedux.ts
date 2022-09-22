@@ -17,54 +17,54 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  isReady: false,
-  modals: {
-    login: {
-      visible: false,
-    },
-  },
-  alert: null,
+	isReady: false,
+	modals: {
+		login: {
+			visible: false,
+		},
+	},
+	alert: null,
 };
 
 export const appSlice = createSlice({
-  name: 'app',
-  initialState,
-  reducers: {
-    setIsReady: (state, { payload }: PayloadAction<boolean>) => {
-      state.isReady = payload;
-    },
-    openModal: (
-      state,
-      {
-        payload,
-      }: PayloadAction<{
+	name: 'app',
+	initialState,
+	reducers: {
+		setIsReady: (state, { payload }: PayloadAction<boolean>) => {
+			state.isReady = payload;
+		},
+		openModal: (
+			state,
+			{
+				payload,
+			}: PayloadAction<{
         key: ValidModalKey;
         data?: Object;
       }>
-    ) => {
-      state.modals[payload.key] = {
-        visible: true,
-        data: payload.data,
-      };
-    },
-    closeModal: (
-      state,
-      { payload }: PayloadAction<{ key: ValidModalKey; data?: Object }>
-    ) => {
-      state.modals[payload.key] = {
-        visible: false,
-        data: payload.data,
-      };
-    },
-    setAlert: (state, { payload }: PayloadAction<string | null>) => {
-      state.alert = payload;
-    },
-  },
+		) => {
+			state.modals[payload.key] = {
+				visible: true,
+				data: payload.data,
+			};
+		},
+		closeModal: (
+			state,
+			{ payload }: PayloadAction<{ key: ValidModalKey; data?: Object }>
+		) => {
+			state.modals[payload.key] = {
+				visible: false,
+				data: payload.data,
+			};
+		},
+		setAlert: (state, { payload }: PayloadAction<string | null>) => {
+			state.alert = payload;
+		},
+	},
 });
 
 export const selectApp = (state: RootState) => state.app;
 export const selectModal = (modalKey: ValidModalKey) => (state: RootState) =>
-  state.app.modals[modalKey];
+	state.app.modals[modalKey];
 
 export const appActions = appSlice.actions;
 export default appSlice.reducer;

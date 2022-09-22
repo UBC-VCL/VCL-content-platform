@@ -1,1 +1,1 @@
-export { default } from './ProjectNavbar'
+export { default } from './ProjectNavbar';

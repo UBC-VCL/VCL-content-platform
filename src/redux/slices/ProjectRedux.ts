@@ -1,6 +1,6 @@
-import {RootState} from "@redux/store";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import { Project } from '@entities/Project'
+import {RootState} from '@redux/store';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { Project } from '@entities/Project';
 
 export interface ProjectState {
     isProjectLoading: boolean,
@@ -8,32 +8,32 @@ export interface ProjectState {
 }
 
 const initialState: ProjectState = {
-    isProjectLoading: false,
-    projects: []
-}
+	isProjectLoading: false,
+	projects: []
+};
 
 export const projectSlice = createSlice({
-    name: 'project',
-    initialState,
-    reducers: {
-        setIsProjectLoading: (state, { payload }: PayloadAction<boolean>) => {
-            state.isProjectLoading = payload;
-        },
-        setProjects: (state, { payload }: PayloadAction<Project[]>) => {
-            state.projects = payload;
-        },
-        addProject: (state, { payload }: PayloadAction<Project>) => {
-            state.projects.push(
-                payload
-            )
-        },
-        removeProject: (state, { payload }: PayloadAction<string>) => {
-            let index = state.projects.map((e) => e.name).indexOf(payload);
-            if (index !== -1) {
-                state.projects.splice(index);
-            }
-        },
-    }
+	name: 'project',
+	initialState,
+	reducers: {
+		setIsProjectLoading: (state, { payload }: PayloadAction<boolean>) => {
+			state.isProjectLoading = payload;
+		},
+		setProjects: (state, { payload }: PayloadAction<Project[]>) => {
+			state.projects = payload;
+		},
+		addProject: (state, { payload }: PayloadAction<Project>) => {
+			state.projects.push(
+				payload
+			);
+		},
+		removeProject: (state, { payload }: PayloadAction<string>) => {
+			let index = state.projects.map((e) => e.name).indexOf(payload);
+			if (index !== -1) {
+				state.projects.splice(index);
+			}
+		},
+	}
 });
 
 export const selectProject = (state: RootState) => state.project;

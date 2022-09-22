@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
-import classNames from "classnames";
-import "./Button.css";
+import { Button } from '@mui/material';
+import classNames from 'classnames';
+import './Button.css';
 
 interface ButtonProps {
   children?: React.ReactNode;
@@ -9,15 +9,15 @@ interface ButtonProps {
 }
 
 const GenericButton: React.FC<ButtonProps> = (props) => {
-  const { className, children, ...rest } = props;
+	const { className, children, ...rest } = props;
 
-  const classes = classNames("button-root", className);
+	const classes = classNames('button-root', className);
 
-  return (
-    <Button {...rest} className={classes}>
-      {children}
-    </Button>
-  );
+	return (
+		<Button {...rest} className={classes}>
+			{children}
+		</Button>
+	);
 };
 
 export default GenericButton;

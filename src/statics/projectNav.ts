@@ -1,5 +1,5 @@
-import ROUTES from "./routes";
-import TEXT from "./text";
+import ROUTES from './routes';
+import TEXT from './text';
 
 const PROJECT_NAV = [
 	{

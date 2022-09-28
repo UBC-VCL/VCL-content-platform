@@ -26,8 +26,8 @@ const Home: React.FC<HomeProps> = (props) => {
         </div>
       </div>
       <div className="mission-img-container">
-        <div className="mission-img-placeholder"></div>
-        <div className="mission-img-placeholder"></div>
+        <div className="mission-img-placeholder-one"></div>
+        <div className="mission-img-placeholder-two"></div>
       </div>
       <div className="mission-statement-footer">
         <hr className="footer-divider"/>

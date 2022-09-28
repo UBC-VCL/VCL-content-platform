@@ -12,18 +12,18 @@
     text-align: center;
     font-weight: 700;
     font-size: 2em;
-    letter-spacing: 0.035em;
-    padding-top: 4em;
+    letter-spacing: 0.025em;
+    padding-top: 125px;
 }
 
 .mission-statement-container {
-    margin-left: 10%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     max-width: 75%;
     position: relative;
-    overflow: scroll;
+    margin: auto;
+    overflow: hidden;
 }
 
 .title-underline {
@@ -39,19 +39,29 @@
 }
 
 .mission-img-container {
-    margin-top: 3em;
+    margin-top: 75px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    overflow: hidden;
 }
 
-.mission-img-placeholder {
-    margin-left: 15px;
-    background: #d3d3d3;
+.mission-img-placeholder-one {
+    margin-left: 20px;
+    background: #DAE2E4;
     border-radius: 8px;
     padding: 10px;
-    width: 350px;
-    height: 200px;
+    width: 376px;
+    height: 263px;
+}
+
+.mission-img-placeholder-two {
+    margin-left: 20px;
+    background: #CBD6DC;
+    border-radius: 8px;
+    padding: 10px;
+    width: 376px;
+    height: 263px;
 }
 
 .footer-divider {
@@ -63,7 +73,7 @@
 }
 
 .mission-statement-footer {
-    margin-top: 5%;
+    margin-top: 100px;
     padding: 70px 190px 50px;
     background-color: #D9E3E7;
     text-align: relative;
@@ -72,6 +82,10 @@
 }
 
 @media (max-width:1025px){
+    .card-container {
+        overflow-y: hidden !important;
+    }
+
     .mission-statement {
         text-align: center;
     }
@@ -81,7 +95,6 @@
         padding-right: 27%;
         margin-left: 25%;
         margin-bottom: 5%;
-        overflow: unset;
     }
 
     .mission-img-container {
@@ -89,7 +102,14 @@
         margin-top: -10px;
     }
 
-    .mission-img-placeholder {
+    .mission-img-placeholder-one {
+        margin-left: 52%;
+        margin-bottom: 20px;
+        width: 300px;
+        height: 200px;
+    }
+
+    .mission-img-placeholder-two {
         margin-left: 52%;
         margin-bottom: 20px;
         width: 300px;

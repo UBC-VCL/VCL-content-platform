@@ -2,6 +2,7 @@ import React from "react";
 import Card from "@components/Card";
 import "./Home.css"
 import { TEXT } from '@statics';
+import MissionStatement from "@components/MissionStatement";
 
 interface HomeProps {}
 
@@ -29,10 +30,7 @@ const Home: React.FC<HomeProps> = (props) => {
         <div className="mission-img-placeholder-one"></div>
         <div className="mission-img-placeholder-two"></div>
       </div>
-      <div className="mission-statement-footer">
-        <hr className="footer-divider"/>
-        <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.LAB_GOALS}</p>
-      </div>
+      <MissionStatement />
     </div>
   );
 };

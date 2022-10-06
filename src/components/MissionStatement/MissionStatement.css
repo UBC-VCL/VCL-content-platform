@@ -1,0 +1,30 @@
+.footer-divider {
+    width: 225px;
+    border-bottom: 2px solid #7C9DAF; 
+    margin-left: 40%;
+    margin-bottom: 3rem;
+    margin-top: -10px;
+}
+
+.mission-statement-footer {
+    margin-top: 100px;
+    padding: 70px 190px 50px;
+    background-color: #D9E3E7;
+    text-align: relative;
+    font-size: 14px;
+    letter-spacing: 0.035em;
+}
+
+@media (max-width:1025px) {
+    .footer-divider {
+        width: 200px;
+        margin-left: 15%;
+    }
+
+    .mission-statement-footer {
+        padding-left: 28%;
+        padding-right: 28%;
+        margin-left: 25%;
+        margin-bottom: 5%;
+    }
+}

@@ -5,6 +5,7 @@ import { TEXT } from '@statics';
 import kennyMap from '@statics/images/kenny-map.png';
 import Card from '@components/Card';
 import Footer from '@components/Footer';
+import MissionStatement from '@components/MissionStatement';
 
 interface AboutProps {}
 
@@ -102,6 +103,7 @@ const About: React.FC<AboutProps> = props => {
 						</Grid>
 				</Grid>
 			</div>
+			<MissionStatement />
 		</div>
 	);
 };

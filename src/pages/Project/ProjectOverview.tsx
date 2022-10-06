@@ -1,29 +1,12 @@
 import React from 'react'
 import "./ProjectOverview.css";
 import ProjectOverviewCard from "@components/ProjectOverviewCard/ProjectOverviewCard";
+import { CONSTANTS } from '@statics';
 
 const ProjectOverview = () => {
     // const projects = useAppSelector(selectProjects);
 
     {/* TODO: refactor to fetch data from backend, currently hard-coded */}
-    const projects = [{ // dummy projects
-        name: "Correlation"
-    },
-        {
-            name: "NOVA"
-        }, {
-            name: "Perceptual Modes"
-        }, {
-            name: "IDEO"
-        }, {
-            name: "IT"
-        }, {
-            name: "Dormant"
-        },
-        {
-            name: "Image Transitions"
-        }]
-
     return (
         <div className='project-overview-container'>
             <div>
@@ -31,7 +14,7 @@ const ProjectOverview = () => {
                 <hr/>
             </div >
             <div className='button-container'>
-            {projects.map((project) => <ProjectOverviewCard project={project} ></ProjectOverviewCard>)}
+            {CONSTANTS.PROJECTS.map((project) => <ProjectOverviewCard project={project} ></ProjectOverviewCard>)}
             </div>
         </div>
     )

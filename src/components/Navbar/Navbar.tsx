@@ -80,8 +80,8 @@ const Navbar: React.FC<{}> = () => {
 
   });
 
-  const projects = useAppSelector(selectProjects)
-
+//projects = useAppSelector(selectProjects)
+ 
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
     const projectsButtonStyle: React.CSSProperties = {
@@ -123,14 +123,14 @@ const Navbar: React.FC<{}> = () => {
                                 <GenericLink name="All Projects" to={`${ROUTES.PROJECT.BASE}`}/>
                     </MenuItem>
                     {
-                        projects.map((e, i) => {
+                        CONSTANTS.PROJECTS.map((project, i) => {
                             return (
                                 <MenuItem 
                                 key={i}
                                 onClick={handleProjectMenuClose}>
                                     <GenericLink
-                                        name={e.name}
-                                        to={`${ROUTES.PROJECT.BASE}/${e.name}`}
+                                        name={project.name}
+                                        to={`${ROUTES.PROJECT.BASE}/${project.name}`}
                                     />
                                 </MenuItem>
                             )

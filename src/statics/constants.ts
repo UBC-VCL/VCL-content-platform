@@ -1,7 +1,23 @@
 const constants = {
   MIN_PASSWORD_LENGTH: 8,
   MIN_USERNAME_LENGTH: 4,
-
+  PROJECTS: [
+    { // dummy projects
+      name: "Correlation"
+      },{
+          name: "NOVA"
+      }, {
+          name: "Perceptual Modes"
+      }, {
+          name: "IDEO"
+      }, {
+          name: "IT"
+      }, {
+        name: "Image Transitions"
+      }, {
+        name: "Dormant"  
+      }
+  ],
   MODALS: {
     LOGIN: 'login',
   },

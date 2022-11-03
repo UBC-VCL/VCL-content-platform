@@ -47,8 +47,18 @@ const TEXT = {
     NOVA: 'NOVA',
     PERCEPTUAL_MODES: 'Perceptual Modes',
 },
+SECTION_NUMBERS: {
+  ONE: '01',
+  TWO: '02',
+  THREE: '03',
+  FOUR: '04',
+},
+PROJECT_GALLERY_DEFAULTS: {
+  IMAGE_CAPTION: 'Figure 1.1 Straight-line vs Scattered Scatterplot',
+  IMAGE_DESCRIPTION: 'Insert description of the picture here. Every picture upload is paired with a title and a short description. These elements are combined onto a single card, which can are rotated/viewed through in a carousel layout. ',
+},
 
-  ALERTS: {
+ALERTS: {
     AUTH_SUCCESS: 'Authentication successful.',
     AUTH_FAILED: 'Authentication failed.',
     LOGIN_SUCCESS: 'Successfully logged in.',

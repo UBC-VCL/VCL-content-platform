@@ -5,10 +5,10 @@ import './Footer.css'
 import constants from "@statics/constants";
 
 const Footer = () => {
-    const projects = [{
-        name: "Correlation"
-    },
+    const projects = [
         {
+        name: "Correlation"
+         }, {
             name: "NOVA"
         }, {
             name: "Perceptual Modes"
@@ -21,15 +21,13 @@ const Footer = () => {
         }]
 
     return (
-
-        <div className="footer-container">
+        <div>
             <div className="footer">
-                <div className="footer-main">
+                <div className="footer-content">
 
                     <div className="footer-left">
                         <img src={constants.UBC_LOGO_URL} className="ubc-logo" alt={'UBC logo'}/>
-
-                        <div className="footer-column-lab-info">
+                        <div>
                             <li className="footer-contact-item"><b>{TEXT.LAB_INFO.TEL_TEXT + ':'}</b> {TEXT.LAB_INFO.TEL}</li>
                             <li className="footer-contact-item"><b>{TEXT.LAB_INFO.FAX_TEXT + ':'}</b> {TEXT.LAB_INFO.FAX}</li>
                             <li className="footer-contact-item"><b>{TEXT.LAB_INFO.LAB_TEXT + ':'}</b> {TEXT.LAB_INFO.EMAIL}</li>
@@ -38,8 +36,8 @@ const Footer = () => {
                     </div>
 
                     <div className="footer-right">
-                        <div className="footer-column-navigate">
-                            <h3 className="footer-heading"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
+                        <div>
+                            <h3 className="footer-header"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
                             {NAV.map(({TITLE, REF}) => {
                                 return (
                                     <li className="footer-project-list" key={REF}>
@@ -48,8 +46,8 @@ const Footer = () => {
                                 )
                             })}
                         </div>
-                        <div className="footer-column-projects">
-                            <h3 className="footer-heading"> {TEXT.PAGE_TITLES.PROJECTS}</h3>
+                        <div>
+                            <h3 className="footer-header"> {TEXT.PAGE_TITLES.PROJECTS}</h3>
                             {projects.map((project, i) => {
                                 return (
                                     <li className="footer-project-list" key={i}>
@@ -64,8 +62,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="horizontalLine"></div>
-                <li className="campus-text"><b>UBC Visual Cognition Lab</b> {TEXT.LAB_INFO.CAMPUS}</li>
+                <li className="lab-text"><b>{TEXT.COMMON.TITLE}</b> {TEXT.LAB_INFO.CAMPUS}</li>
             </div>
         </div>
 

@@ -36,7 +36,7 @@ const TEXT = {
       PROJECT_DESCRIPTION: 'Project Description',
       JOIN_THE_TEAM: 'Join the Team',
       RESOURCES: 'Resources',
-      TEAM: 'Team',
+      TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
   },
 

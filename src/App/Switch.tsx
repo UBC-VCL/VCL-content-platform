@@ -7,6 +7,7 @@ import { ProjectWrapper, ProjectOverview } from '@pages/Project';
 import About from '@pages/About';
 import Resources from '@pages/Resources';
 import TimelineEntry from "@pages/Timeline/TimelineEntry";
+import EditTimelineEntry from '@pages/Timeline/EditTimelineEntry/EditTimelineEntry';
 
 const AppSwitch = () => {
   return (
@@ -17,7 +18,8 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.HOME} component={Home} />
       <Route exact path={ROUTES.ABOUT} component={About} />
       <Route exact path={ROUTES.RESOURCES} component={Resources} />
-        <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry}/>
+      <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry}/>
+      <Route exact path={ROUTES.TIMELINE_EDIT} component={EditTimelineEntry}/>
     </Switch>
   );
 }

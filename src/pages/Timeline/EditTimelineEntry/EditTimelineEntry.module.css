@@ -1,0 +1,152 @@
+* {
+    text-align: start;
+    box-sizing: border-box;
+}
+
+.page {
+    /* background-color: rgba(238, 238, 238, 0.4); */
+}
+
+.container {
+    --darkgrey: #666;
+    width: min(80%, 1000px);
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Source Sans Pro';
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h2 {
+    font-family: 'Source Sans Pro';
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 8px;
+}
+
+main {
+    margin: 24px 0;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 3fr 2fr 5fr;
+    gap: 24px;
+}
+
+.basicInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.textInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+}
+
+input[type="text"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    outline-color: black;
+}
+
+.hintText {
+    text-align: end;
+    color: rgb(158, 158, 158);
+    font-size: 14px;
+}
+
+.descriptionGroup {
+    grid-column: 3 / 4;
+    align-self: stretch;
+}
+
+.descriptionGroup label {
+    display: block;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.descriptionGroup textarea {
+    width: 100%;
+    height: calc(100% - 30px);
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 8px;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    resize: none;
+}
+
+textarea:focus {
+    outline-color: black;
+}
+
+.controls {
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.cancelButton {
+    background-color: white;
+    color: #555;
+    border: 1px solid transparent;
+    padding: 4px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Source Sans Pro';
+    font-size: 20px;
+}
+
+.saveButton {
+    background-color: #daeaff;
+    color: #00224f;
+    border: none;
+    padding: 4px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Source Sans Pro';
+    font-size: 20px;
+}
+
+.cancelButton:focus, .saveButton:focus {
+    outline-color: black;
+}
+
+@media (max-width: 1023px) {
+    .gridContainer {
+        grid-template-columns: 1fr;
+    }
+    .descriptionGroup {
+        grid-column: 1 / 2;
+        height: 400px;
+    }
+}
+
+@media (max-width: 499px) {
+    .container {
+        width: 90%;
+    }
+}

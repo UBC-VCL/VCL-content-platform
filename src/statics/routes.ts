@@ -7,6 +7,7 @@ const ROUTES = {
   },
   TIMELINE: '/timeline',
   TIMELINE_CREATE: '/timeline/create',
+  TIMELINE_EDIT: '/timelines/:timeline_id/edit',
   ABOUT: '/about',
   RESOURCES: '/resources',
   PROJECT_DESCRIPTION: '/',

@@ -56,9 +56,13 @@ const TEXT = {
   },
 
   LAB_INFO: {
+      TEL_TEXT: 'Tel',
       TEL: '604 822 9653',
+      FAX_TEXT: 'Fax',
       FAX: '604 822 6923',
       EMAIL: 'vclmanager@gmail.com',
+      LAB_TEXT: 'Lab',
+      DR_RENSINK: 'Dr. Rensink',
       DRRENSINK_CONTACT: 'rensink@psych.ubc.ca',
       ADMIN_CONTACT: {
         DANIEL: '',

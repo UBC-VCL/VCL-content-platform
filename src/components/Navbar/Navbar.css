@@ -12,6 +12,51 @@
 	height: auto;
 }
 
+[role=menu] {
+	padding: 20px 35px 35px 35px !important;
+	box-shadow: 0px 4px 70px 1px rgba(175, 175, 175, 0.25);
+	border-radius: 9px;
+}
+
+[role=menuitem]:hover {
+	background-color: transparent !important;
+}
+
+.all-projects-text {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 35px;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	color: #1C426D;
+	margin-bottom: 20%;
+}
+
+.all-projects-underline {
+	border: 1.5px solid #1C426D;
+	width: 115px;
+	margin-top: 20%;
+	position: absolute;
+}
+
+.project-name {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	color: #848484;
+	transition: font-size 0.5s;
+}
+
+.project-name:hover {
+	color: #1C426D;
+	font-weight: 700;
+	font-size: 20px;
+}
 
 @media only screen and (max-width: 700px) {
 	.hamburger-menu {

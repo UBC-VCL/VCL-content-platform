@@ -1,32 +1,30 @@
-.footer-container{
+.footer-container {
     position: relative;
-    min-height: 100vh;
+    width: 100%;
+    padding: 0px;
+    height: 30%;
 }
 
-.ubc-logo{
-    margin-right: 70%;
-    padding-bottom: 40px;
-    max-width: 100%;
-}
-
-.footer{
+.footer {
     background-color: #F2F2F2;
     padding: 40px 120px 2.5rem;
     margin: 0 auto;
-    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
 }
 
-.footer a{
+.footer a { 
     text-decoration: none;
     color: black;
 }
 
-.footer li{
-    list-style: none;
+.footer a:hover {
+    text-decoration: underline;
+}
 
+.footer li {
+    list-style: none;
 }
 
 .footer-main{
@@ -34,54 +32,72 @@
     margin-bottom: 4rem;
 }
 
-.footer-column{
+.ubc-logo {
+    padding-bottom: 40px;
+    max-width: max(50%, 220px);
+}
+
+.footer-column {
     flex-basis: 200px;
     flex-grow: 1;
 }
 
-.footer-heading{
-    margin-bottom: 1rem;
-    text-align: left;
-}
-
-.footer-link{
-    display: block;
-    padding: 5px 10px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.footer-right{
-    margin-left: auto;
+.footer-left {
     display: flex;
-    gap: 50px;
+    flex-direction: column;
+}
+
+.footer-image-container {
+    display: flex;
+    justify-content: start;
+}
+
+.footer-contact-item {
+    display: block;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.footer-right {
+    margin-top: 16px;
+    margin-right: 8px;
+    display: flex;
+    gap: 80px;
+}
+
+.footer-heading {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.footer-project-list {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .horizontalLine {
     border: none;
     border-bottom: 1px solid gainsboro;
-    margin-left: 0.5%;
+    width: 100%
 }
 
-.campus-text{
+.campus-text {
     text-align: left;
-    margin-left: 0.5%;
-    margin-top: 1%;
+    margin-top: 10px;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 767px){
     .footer{
-        padding: 5px 15px 2.5rem;
+        padding: 24px 16px 2.5rem;
     }
 
     .ubc-logo{
-        padding-bottom: 0;
+        padding-bottom: 8px;
     }
     .footer-main{
         flex-direction: column;
-    }
-    .footer-column-navigate{
-        margin-left: 1%;
+        margin-bottom: 32px;
     }
     .footer-column-lab-info{
         margin-left: 4%;
@@ -92,9 +108,6 @@
         margin-top: 1%;
         text-align: left;
         margin-left: 0;
-    }
-    .footer-column-projects{
-        margin-left: 1%;
     }
     .footer-right{
         flex-direction: column;

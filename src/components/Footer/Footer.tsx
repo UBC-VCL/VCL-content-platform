@@ -25,23 +25,25 @@ const Footer = () => {
         <div className="footer-container">
             <div className="footer">
                 <div className="footer-main">
+
                     <div className="footer-left">
                         <div className="footer-image-container">
                             <img src={constants.UBC_LOGO_URL} className="ubc-logo" alt={'UBC logo'}/>
                         </div>
                         <div className="footer-column-lab-info">
-                            <li className="footer-link"><b>Tel</b> {TEXT.LAB_INFO.TEL}</li>
-                            <li className="footer-link"><b>Fax</b> {TEXT.LAB_INFO.FAX}</li>
-                            <li className="footer-link"><b>Lab:</b> {TEXT.LAB_INFO.EMAIL}</li>
-                            <li className="footer-link"><b>Dr. Rensink:</b> {TEXT.LAB_INFO.DRRENSINK_CONTACT}</li>
+                            <li className="footer-contact-item"><b>{TEXT.LAB_INFO.TEL_TEXT + ':'}</b> {TEXT.LAB_INFO.TEL}</li>
+                            <li className="footer-contact-item"><b>{TEXT.LAB_INFO.FAX_TEXT + ':'}</b> {TEXT.LAB_INFO.FAX}</li>
+                            <li className="footer-contact-item"><b>{TEXT.LAB_INFO.LAB_TEXT + ':'}</b> {TEXT.LAB_INFO.EMAIL}</li>
+                            <li className="footer-contact-item"><b>{TEXT.LAB_INFO.DR_RENSINK + ':'}</b> {TEXT.LAB_INFO.DRRENSINK_CONTACT}</li>
                         </div>
                     </div>
+
                     <div className="footer-right">
                         <div className="footer-column-navigate">
                             <h3 className="footer-heading"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
                             {NAV.map(({TITLE, REF}) => {
                                 return (
-                                    <li className="footer-link" key={REF}>
+                                    <li className="footer-project-list" key={REF}>
                                         <GenericLink name={TITLE} to={REF}/>
                                     </li>
                                 )
@@ -51,7 +53,7 @@ const Footer = () => {
                             <h3 className="footer-heading"> {TEXT.PAGE_TITLES.PROJECTS}</h3>
                             {projects.map((project, i) => {
                                 return (
-                                    <li className="footer-link" key={i}>
+                                    <li className="footer-project-list" key={i}>
                                         <GenericLink
                                             name={project.name}
                                             to={`${ROUTES.PROJECT.BASE}/${project.name}`}

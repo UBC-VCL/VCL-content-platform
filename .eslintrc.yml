@@ -14,5 +14,5 @@ parserOptions:
 plugins:
   - react
   - react-hooks
-  # - '@typescript-eslint'
+  - '@typescript-eslint'
 rules: {}

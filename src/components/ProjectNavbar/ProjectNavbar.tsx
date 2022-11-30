@@ -14,7 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import {Link} from "react-router-dom";
 import {Route, Switch} from "react-router";
-import {ProjectContact, ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam} from "@pages/Project";
+import {ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam} from "@pages/Project";
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import {Button} from "@mui/material";
 import {ROUTES} from "@statics";
@@ -120,7 +120,7 @@ export default function Sidebar(props: any) {
                     ))}
                     <Box textAlign='center' padding='50px'>
                         <Button onClick={() => {
-                            window.location.pathname="projects"
+                            window.location.pathname=ROUTES.PROJECT.BASE
                         }} variant ='outlined' style={{textTransform: 'none'}}>
                             <Typography color = '#60779A'>
                                 View Other Projects

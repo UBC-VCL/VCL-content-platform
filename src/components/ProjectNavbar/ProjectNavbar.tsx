@@ -120,7 +120,7 @@ export default function Sidebar(props: any) {
                     ))}
                     <Box textAlign='center' padding='50px'>
                         <Button onClick={() => {
-                            window.location.pathname=ROUTES.PROJECT.OVERVIEW
+                            window.location.pathname="projects"
                         }} variant ='outlined' style={{textTransform: 'none'}}>
                             <Typography color = '#60779A'>
                                 View Other Projects
@@ -139,7 +139,6 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/join`} render={() => <ProjectJoin project={props.currProject}/>}/>
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject}/>}/>
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject}/>}/>
-                        <Route exact path={`${props.match.url}/contact`} render={() => <ProjectContact project={props.currProject}/>}/>
                     </Switch>
                 </div>
             </Main>

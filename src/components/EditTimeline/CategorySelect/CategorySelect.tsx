@@ -1,21 +1,29 @@
+import { TimelineInfo } from '@pages/Timeline/EditTimelineEntry/EditTimelineEntry';
 import React from 'react'
 import styles from '../Select.module.css';
 
-const CategorySelect = () => {
-  const [selectedCategory, setSelectedCategory] = React.useState<string[]>([]);
+type Props = {
+    timeline: TimelineInfo,
+    setTimeline: React.Dispatch<React.SetStateAction<TimelineInfo>>;
+}
+
+const CategorySelect = ({timeline, setTimeline}:Props) => {
+  let selectedCategories = timeline.categories;
 
   const categories = ["Workshops", "Conditions", "hiring", "Meetings", "Guest Speaker", "Resources", "Dev/Code", "Progress", "Analysis"];
 
   const toggleCategory = (category: string) => {
-    if (selectedCategory.includes(category)) {
-        setSelectedCategory(selectedCategory.filter((c) => c !== category));
+    if (selectedCategories.includes(category)) {
+        selectedCategories = selectedCategories.filter((c) => c !== category);
+        setTimeline({...timeline, categories: selectedCategories});
     } else {
-        setSelectedCategory([...selectedCategory, category]);
+        selectedCategories = [...selectedCategories, category];
+        setTimeline({...timeline, categories: selectedCategories});
     }
   };
 
   return (
-    <div>
+    <div className={styles.selectContainer}>
         <label className={styles.label}>Categories</label>
         <div className={styles.optionsContainer}>
             {categories && categories.length > 0 && (
@@ -24,9 +32,9 @@ const CategorySelect = () => {
                         <span className={styles.item} key={category}>
                             <input type="checkbox"
                             id={category}
-                            checked={selectedCategory.includes(category)}
+                            checked={selectedCategories.includes(category)}
                             onChange={() => toggleCategory(category)} />
-                            <label className={`${styles.itemButton} ${selectedCategory.includes(category) ? styles.activeButton : styles.inactiveButton}`}
+                            <label className={`${styles.itemButton} ${selectedCategories.includes(category) ? styles.activeButton : styles.inactiveButton}`}
                             tabIndex={0}
                             htmlFor={category}>{category}</label>
                         </span>

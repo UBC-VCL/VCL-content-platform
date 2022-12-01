@@ -37,10 +37,7 @@ export const projectSlice = createSlice({
 });
 
 export const selectProject = (state: RootState) => state.project;
-export const selectProjects = (state: RootState) => {
-    console.log(state.project.projects)
-    return state.project.projects;;
-} 
+export const selectProjects = (state: RootState) => state.project.projects;
 export const selectIsProjectLoading = (state: RootState) => state.project.isProjectLoading;
 
 export const projectActions = projectSlice.actions;

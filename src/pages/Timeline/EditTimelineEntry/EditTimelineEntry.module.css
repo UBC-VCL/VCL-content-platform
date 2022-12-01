@@ -1,5 +1,4 @@
 * {
-    text-align: start;
     box-sizing: border-box;
 }
 
@@ -13,13 +12,13 @@
     margin: 0 auto;
 }
 
-h1 {
+.header {
     font-family: 'Source Sans Pro';
     font-size: 32px;
     font-weight: 600;
 }
 
-h2 {
+.subHeader {
     font-family: 'Source Sans Pro';
     font-size: 18px;
     font-weight: 500;
@@ -49,12 +48,12 @@ main {
     gap: 8px;
 }
 
-label {
+.descriptionLabel {
     font-family: 'Source Sans Pro';
     font-size: 16px;
 }
 
-input[type="text"] {
+.textInputs input[type="text"] {
     width: 100%;
     border: none;
     border-bottom: 1px solid black;
@@ -63,7 +62,7 @@ input[type="text"] {
     font-size: 16px;
 }
 
-input[type="text"]:focus {
+.textInputs input[type="text"]:focus {
     outline-color: black;
 }
 
@@ -74,6 +73,7 @@ input[type="text"]:focus {
 }
 
 .descriptionGroup {
+    text-align: start;
     grid-column: 3 / 4;
     align-self: stretch;
 }
@@ -138,6 +138,10 @@ textarea:focus {
 @media (max-width: 1023px) {
     .gridContainer {
         grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .basicInfo {
+        gap: 32px;
     }
     .descriptionGroup {
         grid-column: 1 / 2;

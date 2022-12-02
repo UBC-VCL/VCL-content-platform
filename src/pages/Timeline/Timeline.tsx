@@ -1,5 +1,9 @@
 import React from "react";
 import './Timeline.css';
+import {Button, Typography} from "@mui/material";
+import TimelineSearchbar from '@components/TimelineSearchbar';
+import TimelineFilter from '@components/TimelineFilter';
+import TimelineEntry from './TimelineEntry';
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -19,44 +23,24 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className='sub-header'>
           <p>Browse project history and detailed updates</p>
         </div>
-        <div  className="searchBarBadge" >
-          <Box
-            className="searchBarRounded"
-            component="form"
-            sx={{
-              '& > :not(style)': { m: 1 },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-                fullWidth
-                id="inputRounded"
-                className="inputRounded"
-                variant="outlined"
-                defaultValue="Search by keyword"
-                InputProps={{
-                  startAdornment: (
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        bgcolor: 'background.paper',
-                        borderRadius: 1,
-                      }}
-                    >
-                      <Box sx={{ my: 2, ml: 3 }} >
-                        <IconButton><SearchIcon />
-                        </IconButton>
-                      </Box>
-                      <Box sx={{ mx: 5 }}>
-                        <h2 className="icon icon--spacer">|</h2>
-                      </Box>
-                    </Box>
-                  ),
-                }}
-              />
-          </Box>
+        <TimelineSearchbar />
+			  <div className="main-body">
+          <div className="main-body-filter">
+          <TimelineFilter />
+
+            <Button
+              // onClick={formik.handleSubmit}
+              variant="outlined" style={{
+              backgroundColor: "#1E5487",
+              color: "white",
+              width: 200,
+              height: "50px",
+              marginLeft: 20
+            }}>
+                Add Update
+            </Button>
+          </div>
+
         </div>
       </div>
     );

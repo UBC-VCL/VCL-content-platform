@@ -1,7 +1,19 @@
 @import '../../index.css';
 
-.Timeline {
-    background-color: rgb(245, 245, 245);
+.header {
+    position: relative;
+    top: 3.68%;
+    padding-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 33px;
+    line-height: 48px;
+    font-weight: 700;
+    max-width: 100%;
+}
+
+.sub-header {
+    color: #535353;
+    margin-top: 8px;
 }
 
 .inputRounded .MuiOutlinedInput-root{
@@ -9,32 +21,27 @@
     background-color: var(--fc-white);
  }
 
- .searchBarBadge {
+.TimelineSearchbar {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    height: 120px;
-    margin: 40px 0 40px 0;
+    height: 90px;
+    margin: 30px 0 40px 0;
     background-color: var(--fc-navyblue);
- }
+}
 
- .searchBarRounded {
+.searchBarRounded {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 800px;
+    width: 650px;
     background-color: var(--fc-navyblue);
- }
+}
 
- .main-body-filter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
     .searchBarRounded {
        width: calc(100% - 100px);
     }

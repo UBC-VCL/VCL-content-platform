@@ -27,6 +27,11 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                 className="inputRounded"
                 variant="outlined"
                 defaultValue="Search by keyword"
+                sx={{ input: { color: 'rgba(47, 47, 47, 0.8)' }}}
+                // sx={{
+                //   color: 'rgba(47, 47, 47, 0.8)',
+                //   fontSiz:"18px",
+                // }}
                 InputProps={{
                   startAdornment: (
                     <Box
@@ -37,12 +42,12 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                         borderRadius: 1,
                       }}
                     >
-                      <Box sx={{ mt: 1, ml: 2 }} >
+                      <Box sx={{  ml: 2 }} >
                         <IconButton><SearchIcon />
                         </IconButton>
                       </Box>
                       <Box sx={{ mt: 1, mx: 2 }}>
-                        <h1 className="icon icon--spacer">|</h1>
+                        <div className="">|</div>
                       </Box>
                     </Box>
                   ),

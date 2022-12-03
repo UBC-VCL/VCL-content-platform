@@ -1,0 +1,23 @@
+.filter-dropdown {
+    background-color: #ffffff;
+    width: 100%;
+    aspect-ratio: 10 / 2;
+    border: none;
+    color: var(--fc-white);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.filterOption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filterLabel {
+    margin-bottom: 3px;
+    margin-right: 10px;
+    color: var(--fc-dark);
+    font-size: 17px;
+}

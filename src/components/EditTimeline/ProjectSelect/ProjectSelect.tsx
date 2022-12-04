@@ -14,7 +14,7 @@ const ProjectSelect = ({timeline, setTimeline}:Props) => {
 
   return (
     <div className={styles.selectContainer}>
-        <label className={styles.label}>Project</label>
+        <label className={styles.label}>Select a Project</label>
         <div className={styles.optionsContainer}>
             {projects && projects.length > 0 && (
                 projects.map((project) => {

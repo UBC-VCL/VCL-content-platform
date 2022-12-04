@@ -9,11 +9,13 @@
 }
 
 .label {
+    width: 100%;
     display: inline-block;
     font-family: 'Source Sans Pro';
     font-size: 16px;
-    color: #666;
-    margin-bottom: 8px;
+    color: #777;
+    font-weight: 600;
+    margin-bottom: 10px;
     text-align: start;
 }
 
@@ -50,6 +52,6 @@ input[type="checkbox"] {
 
 .inactiveButton {
     background-color: white;
-    color: #555;
+    color: #333;
     border-color: #ddd;
 }

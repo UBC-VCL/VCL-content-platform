@@ -24,7 +24,7 @@ const CategorySelect = ({timeline, setTimeline}:Props) => {
 
   return (
     <div className={styles.selectContainer}>
-        <label className={styles.label}>Categories</label>
+        <label className={styles.label}>Select Applicable Categories</label>
         <div className={styles.optionsContainer}>
             {categories && categories.length > 0 && (
                 categories.map((category) => {

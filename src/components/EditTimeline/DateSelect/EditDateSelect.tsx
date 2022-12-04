@@ -4,7 +4,7 @@ import styles from './EditDateSelect.module.css'
 
 type Props = {
   timeline: TimelineInfo,
-  setTimeline: React.Dispatch<React.SetStateAction<TimelineInfo>>;
+  setTimeline: React.Dispatch<React.SetStateAction<TimelineInfo>>,
 }
 
 const EditDateSelect = ({timeline, setTimeline}:Props) => {

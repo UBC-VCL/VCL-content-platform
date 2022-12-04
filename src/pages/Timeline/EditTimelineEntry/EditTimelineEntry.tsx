@@ -1,5 +1,6 @@
 import CategorySelect from '@components/EditTimeline/CategorySelect/CategorySelect';
 import EditDateSelect from '@components/EditTimeline/DateSelect/EditDateSelect';
+import EditTextInput from '@components/EditTimeline/EditTextInput/EditTextInput';
 import ProjectSelect from '@components/EditTimeline/ProjectSelect/ProjectSelect';
 import { useAppSelector } from '@redux/hooks';
 import { selectAuth } from '@redux/slices/AuthRedux';
@@ -51,8 +52,6 @@ const EditTimelineEntry = () => {
     })
   }, [response]);
 
-  console.log({ timeline, contributors: timeline.contributors });
-
   const save = async () => {
     const updatedTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
     const editResponse = await axios({
@@ -64,8 +63,8 @@ const EditTimelineEntry = () => {
       }
     });
     if (editResponse.status === 200) {
-      console.log("success");
       history.push("/timeline");
+      //TODO: success message
       return;
     }
     //TODO: handle error
@@ -81,24 +80,8 @@ const EditTimelineEntry = () => {
       <main>
         <div className={styles.gridContainer}>
           <div className={styles.basicInfo}>
-            <div className={styles.textInputs}>
-              <div className={styles.textInputGroup}>
-                <input type="text" name="author" value={timeline.author} placeholder="Author"
-                onChange={(e) => setTimeline(prev => ({...prev, author: e.target.value} as TimelineInfo))} />
-                <p className={styles.hintText}>e.g. John Doe</p>
-              </div>
-              <div className={styles.textInputGroup}>
-                <input type="text" name="title" value={timeline.title} placeholder="Title" 
-                onChange={(e) => setTimeline(prev => ({...prev, title: e.target.value} as TimelineInfo))} />
-                <p className={styles.hintText}>e.g. Documentation Website Update</p>
-              </div>
-              <div className={styles.textInputGroup}>
-                <input type="text" name="contributors" value={timeline.contributors} placeholder="Contributors" 
-                onChange={(e) => setTimeline(prev => ({...prev, contributors: e.target.value} as TimelineInfo))} />
-                <p className={styles.hintText}>e.g. James Doe, Janet Doe</p>
-              </div>
-            </div>
-            <EditDateSelect timeline={timeline} setTimeline={setTimeline} />
+            <EditTextInput timeline={timeline} setTimeline={setTimeline}/>
+            <EditDateSelect timeline={timeline} setTimeline={setTimeline}/>
             <ProjectSelect timeline={timeline} setTimeline={setTimeline}/>
             <CategorySelect timeline={timeline} setTimeline={setTimeline}/>
           </div>
@@ -110,7 +93,7 @@ const EditTimelineEntry = () => {
         </div>
         <div className={styles.controls}>
           <button className={styles.cancelButton} onClick={() => history.push("/timeline")}>Cancel</button>
-          <button className={styles.saveButton} onClick={save}>Save</button>
+          <button className={styles.saveButton} disabled={!timeline.author || !timeline.title} onClick={save}>Save</button>
         </div>
       </main>
       </div>

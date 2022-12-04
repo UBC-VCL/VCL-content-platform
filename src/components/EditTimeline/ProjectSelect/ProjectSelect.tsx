@@ -6,7 +6,7 @@ import styles from '../Select.module.css';
 
 type Props = {
     timeline: TimelineInfo,
-    setTimeline: React.Dispatch<React.SetStateAction<TimelineInfo>>;
+    setTimeline: React.Dispatch<React.SetStateAction<TimelineInfo>>,
 }
 
 const ProjectSelect = ({timeline, setTimeline}:Props) => {

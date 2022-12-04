@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-.page {
-    /* background-color: rgba(238, 238, 238, 0.4); */
-}
-
 .container {
     --darkgrey: #666;
     width: min(80%, 1000px);
@@ -40,36 +36,6 @@ main {
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.textInputs {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.descriptionLabel {
-    font-family: 'Source Sans Pro';
-    font-size: 16px;
-}
-
-.textInputs input[type="text"] {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 8px;
-    font-family: 'Source Sans Pro';
-    font-size: 16px;
-}
-
-.textInputs input[type="text"]:focus {
-    outline-color: black;
-}
-
-.hintText {
-    text-align: end;
-    color: rgb(158, 158, 158);
-    font-size: 14px;
 }
 
 .descriptionGroup {
@@ -129,6 +95,11 @@ textarea:focus {
     cursor: pointer;
     font-family: 'Source Sans Pro';
     font-size: 20px;
+}
+
+.saveButton:disabled {
+    background-color: #d8e0ea;
+    color: gray;
 }
 
 .cancelButton:focus, .saveButton:focus {

@@ -127,4 +127,7 @@ textarea:focus {
     .container {
         width: 90%;
     }
+    .header {
+        font-size: 28px;
+    }
 }

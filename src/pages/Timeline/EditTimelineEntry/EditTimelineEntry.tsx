@@ -33,7 +33,7 @@ const EditTimelineEntry = () => {
 
   let { timeline_id } = useParams<TimelineParams>();
 
-  const { response, loading, error } = useAxios({
+  const { response } = useAxios({
     method: "GET",
     url: `/api/snapshots/${timeline_id}`,
   });

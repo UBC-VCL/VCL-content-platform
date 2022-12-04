@@ -10,7 +10,7 @@ type Props = {
 const EditTextInput = ({timeline, setTimeline}: Props) => {
   const [isValid, setIsValid] = useState({author: true, title: true});
   
-  const checkValidity = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+  const checkValidity = (e: React.FocusEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
     if (value === "") {
       setIsValid(prev => ({...prev, [name]: false}));

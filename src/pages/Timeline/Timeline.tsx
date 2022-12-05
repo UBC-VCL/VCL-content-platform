@@ -3,6 +3,7 @@ import "./Timeline.css";
 
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
 
+// dummy data
 const commitsArray = [{
       author: "Samanshiang Chiang",
       elementChanged: "Documentation Website Updates",
@@ -51,6 +52,7 @@ interface TimelineProps {}
 
 const Timeline: React.FC<TimelineProps> = (props) => {
   let prjs: any[] = []
+  // hardcode className to display corresponding colors
   commitsArray.forEach(commit => {
     let prj = 'others';
     switch (commit.project.toLowerCase()) {

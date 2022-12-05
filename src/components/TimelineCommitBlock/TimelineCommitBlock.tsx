@@ -53,6 +53,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     const { author, elementChanged, date, project, description, tags } = props;
     let colorOfProject = '#848484';
+    // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
             colorOfProject = element.color;

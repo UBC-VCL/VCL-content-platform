@@ -87,9 +87,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <p>Browse project history and detailed updates</p>
       </div>
       <TimelineSearchbar />
-      {/* <FilterContainer /> */}
       <TimelineFilterContainer />
-      <TimelineEntry />
       <div className="timeline-main-body">
         <div className="timeline-container">
           <ul>
@@ -111,7 +109,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           </ul>
         </div>
       </div>
-      <div>Bottom</div>
     </div>
   );
 };

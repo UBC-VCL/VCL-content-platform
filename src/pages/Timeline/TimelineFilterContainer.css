@@ -13,11 +13,10 @@
     grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
 
     background-color: rgb(255, 255, 255);
-    padding: 8px 25px 8px 25px;
+    padding: 8px 25px 2px 25px;
     width: min(90%, 1000px);
 
-    margin-bottom: 32px;
-
+    margin-bottom: 5px;
     border-radius: 5px;
     box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
 }

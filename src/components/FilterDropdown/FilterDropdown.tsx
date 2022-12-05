@@ -40,7 +40,7 @@ const FilterDropdown = () => {
                         onChange={handleChangeProject}
                         displayEmpty
                         disableUnderline
-                        sx={{ width: 150, color: 'rgba(47, 47, 47, 0.8)'}}
+                        sx={{ width: 50, color: 'rgba(47, 47, 47, 0.8)'}}
                     >
                         <MenuItem value="">
                             All

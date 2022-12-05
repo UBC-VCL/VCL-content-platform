@@ -4,6 +4,42 @@
     background-color: rgb(245, 245, 245);
 }
 
+.inputRounded .MuiOutlinedInput-root{
+    border-radius: 10px;
+    background-color: var(--fc-white);
+ }
+
+ .searchBarBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 120px;
+    margin: 40px 0 40px 0;
+    background-color: var(--fc-navyblue);
+ }
+
+ .searchBarRounded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 800px;
+    background-color: var(--fc-navyblue);
+ }
+
+ .main-body-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+@media only screen and (max-width: 800px) {
+    .searchBarRounded {
+       width: calc(100% - 100px);
+    }
+}
+
 .timeline-main-body {
     text-align: left;
     width: min(80%, 1000px);

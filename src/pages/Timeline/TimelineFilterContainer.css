@@ -1,0 +1,27 @@
+.timeline-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(80%, 1000px);
+    margin: 0 auto;
+    text-align: left;
+}
+
+.filter-dropdown-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
+
+    background-color: rgb(255, 255, 255);
+    padding: 8px 25px 8px 25px;
+    width: min(90%, 1000px);
+
+    margin-bottom: 32px;
+
+    border-radius: 5px;
+    box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
+}
+
+.add-update-button {
+    margin-left: 40px;
+}

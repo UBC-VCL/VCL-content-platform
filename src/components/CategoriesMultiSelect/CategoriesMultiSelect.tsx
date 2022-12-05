@@ -1,6 +1,7 @@
 import TextField from "@mui/material/TextField";
 import React from "react";
 import {Autocomplete} from "@mui/material";
+import { NONAME } from "dns";
 
 const CategoriesMultiSelect = ({categories, setCategories}: {
     categories: { name: string }[],

@@ -1,3 +1,5 @@
+@import '../../index.css';
+
 .nav {
 	height: auto;
 	margin-bottom: 35px;
@@ -30,12 +32,12 @@
 	line-height: 35px;
 	letter-spacing: 0.04em;
 	text-decoration: none;
-	color: #1C426D;
+	color: var(--fc-navyblue);
 	margin-bottom: 20%;
 }
 
 .all-projects-underline {
-	border: 1.5px solid #1C426D;
+	border: 1.5px solid var(--fc-navyblue);
 	width: 115px;
 	margin-top: 20%;
 	position: absolute;
@@ -53,7 +55,7 @@
 }
 
 .project-name:hover {
-	color: #1C426D;
+	color: var(--fc-navyblue);
 	font-weight: 700;
 	font-size: 20px;
 }

@@ -1,0 +1,48 @@
+@import '../../index.css';
+
+.TimelineSearchbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 90px;
+    margin: 48px 0 20px 0;
+    background-color: var(--fc-navyblue);
+}
+
+.header {
+    position: relative;
+    top: 3.68%;
+    padding-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 33px;
+    line-height: 48px;
+    font-weight: 700;
+    max-width: 100%;
+}
+
+.sub-header {
+    color: #535353;
+    margin-top: 8px;
+}
+
+.inputRounded .MuiOutlinedInput-root{
+    border-radius: 10px;
+    background-color: var(--fc-white);
+ }
+
+.searchBarRounded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 650px;
+    background-color: var(--fc-navyblue);
+}
+
+
+@media only screen and (max-width: 650px) {
+    .searchBarRounded {
+       width: calc(100% - 100px);
+    }
+}

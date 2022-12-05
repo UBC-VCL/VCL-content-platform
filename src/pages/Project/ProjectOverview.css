@@ -1,3 +1,5 @@
+@import '../../index.css';
+
 .project-overview-container {
     width: min(80%, 1000px);
     margin: 0 auto;
@@ -14,7 +16,7 @@
 }
 
 .project-overview-title {
-    color: #1C426D;
+    color: var(--fc-navyblue);
     letter-spacing: 1px;
 }
 

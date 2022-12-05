@@ -1,7 +1,7 @@
-import ProjectsMultiSelect from "@components/ProjectsMultiSelect/ProjectsMultiSelect";
-import TimelineCommitBlock from "@components/TimelineCommitBlock";
 import React from "react";
 import "./Timeline.css";
+
+import TimelineCommitBlock from "@components/TimelineCommitBlock";
 
 const commitsArray = [{
       author: "Samanshiang Chiang",
@@ -20,7 +20,7 @@ const commitsArray = [{
   }, {
       author: "Samanshiang Chiang",
       elementChanged: "Documentation Website Updates",
-      project: "Correlation",
+      project: "NOVA",
       date: new Date('2022-05-23'),
       description: "DDDescription", 
       tags: ['Website'],
@@ -50,7 +50,24 @@ const commitsArray = [{
 interface TimelineProps {}
 
 const Timeline: React.FC<TimelineProps> = (props) => {
-  let colorOfProject = '#848484';
+  let prjs: any[] = []
+  commitsArray.forEach(commit => {
+    let prj = 'others';
+    switch (commit.project.toLowerCase()) {
+      case 'correlation':
+        prj = 'correlation'
+        break;
+      case 'nova':
+        prj = 'nova'
+        break;
+      case 'ideo':
+        prj = 'ideo';
+        break;
+      default:
+        break;
+    }
+    prjs.push(prj);
+  })
   
   return (
     <div className="Timeline">
@@ -62,7 +79,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             {commitsArray.map((commit,i)=> {
               return (
                 <li>
-                  <span></span>
+                  <span className={"timeline-container-span-"+prjs[i]}></span>
                   <TimelineCommitBlock 
                     author={commit.author} 
                     elementChanged={commit.elementChanged} 
@@ -74,16 +91,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                 </li>
               )
               })}
-            {/* <li>
-              <TimelineCommitBlock 
-                author={"Samanshiang Chiang"} 
-                elementChanged={"Documentation Website Updates"} 
-                project={"Correlation"} 
-                date={new Date('2022-05-23')} 
-                description={"DDDescription"} 
-                tags={['website', 'Meeting']} 
-              />
-            </li> */}
           </ul>
         </div>
       </div>

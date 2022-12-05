@@ -1,0 +1,68 @@
+@import '../../index.css';
+
+.Timeline {
+    background-color: rgb(245, 245, 245);
+}
+
+.timeline-main-body {
+    text-align: left;
+    width: min(80%, 1000px);
+    margin: 48px auto;
+}
+
+.timeline-container {
+    margin: 40px 40px;
+}
+
+.timeline-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-container ul:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    border: 1px dashed #aaa;
+}
+
+.timeline-container ul li {
+    margin: 40px 60px;
+    position: relative;
+}
+
+.timeline-container ul li span {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60px;
+    width: 0px;
+    height: 100%;
+    border: 1px solid #aaa;
+}
+
+.timeline-container ul li span:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaa;
+    background-color: #aaa;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.timeline-container ul li span:before{
+    top: -1px;
+    left: -12px;
+}
+
+@media (max-width: 1023px) {
+    .timeline-main-body {
+        width: 90%;
+    }
+}

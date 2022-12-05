@@ -2,20 +2,27 @@ const constants = {
   MIN_PASSWORD_LENGTH: 8,
   MIN_USERNAME_LENGTH: 4,
   PROJECTS: [
-    { // dummy projects
-      name: "Correlation"
+      { // dummy projects
+          name: "Correlation",
+          color: "#6776fe"
       },{
-          name: "NOVA"
+          name: "NOVA",
+          color: "#fece25"
       }, {
-          name: "Perceptual Modes"
+          name: "Perceptual Modes",
+          color: "#848484"
       }, {
-          name: "IDEO"
+          name: "IDEO",
+          color: "#f66364"
       }, {
-          name: "IT"
+          name: "IT",
+          color: "#848484"
       }, {
-        name: "Image Transitions"
+        name: "Image Transitions",
+        color: "#848484"
       }, {
-        name: "Dormant"  
+        name: "Dormant",
+        color: "#848484"
       }
   ],
   MODALS: {

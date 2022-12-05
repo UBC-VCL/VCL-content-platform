@@ -14,7 +14,7 @@ const ProjectOverview = () => {
                 <hr/>
             </div >
             <div className='button-container'>
-            {CONSTANTS.PROJECTS.map((project) => <ProjectOverviewCard project={project} ></ProjectOverviewCard>)}
+                {CONSTANTS.PROJECTS.map((project) => <ProjectOverviewCard project={project} ></ProjectOverviewCard>)}
             </div>
         </div>
     )

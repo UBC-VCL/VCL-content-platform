@@ -4,19 +4,8 @@ import "./FilterDropdown.css";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { CONSTANTS } from '@statics';
 
-const projects = [
-    'Correlation',
-    'NOVA',
-    'Perceptual Modes',
-    'IDEO',
-    'IT',
-    'Image Transitions',
-    'Dormant',
-  ];
-
-const FilterDropdown = () => {
+const FilterDropdown = ({ list }: { list: {name: string, options: string[]} }) => {
     const [project, setProject] = React.useState('');
 
     const handleChangeProject = (event: SelectChangeEvent) => {
@@ -33,19 +22,19 @@ const FilterDropdown = () => {
             >
                 <div className="filterOption">
                     <div className="filterLabel">
-                        Project: 
+                        {list.name}: 
                     </div>
                     <Select
                         value={project}
                         onChange={handleChangeProject}
                         displayEmpty
                         disableUnderline
-                        sx={{ width: 50, color: 'rgba(47, 47, 47, 0.8)'}}
+                        sx={{ width: 150, color: 'rgba(47, 47, 47, 0.8)'}}
                     >
                         <MenuItem value="">
                             All
                         </MenuItem>
-                        {projects.map((option) => (
+                        {list.options.map((option, i) => (
                             <MenuItem
                                 key={option}
                                 value={option}

@@ -1,7 +1,8 @@
 @import '../../index.css';
 
 .Timeline {
-    background-color: rgb(245, 245, 245);
+    top: -35px;
+    /* background-color: rgb(245, 245, 245); */
 }
 
 .inputRounded .MuiOutlinedInput-root{

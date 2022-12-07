@@ -9,6 +9,9 @@ const constants = {
           name: "NOVA",
           color: "#fece25"
       }, {
+        name: "SHIVA",
+        color: "#fece25"
+      }, {
           name: "Perceptual Modes",
           color: "#848484"
       }, {

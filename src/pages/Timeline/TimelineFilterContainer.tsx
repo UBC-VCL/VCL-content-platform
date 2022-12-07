@@ -8,7 +8,7 @@ import FilterDropdown from "@components/FilterDropdown/FilterDropdown";
 
 const projects = {
     'name': 'Project', 
-    'options': ['Correlation', 'NOVA', 'IDEO', 'Projects'],
+    'options': ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'],
 };
 const categories = {
     'name': 'Category', 

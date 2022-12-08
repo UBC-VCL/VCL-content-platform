@@ -1,27 +1,29 @@
 .filter-dropdown {
-    background-color: #ffffff;
-    width: 100%;
-    aspect-ratio: 10 / 2;
-    border: none;
-    color: var(--fc-white);
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-left: 10px;
-    padding: 12px 20px 5px 20px;
-    border-radius: 5px;
-    box-shadow: 4px 6px 13px -1px rgba(162, 162, 162, 0.25);
-}
-
-.filterOption {
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 4px 6px 8px 4px rgba(197, 197, 197, 0.25);
+    padding: 2px 15px 2px 15px;
+    margin: 0 5px;
 }
 
-.filterLabel {
-    margin-bottom: 3px;
-    margin-right: 10px;
-    color: var(--fc-dark);
-    font-size: 17px;
+.filter {
+    display: flex;
+}
+
+.filter-divider {
+    content: '';
+    display: inline-block;
+    margin: 10px;
+    width: 0px;
+    height: 25px;
+    border: 0.7px solid #e2e2e2;
+}
+
+.filter-dropdown-text {
+    display: inline-block;
+    color: #7e7e7e;
 }

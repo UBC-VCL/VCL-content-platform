@@ -4,27 +4,14 @@
     justify-content: center;
 
     width: min(90%, 1000px);
-    margin: 0 auto;
-    text-align: left;
-}
-
-.filter-dropdown-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
-
-    background-color: rgb(255, 255, 255);
-    padding: 8px 25px 8px 25px;
-    width: min(100%, 1000px);
-
-    margin-bottom: 32px;
-
-    border-radius: 5px;
-    box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
+    /* margin: 0 auto;
+    text-align: left; */
 }
 
 .add-update-button {
-    margin-top: 2px;
-    margin-left: 65px;
+    padding: 5px 10px;
+    margin: 2px;
+    /* margin-left: 65px; */
     background-color: #4a668a;
     border-radius: 10px;
 }

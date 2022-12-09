@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import './TimelineSearchbar.css';
 
 import Box from '@mui/material/Box';
@@ -28,10 +28,6 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                 variant="outlined"
                 defaultValue="Search by keyword"
                 sx={{ input: { color: 'rgba(47, 47, 47, 0.8)' }}}
-                // sx={{
-                //   color: 'rgba(47, 47, 47, 0.8)',
-                //   fontSiz:"18px",
-                // }}
                 InputProps={{
                   startAdornment: (
                     <Box

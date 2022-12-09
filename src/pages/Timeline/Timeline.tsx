@@ -1,10 +1,7 @@
 import React from "react";
 import './Timeline.css';
-import {Button, Typography} from "@mui/material";
 import TimelineSearchbar from '@components/TimelineSearchbar';
-import TimelineFilter from '@components/FilterDropdown';
-import TimelineEntry from './TimelineEntry';
-import TimelineFilterContainer from "./TimelineFilterContainer";
+import TimelineFilter from "./TimelineFilter";
 
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
 
@@ -86,8 +83,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       <div className='sub-header'>
         <p>Browse project history and detailed updates</p>
       </div>
+
       <TimelineSearchbar />
-      <TimelineFilterContainer />
+      
+      <TimelineFilter />
+
       <div className="timeline-main-body">
         <div className="timeline-container">
           <ul>

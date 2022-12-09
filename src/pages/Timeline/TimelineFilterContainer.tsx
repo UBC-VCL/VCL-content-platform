@@ -103,6 +103,9 @@ const TimelineFilterContainer = () => {
                     color: "white",
                     width: 150,
                     height: 50,
+                    textTransform: 'none',
+                    marginLeft: '10px',
+                    fontSize: 16,
                 }}
             >
                 Add Update

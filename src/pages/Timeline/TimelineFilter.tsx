@@ -42,7 +42,7 @@ const TimelineFilterContainer = () => {
                     fontSize: 16,
                 }}
             >
-                Add Update
+                Add New Entry
             </Button>
         </div>
     </div>

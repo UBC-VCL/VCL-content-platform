@@ -2,7 +2,7 @@ name: Lint
 
 on:
   push:
-    branches: [ main ]
+    branches: [ inspect-linting-errors ]
   pull_request:
     branches: [ main ]
 
@@ -16,15 +16,11 @@ jobs:
     node-version: [14.x, 16.x, 18.x]
   
   steps:
-    - name: Check out Git repository
-      uses: actions/checkout@v3
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Node.js dependencies
-      run: npm ci
-    - name: Run linters
-      uses: wearerequired/lint-action@v2
+    - run: npm ci
+    - uses: wearerequired/lint-action@v2
       with:
         eslint: true

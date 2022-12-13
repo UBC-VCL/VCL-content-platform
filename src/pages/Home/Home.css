@@ -1,6 +1,6 @@
 .card-section {
     width: min(80%, 1000px);
-    margin: 0 auto;
+    margin: 25px auto;
 }
 
 .card-container {
@@ -11,6 +11,13 @@
     width: 100%;
 }
 
+.Home {
+    font-family: 'Source Sans Pro';
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 /* mission statement section */
 
 .mission-statement-container {

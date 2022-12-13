@@ -15,4 +15,15 @@ export default class ProjectAPI {
             throw e;
         }
     }
+
+    static async getProjectByName(name: string): Promise<any> {
+        try {
+            const response = await axios.get(`/api/projects/${name}`, {
+                baseURL: "http://localhost:4000",
+            });
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
 }

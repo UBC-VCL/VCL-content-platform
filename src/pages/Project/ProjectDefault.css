@@ -1,0 +1,40 @@
+.description-container,
+.qa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #2B3D5B;
+    padding: 20px;
+}
+
+.qa-container {
+    background-color: #FFFFFF;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.underline {
+    border-bottom: 5px solid black;
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+.main {
+    margin: 0;
+}
+
+.gallery {
+    display: flex;
+    height: 30em;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A283B;
+}
+
+h1, h2, h3, p {
+    text-align: left;
+}

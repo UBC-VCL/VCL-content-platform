@@ -1,0 +1,17 @@
+.title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.underline {
+    border-bottom: 1px solid black;
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}

@@ -36,7 +36,7 @@ const TEXT = {
       PROJECT_DESCRIPTION: 'Project Description',
       JOIN_THE_TEAM: 'Join the Team',
       RESOURCES: 'Resources',
-      TEAM: 'Team',
+      TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
   },
 
@@ -78,6 +78,10 @@ const TEXT = {
   },
 
   LANDING_PAGE: {
+    TITLE: 'Investigating Visual Intelligence',
+    DESCRIPTION: 'What is the Visual Cognition Lab? We investigate visual intelligence – '+ 
+                'the way in which the human visual system uses the light entering the eyes to create a variety of perceptual experiences.',
+    UBC_PAGE_BUTTON: 'Official UBC Home Page',      
     MISSION_STATEMENT: {
       TITLE: 'Mission Statement',
       LAB_GOALS: 'Description of the goals of the lab here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'

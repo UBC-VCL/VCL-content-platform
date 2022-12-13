@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "@components/Card";
+import LandingPage from "@components/LandingPage";
 import "./Home.css"
 import { TEXT } from '@statics';
 import MissionStatement from "@components/MissionStatement";
@@ -8,16 +9,16 @@ interface HomeProps {}
 
 const Home: React.FC<HomeProps> = (props) => {
   return (
-    <div>
-      <div>HI THIS IS THE LANDING PAGE</div>
-      <section className="card-section">
+    <div className="Home">
+      <LandingPage/>
+      <div className="card-section">
         <div className="card-container">
           <Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
           <Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
           <Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
           <Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
         </div>
-      </section>
+      </div>
       <div className="mission-statement-container">
         <div className="mission-statement-title">
             <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.TITLE}</p>

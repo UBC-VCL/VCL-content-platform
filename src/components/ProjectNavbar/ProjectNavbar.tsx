@@ -14,10 +14,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import {Link} from "react-router-dom";
 import {Route, Switch} from "react-router";
-import {ProjectContact, ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam} from "@pages/Project";
+import {ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam} from "@pages/Project";
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import {Button} from "@mui/material";
 import {ROUTES} from "@statics";
+import Nova from '@pages/Project/Nova/nova';
+import Correlation from '@pages/Project/Correlation/correlation';
+import ImageTransitions from '@pages/Project/ImageTransitions/imageTransitions';
+import Ideo from '@pages/Project/Ideo/ideo';
 
 const drawerWidth = 280;
 
@@ -120,7 +124,7 @@ export default function Sidebar(props: any) {
                     ))}
                     <Box textAlign='center' padding='50px'>
                         <Button onClick={() => {
-                            window.location.pathname=ROUTES.PROJECT.OVERVIEW
+                            window.location.pathname=ROUTES.PROJECT.BASE
                         }} variant ='outlined' style={{textTransform: 'none'}}>
                             <Typography color = '#60779A'>
                                 View Other Projects
@@ -135,11 +139,14 @@ export default function Sidebar(props: any) {
             <Main open={open}>
                 <div className={"content-container"}>
                     <Switch>
-                        <Route exact path={props.match.url} render={() => <ProjectDefault project={props.currProject}/>}/>
+                        <Route exact path={`${ROUTES.PROJECT.BASE}/NOVA`} render={() => <Nova project={props.currProject}/>}/>
+                        <Route exact path={`${ROUTES.PROJECT.BASE}/IDEO`} render={() => <Ideo project={props.currProject}/>}/>
+                        <Route exact path={`${ROUTES.PROJECT.BASE}/Correlation`} render={() => <Correlation project={props.currProject}/>}/>
+                        <Route exact path={`${ROUTES.PROJECT.BASE}/Image Transitions`} render={() => <ImageTransitions project={props.currProject}/>}/>
+                        <Route exact path={`${props.match.url}`} render={() => <ProjectDefault project={props.currProject}/>}/> 
                         <Route exact path={`${props.match.url}/join`} render={() => <ProjectJoin project={props.currProject}/>}/>
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject}/>}/>
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject}/>}/>
-                        <Route exact path={`${props.match.url}/contact`} render={() => <ProjectContact project={props.currProject}/>}/>
                     </Switch>
                 </div>
             </Main>

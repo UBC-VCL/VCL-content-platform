@@ -18,7 +18,7 @@ import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
-import {ReactComponent as VCLIcon} from '@statics/images/vcl-icon.svg';
+import VCLIcon from '@statics/images/vcl-icon.svg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MobileMenu from '@components/MobileNavbar';
 
@@ -158,18 +158,20 @@ const Navbar: React.FC<{}> = () => {
       <div className="navbar-menu">
         <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
-         <div style={{marginRight: '10px', position: 'relative'}}>
-          <VCLIcon/>
+          <div className="logo-container">
+            <img src={VCLIcon} alt="VCL logo" />
+            <p>{TEXT.COMMON.TITLE}</p>
           </div>
-          <Typography className="nav-title">{TEXT.COMMON.TITLE}</Typography>
-          <span className="nav-rendered-links">{renderedLinks}</span>
-          <IconButton onClick={handleSearchBtnClick}>
-            <SearchIcon/>
-          </IconButton>
-          <div style={{paddingLeft: '5px'}}>
-          <IconButton onClick={handleMenuClick}>
-            <AccountCircleIcon/>
-          </IconButton>
+          <div className="nav-right">           
+            <span className="nav-rendered-links">{renderedLinks}</span>
+            <div className="nav-icon-container">
+              <IconButton onClick={handleSearchBtnClick}>
+                <SearchIcon/>
+              </IconButton>
+              <IconButton onClick={handleMenuClick}>
+                <AccountCircleIcon/>
+              </IconButton>
+            </div>
           </div>
           <Menu
             id="basic-menu"

@@ -55,14 +55,12 @@ const MobileNavbar = () => {
     return (
         <div className="container">
         <AppBar position="fixed" className="mobile-header">
-            <div style={{marginLeft: '25px'}}>
             <div>
-            <VCLIcon/>
-            </div>
+              <VCLIcon/>
             <div className="title">{TEXT.COMMON.TITLE}</div>
             </div>
             <div className="row">
-                <div style={{marginLeft: "35%"}}>
+                <div>
                 <IconButton onClick={handleSearchButtonClick}>
                     <SearchIcon/>
                 </IconButton>

@@ -73,6 +73,77 @@
 	}
 }
 
+.logo-container {
+	margin: 4px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.logo-container p {
+	font-size: 15px;
+}
+
+.nav-right {
+	margin-left: auto;
+	display: flex;
+	gap: 2vw;
+	align-items: center;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: black;
+}
+
+.nav-link.active {
+	color: #4C6199;
+}
+
+.nav-rendered-links {
+	display: flex;
+	gap: 2vw;
+	align-items: center;
+}
+
+.nav-icon-container {
+	display: flex;
+	gap: 4px;
+}
+
+@media only screen and (max-width: 1023px) {
+	/* .nav-right {
+		gap: 4px;
+	} */
+	.logo-container {
+		flex-direction: column;
+		gap: 4px;
+	}
+	.logo-container p {
+		font-size: 14px;
+		line-height: 1.2em;
+		letter-spacing: 1px;
+	}
+}
+
+@media only screen and (max-width: 880px) {
+	.logo-container p {
+		font-size: 12px;
+		width: 120px;
+	}
+
+	.nav-rendered-links > * {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 700px) {
+	.css-hyum1k-MuiToolbar-root {
+		padding-top: 4px !important;
+		padding-bottom: 4px !important;
+	}
+}
+
 .nav-appbar {
 	margin-bottom: 10px;
 }
@@ -88,24 +159,6 @@
 	font-size: 15px;
 	line-height: 22.5px;
 	text-transform: uppercase;
-}
-
-.nav-toolbar .nav-title {
-	font-size: 20px;
-}
-
-.nav-link {
-	text-decoration: none;
-	color: black;
-	padding: 0 2vw;
-}
-
-.nav-link.active {
-	color: #4C6199;
-}
-
-.nav-rendered-links {
-	margin-left: auto;
 }
 
 .login-icon {

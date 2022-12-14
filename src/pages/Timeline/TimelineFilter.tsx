@@ -9,10 +9,10 @@ import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 
 const TimelineFilterContainer = () => {
 
-  const [projectSelected, setProjectSelected] = React.useState<string[]>([]);
-  const [categorySelected, setCategorySelected] = React.useState<string[]>([]);
-  const [dateSelected, setDateSelected] = React.useState('');
-  const [authorSelected, setAuthorSelected] = React.useState<string[]>([]);
+  const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
+  const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
+  const [dateSelected, setDateSelected] = React.useState('Last Month');
+  const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
 
   return (
     <div className='timeline-filter' style={{display: 'inline'}}>

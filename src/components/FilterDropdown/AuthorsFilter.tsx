@@ -57,8 +57,21 @@ const AuthorsFilter = ({authorSelected, setAuthorSelected}: {
                 value={authorSelected}
                 onChange={handleChange}
                 MenuProps={MenuProps}
+                renderValue={(selected) => {
+                  if (selected.length !== 1 && selected.indexOf('All') !== -1) {
+                    return selected.filter(function(e: any) { 
+                      return e !== 'All' 
+                    }).join(', ');
+                  }
+      
+                  return selected.join(', ');
+                }}
                 sx={{ width: 120 }}
                 >
+
+                <MenuItem disabled value="">
+                  <em>None</em>
+                </MenuItem>
                 {list.options.map((name) => (
                     <MenuItem
                     key={name}

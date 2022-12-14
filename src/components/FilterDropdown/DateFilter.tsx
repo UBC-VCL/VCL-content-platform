@@ -41,8 +41,15 @@ const DateFilter = ({dateSelected, setDateSelected}: {
                     onChange={handleChange}
                     label="Date"
                     MenuProps={MenuProps}
+                    renderValue={(selected) => {
+                      return selected;
+                    }}
                     sx={{ width: 120 }}
-                >
+                    >
+    
+                    <MenuItem disabled value="">
+                      <em>None</em>
+                    </MenuItem>
                 {list.options.map((name) => (
                     <MenuItem
                         key={name}

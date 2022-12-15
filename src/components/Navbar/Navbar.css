@@ -112,9 +112,6 @@
 }
 
 @media only screen and (max-width: 1023px) {
-	/* .nav-right {
-		gap: 4px;
-	} */
 	.logo-container {
 		flex-direction: column;
 		gap: 4px;
@@ -130,6 +127,7 @@
 	.logo-container p {
 		font-size: 12px;
 		width: 120px;
+		text-align: center;
 	}
 
 	.nav-rendered-links > * {

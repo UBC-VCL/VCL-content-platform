@@ -79,13 +79,24 @@
     margin-right: 8px;
 }
 
-.project-individual-content {
+.project-subcontent-container {
     text-align: left;
-    padding: 60px 120px;
+}
+
+.description-container,
+.qa-container,
+.gallery-container,
+.project-team,
+.project-subcontent-container {
+    padding: 60px 160px;
 }
 
 @media only screen and (max-width: 700px) {
-    .project-individual-content {
-        padding-top: 100px;
+    .description-container,
+    .qa-container,
+    .gallery-container,
+    .project-team,
+    .project-subcontent-container {
+        padding: 100px 100px;
     }
 }

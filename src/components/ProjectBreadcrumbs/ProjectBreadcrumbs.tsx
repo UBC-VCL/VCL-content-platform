@@ -11,7 +11,7 @@ interface ProjectBreadcrumbsParam {
 
 const ProjectBreadcrumbs: React.FC<ProjectBreadcrumbsParam> = (props) => {
     return (
-        <Breadcrumbs separator=">">
+        <Breadcrumbs separator=">" style={{marginLeft: '-10px'}}>
             <Link href={ROUTES.PROJECT.BASE} underline="none"> All Projects </Link>
             <Link href={ROUTES.PROJECT.BASE + '/' + props.project_name} underline="none"> {props.project_name} </Link>
             <Typography> {props.page_name} </Typography>

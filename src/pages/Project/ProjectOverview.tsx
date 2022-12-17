@@ -1,5 +1,6 @@
 import React from 'react'
 import "./ProjectOverview.css";
+import "./Project.css";
 import ProjectOverviewCard from "@components/ProjectOverviewCard/ProjectOverviewCard";
 import { CONSTANTS } from '@statics';
 

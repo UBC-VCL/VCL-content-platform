@@ -15,7 +15,7 @@ interface ProjectProps {
 
 const ImageTransitions: React.FC<ProjectProps> = (props) => {
     return (
-        <div className='project-individual-content'>
+        <div className='project-subcontent-container'>
             <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_DESCRIPTION} /> 
             <br />
             <h1>{props.project.name}</h1>

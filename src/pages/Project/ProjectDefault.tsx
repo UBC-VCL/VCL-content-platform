@@ -6,6 +6,7 @@ import { callGetProjectByNameAPI, ProjectResponse } from '@services/adapters/pro
 import { useLocation } from 'react-router-dom';
 import TitleCard from '@components/TitleCard/TitleCard';
 import './ProjectDefault.css'
+import "./Project.css";
 import COLORS from '@statics/colors';
 import VerticalSpacer from '@components/VerticalSpacer/VerticalSpacer';
 

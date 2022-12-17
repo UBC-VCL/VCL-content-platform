@@ -3,8 +3,10 @@ body {
 }
 
 .content-container {
-    width: 100%;
+    display: inline-block;
+    text-align: center;
     justify-content: center;
+    width: 100%;
 }
 
 .project-team {

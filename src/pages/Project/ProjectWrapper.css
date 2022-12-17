@@ -1,5 +1,6 @@
 .project-page {
     text-align: initial;
+    margin-top: 65px;
 }
 
 .sidebar {
@@ -16,10 +17,4 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-}
-
-.content-container {
-    display: inline-block;
-    text-align: center;
-    margin-left: 20px;
 }

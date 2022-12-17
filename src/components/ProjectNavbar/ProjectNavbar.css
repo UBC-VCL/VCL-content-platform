@@ -1,0 +1,19 @@
+.menu-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    top: 105px;
+    left: 25px;
+
+    height: 70px;
+    width: 70px;
+
+    border-radius: 1px;
+}
+
+@media only screen and (max-width: 700px) {
+    .menu-icon {
+        top: 145px;
+    }
+}

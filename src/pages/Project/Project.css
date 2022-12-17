@@ -86,7 +86,7 @@
 .description-container,
 .qa-container,
 .gallery-container,
-.project-team,
+/* .project-team, */
 .project-subcontent-container {
     padding: 60px 160px;
 }
@@ -95,7 +95,7 @@
     .description-container,
     .qa-container,
     .gallery-container,
-    .project-team,
+    /* .project-team, */
     .project-subcontent-container {
         padding: 100px 100px;
     }

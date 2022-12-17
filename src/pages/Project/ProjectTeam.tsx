@@ -13,6 +13,7 @@ interface ProjectProps {
 
 const ProjectTeam: React.FC<ProjectProps> = (props) => {
     return (
+        <div className='project-subcontent-container'>
         <div className="project-team">
             <div>
                 <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.TEAM_AND_ALUMNI} /> 
@@ -44,6 +45,7 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
             linkedIn='linkedin.com'
             isCurrentMember={false}
         />
+        </div>
         </div>
         </div>
     )

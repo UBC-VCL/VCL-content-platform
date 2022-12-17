@@ -28,6 +28,7 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                 variant="outlined"
                 defaultValue="Search by keyword"
                 sx={{ input: { color: 'rgba(47, 47, 47, 0.8)' }}}
+                onFocus={(e) => e.target.value = ""}
                 InputProps={{
                   startAdornment: (
                     <Box

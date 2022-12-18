@@ -10,22 +10,6 @@
     background-color: var(--fc-navyblue);
 }
 
-.header {
-    position: relative;
-    top: 3.68%;
-    padding-top: 30px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 33px;
-    line-height: 48px;
-    font-weight: 700;
-    max-width: 100%;
-}
-
-.sub-header {
-    color: #535353;
-    margin-top: 8px;
-}
-
 .inputRounded .MuiOutlinedInput-root{
     border-radius: 10px;
     background-color: var(--fc-white);

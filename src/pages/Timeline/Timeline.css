@@ -5,10 +5,21 @@
     /* background-color: rgb(245, 245, 245); */
 }
 
-.inputRounded .MuiOutlinedInput-root{
-    border-radius: 10px;
-    background-color: var(--fc-white);
- }
+.Timeline-header {
+    position: relative;
+    top: 3.68%;
+    padding-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 35px;
+    line-height: 48px;
+    font-weight: 700;
+    max-width: 100%;
+}
+
+.Timeline-sub-header {
+    color: #535353;
+    margin-top: 8px;
+}
 
  .searchBarBadge {
     display: flex;
@@ -20,26 +31,11 @@
     background-color: var(--fc-navyblue);
  }
 
- .searchBarRounded {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 800px;
-    background-color: var(--fc-navyblue);
- }
-
  .main-body-filter {
     display: flex;
     align-items: center;
     justify-content: center;
  }
-
-@media only screen and (max-width: 800px) {
-    .searchBarRounded {
-       width: calc(100% - 100px);
-    }
-}
 
 .timeline-main-body {
     text-align: left;

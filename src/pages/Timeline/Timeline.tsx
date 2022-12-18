@@ -2,7 +2,6 @@ import React from "react";
 import './Timeline.css';
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
-
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
 
 // dummy data
@@ -75,19 +74,16 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   
   return (
     <div className="Timeline">
-      <div className="header">
+      <div className="Timeline-header">
         <h1>
           TIMELINE
         </h1>
       </div>
-      <div className='sub-header'>
+      <div className='Timeline-sub-header'>
         <p>Browse project history and detailed updates</p>
       </div>
-
-      <TimelineSearchbar />
-      
+      <TimelineSearchbar /> 
       <TimelineFilter />
-
       <div className="timeline-main-body">
         <div className="timeline-container">
           <ul>

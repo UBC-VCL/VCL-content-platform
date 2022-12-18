@@ -14,7 +14,7 @@
 }
 
 #title {
-    font-weight: 700px;
+    font-weight: 700;
     color: #000000;
     font-size: 54px;
     font-style: normal;
@@ -75,7 +75,7 @@ a:hover {
     flex: 1;
 }
 
-@media (max-width:1025px){
+@media (max-width:1023px){
     #landing-page-container {
         display: flex;
         flex-direction: column;
@@ -90,6 +90,7 @@ a:hover {
 
     #title {
         text-align: center;
+        font-size: 40px;
     }
 
     .btn-ubc-home {
@@ -107,9 +108,5 @@ a:hover {
         justify-content: center;
         overflow: hidden;
         height: 150px;
-    }
-
-    #title {
-        font-size: 40px;
     }
 }

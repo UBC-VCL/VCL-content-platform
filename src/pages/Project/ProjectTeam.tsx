@@ -3,7 +3,6 @@ import { Project } from '@entities/Project'
 import ProjectBreadcrumbs from '@components/ProjectBreadcrumbs'
 import { Person } from '../../components/ProjectPeople/ProjectPeople';
 import { TEXT } from '@statics'
-import AddIcon from '@mui/icons-material/Add';
 import "./ProjectTeam.css";
 import "./Project.css";
 
@@ -19,12 +18,6 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
             </div>
             <div className="team-header">Team Members</div>
             <hr/>
-            <div className='button_container'>
-                <button className='btn btn--add-member'>
-                    <AddIcon className="icon icon--plus" />
-                    <h3 className='btn__title'>add member</h3>
-                </button>
-            </div>
             <div>
             <Person 
                 name="Kevin Peng"

@@ -1,6 +1,4 @@
 import React from "react"
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -29,18 +27,10 @@ export const Person: React.FC<PersonDetails> = (props) => {
                             return (
                                 <>
                                 <span id="alumni-tag">Alumni</span>
-                                <h3 className="icon icon--spacer">|</h3>
                                 </>
                             )
                         }
                 })()}
-                <EditIcon
-                    className="icon"
-                    onClick={props.edit} />
-                <h3 className="icon icon--spacer">|</h3>
-                <DeleteIcon
-                    className="icon"
-                    onClick={props.delete} />
             </div>
         </div><h2 className="card__subtitle card__subtitle--involvement">{props.involvement}</h2><p className="card__text">{props.description}</p><div className="card__contact">
                 <div id="contact-container">

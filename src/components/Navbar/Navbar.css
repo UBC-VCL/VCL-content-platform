@@ -91,6 +91,15 @@
 	align-items: center;
 }
 
+.link-style {
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	border: 0;
+	background: none;
+	text-transform: uppercase;
+}
+
 .nav-link {
 	text-decoration: none;
 	color: black;

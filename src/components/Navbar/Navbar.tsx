@@ -64,12 +64,6 @@ const Navbar: React.FC<{}> = () => {
   // change text color of button to blue when clicked
   const handleProjectMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setProjectAnchorEl(event.currentTarget);
-    let target = event.target as HTMLElement;
-    if (target.style.color !== '#4C6199') {
-      target.style.color = '#4C6199';
-    } else {
-      target.style.color = 'black';
-    }
   };
 
   const handleProjectMenuClose = () => {
@@ -83,33 +77,18 @@ const Navbar: React.FC<{}> = () => {
 //projects = useAppSelector(selectProjects)
  
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
-    const active = REF === location.pathname ? 'active' : '';
-    const projectsButtonStyle: React.CSSProperties = {
-      color: 'black',
-	    fontFamily: 'Poppins',
-	    fontStyle: 'normal',
-	    fontWeight: '600',
-	    fontSize: '15px',
-	    lineHeight: '22.5px',
-      textDecoration: 'none',
-      textTransform: 'uppercase',
-      paddingBottom: '7px',
-      letterSpacing: '-0.4px'
-    };
+    let active = REF === location.pathname ? 'active' : '';
+    if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
+      active = location.pathname.includes(REF) ? 'active' : '';
+    }
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
         return (
               <React.Fragment key={REF}>
-                <Button
-                    id='basic-button'
-                    onClick={handleProjectMenuClick}
-                    aria-controls={projectOpen ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={projectOpen ? 'true' : undefined}
-                    style={projectsButtonStyle}
-                >
-                    {TEXT.PAGE_TITLES.PROJECTS} 
-                </Button>
+                <button className={`nav-link link-style ${active}`}
+                id='basic-button'
+                onClick={handleProjectMenuClick}
+                >{TEXT.PAGE_TITLES.PROJECTS}</button>
                 <Menu
                     id="basic-menu" 
                     anchorEl={projectAnchorEl}
@@ -124,13 +103,14 @@ const Navbar: React.FC<{}> = () => {
                                 <hr className="all-projects-underline" />
                     </MenuItem>
                     {
-                        CONSTANTS.PROJECTS.map((project, i) => {
+                        CONSTANTS.PROJECTS.map((project, i) => { 
+                          console.log(location.pathname.split('/')[2], project.name)
                             return (
                                 <MenuItem 
                                 key={i}
                                 onClick={handleProjectMenuClose}>
                                     <GenericLink
-                                        className="project-name"
+                                        className={`nav-link project-name ${location.pathname.split('/')[2] === project.name ? 'active' : ''}`}
                                         name={project.name}
                                         to={`${ROUTES.PROJECT.BASE}/${project.name}`}
                                     />

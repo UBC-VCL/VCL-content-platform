@@ -7,24 +7,33 @@ import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 
+const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
+const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
+const dummyDataForDate = ['Last day', 'Last month', 'Last year'];
+const dummyDataForAuthor = ['One', 'two', 'three'];
+
 const TimelineFilterContainer = () => {
 
-  const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
-  const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
-  const [dateSelected, setDateSelected] = React.useState('Last Month');
-  const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
+  // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
+  // const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
+  // const [dateSelected, setDateSelected] = React.useState('Last Month');
+  // const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
+  const [projectSelected, setProjectSelected] = React.useState<string[]>(dummyDataForProject);
+  const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
+  const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
+  const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
 
   return (
     <div className='timeline-filter' style={{display: 'inline'}}>
         <div style={{display: 'inline-block'}}>
           <div className='filter-dropdown'>
-            <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected}/>
+            <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject}/>
             <span className='filter-divider'></span> 
-            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected}/>
+            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory}/>
             <span className='filter-divider'></span> 
-            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected}/>
+            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate}/>
             <span className='filter-divider'></span>  
-            <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected}/>
+            <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor}/>
           </div>
         </div>
 

@@ -13,15 +13,16 @@ const MenuProps = {
   },
 };
 
-const list = {
-    'name': 'Date', 
-    'options': ['Last day', 'Last month', 'Last year'],
-};
-
-const DateFilter = ({dateSelected, setDateSelected}: {
+const DateFilter = ({dateSelected, setDateSelected, dummyData}: {
     dateSelected: string,
-    setDateSelected: React.Dispatch<React.SetStateAction<string>>
+    setDateSelected: React.Dispatch<React.SetStateAction<string>>,
+    dummyData: string[],
 }) => {
+
+    const list = {
+        'name': 'Date', 
+        'options': dummyData,
+    };
     const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
         setDateSelected(event.target.value);
     };
@@ -42,14 +43,10 @@ const DateFilter = ({dateSelected, setDateSelected}: {
                     label="Date"
                     MenuProps={MenuProps}
                     renderValue={(selected) => {
-                      return selected;
+                        return selected;
                     }}
                     sx={{ width: 120 }}
-                    >
-    
-                    <MenuItem disabled value="">
-                      <em>None</em>
-                    </MenuItem>
+                >
                 {list.options.map((name) => (
                     <MenuItem
                         key={name}

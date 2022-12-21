@@ -1,5 +1,4 @@
 import React from "react";
-import { Theme, useTheme } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -14,25 +13,15 @@ const MenuProps = {
   },
 };
 
-const list = {
-    'name': 'Author', 
-    'options': ['Author One', 'Author two', 'Author three'],
-};
-
-function getStyles(name: string, nameArray: string[], theme: Theme) {
-  return {
-    fontWeight:
-    nameArray.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
-const AuthorsFilter = ({authorSelected, setAuthorSelected}: {
+const AuthorsFilter = ({authorSelected, setAuthorSelected, dummyData}: {
     authorSelected: string[],
-    setAuthorSelected: React.Dispatch<React.SetStateAction<string[]>>
+    setAuthorSelected: React.Dispatch<React.SetStateAction<string[]>>,
+    dummyData: string[],
 }) => {
-        const theme = useTheme();
+        const list = {
+          'name': 'Author', 
+          'options': dummyData,
+        };
         const handleChange = (event: SelectChangeEvent<typeof authorSelected>) => {
           const {
             target: { value },
@@ -58,25 +47,17 @@ const AuthorsFilter = ({authorSelected, setAuthorSelected}: {
                 onChange={handleChange}
                 MenuProps={MenuProps}
                 renderValue={(selected) => {
-                  if (selected.length !== 1 && selected.indexOf('All') !== -1) {
-                    return selected.filter(function(e: any) { 
-                      return e !== 'All' 
-                    }).join(', ');
-                  }
-      
-                  return selected.join(', ');
-                }}
-                sx={{ width: 120 }}
+                  if (selected.length === dummyData.length) {
+                      return 'All';
+                    }
+                    return selected.join(', ');
+                  }}
+                  sx={{ width: 120 }}
                 >
-
-                <MenuItem disabled value="">
-                  <em>None</em>
-                </MenuItem>
                 {list.options.map((name) => (
                     <MenuItem
-                    key={name}
-                    value={name}
-                    style={getStyles(name, authorSelected, theme)}
+                      key={name}
+                      value={name}
                     >
                     {name}
                     </MenuItem>

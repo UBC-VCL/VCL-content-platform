@@ -39,12 +39,8 @@
 
 .timeline-main-body {
     text-align: left;
-    width: min(80%, 1000px);
-    margin: 5px auto;
-}
-
-.timeline-container {
-    margin: 40px 40px;
+    width: min(90%, 1065px);
+    margin: 0 auto;
 }
 
 .timeline-container ul {
@@ -55,7 +51,7 @@
 }
 
 .timeline-container ul li {
-    margin: 40px 30px;
+    margin: 40px 0px 40px 32px;
     position: relative;
 }
 
@@ -72,6 +68,7 @@
 .timeline-container-span-correlation:before{
     border: 2px solid #6776fe;
     background-color: #6776fe;
+    /* margin-left: 32px; */
 }
 
 .timeline-container-span-nova:before{

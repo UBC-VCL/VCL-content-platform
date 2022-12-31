@@ -73,13 +73,13 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   })
   
   return (
-    <div className="Timeline">
-      <div className="Timeline-header">
+    <div className="timeline">
+      <div className="timeline-header">
         <h1>
           TIMELINE
         </h1>
       </div>
-      <div className='Timeline-sub-header'>
+      <div className='timeline-sub-header'>
         <p>Browse project history and detailed updates</p>
       </div>
       <TimelineSearchbar /> 

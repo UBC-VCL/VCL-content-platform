@@ -1,11 +1,11 @@
 @import '../../index.css';
 
-.Timeline {
+.timeline {
     top: -35px;
     /* background-color: rgb(245, 245, 245); */
 }
 
-.Timeline-header {
+.timeline-header {
     position: relative;
     top: 3.68%;
     padding-top: 30px;
@@ -16,7 +16,7 @@
     max-width: 100%;
 }
 
-.Timeline-sub-header {
+.timeline-sub-header {
     color: #535353;
     margin-top: 8px;
 }

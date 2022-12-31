@@ -3,4 +3,5 @@ export interface Project {
     description: string,
     members: string[],
     isActive: boolean,
+    _id: string,
 }

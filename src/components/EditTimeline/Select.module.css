@@ -1,0 +1,57 @@
+.selectContainer {
+    text-align: start;
+}
+
+.optionsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 8px;
+}
+
+.label {
+    width: 100%;
+    display: inline-block;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    color: #777;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.optionsContainer label {
+    display: inline-block;
+}
+
+.itemButton {
+    user-select: none;
+    padding: 3px 7px;
+    border-radius: 2px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.itemButton:focus {
+    outline-color: black;
+}
+
+.activeButton {
+    background-color: #1E5487;
+    color: white;
+    border-color: #1E5487;
+}
+
+.inactiveButton {
+    background-color: white;
+    color: #333;
+    border-color: #ddd;
+}

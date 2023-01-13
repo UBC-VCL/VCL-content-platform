@@ -14,9 +14,7 @@ const About: React.FC<AboutProps> = props => {
 		<div className="About">
 			<div className="header">
 				<h1>ABOUT</h1>
-			</div>
-			<div className='sub-header'>
-				<p>Browse research details and team resources here</p>
+				<p className='sub-header'>Browse research details and team resources here</p>
 			</div>
 			<div className="main-body">
 				<section>

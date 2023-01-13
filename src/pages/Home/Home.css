@@ -26,13 +26,16 @@
 }
 
 .mission-statement-title {
-    text-align: center;
-    font-weight: 700;
-    font-size: 2em;
-    letter-spacing: 0.025em;
     position: relative;
     margin: 32px 0;
     padding: 16px 0;
+}
+
+.mission-statement-title p {
+    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.025em;
 }
 
 .mission-statement-text p + p {
@@ -82,8 +85,8 @@
         margin: 48px auto;
     }
 
-    .mission-statement-title {
-        font-size: 1.5rem;
+    .mission-statement-title p {
+        font-size: 24px;
     }
 
     .mission-img-container {

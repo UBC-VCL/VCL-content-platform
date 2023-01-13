@@ -18,7 +18,7 @@ import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
-import {ReactComponent as VCLIcon} from '@statics/images/vcl-icon.svg';
+import VCLIcon from '@statics/images/vcl-icon.svg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MobileMenu from '@components/MobileNavbar';
 
@@ -64,12 +64,6 @@ const Navbar: React.FC<{}> = () => {
   // change text color of button to blue when clicked
   const handleProjectMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setProjectAnchorEl(event.currentTarget);
-    let target = event.target as HTMLElement;
-    if (target.style.color !== '#4C6199') {
-      target.style.color = '#4C6199';
-    } else {
-      target.style.color = 'black';
-    }
   };
 
   const handleProjectMenuClose = () => {
@@ -83,33 +77,18 @@ const Navbar: React.FC<{}> = () => {
 //projects = useAppSelector(selectProjects)
  
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
-    const active = REF === location.pathname ? 'active' : '';
-    const projectsButtonStyle: React.CSSProperties = {
-      color: 'black',
-	    fontFamily: 'Poppins',
-	    fontStyle: 'normal',
-	    fontWeight: '600',
-	    fontSize: '15px',
-	    lineHeight: '22.5px',
-      textDecoration: 'none',
-      textTransform: 'uppercase',
-      paddingBottom: '7px',
-      letterSpacing: '-0.4px'
-    };
+    let active = REF === location.pathname ? 'active' : '';
+    if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
+      active = location.pathname.includes(REF) ? 'active' : '';
+    }
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
         return (
               <React.Fragment key={REF}>
-                <Button
-                    id='basic-button'
-                    onClick={handleProjectMenuClick}
-                    aria-controls={projectOpen ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={projectOpen ? 'true' : undefined}
-                    style={projectsButtonStyle}
-                >
-                    {TEXT.PAGE_TITLES.PROJECTS} 
-                </Button>
+                <button className={`nav-link link-style ${active}`}
+                id='basic-button'
+                onClick={handleProjectMenuClick}
+                >{TEXT.PAGE_TITLES.PROJECTS}</button>
                 <Menu
                     id="basic-menu" 
                     anchorEl={projectAnchorEl}
@@ -124,13 +103,14 @@ const Navbar: React.FC<{}> = () => {
                                 <hr className="all-projects-underline" />
                     </MenuItem>
                     {
-                        CONSTANTS.PROJECTS.map((project, i) => {
+                        CONSTANTS.PROJECTS.map((project, i) => { 
+                          console.log(location.pathname.split('/')[2], project.name)
                             return (
                                 <MenuItem 
                                 key={i}
                                 onClick={handleProjectMenuClose}>
                                     <GenericLink
-                                        className="project-name"
+                                        className={`nav-link project-name ${location.pathname.split('/')[2] === project.name ? 'active' : ''}`}
                                         name={project.name}
                                         to={`${ROUTES.PROJECT.BASE}/${project.name}`}
                                     />
@@ -158,18 +138,20 @@ const Navbar: React.FC<{}> = () => {
       <div className="navbar-menu">
         <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
-         <div style={{marginRight: '10px', position: 'relative'}}>
-          <VCLIcon/>
+          <div className="logo-container">
+            <img src={VCLIcon} alt="VCL logo" />
+            <p>{TEXT.COMMON.TITLE}</p>
           </div>
-          <Typography className="nav-title">{TEXT.COMMON.TITLE}</Typography>
-          <span className="nav-rendered-links">{renderedLinks}</span>
-          <IconButton onClick={handleSearchBtnClick}>
-            <SearchIcon/>
-          </IconButton>
-          <div style={{paddingLeft: '5px'}}>
-          <IconButton onClick={handleMenuClick}>
-            <AccountCircleIcon/>
-          </IconButton>
+          <div className="nav-right">           
+            <span className="nav-rendered-links">{renderedLinks}</span>
+            <div className="nav-icon-container">
+              <IconButton onClick={handleSearchBtnClick}>
+                <SearchIcon/>
+              </IconButton>
+              <IconButton onClick={handleMenuClick}>
+                <AccountCircleIcon/>
+              </IconButton>
+            </div>
           </div>
           <Menu
             id="basic-menu"

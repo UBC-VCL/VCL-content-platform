@@ -5,18 +5,17 @@ body {
 }
 
 .content-container {
-    width: 100%;
+    display: inline-block;
+    text-align: center;
     justify-content: center;
+    width: 100%;
 }
 
 .project-team {
-    max-width: 100%;
-    width: 85%;
     display: flex;
-    padding: 1em;
     position: relative;
     flex-direction: column;
-    margin: 0%;
+    width: 100%;
 }
 
 .team-header {

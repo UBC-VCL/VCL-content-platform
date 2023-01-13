@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './ProjectNavbar.css';
 import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -22,6 +23,7 @@ import Nova from '@pages/Project/Nova/nova';
 import Correlation from '@pages/Project/Correlation/correlation';
 import ImageTransitions from '@pages/Project/ImageTransitions/imageTransitions';
 import Ideo from '@pages/Project/Ideo/ideo';
+import { width } from '@mui/system';
 
 const drawerWidth = 280;
 
@@ -29,7 +31,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open?: boolean;
 }>(({ theme, open }) => ({
     flexGrow: 1,
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -70,17 +72,17 @@ export default function Sidebar(props: any) {
     return (
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
-            <Toolbar>
+            <div className='menu-icon'>
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="start"
-                    sx={{mr: 2, ...(open && {display: 'none'})}}
+                    sx={{...(open && {display: 'none'})}}
                 >
-                    <MenuIcon/>
+                    <MenuIcon sx={{width: "58px", height: "38px"}}/>
                 </IconButton>
-            </Toolbar>
+            </div>
 
             <Drawer
                 sx={{

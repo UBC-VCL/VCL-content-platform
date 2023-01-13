@@ -6,6 +6,7 @@ import { callGetProjectByNameAPI, ProjectResponse } from '@services/adapters/pro
 import { useLocation } from 'react-router-dom';
 import TitleCard from '@components/TitleCard/TitleCard';
 import './ProjectDefault.css'
+import "./Project.css";
 import COLORS from '@statics/colors';
 import VerticalSpacer from '@components/VerticalSpacer/VerticalSpacer';
 
@@ -63,7 +64,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
             </div>
 
             {/* todo gallery component */}
-            <div className='gallery'>
+            <div className='gallery-container'>
                 <p style={{ "color": COLORS.white }}>todo gallery</p>
             </div>
 
@@ -76,22 +77,22 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                     textColor='mediumBlue'
                     color='lightBlue'
                 />
+
+                {/* currently hardcoded qa, todo fetch from backend (need to update project model to achieve this) */}
+                <p style={{ "color": COLORS.darkBlue }} className='text'><i>To rigorously compare visualizations we need measures for how well they enable a viewer to understand the structure of the underlying data – which is why we measure the accuracy and perception with which viewers perceive correlation.</i></p>
+    
+                <VerticalSpacer height={20} />
+    
+                <h3 style={{ "color": COLORS.darkBlue }}>What methods are used to derive the measures?</h3>
+                <p style={{ "color": COLORS.darkBlue }}>We use two classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision, and a magnitude estimation task to measure accuracy. Performance in both respects is regular and well described by Weber and Fechner laws –  a linear relationship for discrimination and a logarithmic curve for estimation – regardless of which visual variables are chosen to represent the data.</p>
+    
+    
+                <VerticalSpacer height={20} />
+    
+                <h3 style={{ "color": COLORS.darkBlue }}>What are we currently studying?</h3>
+                <p style={{ "color": COLORS.darkBlue }}>Our working theory for these results is based on participants using the information entropy of the visualization to make their judgements. Currently we’re studying how different gamma levels impact the perception of correlation in black and white luminance strip plots, and evaluating the effects of mixed populations in scatter plots.</p>
+    
             </div>
-
-            {/* currently hardcoded qa, todo fetch from backend (need to update project model to achieve this) */}
-            <p style={{ "color": COLORS.darkBlue }} className='text'><i>To rigorously compare visualizations we need measures for how well they enable a viewer to understand the structure of the underlying data – which is why we measure the accuracy and perception with which viewers perceive correlation.</i></p>
-
-            <VerticalSpacer height={20} />
-
-            <h3 style={{ "color": COLORS.darkBlue }}>What methods are used to derive the measures?</h3>
-            <p style={{ "color": COLORS.darkBlue }}>We use two classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision, and a magnitude estimation task to measure accuracy. Performance in both respects is regular and well described by Weber and Fechner laws –  a linear relationship for discrimination and a logarithmic curve for estimation – regardless of which visual variables are chosen to represent the data.</p>
-
-
-            <VerticalSpacer height={20} />
-
-            <h3 style={{ "color": COLORS.darkBlue }}>What are we currently studying?</h3>
-            <p style={{ "color": COLORS.darkBlue }}>Our working theory for these results is based on participants using the information entropy of the visualization to make their judgements. Currently we’re studying how different gamma levels impact the perception of correlation in black and white luminance strip plots, and evaluating the effects of mixed populations in scatter plots.</p>
-
 
         </div>
     )

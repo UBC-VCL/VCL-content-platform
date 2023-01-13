@@ -1,9 +1,44 @@
-.text {
+@import '../../index.css';
+
+.timeline-commit-block {
     text-align: left;
+
+    background-color: var(--fc-white);
+    box-shadow: 4px 6px 13px -1px rgba(162, 162, 162, 0.25);
+    border-radius: 5px;
 }
 
-.tag {
+.timeline-commit-date {
+    color: rgb(152, 152, 152);
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.expandedTimeline, .closedTimeline {
+    padding: 12px 14px 16px 14px;
+    box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
+    border-radius: 8px;
+}
+
+.timeline-commit-tag-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+.timeline-commit-tag {
+    color: rgba(28,66,109,255);
+    background-color: rgba(213,218,225,255);
+    padding: 5px 17px;
+
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.shortDescription {
+    color: rgb(79, 79, 79);
+    margin-top: 12px;
 }

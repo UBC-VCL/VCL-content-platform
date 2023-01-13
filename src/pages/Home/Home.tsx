@@ -4,6 +4,7 @@ import LandingPage from "@components/LandingPage";
 import "./Home.css"
 import { TEXT } from '@statics';
 import MissionStatement from "@components/MissionStatement";
+import ProjectGallery from "@components/ProjectGallery";
 
 interface HomeProps {}
 
@@ -34,6 +35,11 @@ const Home: React.FC<HomeProps> = (props) => {
         <div className="mission-img-placeholder-two"></div>
       </div>
       <MissionStatement />
+      <div className="mission-statement-footer">
+        <hr className="footer-divider"/>
+        <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.LAB_GOALS}</p>
+      </div>
+      <ProjectGallery title={"Gallery"} desc={"Gallery description"} />
     </div>
   );
 };

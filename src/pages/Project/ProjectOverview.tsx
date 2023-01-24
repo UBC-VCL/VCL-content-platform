@@ -1,5 +1,6 @@
 import React from 'react'
 import "./ProjectOverview.css";
+import "./Project.css";
 import ProjectOverviewCard from "@components/ProjectOverviewCard/ProjectOverviewCard";
 import { CONSTANTS } from '@statics';
 
@@ -14,7 +15,7 @@ const ProjectOverview = () => {
                 <hr/>
             </div >
             <div className='button-container'>
-            {CONSTANTS.PROJECTS.map((project) => <ProjectOverviewCard project={project} ></ProjectOverviewCard>)}
+                {CONSTANTS.PROJECTS.map((project) => <ProjectOverviewCard project={project} ></ProjectOverviewCard>)}
             </div>
         </div>
     )

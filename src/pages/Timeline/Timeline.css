@@ -1,0 +1,106 @@
+@import '../../index.css';
+
+.timeline {
+    top: -35px;
+    /* background-color: rgb(245, 245, 245); */
+}
+
+.timeline-header {
+    position: relative;
+    top: 3.68%;
+    padding-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 35px;
+    line-height: 48px;
+    font-weight: 700;
+    max-width: 100%;
+}
+
+.timeline-sub-header {
+    color: #535353;
+    margin-top: 27px;
+}
+
+ .searchBarBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 120px;
+    margin: 40px 0 40px 0;
+    background-color: var(--fc-navyblue);
+ }
+
+ .main-body-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+.timeline-main-body {
+    text-align: left;
+    width: min(90%, 1065px);
+    margin: 0 auto;
+}
+
+.timeline-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-container ul li {
+    margin: 40px 0px 40px 32px;
+    position: relative;
+}
+
+.timeline-container ul li span {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 0px;
+    height: 100%;
+    border: 1px dashed rgb(218, 218, 218);
+}
+
+.timeline-container-span-correlation:before{
+    border: 2px solid #6776fe;
+    background-color: #6776fe;
+    /* margin-left: 32px; */
+}
+
+.timeline-container-span-nova:before{
+    border: 2px solid #fece25;
+    background-color: #fece25;
+}
+
+.timeline-container-span-ideo:before{
+    border: 2px solid #f66364;
+    background-color: #f66364;
+}
+
+.timeline-container-span-others:before {
+    border: 2px solid #848484;
+    background-color: #848484;
+}
+
+.timeline-container ul li span:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.timeline-container ul li span:before{
+    top: -2px;
+    left: -12px;
+}
+
+@media (max-width: 1023px) {
+    .timeline-main-body {
+        width: 90%;
+    }
+}

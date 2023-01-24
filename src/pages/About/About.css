@@ -26,25 +26,25 @@ section {
     margin: 2em 0;
 }
 
-.header {
+.About .header {
     position: relative;
     top: 3.68%;
     padding-top: 30px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 35px;
-    line-height: 48px;
-    font-weight: 700;
     max-width: 100%;
 }
 
-.sub-header {
+.About .header * {
+    text-align: center;
+}
+
+.About .sub-header {
     color: #535353;
     margin-top: 8px;
 }
 
-h1 {
+.header h1 {
     font-weight: 700;
-    font-family: 'Open Sans';
     font-size: 35px;
     max-width: 100%;
 }
@@ -171,6 +171,9 @@ h3 {
     }
     .contact {
         width: 90%;
+    }
+    .About .sub-header {
+        font-size: 14px;
     }
 }
 

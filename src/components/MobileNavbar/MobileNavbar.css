@@ -8,7 +8,7 @@
 .mobile-header {
     position: fixed;
     height: 132px;
-    padding-top: 15px;
+    padding: 16px;
 	  margin-bottom: 30px;
     background-color: #F8F8F8 !important;
 }
@@ -27,7 +27,7 @@
 .row {
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
+  margin-top: 16px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -36,23 +36,15 @@
 	}
 }
 
-.account-icon-wrapper {
-  margin-right: 28%; 
-}
-
-@media only screen and (max-width: 500px) {
-	.account-icon-wrapper {
-    margin-right: 23%; 
-  }
-  
+.bm-overlay + div {
+  height: 0;
 }
 
 .bm-burger-button {
-    position: fixed;
+    position: relative;
     width: 36px;
     height: 26px;
-    left: 50%;
-    top: 93px;
+    top: 7px;
   }
   
   .bm-burger-bars {
@@ -88,6 +80,7 @@
 	  font-size: 15px;
     text-transform: uppercase;
     padding: 2.5em 1.5em 0;
+    overflow: hidden;
   }
   
   .bm-morph-shape {

@@ -1,0 +1,36 @@
+.textInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.descriptionLabel {
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+}
+
+.textInput {
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    color: #333;
+}
+
+.textInput:focus {
+    outline-color: black;
+}
+
+.textInputInvalid {
+    border-bottom: 1px solid rgb(171, 0, 0);
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.hintText {
+    text-align: end;
+    color: rgb(158, 158, 158);
+    font-size: 14px;
+}

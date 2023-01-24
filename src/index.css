@@ -3,9 +3,11 @@
 
 :root {
   --ff-primary: 'Inter', sans-serif;
+  --fc-white: #ffffff;
   --fc-darkest: #000;
   --fc-darker: rgba(0, 0, 0, 0.8); 
   --fc-dark: #b2b2b2;
+  --fc-navyblue: #1C426D;
 }
 
 body {

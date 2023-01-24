@@ -1,25 +1,26 @@
+@import '../../index.css';
+
 body {
     width: 100%;
 }
 
 .content-container {
-    width: 100%;
+    display: inline-block;
+    text-align: center;
     justify-content: center;
+    width: 100%;
 }
 
 .project-team {
-    max-width: 100%;
-    width: 85%;
     display: flex;
-    padding: 1em;
     position: relative;
     flex-direction: column;
-    margin: 0%;
+    width: 100%;
 }
 
 .team-header {
     font-weight: 700;
-    color: #1c426d;
+    color: var(--fc-navyblue);
     font-family: 'Source Sans Pro';
     font-size: 33.05px;
     line-height: 42px;

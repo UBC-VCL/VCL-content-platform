@@ -1,6 +1,6 @@
-import { TimelineInfo } from '@pages/Timeline/EditTimelineEntry/EditTimelineEntry';
-import { useAppSelector } from '@redux/hooks';
-import { selectProjects } from '@redux/slices/ProjectRedux';
+import { TimelineInfo } from '@/pages/timeline/[id]/edit';
+import { useAppSelector } from '@/redux/hooks';
+import { selectProjects } from '@/redux/slices/ProjectRedux';
 import React from 'react'
 import styles from '../Select.module.css';
 
@@ -17,7 +17,7 @@ const ProjectSelect = ({timeline, setTimeline}:Props) => {
         <label className={styles.label}>Select a Project</label>
         <div className={styles.optionsContainer}>
             {projects && projects.length > 0 && (
-                projects.map((project) => {
+                projects.map((project: any) => {
                     return (
                         <span className={styles.item} key={project._id}>
                             <input type="radio" 

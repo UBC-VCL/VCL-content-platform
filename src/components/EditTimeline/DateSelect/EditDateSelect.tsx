@@ -32,11 +32,11 @@ const EditDateSelect = ({timeline, setTimeline}:Props) => {
       <p className={styles.label}>Select a Date</p>
       <div className={styles.dateGroup}>
         {selectLists.map(list => (
-          <select key={list.name} name={list.name}
+          <select className={styles.select} key={list.name} name={list.name}
           value={timeline?.date ? new Date(timeline.date)[list.name === "month" ? "getMonth" : list.name === "day" ? "getDate" : "getFullYear"]() : ""}
           onChange={changeDate}>
             {list.options.map((option, i) => (
-              <option key={option} value={list.name === "month" ? i : list.name === "day" ? i + 1 : option}>{option}</option>
+              <option className={styles.option} key={option} value={list.name === "month" ? i : list.name === "day" ? i + 1 : option}>{option}</option>
             ))}
           </select>
         ))}

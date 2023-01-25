@@ -30,7 +30,9 @@ const CategorySelect = ({timeline, setTimeline}:Props) => {
                 categories.map((category) => {
                     return (
                         <span className={styles.item} key={category}>
-                            <input type="checkbox"
+                            <input 
+                            className={styles.input}
+                            type="checkbox"
                             id={category}
                             checked={selectedCategories.includes(category)}
                             onChange={() => toggleCategory(category)} />

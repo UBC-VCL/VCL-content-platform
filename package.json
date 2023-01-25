@@ -35,10 +35,9 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint src/**/*{.ts,.tsx}",
     "lint:fix": "eslint src/**/*{.ts,.tsx} --fix"
   },

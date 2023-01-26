@@ -1,7 +1,7 @@
 import React from 'react';
-import {TEXT, NAV, ROUTES} from '@statics';
-import GenericLink from '@components/generics/Link';
-import constants from "@statics/constants";
+import Link from 'next/link';
+import {TEXT, NAV, ROUTES} from '@/statics';
+import constants from "@/statics/constants";
 
 const Footer = () => {
     const projects = [{
@@ -43,7 +43,7 @@ const Footer = () => {
                             {NAV.map(({TITLE, REF}) => {
                                 return (
                                     <li className="footer-project-list" key={REF}>
-                                        <GenericLink name={TITLE} to={REF}/>
+                                        <Link href={REF}>{TITLE}</Link>
                                     </li>
                                 )
                             })}
@@ -53,10 +53,7 @@ const Footer = () => {
                             {projects.map((project, i) => {
                                 return (
                                     <li className="footer-project-list" key={i}>
-                                        <GenericLink
-                                            name={project.name}
-                                            to={`${ROUTES.PROJECT.BASE}/${project.name}`}
-                                        />
+                                        <Link href={`${ROUTES.PROJECT.BASE}/${project.name}`}>{project.name}</Link>
                                     </li>
                                 )
                             })}

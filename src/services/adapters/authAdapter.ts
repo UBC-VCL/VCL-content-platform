@@ -1,8 +1,6 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
 import type { BaseResponse } from './types';
 
-dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
 
 export type UserType = 'default' | 'member' | 'admin';

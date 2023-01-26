@@ -1,5 +1,5 @@
 import React from "react";
-import { TEXT } from '@statics';
+import { TEXT } from '@/statics';
 
 const HeroSection = () => {
     return (
@@ -13,7 +13,7 @@ const HeroSection = () => {
                     {TEXT.LANDING_PAGE.DESCRIPTION}
                 </div>
                 <div className="btn-ubc-home">
-                    <a href="https://www.ubc.ca" style={{display: "flex", justifyContent: "center", alignItems: "center", color: "#ffffff"}}>
+                    <a href="https://www.ubc.ca" target="_blank" style={{display: "flex", justifyContent: "center", alignItems: "center", color: "#ffffff"}}>
                         <p>{TEXT.LANDING_PAGE.UBC_PAGE_BUTTON}</p>
                     </a>
                 </div>

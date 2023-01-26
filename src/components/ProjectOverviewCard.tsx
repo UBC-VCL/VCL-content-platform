@@ -1,4 +1,4 @@
-import {ROUTES} from "@statics";
+import {ROUTES} from "@/statics";
 
 const ProjectOverviewCard = ({project}: any) => {
 

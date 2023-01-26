@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import moment from "moment";
-import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
+import { NAV, TEXT, CONSTANTS, ROUTES } from '@/statics';
 
 interface TimelineCommitBlockProps {
     author: string;

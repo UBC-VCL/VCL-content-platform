@@ -1,12 +1,11 @@
 .container {
     display: none;
-    position: fixed;
+    position: sticky;
     height: 132px;
     z-index: 9998!important;
 }
 
 .mobile-header {
-    position: fixed;
     height: 132px;
     padding: 16px;
 	  margin-bottom: 30px;

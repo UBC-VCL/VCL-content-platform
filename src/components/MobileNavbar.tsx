@@ -5,14 +5,16 @@ import {
   Menu,
   MenuItem,
 } from '@mui/material';
-import { TEXT, CONSTANTS} from '@statics';
-import { useHandleLogout } from '@services/authService';
-import { useAppDispatch, useAppSelector } from '@redux/hooks';
-import { appActions } from '@redux/slices/AppRedux';
-import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import Image from 'next/image'
+import Link from 'next/link';
+import { TEXT, CONSTANTS, NAV} from '@/statics';
+import { useHandleLogout } from '@/services/authService';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { appActions } from '@/redux/slices/AppRedux';
+import { selectIsLoggedIn } from '@/redux/slices/AuthRedux';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
-import {ReactComponent as VCLIcon} from '@statics/images/vcl-icon2.svg';
+import SearchIcon from '@/statics/images/search-icon.svg';
+import VCLIcon from '@/statics/images/vcl-icon2.svg';
 import { slide as MobileMenu } from 'react-burger-menu';
 
 const MobileNavbar = () => {
@@ -51,38 +53,34 @@ const MobileNavbar = () => {
         // todo
     };
 
+    const navItems = NAV.map((item) => ({title: item.TITLE, ref: item.REF}));
+
     return (
         <div className="container">
         <AppBar position="fixed" className="mobile-header">
             <div>
-              <VCLIcon/>
+                <Image height={20} width={20} src={VCLIcon} alt="Search" />
             <div className="title">{TEXT.COMMON.TITLE}</div>
             </div>
             <div className="row">
                 <div>
                 <IconButton onClick={handleSearchButtonClick}>
-                    <SearchIcon/>
+                    <Image height={20} width={20} src={SearchIcon} alt="Search" />
                 </IconButton>
                 </div>
                 <MobileMenu>
-                <a className="menu-item" href="/">
-                    Home
-                </a>
-                <a className="menu-item" href="/timeline">
-                    Timeline
-                </a>
-                <a className="menu-item" href="/projects">
-                    Projects
-                </a>
-                <a className="menu-item" href="/about">
-                    About
-                </a>
-                <a className="menu-item" href="/resources">
-                    Resources
-                </a>
-                <a className="menu-item" href="/join">
-                    Get Involved
-                </a>
+                    {navItems.map((item) => {
+                        const {title, ref} = item;
+                        return (
+                            <Link
+                            key={ref} 
+                            href={ref} 
+                            className="menu-item"
+                        >
+                            {title}
+                        </Link>
+                        )
+                    })}
                 </MobileMenu>
                 <div className="account-icon-wrapper">
                 <IconButton onClick={handleMenuClick}>

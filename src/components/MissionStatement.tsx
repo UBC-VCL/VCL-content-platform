@@ -1,5 +1,5 @@
 import React from 'react';
-import { TEXT } from '@statics';
+import { TEXT } from '@/statics';
 
 const MissionStatement = () => {
     return (

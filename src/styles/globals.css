@@ -5,14 +5,22 @@
 @import "css/components/MissionStatement.css";
 @import "css/components/MobileNavbar.css";
 @import "css/components/Navbar.css";
+@import "css/components/Project.css";
 @import "css/components/ProjectNavbar.css";
 @import "css/components/ProjectOverviewCard.css";
 @import "css/components/ProjectPeople.css";
+@import "css/components/ProjectTeam.css";
+@import "css/components/ProjectWrapper.css";
 @import "css/components/TimelineCommitBlock.css";
 @import "css/components/TimelineSearchbar.css";
+@import "css/components/TimelineCommitBlock.css";
+@import "css/components/TimelineFilter.css";
 @import "css/components/TitleCard.css";
 
 @import "css/pages/Home.css";
+@import "css/pages/About.css";
+@import "css/pages/Timeline.css";
+@import "css/pages/ProjectOverview.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');    
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');

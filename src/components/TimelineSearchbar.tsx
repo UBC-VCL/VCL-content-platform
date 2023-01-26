@@ -1,10 +1,10 @@
 import React from "react";
-import './TimelineSearchbar.css';
+import Image from "next/image";
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { IconButton } from '@mui/material';
-import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
+import SearchIcon from '@/statics/images/search-icon.svg';
 
 interface TimelineSearchbarProps {}
 
@@ -40,7 +40,13 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                       }}
                     >
                       <Box sx={{  ml: 2 }} >
-                        <IconButton><SearchIcon />
+                        <IconButton>
+                          <Image
+                            src={SearchIcon}
+                            alt="Search Icon"
+                            width={20}
+                            height={20}
+                          />
                         </IconButton>
                       </Box>
                       <Box sx={{ mt: 1, mx: 2 }}>

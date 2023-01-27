@@ -2,6 +2,8 @@
 @import "css/components/Card.css";
 @import "css/components/Footer.css";
 @import "css/components/HeroSection.css";
+@import "css/components/LoginForm.css";
+@import "css/components/LoginView.css";
 @import "css/components/MissionStatement.css";
 @import "css/components/MobileNavbar.css";
 @import "css/components/Navbar.css";
@@ -22,22 +24,22 @@
 @import "css/pages/Timeline.css";
 @import "css/pages/ProjectOverview.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');    
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 :root {
-  --ff-primary: 'Inter', sans-serif;
+  --ff-primary: "Inter", sans-serif;
   --fc-white: #ffffff;
   --fc-darkest: #000;
-  --fc-darker: rgba(0, 0, 0, 0.8); 
+  --fc-darker: rgba(0, 0, 0, 0.8);
   --fc-dark: #b2b2b2;
-  --fc-navyblue: #1C426D;
+  --fc-navyblue: #1c426d;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,6 +47,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

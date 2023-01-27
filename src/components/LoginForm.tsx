@@ -1,9 +1,9 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import TextField from '@mui/material/TextField';
-import * as yup from 'yup';
-import Button from '@components/generics/Button';
-import { TEXT } from '@statics';
+import React from "react";
+import { useFormik } from "formik";
+import TextField from "@mui/material/TextField";
+import * as yup from "yup";
+import Button from "@/components/generics/Button";
+import { TEXT } from "@/statics";
 
 interface LoginFormProps {
   onSubmit: (username: string, password: string) => void;
@@ -14,21 +14,17 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
   const schema = React.useMemo(
     () =>
       yup.object({
-        username: yup
-          .string()
-          .required(TEXT.LOGIN.USERNAME_EMPTY_ERROR),
+        username: yup.string().required(TEXT.LOGIN.USERNAME_EMPTY_ERROR),
 
-        password: yup
-          .string()
-          .required(TEXT.LOGIN.PASSWORD_EMPTY_ERROR),
+        password: yup.string().required(TEXT.LOGIN.PASSWORD_EMPTY_ERROR),
       }),
     []
   );
 
   const form = useFormik({
     initialValues: {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -65,7 +61,8 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
         variant="contained"
         disableElevation
         type="submit"
-        disabled={props.disabled}>
+        disabled={props.disabled}
+      >
         {TEXT.COMMON.SUBMIT}
       </Button>
     </form>

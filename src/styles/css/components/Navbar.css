@@ -1,182 +1,175 @@
 .nav {
-	position: sticky;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 1030;
-	height: auto;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  height: auto;
 }
 
 .hamburger-menu {
-	display: none;
+  display: none;
 }
 
 .navbar-menu {
-	display: block;
-	height: auto;
+  display: block;
+  height: auto;
 }
 
-[role=menu] {
-	padding: 20px 35px 35px 35px !important;
-	box-shadow: 0px 4px 70px 1px rgba(175, 175, 175, 0.25);
-	border-radius: 9px;
+[role="menu"] {
+  box-shadow: 0px 4px 70px 1px rgba(175, 175, 175, 0.25);
+  border-radius: 9px;
 }
 
-[role=menuitem]:hover {
-	background-color: transparent !important;
+[role="menuitem"]:hover {
+  background-color: transparent !important;
 }
 
 .all-projects-text {
-	font-family: 'Source Sans Pro';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 35px;
-	letter-spacing: 0.04em;
-	text-decoration: none;
-	color: var(--fc-navyblue);
-	margin-bottom: 20%;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 35px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--fc-navyblue);
+  margin-bottom: 20%;
 }
 
 .all-projects-underline {
-	border: 1.5px solid var(--fc-navyblue);
-	width: 115px;
-	margin-top: 20%;
-	position: absolute;
+  border: 1.5px solid var(--fc-navyblue);
+  width: 115px;
+  margin-top: 20%;
+  position: absolute;
 }
 
 .project-name {
-	font-family: 'Source Sans Pro';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 18px;
-	letter-spacing: 0.04em;
-	text-decoration: none;
-	color: #848484;
-	transition: font-size 0.5s;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: #848484;
+  transition: font-size 0.5s;
 }
 
 .project-name:hover {
-	color: var(--fc-navyblue);
-	font-weight: 700;
-	font-size: 20px;
+  color: var(--fc-navyblue);
+  font-weight: 700;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 700px) {
-	.hamburger-menu {
-	  display: block;
-	}
+  .hamburger-menu {
+    display: block;
+  }
 
-	.navbar-menu {
-	  display: none;
-	  height: 0% !important;
-	}
-
-	.nav {
-		height: 100px;
-	}
+  .navbar-menu {
+    display: none;
+  }
 }
 
 .logo-container {
-	margin: 4px;
-	display: flex;
-	align-items: center;
-	gap: 16px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .logo-container p {
-	font-size: 15px;
+  font-size: 15px;
 }
 
 .nav-right {
-	margin-left: auto;
-	display: flex;
-	gap: 2vw;
-	align-items: center;
+  margin-left: auto;
+  display: flex;
+  gap: 2vw;
+  align-items: center;
 }
 
 .link-style {
-	font-size: inherit;
-	font-family: inherit;
-	font-weight: inherit;
-	border: 0;
-	background: none;
-	text-transform: uppercase;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  border: 0;
+  background: none;
+  text-transform: uppercase;
 }
 
 .nav-link {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .nav-link.active {
-	color: #4C6199;
+  color: #4c6199;
 }
 
 .nav-rendered-links {
-	display: flex;
-	gap: 2vw;
-	align-items: center;
+  display: flex;
+  gap: 2vw;
+  align-items: center;
 }
 
 .nav-icon-container {
-	display: flex;
-	gap: 4px;
+  display: flex;
+  gap: 4px;
 }
 
 @media only screen and (max-width: 1023px) {
-	.logo-container {
-		flex-direction: column;
-		gap: 4px;
-	}
-	.logo-container p {
-		font-size: 14px;
-		line-height: 1.2em;
-		letter-spacing: 1px;
-	}
+  .logo-container {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .logo-container p {
+    font-size: 14px;
+    line-height: 1.2em;
+    letter-spacing: 1px;
+  }
 }
 
 @media only screen and (max-width: 880px) {
-	.logo-container p {
-		font-size: 12px;
-		width: 120px;
-		text-align: center;
-	}
+  .logo-container p {
+    font-size: 12px;
+    width: 120px;
+    text-align: center;
+  }
 
-	.nav-rendered-links > * {
-		font-size: 14px;
-	}
+  .nav-rendered-links > * {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 700px) {
-	.css-hyum1k-MuiToolbar-root {
-		padding-top: 4px !important;
-		padding-bottom: 4px !important;
-	}
+  .css-hyum1k-MuiToolbar-root {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
 }
 
 .nav-appbar {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .nav-toolbar {
-	box-sizing: border-box;
-	display: flex;
-	background-color: rgb(255, 255, 255);
-	color: black;
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 15px;
-	line-height: 22.5px;
-	text-transform: uppercase;
+  box-sizing: border-box;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22.5px;
+  text-transform: uppercase;
 }
 
 .login-icon {
-	background-image: url('/src/statics/images/search-icon.svg');
-	width: 50px;
-	height: 50px;
-	display: flex;
-	position: relative;
+  background-image: url("/src/statics/images/search-icon.svg");
+  width: 50px;
+  height: 50px;
+  display: flex;
+  position: relative;
 }
-

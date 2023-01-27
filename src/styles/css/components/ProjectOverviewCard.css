@@ -1,16 +1,20 @@
 .project-button {
-    background-color: #AEC7E3;
-    width: 100%;
-    aspect-ratio: 5 / 3;
-    border: none;
-    color: var(--fc-white);
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s;
+  background-color: #aec7e3;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  border: none;
+  color: var(--fc-white);
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
 }
 
 .project-button:hover {
-    background-color: var(--fc-navyblue);
-    cursor: pointer;
+  background-color: var(--fc-navyblue);
+  cursor: pointer;
 }

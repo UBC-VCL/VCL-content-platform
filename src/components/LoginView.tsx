@@ -1,10 +1,10 @@
-import React from 'react';
-import { selectIsLoggingIn } from '@redux/slices/AuthRedux';
-import { useAppSelector } from '@redux/hooks';
-import Modal, { ModalInjectedProps } from '@components/generics/Modal';
-import { CONSTANTS, TEXT } from '@statics';
-import { useHandleLogin } from '@services/authService';
-import LoginForm from './LoginForm';
+import React from "react";
+import { selectIsLoggingIn } from "@/redux/slices/AuthRedux";
+import { useAppSelector } from "@/redux/hooks";
+import Modal, { ModalInjectedProps } from "@/components/generics/Modal";
+import { CONSTANTS, TEXT } from "@/statics";
+import { useHandleLogin } from "@/services/authService";
+import LoginForm from "./LoginForm";
 
 type LoginViewProps = Partial<ModalInjectedProps>;
 

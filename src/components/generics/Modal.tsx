@@ -1,11 +1,11 @@
-import React from 'react';
-import { useAppSelector, useAppDispatch } from '@redux/hooks';
-import Modal from '@mui/material/Modal';
+import React from "react";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import Modal from "@mui/material/Modal";
 import {
   ValidModalKey,
   selectModal,
   appActions,
-} from '@redux/slices/AppRedux';
+} from "@/redux/slices/AppRedux";
 
 interface ModalWrapperProps {
   modalKey: ValidModalKey;
@@ -36,10 +36,11 @@ const ModalWrapper: React.FC<ModalWrapperProps> = (props) => {
     <Modal
       open={modal?.visible}
       className={`web-app-modal ${props.name}-modal`}
-      onClose={props.disableDefaultClose ? () => {} : handleClose}>
-        <div className='web-app-modal-content'>
-          {React.cloneElement(props.children, injectedProps)}
-        </div>
+      onClose={props.disableDefaultClose ? () => {} : handleClose}
+    >
+      <div className="web-app-modal-content">
+        {React.cloneElement(props.children, injectedProps)}
+      </div>
     </Modal>
   );
 };

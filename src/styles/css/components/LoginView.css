@@ -1,5 +1,10 @@
-.login-view-root {
-  margin: 28px;
+.web-app-modal-content {
+  padding: 28px;
+  background-color: white;
+  max-width: min(80vw, 500px);
+  margin: auto;
+  border-radius: 8px;
+  margin-top: 10vh;
 }
 
 .login-error {

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Snackbar, IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import { useAppDispatch, useAppSelector } from '@redux/hooks';
-import { selectApp, appActions } from '@redux/slices/AppRedux';
+import React from "react";
+import { Snackbar, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectApp, appActions } from "@/redux/slices/AppRedux";
 
 const AlertPopup = () => {
   const dispatch = useAppDispatch();
@@ -10,8 +10,11 @@ const AlertPopup = () => {
 
   const getIsOpen = () => alert !== null;
 
-  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') return;
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") return;
 
     dispatch(appActions.setAlert(null));
   };
@@ -19,8 +22,8 @@ const AlertPopup = () => {
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'left',
+        vertical: "bottom",
+        horizontal: "left",
       }}
       key={alert}
       open={getIsOpen()}

@@ -49,7 +49,10 @@ const Ideo: React.FC<ProjectProps> = () => {
       <br />
       <h2>Ouija</h2>
       <br />
-      <Image height={600} width={800} alt="" src={img} />
+      <figure className="project-image-container">
+        <Image alt="" src={img} />
+        <figcaption></figcaption>
+      </figure>
       <br />
       <p>
         The Ouija board is used as a divination technique to find answers to

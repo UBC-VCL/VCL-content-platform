@@ -33,7 +33,10 @@ const Nova: React.FC<ProjectProps> = () => {
         result, he fails to see the gorilla walk through in plain sight.
       </p>
       <br />
-      <Image height={600} width={800} alt="" src={img} />
+      <figure className="project-image-container">
+        <Image alt="" src={img} />
+        <figcaption></figcaption>
+      </figure>
       <br />
       <p>
         However, once he is informed about the gorilla, he is able to see it

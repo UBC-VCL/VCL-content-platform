@@ -11,6 +11,7 @@ const ProjectOverviewCard = ({ project }: any) => {
 
   return (
     <Link
+      key={project.name}
       className="project-button"
       href={`${ROUTES.PROJECT.BASE}/${toSneakCase(project.name)}`}
     >

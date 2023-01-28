@@ -44,26 +44,18 @@ const ImageTransitions: React.FC<ProjectProps> = () => {
         transformations.
       </p>
       <br />
-      <div
-        style={{
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div>
-          <Image height={600} width={800} alt="" src={img1} />
-          <p>Transforming an individual object…</p>
-        </div>
-        <div>
-          <Image height={600} width={800} alt="" src={img2} />
-          <p>Transforming all the individual objects…</p>
-        </div>
-        <div>
-          <Image height={600} width={800} alt="" src={img3} />
-          <p>Transforming the entire search space!</p>
-        </div>
-      </div>
+      <figure className="project-image-container">
+        <Image alt="" src={img1} />
+        <figcaption>Transforming an individual object…</figcaption>
+      </figure>
+      <figure className="project-image-container">
+        <Image alt="" src={img2} />
+        <figcaption>Transforming all the individual objects…</figcaption>
+      </figure>
+      <figure className="project-image-container">
+        <Image alt="" src={img3} />
+        <figcaption>Transforming the entire search space!</figcaption>
+      </figure>
       <br />
       <p>
         This study uses a visual search paradigm (finding a target stimulus
@@ -81,18 +73,18 @@ const ImageTransitions: React.FC<ProjectProps> = () => {
         to that object even if they did not consciously perceive the arrow.
       </p>
       <br />
-      <div style={{ textAlign: "center" }}>
-        <Image height={600} width={800} alt="" src={img4} />
-        <p>
+      <figure className="project-image-container">
+        <Image alt="" src={img4} />
+        <figcaption>
           A 2 x 2 design with varying spacing and physical size to study the
           effect of size and spacing on visual search
-        </p>
-      </div>
+        </figcaption>
+      </figure>
       <br />
-      <div style={{ textAlign: "center" }}>
-        <Image height={600} width={800} alt="" src={img5} />
-        <p>An example of a display being scaled</p>
-      </div>
+      <figure className="project-image-container">
+        <Image alt="" src={img5} />
+        <figcaption>An example of a display being scaled</figcaption>
+      </figure>
       <br />
       <p>
         In the current stage of the project, we are looking for the conditions

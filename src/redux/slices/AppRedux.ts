@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '@redux/store';
-import { CONSTANTS } from '@statics';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "@/redux/store";
+import { CONSTANTS } from "@/statics";
 
 export interface ModalState {
   visible: boolean;
@@ -27,7 +27,7 @@ const initialState: AppState = {
 };
 
 export const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     setIsReady: (state, { payload }: PayloadAction<boolean>) => {

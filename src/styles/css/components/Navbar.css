@@ -76,10 +76,16 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  text-decoration: none;
+}
+
+.logo-container:focus {
+  text-decoration: none;
 }
 
 .logo-container p {
   font-size: 15px;
+  color: initial;
 }
 
 .nav-right {
@@ -101,6 +107,7 @@
 .nav-link {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .nav-link.active {
@@ -158,7 +165,6 @@
   display: flex;
   background-color: rgb(255, 255, 255);
   color: black;
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 15px;

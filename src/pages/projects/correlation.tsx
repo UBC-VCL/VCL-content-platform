@@ -38,8 +38,11 @@ const Correlation: React.FC<ProjectProps> = () => {
       </p>
       <br />
 
-      <Image height={600} width={800} alt="" src={img1} />
-
+      {/* TODO: Add alt text and captions */}
+      <figure className="project-image-container">
+        <Image alt="" src={img1} />
+        <figcaption></figcaption>
+      </figure>
       <br />
 
       <p>
@@ -57,9 +60,10 @@ const Correlation: React.FC<ProjectProps> = () => {
 
       <br />
 
-      <div style={{ textAlign: "center" }}>
-        <Image height={600} width={800} alt="" src={img2} />
-      </div>
+      <figure className="project-image-container">
+        <Image alt="" src={img2} />
+        <figcaption></figcaption>
+      </figure>
 
       <br />
 
@@ -98,10 +102,10 @@ const Correlation: React.FC<ProjectProps> = () => {
         thickness, location of axes and so on.
       </p>
       <br />
-
-      <div style={{ textAlign: "center" }}>
-        <Image height={600} width={800} alt="" src={img3} />
-      </div>
+      <figure className="project-image-container">
+        <Image alt="" src={img3} />
+        <figcaption></figcaption>
+      </figure>
       <br />
       <p>
         We are also studying how different timings for the display duration of
@@ -111,9 +115,10 @@ const Correlation: React.FC<ProjectProps> = () => {
 
       <br />
 
-      <div style={{ textAlign: "center" }}>
-        <Image height={600} width={800} alt="" src={img4} />
-      </div>
+      <figure className="project-image-container">
+        <Image alt="" src={img4} />
+        <figcaption></figcaption>
+      </figure>
 
       <br />
 

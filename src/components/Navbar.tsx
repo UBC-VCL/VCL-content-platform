@@ -66,10 +66,10 @@ const Navbar: React.FC<{}> = () => {
       <div className="navbar-menu">
         <AppBar position="sticky" className="nav-appbar">
           <Toolbar className="nav-toolbar">
-            <div className="logo-container">
+            <Link href="/" className="logo-container">
               <Image height={20} width={20} src={VCLIcon} alt="Search" />
               <p>{TEXT.COMMON.TITLE}</p>
-            </div>
+            </Link>
             <div className="nav-right">
               <span className="nav-rendered-links">
                 <RenderedLinks />

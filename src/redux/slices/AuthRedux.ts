@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '@redux/store';
-import { UserType } from '@services/adapters/authAdapter';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "@/redux/store";
+import { UserType } from "@/services/adapters/authAdapter";
 
 interface AuthState {
   access_token?: string;
@@ -11,12 +11,12 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  permissions: 'default',
+  permissions: "default",
   isLoggingIn: false,
 };
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setAccessToken: (state, { payload }: PayloadAction<string>) => {
@@ -35,7 +35,7 @@ export const authSlice = createSlice({
       state.username = undefined;
       state.access_token = undefined;
       state.refresh_token = undefined;
-      state.permissions = 'default';
+      state.permissions = "default";
     },
     setIsLoggingIn: (state, { payload }: PayloadAction<boolean>) => {
       state.isLoggingIn = payload;

@@ -3,7 +3,6 @@ import { CONSTANTS } from '@/statics';
 import ProjectOverviewCard from '@/components/ProjectOverviewCard';
 
 const ProjectOverview = () => {
-    // const projects = useAppSelector(selectProjects);
 
     {/* TODO: refactor to fetch data from backend, currently hard-coded */}
     return (

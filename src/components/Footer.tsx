@@ -1,7 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { TEXT, NAV, ROUTES } from "@/statics";
 import constants from "@/statics/constants";
+import ubcLogo from "@/statics/images/ubc_logo.png";
 
 const Footer = () => {
   const projects = [
@@ -38,10 +40,12 @@ const Footer = () => {
         <div className="footer-main">
           <div className="footer-left">
             <div className="footer-image-container">
-              <img
-                src={constants.UBC_LOGO_URL}
+              <Image
                 className="ubc-logo"
-                alt={"UBC logo"}
+                src={ubcLogo}
+                width={300}
+                height={70}
+                alt="ubc logo"
               />
             </div>
             <div className="footer-column-lab-info">

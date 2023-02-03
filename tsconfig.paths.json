@@ -2,8 +2,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@redux": ["src/redux"],
-      "@redux/*": ["src/redux/*"],
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
       "@entities": ["src/entities"],

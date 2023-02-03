@@ -3,20 +3,18 @@ import { AppBar, IconButton, Menu, MenuItem } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { TEXT, CONSTANTS, NAV } from "@/statics";
-import { useHandleLogout } from "@/services/authService";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { appActions } from "@/redux/slices/AppRedux";
-import { selectIsLoggedIn } from "@/redux/slices/AuthRedux";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@/statics/images/search-icon.svg";
 import VCLIcon from "@/statics/images/vcl-icon2.svg";
 import { slide as MobileMenu } from "react-burger-menu";
+import { useAuthStore } from "stores/AuthStore";
+import { useAppStore } from "stores/AppStore";
 
 const MobileNavbar = () => {
-  const { logout } = useHandleLogout();
-  const dispatch = useAppDispatch();
+  const logout = useAuthStore((state) => state.logout);
+  const openModal = useAppStore((state) => state.openModal);
 
-  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  const isLoggedIn = useAuthStore((state) => state.isLoggingIn);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -28,11 +26,9 @@ const MobileNavbar = () => {
   };
 
   const handleOpenLoginModal = () => {
-    dispatch(
-      appActions.openModal({
-        key: CONSTANTS.MODALS.LOGIN,
-      })
-    );
+    openModal({
+      key: CONSTANTS.MODALS.LOGIN,
+    })
 
     handleMenuClose();
   };

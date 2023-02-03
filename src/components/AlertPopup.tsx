@@ -1,12 +1,11 @@
 import React from "react";
 import { Snackbar, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectApp, appActions } from "@/redux/slices/AppRedux";
+import { useAppStore } from "stores/AppStore";
 
 const AlertPopup = () => {
-  const dispatch = useAppDispatch();
-  const { alert } = useAppSelector(selectApp);
+  const alert = useAppStore((state) => state.alert)
+  const setAlert = useAppStore((state) => state.setAlert)
 
   const getIsOpen = () => alert !== null;
 
@@ -16,7 +15,7 @@ const AlertPopup = () => {
   ) => {
     if (reason === "clickaway") return;
 
-    dispatch(appActions.setAlert(null));
+    setAlert(null)
   };
 
   return (

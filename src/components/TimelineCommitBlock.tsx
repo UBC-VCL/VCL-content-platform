@@ -34,7 +34,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="expandedTimeline">
             <p className="timeline-commit-header">
-                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {elementChanged} to <span style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></span>
             </p>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 

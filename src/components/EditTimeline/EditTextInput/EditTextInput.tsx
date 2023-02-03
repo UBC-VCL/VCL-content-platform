@@ -1,5 +1,5 @@
 import { TimelineInfo } from "@/pages/timeline/[id]/edit";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./EditTextInput.module.css";
 
 type Props = {

@@ -1,20 +1,18 @@
 import React from "react";
-import { selectIsLoggingIn } from "@/redux/slices/AuthRedux";
-import { useAppSelector } from "@/redux/hooks";
 import Modal, { ModalInjectedProps } from "@/components/generics/Modal";
 import { CONSTANTS, TEXT } from "@/statics";
 import { useHandleLogin } from "@/services/authService";
 import LoginForm from "./LoginForm";
+import { useAuthStore } from "stores/AuthStore";
 
 type LoginViewProps = Partial<ModalInjectedProps>;
 
-const LoginView: React.FC<LoginViewProps> = (props) => {
-  const { handleClose } = props;
-  const isLoggingIn = useAppSelector(selectIsLoggingIn);
+const LoginView: React.FC<LoginViewProps> = ({handleClose}) => {
+  const isLoggingIn = useAuthStore((state) => state.isLoggingIn);
 
   const { handleLogin, error, success } = useHandleLogin();
 
-  const handleUserLogin = (user: string, pwd: string) => handleLogin(user, pwd);
+  const handleUserLogin = async (user: string, pwd: string) => await handleLogin(user, pwd);
 
   React.useEffect(() => {
     if (success) {

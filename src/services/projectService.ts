@@ -1,24 +1,25 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "@/redux/hooks";
-import { projectActions } from "@/redux/slices/ProjectRedux";
-import { appActions } from "@/redux/slices/AppRedux";
 import { callGetAllProjectsAPI } from "@/services/adapters/projectAdapter";
+import { useProjectStore } from "stores/ProjectStore";
+import { useAppStore } from "stores/AppStore";
 
 export const useHandleGetAllProjects = () => {
-  const dispatch = useAppDispatch();
-  dispatch(projectActions.setIsProjectLoading(true));
+  const { setIsProjectLoading, setProjects} = useProjectStore((state) => state)
+  const setAlert = useAppStore((state) => state.setAlert);
 
   const handleGetAllProjects = async () => {
+    setIsProjectLoading(true);
     callGetAllProjectsAPI()
       .then((res) => {
         if (res.data) {
-          dispatch(projectActions.setProjects(res.data));
+          console.log("fetching projects", res.data)
+          setProjects(res.data);
         } else {
-          dispatch(appActions.setAlert(res.message));
+          setAlert(res.message);
         }
       })
       .then(() => {
-        dispatch(projectActions.setIsProjectLoading(false));
+        setIsProjectLoading(false);
       })
       .catch(() => {
         console.error("Error: projectService.ts getAllProjects call");
@@ -26,6 +27,7 @@ export const useHandleGetAllProjects = () => {
   };
 
   useEffect(() => {
+    console.log("useEffect runs")
     handleGetAllProjects();
   }, []);
 };

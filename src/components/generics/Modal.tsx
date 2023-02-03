@@ -1,11 +1,6 @@
 import React from "react";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import Modal from "@mui/material/Modal";
-import {
-  ValidModalKey,
-  selectModal,
-  appActions,
-} from "@/redux/slices/AppRedux";
+import { useAppStore, ValidModalKey } from "stores/AppStore";
 
 interface ModalWrapperProps {
   modalKey: ValidModalKey;
@@ -20,11 +15,11 @@ export interface ModalInjectedProps {
 }
 
 const ModalWrapper: React.FC<ModalWrapperProps> = (props) => {
-  const dispatch = useAppDispatch();
-  const modal = useAppSelector(selectModal(props.modalKey));
+  const modal = useAppStore((state) => state.modals.login)
+  const closeModal = useAppStore((state) => state.closeModal)
 
   const handleClose = () => {
-    dispatch(appActions.closeModal({ key: props.modalKey }));
+    closeModal({ key: props.modalKey });
   };
 
   const injectedProps: ModalInjectedProps = {

@@ -8,7 +8,7 @@ type Props = {
 };
 
 const CategorySelect = ({ timeline, setTimeline }: Props) => {
-  let selectedCategories = timeline.categories;
+  let selectedCategories = timeline?.categories || [];
 
   const categories = [
     "Workshops",

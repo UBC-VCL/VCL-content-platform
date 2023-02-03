@@ -1,65 +1,70 @@
-import CategorySelect from '@/components/EditTimeline/CategorySelect/CategorySelect';
-import EditDateSelect from '@/components/EditTimeline/DateSelect/EditDateSelect';
-import EditTextInput from '@/components/EditTimeline/EditTextInput/EditTextInput';
-import ProjectSelect from '@/components/EditTimeline/ProjectSelect/ProjectSelect';
-import { useAppSelector } from '@/redux/hooks';
-import { selectAuth } from '@/redux/slices/AuthRedux';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router'
-import styles from './edit.module.css';
-import useAxios from '@/services/hooks/useAxios';
+import CategorySelect from "@/components/EditTimeline/CategorySelect/CategorySelect";
+import EditDateSelect from "@/components/EditTimeline/DateSelect/EditDateSelect";
+import EditTextInput from "@/components/EditTimeline/EditTextInput/EditTextInput";
+import ProjectSelect from "@/components/EditTimeline/ProjectSelect/ProjectSelect";
+import axios from "axios";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import styles from "./edit.module.css";
+import { useAuthStore } from "stores/AuthStore";
+import { GetServerSidePropsContext } from "next";
 
 type TimelineParams = {
   id: string;
 };
 
 export type TimelineInfo = {
-  title: string,
-  description: string,
-  date: string,
-  project: string,
-  author: string,
-  categories: Array<string>,
-  contributors: string,
+  title: string;
+  description: string;
+  date: string;
+  project: string;
+  author: string;
+  categories: Array<string>;
+  contributors: string;
+};
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const res = await fetch(`${process.env.BACKEND_URL}/api/snapshots/${context.params?.id}`)
+  const {data} = await res.json();
+
+  return { props: { timelineInfo: {
+    title: data.title,
+    description: data.description,
+    date: data.date,
+    project: data.project,
+    author: data.author.username,
+    categories: data.categories,
+    contributors: data.contributors.map((c: { username: string; }) => c.username).join(", "),
+  } } }
 }
 
-const EditTimelineEntry = () => {
-  const { access_token } = useAppSelector(selectAuth);
+const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
+  const access_token = useAuthStore((state) => state.access_token);
 
-  const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "", project: "", author: "", categories: [], contributors: ""});
+  const [timeline, setTimeline] = useState<TimelineInfo>(timelineInfo);
 
-  const router = useRouter()
+  const router = useRouter();
   const { id } = router.query as TimelineParams;
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
-  const { response } = useAxios({
-    method: "GET",
-    url: `/api/snapshots/${id}`,
-  });
+  // TODO: loading screen
+  if (!timeline) return <h1>Loading</h1>
 
-  useEffect(() => {
-    if (!response) return;
-    const {title, description, date, project, author, categories, contributors} = response.data;
-    setTimeline({
-      title,
-      description,
-      date,
-      project,
-      author: author.username,
-      categories,
-      contributors: contributors.map((c: { username: string; }) => c.username).join(", "),
-    })
-  }, [response]);
 
   const save = async () => {
-    const updatedTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
+    const updatedTimeline = {
+      ...timeline,
+      contributors: timeline.contributors
+        .split(",")
+        .map((c: string) => c.trim()),
+    };
     const editResponse = await axios({
-      method: 'put',
-      url: `/api/snapshots/${id}`,
+      method: "put",
+      url: `${baseURL}/api/snapshots/${id}`,
       data: updatedTimeline,
       headers: {
-        authorization: access_token
-      }
+        authorization: access_token,
+      },
     });
     if (editResponse.status === 200) {
       router.push("/timeline");
@@ -67,37 +72,64 @@ const EditTimelineEntry = () => {
       return;
     }
     //TODO: handle error
-  }
+  };
 
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-      <div className={styles.headers}>
-        <h1 className={styles.header}>Edit Timeline Entry</h1>
-        <h2 className={styles.subHeader}>Edit the blanks below to edit the timeline entry</h2>
-      </div>
-      <main>
-        <div className={styles.gridContainer}>
-          <div className={styles.basicInfo}>
-            <EditTextInput timeline={timeline} setTimeline={setTimeline}/>
-            <EditDateSelect timeline={timeline} setTimeline={setTimeline}/>
-            <ProjectSelect timeline={timeline} setTimeline={setTimeline}/>
-            <CategorySelect timeline={timeline} setTimeline={setTimeline}/>
-          </div>
-          <div className={styles.descriptionGroup}>
-            <label className={styles.descriptionLabel} htmlFor="timeline-description">Timeline Entry Description</label>
-            <textarea name="description" id="timeline-description" value={timeline.description}
-            onChange={(e) => setTimeline(prev => ({...prev, description: e.target.value} as TimelineInfo))}></textarea>
-          </div>
+        <div className={styles.headers}>
+          <h1 className={styles.header}>Edit Timeline Entry</h1>
+          <h2 className={styles.subHeader}>
+            Edit the blanks below to edit the timeline entry
+          </h2>
         </div>
-        <div className={styles.controls}>
-          <button className={styles.cancelButton} onClick={() => router.push("/timeline")}>Cancel</button>
-          <button className={styles.saveButton} disabled={!timeline.author || !timeline.title} onClick={save}>Save</button>
-        </div>
-      </main>
+        <main>
+          <div className={styles.gridContainer}>
+            <div className={styles.basicInfo}>
+              <EditTextInput timeline={timeline} setTimeline={setTimeline} />
+              <EditDateSelect timeline={timeline} setTimeline={setTimeline} />
+              <ProjectSelect timeline={timeline} setTimeline={setTimeline} />
+              <CategorySelect timeline={timeline} setTimeline={setTimeline} />
+            </div>
+            <div className={styles.descriptionGroup}>
+              <label
+                className={styles.descriptionLabel}
+                htmlFor="timeline-description"
+              >
+                Timeline Entry Description
+              </label>
+              <textarea
+                name="description"
+                id="timeline-description"
+                value={timeline?.description}
+                onChange={(e) =>
+                  setTimeline(
+                    (prev) =>
+                      ({ ...prev, description: e.target.value } as TimelineInfo)
+                  )
+                }
+              ></textarea>
+            </div>
+          </div>
+          <div className={styles.controls}>
+            <button
+              className={styles.cancelButton}
+              onClick={() => router.push("/timeline")}
+            >
+              Cancel
+            </button>
+            <button
+              className={styles.saveButton}
+              disabled={!timeline.author || !timeline.title}
+              onClick={save}
+            >
+              Save
+            </button>
+          </div>
+        </main>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EditTimelineEntry
+export default EditTimelineEntry;

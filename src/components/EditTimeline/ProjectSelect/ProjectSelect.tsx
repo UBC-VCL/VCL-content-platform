@@ -19,15 +19,15 @@ const ProjectSelect = ({timeline, setTimeline}:Props) => {
             {projects && projects.length > 0 && (
                 projects.map((project) => {
                     return (
-                        <span className={styles.item} key={project._id}>
+                        <span className={styles.item} key={project.key}>
                             <input type="radio" 
-                            id={project._id} 
+                            id={project.key} 
                             name="project"
                             checked={project.name === timeline.project}
                             onChange={() => setTimeline(prev => ({...prev, project: project.name} as TimelineInfo))} />
                             <label className={`${styles.itemButton} ${project.name === timeline.project ? styles.activeButton : styles.inactiveButton}`}
                             tabIndex={0}
-                            htmlFor={project._id}>{project.name}</label>
+                            htmlFor={project.key}>{project.name}</label>
                         </span>
                     )
                 })     

@@ -88,6 +88,11 @@ const TEXT = {
     }
   },
 
+  TIMELINE_PAGE: {
+    TITLE: 'Timeline',
+    SUBHEADER: 'Browse project history and detailed updates',
+  },
+
   ABOUT_PAGE: {
     MAIN: {
       DESCRIPTION: {

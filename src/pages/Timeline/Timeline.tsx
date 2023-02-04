@@ -3,6 +3,7 @@ import './Timeline.css';
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
+import { TEXT } from '@statics';
 
 // dummy data
 const commitsArray = [{
@@ -76,11 +77,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     <div className="timeline">
       <div className="timeline-header">
         <h1>
-          TIMELINE
+          {TEXT.TIMELINE_PAGE.TITLE}
         </h1>
       </div>
       <div className='timeline-sub-header'>
-        <p>Browse project history and detailed updates</p>
+        <p>{TEXT.TIMELINE_PAGE.SUBHEADER}</p>
       </div>
       <TimelineSearchbar /> 
       <TimelineFilter />

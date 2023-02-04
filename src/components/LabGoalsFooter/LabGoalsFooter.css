@@ -6,11 +6,15 @@
     color: #7C9DAF; 
 }
 
-.mission-statement-footer {
-    padding: 8px 10% clamp(48px, 4vw, 62px);
+.lab-goals-footer {
+    padding: 8px 15% clamp(48px, 4vw, 62px);
     background-color: #D9E3E7;
+}
+
+.lab-goals-text {
     font-size: 14px;
     letter-spacing: 0.035em;
+    text-align: center;
 }
 
 @media (max-width:1023px) {

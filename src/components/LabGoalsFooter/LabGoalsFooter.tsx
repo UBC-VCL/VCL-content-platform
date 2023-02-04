@@ -1,13 +1,13 @@
 import React from 'react';
 import { TEXT } from '@statics';
-import './MissionStatement.css'
+import './LabGoalsFooter.css'
 
 const MissionStatement = () => {
     return (
 
-      <div className="mission-statement-footer">
+      <div className="lab-goals-footer">
         <hr className="footer-divider" />
-        <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.LAB_GOALS}</p>
+        <p className="lab-goals-text">{TEXT.LANDING_PAGE.MISSION_STATEMENT.LAB_GOALS}</p>
       </div>
 
     )

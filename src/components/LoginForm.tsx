@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import Button from "@/components/generics/Button";
 import { TEXT } from "@/statics";
+import { useAppStore } from "stores/AppStore";
 
 interface LoginFormProps {
   onSubmit: (username: string, password: string) => void;
@@ -11,6 +12,8 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = (props) => {
+  const closeModal = useAppStore((state) => state.closeModal)
+
   const schema = React.useMemo(
     () =>
       yup.object({
@@ -20,6 +23,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
       }),
     []
   );
+
 
   const form = useFormik({
     initialValues: {

@@ -8,10 +8,8 @@ import { useRouter } from "next/router";
 import styles from "./edit.module.css";
 import { useAuthStore } from "stores/AuthStore";
 import { GetServerSidePropsContext } from "next";
-
-type TimelineParams = {
-  id: string;
-};
+import { connectToDB } from "utils/helpers/server/connect";
+import { ObjectId } from "mongodb";
 
 export type TimelineInfo = {
   title: string;
@@ -24,18 +22,22 @@ export type TimelineInfo = {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/snapshots/${context.params?.id}`)
-  const {data} = await res.json();
+  const { db } = await connectToDB()
+  const query = { _id: new ObjectId(Array.isArray(context.params?.id)? context.params?.id[0] : context.params?.id) };
+  const data = await db.collection("snapshots").findOne(query)
+  const author = await db.collection("users").findOne({ _id: data!.author })
+  const contributors = await Promise.all(data!.contributors.map((id: ObjectId) => db.collection("users").findOne({ _id: id })));
+  const serializedData =  JSON.parse(JSON.stringify(data))
 
   return { props: { timelineInfo: {
-    title: data.title,
-    description: data.description,
-    date: data.date,
-    project: data.project,
-    author: data.author.username,
-    categories: data.categories,
-    contributors: data.contributors.map((c: { username: string; }) => c.username).join(", "),
-  } } }
+    title: data!.title,
+    description: data!.description,
+    date: serializedData.date,
+    project: data!.project,
+    categories: data!.categories,
+    author: author!.username,
+    contributors: contributors.map(contributors => contributors.username).join(", "),
+  }}};
 }
 
 const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
@@ -44,12 +46,11 @@ const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
   const [timeline, setTimeline] = useState<TimelineInfo>(timelineInfo);
 
   const router = useRouter();
-  const { id } = router.query as TimelineParams;
+  const id = router.query!.id;
   const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
   // TODO: loading screen
   if (!timeline) return <h1>Loading</h1>
-
 
   const save = async () => {
     const updatedTimeline = {

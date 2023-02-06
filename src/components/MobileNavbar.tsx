@@ -14,7 +14,7 @@ const MobileNavbar = () => {
   const logout = useAuthStore((state) => state.logout);
   const openModal = useAppStore((state) => state.openModal);
 
-  const isLoggedIn = useAuthStore((state) => state.isLoggingIn);
+  const isLoggedIn = useAuthStore((state) => state.access_token);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 

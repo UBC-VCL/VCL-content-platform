@@ -9,7 +9,7 @@ type Props = {
 }
 
 const ProjectSelect = ({timeline, setTimeline}:Props) => {
-  const projects = useProjectStore((state) => state.projects)
+  const projects = useProjectStore((state) => state.projects);
 
   return (
     <div className={styles.selectContainer}>

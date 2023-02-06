@@ -1,6 +1,5 @@
 .timeline {
     top: -35px;
-    /* background-color: rgb(245, 245, 245); */
 }
 
 .timeline-header {
@@ -14,9 +13,17 @@
     max-width: 100%;
 }
 
+.timeline-header h1 {
+    text-align: center;
+}
+
 .timeline-sub-header {
     color: #535353;
     margin-top: 27px;
+}
+
+.timeline-sub-header p {
+    text-align: center;
 }
 
  .searchBarBadge {

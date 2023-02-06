@@ -16,10 +16,11 @@ const LoginView: React.FC<LoginViewProps> = ({handleClose}) => {
 
   React.useEffect(() => {
     if (success) {
+      console.log("Login success");
       handleClose && handleClose();
     }
   }, [handleClose, success]);
-
+console.log({success, error, isLoggingIn})
   return (
     <div className="login-view-root">
       <h3 className="login-view-title">{TEXT.LOGIN.TITLE}</h3>

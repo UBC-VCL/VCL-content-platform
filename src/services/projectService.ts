@@ -12,7 +12,6 @@ export const useHandleGetAllProjects = () => {
     callGetAllProjectsAPI()
       .then((res) => {
         if (res.data) {
-          console.log("fetching projects", res.data)
           setProjects(res.data);
         } else {
           setAlert(res.message);

@@ -2,74 +2,22 @@ import React from "react";
 import TimelineSearchbar from '@/components/TimelineSearchbar';
 import TimelineCommitBlock from "@/components/TimelineCommitBlock";
 import TimelineFilter from "@/components/TimelineFilter";
+import { connectToDB } from "utils/helpers/server/connect";
 
-// dummy data
-const commitsArray = [{
-      author: "Samanshiang Chiang",
-      elementChanged: "Documentation Website Updates",
-      project: "Correlation",
-      date: new Date('2022-05-23'),
-      description: "DDDescription", 
-      tags: ['Website', 'Meeting'],
-  }, {
-      author: "Samanshiang Chiang",
-      elementChanged: "Documentation Website Updates",
-      project: "Correlation",
-      date: new Date('2022-05-23'),
-      description: "DDDescription", 
-      tags: ['Website'],
-  }, {
-      author: "Samanshiang Chiang",
-      elementChanged: "Documentation Website Updates",
-      project: "NOVA",
-      date: new Date('2022-05-23'),
-      description: "DDDescription", 
-      tags: ['Website'],
-  }, {
-      author: "Michael Rotman",
-      elementChanged: "Element Name",
-      project: "Project",
-      date: new Date('2022-05-26'),
-      description: "DDDescription", 
-      tags: ['Website', 'Meeting'],
-  }, {
-      author: "Alicia Coleman",
-      elementChanged: "Element Name",
-      project: "Shiva",
-      date: new Date('2021-06-03'),
-      description: "DDDescription", 
-      tags: ['workshop'],
-  }, {
-      author: "Russell Black",
-      elementChanged: "Documentation Website Updates",
-      project: "IDEO",
-      date: new Date('2022-05-23'),
-      description: "DDDescription", 
-      tags: ['Meeting'],
-  }]
 
-interface TimelineProps {}
+export async function getServerSideProps() {
+  const { db } = await connectToDB()
+  const snapshots = await db.collection('snapshots').find({}).sort('date', -1).toArray();
+  const data = await Promise.all(snapshots.map(async (snapshot) => ({...snapshot, author: await db.collection("users").findOne({ _id: snapshot.author })})))
+  console.log({data})
+  return { props: { commitsArray: JSON.parse(JSON.stringify(data)) } };
+}
 
-const Timeline: React.FC<TimelineProps> = (props) => {
-  let prjs: any[] = []
-  // hardcode className to display corresponding colors
-  commitsArray.forEach(commit => {
-    let prj = 'others';
-    switch (commit.project.toLowerCase()) {
-      case 'correlation':
-        prj = 'correlation'
-        break;
-      case 'nova':
-        prj = 'nova'
-        break;
-      case 'ideo':
-        prj = 'ideo';
-        break;
-      default:
-        break;
-    }
-    prjs.push(prj);
-  })
+type TimelineProps = {
+  commitsArray: any[]
+}
+
+const Timeline: React.FC<TimelineProps> = ({commitsArray}) => {
   
   return (
     <div className="timeline">
@@ -89,14 +37,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             {commitsArray.map((commit,i)=> {
               return (
                 <li>
-                  <span className={"timeline-container-span-"+prjs[i]}></span>
+                  <span className={"timeline-container-span-"+commit.project}></span>
                   <TimelineCommitBlock 
-                    author={commit.author} 
+                    author={commit.author?.username} 
                     elementChanged={commit.elementChanged} 
                     project={commit.project} 
-                    date={commit.date} 
+                    date={commit.date}
                     description={commit.description} 
-                    tags={commit.tags} 
+                    tags={commit.categories} 
                   />
                 </li>
               )

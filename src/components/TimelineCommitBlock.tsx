@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import moment from "moment";
-import { NAV, TEXT, CONSTANTS, ROUTES } from '@/statics';
+import { NAV, TEXT, CONSTANTS } from '@/statics';
 
 interface TimelineCommitBlockProps {
     author: string;
@@ -22,23 +22,30 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
     );
 };
 
+const stringToColour = (str: string) => {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var color = '#';
+    for (var i = 0; i < 3; i++) {
+      var value = (hash >> (i * 8)) & 0xFF;
+      color += ('00' + value.toString(16)).substr(-2);
+    }
+    return color;
+  }
+
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     const { author, elementChanged, date, project,description, tags } = props;
-    let colorOfProject = '#848484';
-    CONSTANTS.PROJECTS.forEach(element => {
-        if (project.toLowerCase() === element.name.toLowerCase()) {
-            colorOfProject = element.color;
-        }
-    });
     
     return(
         <div className="expandedTimeline">
             <p className="timeline-commit-header">
-                <b>{author}</b> added {elementChanged} to <span style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></span>
+                <b>{author}</b> added {elementChanged} to <span style={{display: 'inline', color: `${stringToColour(project)}`}}><b>{project}</b></span>
             </p>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
-                {tags.map((tagName) => (
+                {tags.filter(t => t).map((tagName) => (
                     <div className="timeline-commit-tag">
                         {tagName}
                     </div>
@@ -51,22 +58,15 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     const { author, elementChanged, date, project, description, tags } = props;
-    let colorOfProject = '#848484';
-    // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
-    CONSTANTS.PROJECTS.forEach(element => {
-        if (project.toLowerCase() === element.name.toLowerCase()) {
-            colorOfProject = element.color;
-        }
-    });
 
     return(
         <div className="closedTimeline">
             <p className="timeline-commit-header">
-                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {elementChanged} to <span style={{display: 'inline', color: `${stringToColour(project)}`}}><b>{project}</b></span>
             </p>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
-                {tags.map((tagName) => (
+                {tags.filter(t => t).map((tagName) => (
                     <div className="timeline-commit-tag">
                         {tagName}
                     </div>

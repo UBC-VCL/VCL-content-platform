@@ -37,7 +37,7 @@ export const useHandleLogin = () => {
 
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean | null>(null);
 
   // Cleanup state for component unmounting
   useEffect(() => {
@@ -55,7 +55,6 @@ export const useHandleLogin = () => {
     loginUser(username, password)
       .then((res) => {
         if (res.data) {
-          console.log("login", res.data)
           setAccessToken(res.data.access_token);
           setRefreshToken(res.data.refresh_token);
           setUsername(res.data.username);
@@ -63,7 +62,7 @@ export const useHandleLogin = () => {
 
           setAlert(TEXT.ALERTS.LOGIN_SUCCESS);
 
-          setSuccess(res.message);
+          setSuccess(true);
           setError(null);
         } else {
           setSuccess(null);
@@ -76,7 +75,7 @@ export const useHandleLogin = () => {
       })
       .catch(() => console.error('Error: authService.ts loginUser call'));
   };
-  console.log(access_token)
+  console.log({access_token})
 
   return { handleLogin, isFetching, error, success };
 };

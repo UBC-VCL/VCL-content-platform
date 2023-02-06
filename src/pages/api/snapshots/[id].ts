@@ -15,10 +15,8 @@ export default handler(async (req: NextApiRequest, res: NextApiResponse) =>  {
 const updateSnapshots = validateRoute(async (req: NextApiRequest, res: NextApiResponse, user) => {
   const isMember = USER_TYPE_NAMES.includes(user.permissions);
   if (!isMember) throw new Error("403");
-
   let newSnapshot = req.body;
   const { db } = await connectToDB()
-  console.log({newSnapshot})
   const author = await db.collection("users").findOne({'username': new RegExp(`^${newSnapshot.author}$`, 'i')});
   if (!author) throw new Error('404');
   newSnapshot.author = author._id;

@@ -47,7 +47,6 @@ const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
 
   const router = useRouter();
   const id = router.query!.id;
-  const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
   // TODO: loading screen
   if (!timeline) return <h1>Loading</h1>
@@ -57,7 +56,8 @@ const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
       ...timeline,
       contributors: timeline.contributors
         .split(",")
-        .map((c: string) => c.trim()),
+        .map((c: string) => c.trim())
+        .filter((c: string) => c),
     };
     const editResponse = await axios.put(`/api/snapshots/${id}`,{
       ...updatedTimeline, 

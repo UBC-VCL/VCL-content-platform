@@ -35,15 +35,10 @@ const Timeline: React.FC<TimelineProps> = ({commitsArray}) => {
           <ul>
             {commitsArray.map((commit,i)=> {
               return (
-                <li>
+                <li key={`${commit._id}`}>
                   <span className={"timeline-container-span-"+commit.project}></span>
                   <TimelineCommitBlock 
-                    author={commit.author?.username} 
-                    elementChanged={commit.elementChanged} 
-                    project={commit.project} 
-                    date={commit.date}
-                    description={commit.description} 
-                    tags={commit.categories} 
+                    {...commit} 
                   />
                 </li>
               )

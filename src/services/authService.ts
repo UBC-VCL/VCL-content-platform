@@ -75,7 +75,6 @@ export const useHandleLogin = () => {
       })
       .catch(() => console.error('Error: authService.ts loginUser call'));
   };
-  console.log({access_token})
 
   return { handleLogin, isFetching, error, success };
 };

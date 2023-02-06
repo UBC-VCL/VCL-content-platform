@@ -1,8 +1,6 @@
 import axios from "axios";
 import type { BaseResponse } from "./types";
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL;
-
 export type UserType = "default" | "member" | "admin";
 
 interface LoginResponse extends BaseResponse {
@@ -24,9 +22,6 @@ export const loginUser = async (
       {
         username,
         password,
-      },
-      {
-        baseURL,
       }
     );
 
@@ -47,7 +42,6 @@ export const checkAuth = async (
 ): Promise<CheckAuthResponse> => {
   try {
     const res = await axios.get("/api/tokens/access_token", {
-      baseURL,
       headers: {
         authorization: refresh_token,
       },
@@ -64,7 +58,6 @@ export const logoutUser = async (
 ): Promise<BaseResponse> => {
   try {
     const res = await axios.post("/api/users/logout", null, {
-      baseURL,
       headers: {
         authorization: access_token,
       },

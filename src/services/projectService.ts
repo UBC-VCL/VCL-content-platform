@@ -26,7 +26,6 @@ export const useHandleGetAllProjects = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect runs")
     handleGetAllProjects();
   }, []);
 };

@@ -18,6 +18,7 @@ const updateSnapshots = validateRoute(async (req: NextApiRequest, res: NextApiRe
 
   let newSnapshot = req.body;
   const { db } = await connectToDB()
+  console.log({newSnapshot})
   const author = await db.collection("users").findOne({'username': new RegExp(`^${newSnapshot.author}$`, 'i')});
   if (!author) throw new Error('404');
   newSnapshot.author = author._id;

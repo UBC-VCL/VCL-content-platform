@@ -59,14 +59,9 @@ const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
         .split(",")
         .map((c: string) => c.trim()),
     };
-    const editResponse = await axios({
-      method: "put",
-      url: `${baseURL}/api/snapshots/${id}`,
-      data: updatedTimeline,
-      headers: {
-        authorization: access_token,
-      },
-    });
+    const editResponse = await axios.put(`/api/snapshots/${id}`,{
+      ...updatedTimeline, 
+    }, {headers: {authorization: access_token}});
     if (editResponse.status === 200) {
       router.push("/timeline");
       //TODO: success message

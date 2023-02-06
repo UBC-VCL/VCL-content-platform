@@ -9,7 +9,6 @@ export async function getServerSideProps() {
   const { db } = await connectToDB()
   const snapshots = await db.collection('snapshots').find({}).sort('date', -1).toArray();
   const data = await Promise.all(snapshots.map(async (snapshot) => ({...snapshot, author: await db.collection("users").findOne({ _id: snapshot.author })})))
-  console.log({data})
   return { props: { commitsArray: JSON.parse(JSON.stringify(data)) } };
 }
 

@@ -19,11 +19,11 @@
     text-align: start;
 }
 
-input[type="radio"] {
+.input[type="radio"] {
     display: none;
 }
 
-input[type="checkbox"] {
+.input[type="checkbox"] {
     display: none;
 }
 

@@ -14,18 +14,20 @@
     gap: 4px;
 }
 
-select {
+.select {
     border: 1px solid #ddd;
     border-radius: 2px;
     font-size: 16px;
     padding: 4px;
     color: #333;
+    cursor: pointer;
 }
 
-select:focus {
+.select:focus {
     outline-color: black;
 }
 
-option {
+.option {
     color: #333;
+    cursor: pointer;
 }

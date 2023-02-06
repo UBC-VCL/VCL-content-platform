@@ -16,6 +16,8 @@
     padding: 12px 14px 16px 14px;
     box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
     border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .timeline-commit-tag-container {

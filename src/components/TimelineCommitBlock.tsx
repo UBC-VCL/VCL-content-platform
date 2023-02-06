@@ -1,14 +1,16 @@
 import React, {useState} from "react";
 import moment from "moment";
-import { NAV, TEXT, CONSTANTS } from '@/statics';
+import { ObjectId } from "mongodb";
+import Link from "next/link";
 
 interface TimelineCommitBlockProps {
-    author: string;
+    _id: ObjectId
+    author: any;
     elementChanged: string;
     project: string;
     date: Date;
     description: string;
-    tags: Array<string>;
+    categories: Array<string>;
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
@@ -35,42 +37,60 @@ const stringToColour = (str: string) => {
     return color;
   }
 
-const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, elementChanged, date, project,description, tags } = props;
+const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = ({...props}) => {
+    const { _id, author, elementChanged, date, project,description, categories } = props;
     
     return(
         <div className="expandedTimeline">
-            <p className="timeline-commit-header">
-                <b>{author}</b> added {elementChanged} to <span style={{display: 'inline', color: `${stringToColour(project)}`}}><b>{project}</b></span>
-            </p>
-            <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
-            <div className="timeline-commit-tag-container"> 
-                {tags.filter(t => t).map((tagName) => (
-                    <div className="timeline-commit-tag">
-                        {tagName}
-                    </div>
-                ))}
+            <div className="timeline-content-col">
+                <Link href={`/timeline/${_id?.toString()}/edit`} className="timeline-commit-header">
+                    <b>{author?.username}</b> added {elementChanged} to <span style={{display: 'inline', color: `${stringToColour(project)}`}}><b>{project}</b></span>
+                </Link>
+                <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
+                <div className="timeline-commit-tag-container"> 
+                    {categories.filter(t => t).map((tagName, i) => (
+                        <p key={`${tagName}-${_id}-${i}`} className="timeline-commit-tag">
+                            {tagName}
+                        </p>
+                    ))}
+                </div>
+                <p className="shortDescription">{description}</p>
             </div>
-            <p className="shortDescription">{description}</p>
+            <div className="timeline-edit-col">
+                <Link href={`/timeline/${_id?.toString()}/edit`}>
+                    <button className="timeline-edit-button">
+                        Edit
+                    </button>
+                </Link>
+            </div>
         </div>
     );
 }
 
-const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, elementChanged, date, project, description, tags } = props;
+const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = ({...props}) => {
+    const { _id, author, elementChanged, date, project, description, categories } = props;
 
     return(
         <div className="closedTimeline">
-            <p className="timeline-commit-header">
-                <b>{author}</b> added {elementChanged} to <span style={{display: 'inline', color: `${stringToColour(project)}`}}><b>{project}</b></span>
-            </p>
-            <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
-            <div className="timeline-commit-tag-container"> 
-                {tags.filter(t => t).map((tagName) => (
-                    <div className="timeline-commit-tag">
-                        {tagName}
-                    </div>
-                ))}
+            <div className="timeline-content-col">
+                <p className="timeline-commit-header">
+                    <b>{author?.username}</b> added {elementChanged} to <span style={{display: 'inline', color: `${stringToColour(project)}`}}><b>{project}</b></span>
+                </p>
+                <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
+                <div className="timeline-commit-tag-container"> 
+                    {categories.filter(t => t).map((tagName, i) => (
+                        <div key={`${tagName}-${_id}-${i}`} className="timeline-commit-tag">
+                            {tagName}
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="timeline-edit-col">
+                <Link href={`/timeline/${_id?.toString()}/edit`}>
+                    <button className="timeline-edit-button">
+                        Edit
+                    </button>
+                </Link>
             </div>
         </div>
     );

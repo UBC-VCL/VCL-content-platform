@@ -7,6 +7,7 @@ import Card from '@components/Card';
 import Footer from '@components/Footer';
 import MissionStatement from '@components/MissionStatement';
 import Divider from '@mui/material/Divider';
+import { Link } from 'react-router-dom';
 
 interface JoinTheTeamProps {}
 
@@ -24,7 +25,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					<p>
 						Sign up for any experiment being conducted at the Visual Cognition Lab through the VCL Subject Sign-up System. 
 						<br></br>
-						Sign up for experiments at: www.reservax.com/ubcviscog/
+						Sign up for experiments at: <Link to="//www.reservax.com/ubcviscog/" style={{color: "#5387a5"}}  target="_blank" rel="noreferrer">www.reservax.com/ubcviscog/</Link>
 					</p>
 				</section>
 				<section>
@@ -36,13 +37,76 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 					<br></br>
 					<ul style={{color: "#5387a5"}}>
-						<li>Co-Pilot</li>
-						<li>Data Science Co-Pilot</li>
-						<li>Volunteer</li>
-						<li>Directed Studies</li>
-						<li>Research Assistant</li>
-						<li>Tech Support</li>
-						<li>Lab Manager</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/get-involved/vcl-co-pilots/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Co-Pilot
+							</Link>
+						</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/get-involved/data-science-co-pilot/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Data Science Co-Pilot
+							</Link>
+						</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/get-involved/volunteeringdirected-studies/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Volunteer
+							</Link>
+						</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/get-involved/directed-studies/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Directed Studies
+							</Link>
+						</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/get-involved/student-awards/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Research Assistant
+							</Link>
+						</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/tech-support/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Tech Support
+							</Link>
+						</li>
+						<li>
+							<Link 
+								to="//viscoglab.psych.ubc.ca/get-involved/lab-manager/" 
+								style={{color: "#5387a5"}}  
+								target="_blank" 
+								rel="noreferrer"
+								>
+									Lab Manager
+							</Link>
+						</li>
 					</ul>
 					<br></br>
 					<p>
@@ -76,7 +140,13 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</ul>
 					<br></br>
 					<p style={{color: "#5387a5"}}>
-						See Application Instructions Here
+						<Link 
+							to="//viscoglab.psych.ubc.ca/get-involved/vcl-co-pilots/" 
+							style={{color: "#5387a5"}}  
+							target="_blank" 
+							>
+								See Application Instructions Here
+						</Link>
 					</p>
 					<p>
 						Note: We are currently not looking for additional co-pilots, with the exception of the Data Science Co-Pilot position. If you are insterested in 
@@ -100,7 +170,14 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</ul>
 					<br></br>
 					<p style={{color: "#5387a5"}}>
-						See Application Intructions Here
+						<Link 
+							to="//viscoglab.psych.ubc.ca/get-involved/data-science-co-pilot/" 
+							style={{color: "#5387a5"}}  
+							target="_blank" 
+							rel="noreferrer"
+							>
+								See Application Intructions Here
+						</Link>	
 					</p>
 				</section>
 				<div className='join-divider'/>
@@ -125,7 +202,13 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 						research lab would expect from a seasoned volunteer.
 					</p>
 					<p style={{color: "#5387a5"}}>
-						See Application Intructions Here
+						<Link to="//viscoglab.psych.ubc.ca/get-involved/volunteeringdirected-studies/" 
+							style={{color: "#5387a5"}}  
+							target="_blank" 
+							rel="noreferrer"
+							>
+								See Application Intructions Here
+						</Link>
 					</p>
 				</section>
 				<div className='join-divider'/>
@@ -164,7 +247,13 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 					<br></br>
 					<p style={{color: "#5387a5"}}>
-						See Application Intructions Here
+						<Link to="//viscoglab.psych.ubc.ca/get-involved/directed-studies/" 
+							style={{color: "#5387a5"}}  
+							target="_blank" 
+							rel="noreferrer"
+							>
+								See Application Intructions Here
+						</Link>
 					</p>
 					<p>
 						Please keep in mind that we typically prefer Directed Studies students to begin with a co-pilot position with our lab. However, exceptions can be made.
@@ -194,7 +283,14 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 						to gain the skills that a research lab would expect from a seasoned volunteer.
 					</p>
 					<p style={{color: "#5387a5"}}>
-						See Application Instructions Here
+						<Link 
+							to="//viscoglab.psych.ubc.ca/get-involved/student-awards/" 
+							style={{color: "#5387a5"}}  
+							target="_blank" 
+							rel="noreferrer"
+							>
+								See Application Instructions Here
+						</Link>
 					</p>
 				</section>
 			</div>

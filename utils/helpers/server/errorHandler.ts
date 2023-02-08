@@ -6,6 +6,7 @@ export const handler = (handler: Handler) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const data = await handler(req, res)
+      console.log("returning", {data})
       return res.status(200).json({data})
     }
     catch (error) {

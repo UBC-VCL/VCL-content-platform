@@ -32,7 +32,7 @@ const updateSnapshots = validateRoute(async (req: NextApiRequest, res: NextApiRe
   }
   const query = { _id: new ObjectId(Array.isArray(req.query?.id)? req.query?.id[0] : req.query?.id) };
   const snapshot = await db.collection("snapshots").findOneAndUpdate(query, {$set: {...newSnapshot}});
-  return snapshot;
+  return snapshot.value;
 });
 
 const deleteSnapshot = validateRoute(async (req: NextApiRequest, res: NextApiResponse, user) => {

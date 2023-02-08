@@ -1,0 +1,184 @@
+
+body{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0%;
+}
+
+.About {
+    background-color: #FAFAFA;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    color: #000000;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-bottom: -2000px;
+}
+
+.About p + p,
+.About ul + p {
+    margin-top: 12px;
+}
+
+section {
+    margin: 2em 0;
+}
+
+.About .header {
+    position: relative;
+    top: 3.68%;
+    padding-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 100%;
+}
+
+.About .header * {
+    text-align: center;
+}
+
+.About .sub-header {
+    color: #535353;
+    margin-top: 8px;
+}
+
+.header h1 {
+    font-weight: 700;
+    font-size: 35px;
+    max-width: 100%;
+}
+
+h2 {
+    text-align: left;
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0.8em 0;
+}
+
+h3 {
+    font-size: 16px;
+    color: #000000;
+    max-width: 100%;
+}
+
+.main-body {
+    text-align: left;
+    width: min(80%, 1000px);
+    margin: 48px auto;
+}
+
+.announcements {
+    position: relative;
+    background-color: #1C426D;
+    width: 100%;
+    height: 76px;
+    font-family: 'Arial';
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    display: flex;
+}
+
+.img_placeholder {
+    height: 371px;
+    background: #DAE2E4;
+    border-radius: 8px;
+    width: 100%;
+    position: relative;
+    max-width: 100%;
+}
+
+.About .main-body ul {
+    list-style: none;
+    margin-left: 32px;
+}
+
+.About .main-body ul li {
+    position: relative;
+    margin: 8px 0;
+}
+
+.About .main-body ul li::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    left: -32px;
+    top: 2px;
+}
+
+.responsability-list li::before { 
+    background-image: url("../../../statics/images/checkmark.svg");   
+}
+
+.value-list li::before { 
+    background-image: url("../../../statics/images/checkmark.svg");     
+}
+
+.gain-section {
+    padding: 48px 10%;
+    background-color: #FFFFFF;
+    color: #3f3f3f;
+}
+
+.gain-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.contact {
+    width: 80%;
+    margin: 48px auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 24px;
+}
+
+.map-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info h2 {
+    margin-top: 0;
+}
+
+.contact-info ul {
+    margin-top: 8px;
+    margin-left: 16px;
+}
+
+.contact-info ul li {
+    margin: 0;
+}
+
+@media (max-width: 1023px) {
+    .main-body {
+        width: 90%;
+    }
+    .gain-section {
+        padding: 48px 5%;
+    }
+    .contact {
+        width: 90%;
+    }
+    .About .sub-header {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {  
+    .contact {
+        grid-template-columns: 1fr;
+    }
+}

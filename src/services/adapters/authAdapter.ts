@@ -1,11 +1,7 @@
-import axios from 'axios';
-import dotenv from 'dotenv';
-import type { BaseResponse } from './types';
+import axios from "axios";
+import type { BaseResponse } from "./types";
 
-dotenv.config();
-const baseURL = process.env.REACT_APP_API_URL;
-
-export type UserType = 'default' | 'member' | 'admin';
+export type UserType = "default" | "member" | "admin";
 
 interface LoginResponse extends BaseResponse {
   data?: {
@@ -22,13 +18,10 @@ export const loginUser = async (
 ): Promise<LoginResponse> => {
   try {
     const res = await axios.post(
-      '/api/users/login',
+      "/api/users/login",
       {
         username,
         password,
-      },
-      {
-        baseURL,
       }
     );
 
@@ -48,8 +41,7 @@ export const checkAuth = async (
   refresh_token: string
 ): Promise<CheckAuthResponse> => {
   try {
-    const res = await axios.get('/api/tokens/access_token', {
-      baseURL,
+    const res = await axios.get("/api/tokens/access_token", {
       headers: {
         authorization: refresh_token,
       },
@@ -65,8 +57,7 @@ export const logoutUser = async (
   access_token: string
 ): Promise<BaseResponse> => {
   try {
-    const res = await axios.post('/api/users/logout', null, {
-      baseURL,
+    const res = await axios.post("/api/users/logout", null, {
       headers: {
         authorization: access_token,
       },

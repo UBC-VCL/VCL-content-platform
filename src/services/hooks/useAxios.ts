@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 const useAxios = (axiosParams: AxiosRequestConfig) => {
   const [response, setResponse] = useState<AxiosResponse>();

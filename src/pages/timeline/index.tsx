@@ -8,8 +8,8 @@ import { connectToDB } from "utils/helpers/server/connect";
 export async function getServerSideProps() {
   const { db } = await connectToDB()
   const snapshots = await db.collection('snapshots').find({}).sort('date', -1).toArray();
-  const data = await Promise.all(snapshots.map(async (snapshot) => ({...snapshot, author: await db.collection("users").findOne({ _id: snapshot.author })})))
-  console.log("fetching data", data[0])
+  const populatedData = await Promise.all(snapshots.map(async (snapshot) => ({...snapshot, author: await db.collection("users").findOne({ _id: snapshot.author })})))
+  const data = populatedData.map((snapshot) => ({...snapshot, author: snapshot.author!.username}))
   return { props: { commitsArray: JSON.parse(JSON.stringify(data)) } };
 }
 

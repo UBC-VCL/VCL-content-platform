@@ -6,7 +6,7 @@ import { useAuthStore } from "stores/AuthStore";
 
 interface TimelineCommitBlockProps {
     _id: ObjectId
-    author: any;
+    author: string;
     elementChanged: string;
     project: string;
     date: Date;
@@ -38,7 +38,7 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
             <div className="timeline-commit-block"
                 onClick={() => setExpand(!expand)}>
                 <div className="timeline-content-col">
-                <b>{author?.username}</b> added {elementChanged} to <span><b style={{color: `${stringToColour(project)}`}}>{project}</b></span>
+                <b>{author}</b> added {elementChanged} to <span><b style={{color: `${stringToColour(project)}`}}>{project}</b></span>
                     <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
                     <div className="timeline-commit-tag-container"> 
                         {categories.filter(t => t).map((tagName, i) => (

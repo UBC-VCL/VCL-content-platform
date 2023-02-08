@@ -63,6 +63,7 @@ const EditTimelineEntry = ({timelineInfo}: {timelineInfo: TimelineInfo}) => {
       ...updatedTimeline, 
     }, {headers: {authorization: access_token}});
     if (editResponse.status === 200) {
+      console.log("data", editResponse)
       router.push("/timeline");
       //TODO: success message
       return;

@@ -1,7 +1,7 @@
 .container {
     --darkgrey: #666;
     width: min(80%, 1000px);
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 }
 
 .header {

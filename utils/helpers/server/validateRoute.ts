@@ -14,6 +14,6 @@ export const validateRoute = (handler: Handler) => {
     if (!user) {
       return res.status(401).json({message: "Access forbiden"})
     }
-    handler(req, res, user)
+    return handler(req, res, user)
   }
 }

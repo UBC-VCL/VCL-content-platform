@@ -126,7 +126,58 @@ const TEXT = {
         DESCRIPTION: 'Description of how the lab can help COGS students with this project'
       }
     }
-  }
+  },
+  PROJECT_JOIN: {
+    HOME_SECTION: {
+      TITLE:"Join our Team",
+      INTEREST:"Interested in research? Good news, we're always looking for new co-pilots.",
+      COPILOT_DESCRIPTION: "Co-Pilots sign a contract with the lab that lasts for a school term, with the possibility for renewal. Co-Pilots are assigned to a particular project team based on their interests, but have the freedom to explore different projects.",
+      RESEARCH_BACKGROUND: "No background in research is needed, and co-pilots have the flexibility of helping out whenever they want!",
+      APPPLICATION_INSTRUCTION:"Application Instructions"
+    },
+    WHAT_WE_DO:{
+      TITLE:"What We Do",
+      DESCRIPTION_1:"In a scatter plot, data is translated into a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. Correlation in a scatter-plot corresponds to the degree to which the points form a straight line.",
+      DESCRIPTION_2:"Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables."
+    }, 
+    YOU_MIGHT_LIKE:{
+      TITLE:"You might like this if you are..."
+    },
+    PAST_POSITIONS_AND_PROJECTS:{
+      TITLE:"Past Positions and Projects",
+      VCL_WEB_APP:{
+        TITLE:"VCL Web-App",
+        DESCRIPTION:"Include a short description of what this project is about, what roles people took on, etc."
+      },
+      PROJECT1:{
+        TITLE:"Project 1",
+        DESCRIPTION:"Include a short description of what this project is about, what roles people took on, etc."
+      },
+      PROJECT2:{
+        TITLE:"Project 2",
+        DESCRIPTION:"Include a short description of what this project is about, what roles people took on, etc."
+      }
+    },
+    WHAT_OUR_TEAM_SAY:{
+      TITLE:"What our team members say"
+    },
+    APPLICATION_INSTRUCTIONS:{
+      TITLE:"Application Instructions",
+      STEP1:{
+        TITLE:"Step 1",
+        TEXT:"Head over to the Orientation page to see if our lab philosophy matches yours"
+      },
+      STEP2:{
+        TITLE:"Step 2",
+        TEXT:"Email vclmanager@gmail.com with “VCL Co-Pilots” as subject, and include:",
+        BULLET_POINTS:{
+          BULLET_1:"Resume/CV",
+          BULLET_2:"List of relevant courses you have taken so far",
+          BULLET_3:"Research projects you’re interested in and why",
+        }
+      }
+    }
+  },
 } as const;
 
 export default TEXT;

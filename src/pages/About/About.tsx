@@ -33,7 +33,7 @@ const About: React.FC<AboutProps> = props => {
 				</section>
 				<section>
 					<h2>{TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.HEADER}</h2>
-					<ul className="responsability-list">
+					<ul className="responsibility-list">
 						<li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
 						<li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
 						<li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>

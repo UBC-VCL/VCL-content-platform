@@ -40,7 +40,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                     </a>
                 </div>
             </div>
-            <div className='divider'></div>
+            {/* <div className='divider'></div> */}
             <div className='right-side'>
                 <img className='research-img' src={research} alt="research"/>
             </div>
@@ -108,9 +108,9 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         <section className='full-bleed6'>
         <div className='Application-Instructions'>
         <p style={{paddingTop: "7%", textAlign: "center", color:"#B2C9EC"}}>05</p>
-            <h2 style={{textAlign: "center", color:"#5387A5"}}>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.TITLE}</h2>
+            <h2 style={{textAlign: "center", color:"#5387A5", marginBottom:"5%"}}>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.TITLE}</h2>
             <div className='app-row'>
-                <div className='rectangle-card' style={{marginLeft:"20%"}}>
+                <div className='rectangle-card'>
                     <div className='top-card-row'>
                         <img src={browser} alt='browser'/>
                         <h1 style={{marginLeft: "20%",  color:"rgba(28, 66, 109, 0.3)", fontSize: "51.0371px"}}>01</h1>
@@ -125,7 +125,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                     </div>
                     <VerticalSpacer height={150} />
                 </div>
-                <div className='rectangle-card' style={{marginLeft:"1%"}}>
+                <div className='rectangle-card'>
                     <div className='top-card-row'>
                         <img src={email} alt='email'/>
                         <h1 style={{marginLeft: "20%", color:"rgba(28, 66, 109, 0.3)", fontSize: "51.0371px"}}>02</h1>

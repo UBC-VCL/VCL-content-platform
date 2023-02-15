@@ -1,8 +1,14 @@
-/* @media (max-width: 300px) {
+@media (max-width: 500px) {
     .research-img {
         display: none;
     }
-} */
+    .intro-to-join-our-team{
+        gap: 0px
+    }
+    .Application-Instructions{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 .join-our-team-homepage{
     font-family: 'Source Sans Pro';
@@ -15,6 +21,7 @@
 
 .intro-to-join-our-team {
     display: flex;
+    gap: 2%;
     justify-content: center;
     align-items: center;
     background-color: #E8EFF7;
@@ -81,7 +88,7 @@
     min-height: 70%;
     z-index: 3; */
     text-align: center;
-    width: 150%;
+    width: 100%;
     height: auto;
 }
 
@@ -213,6 +220,10 @@
 .Application-Instructions {
     margin-top: -1%;
     background-color: #FBFBFB;
+    display: grid;
+    grid-template-columns: 2 repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
 }
 
 
@@ -223,11 +234,8 @@
 }
 
 .Application-Instructions .rectangle-card{
-    /* flex: 1 0 10%; */
-    width: 30%;
     margin-bottom: 1%;
     position: relative;
-    /* margin-left: 20%; */
     background-color: white;
     box-shadow: 0px 3.03834px 16.7109px -5.31709px rgba(0, 0, 0, 0.09);
 }
@@ -237,7 +245,6 @@
     margin-right: 10%;
     float:right;
     display:flex;
-    align-items:flex-end;
 }
 
 .Application-Instructions .rectangle-card p{

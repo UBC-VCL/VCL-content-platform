@@ -1,6 +1,6 @@
 .card-section {
     width: min(80%, 1000px);
-    margin: 25px auto;
+    margin: 5% auto;
 }
 
 .card-container {
@@ -22,7 +22,7 @@
 
 .mission-statement-container {
     width: min(80%, 1000px);
-    margin: 48px auto;
+    margin: 25px auto;
 }
 
 .mission-statement-title {
@@ -66,7 +66,7 @@
 .mission-img-placeholder-one {
     width: 80%;
     aspect-ratio: 5 / 3;
-    margin: 0 auto;
+    margin-bottom: 15px;
     background: #DAE2E4;
     border-radius: 8px;
 }
@@ -74,7 +74,7 @@
 .mission-img-placeholder-two {
     width: 80%;
     aspect-ratio: 5 / 3;
-    margin: 0 auto;
+    margin-bottom: 15px;
     background: #CBD6DC;
     border-radius: 8px;
 }

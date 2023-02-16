@@ -18,6 +18,14 @@
 	height: auto;
 }
 
+.dropdown-menu {
+	margin-top: 1.25%;
+}
+
+.dropdown-menu:hover {
+	max-width: 19%;
+}
+
 [role=menu] {
 	padding: 20px 35px 35px 35px !important;
 	box-shadow: 0px 4px 70px 1px rgba(175, 175, 175, 0.25);
@@ -35,9 +43,14 @@
 	font-size: 20px;
 	line-height: 35px;
 	letter-spacing: 0.04em;
-	text-decoration: none;
 	color: var(--fc-navyblue);
 	margin-bottom: 20%;
+	text-decoration: none !important;
+	transition: font-size 0.5s;
+}
+
+.all-projects-text:hover {
+	font-size: 22px;
 }
 
 .all-projects-underline {
@@ -61,7 +74,7 @@
 .project-name:hover {
 	color: var(--fc-navyblue);
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 19px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -104,6 +117,7 @@
 	border: 0;
 	background: none;
 	text-transform: uppercase;
+	cursor: pointer;
 }
 
 .nav-link {

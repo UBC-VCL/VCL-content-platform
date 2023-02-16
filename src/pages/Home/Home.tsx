@@ -3,7 +3,7 @@ import Card from "@components/Card";
 import LandingPage from "@components/LandingPage";
 import "./Home.css"
 import { TEXT } from '@statics';
-import MissionStatement from "@components/MissionStatement";
+import MissionStatement from "@components/LabGoalsFooter";
 
 interface HomeProps {}
 

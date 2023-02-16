@@ -90,6 +90,7 @@ const Navbar: React.FC<{}> = () => {
                 onClick={handleProjectMenuClick}
                 >{TEXT.PAGE_TITLES.PROJECTS}</button>
                 <Menu
+                    className="dropdown-menu"
                     id="basic-menu" 
                     anchorEl={projectAnchorEl}
                     open={projectOpen}

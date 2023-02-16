@@ -5,7 +5,7 @@ import { TEXT } from '@statics';
 import kennyMap from '@statics/images/kenny-map.png';
 import Card from '@components/Card';
 import Footer from '@components/Footer';
-import MissionStatement from '@components/MissionStatement';
+import MissionStatement from '@components/LabGoalsFooter';
 
 interface AboutProps {}
 
@@ -33,7 +33,7 @@ const About: React.FC<AboutProps> = props => {
 				</section>
 				<section>
 					<h2>{TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.HEADER}</h2>
-					<ul className="responsability-list">
+					<ul className="responsibility-list">
 						<li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
 						<li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
 						<li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>

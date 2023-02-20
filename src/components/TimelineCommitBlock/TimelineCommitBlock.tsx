@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import moment from "moment";
 import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
+import { Link } from 'react-router-dom';
 import './TimelineCommitBlock.css';
 
 interface TimelineCommitBlockProps {
@@ -8,7 +9,10 @@ interface TimelineCommitBlockProps {
     elementChanged: string;
     project: string;
     date: Date;
-    description: string;
+    descriptions: Array<string>;
+    hyperlinks: Array<string>;
+    contributors: Array<string>;
+    updatedTime: string;
     tags: Array<string>;
 }
 
@@ -24,7 +28,7 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 };
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, elementChanged, date, project,description, tags } = props;
+    const { author, elementChanged, date, project, descriptions, hyperlinks, contributors, updatedTime, tags } = props;
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
@@ -45,13 +49,44 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
                     </div>
                 ))}
             </div>
-            <p className="shortDescription">{description}</p>
+            <div className="timeline-commit-descriptions-container">
+                {descriptions.map((desc) => (
+                    <p className="descriptions-content">
+                        {desc}
+                    </p>
+                ))}
+            </div>
+            <p className="timeline-commit-hyperlink">Reference/Image Hyperlinks:</p>
+            <div className="timeline-commit-hyperlinks-container">
+                {hyperlinks.map((link) => (
+                    <div className="hyperlinks-content">
+                        <Link to={"//" + link}
+                            style={{color: "rgba(28,66,109,255)"}} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            >
+                                HYPERLINK TO IMAGE
+                        </Link>
+                        <br />
+                    </div>
+                ))}
+            </div>
+            <div className='timeline-commit-divider'></div>  
+            <p className="timeline-commit-contributor">Contributors:</p>
+            <div className="timeline-commit-contributors-container">
+                {contributors.map((contr) => (
+                    <p className="contributors-content">
+                        {contr} &emsp;
+                    </p>
+                ))}
+            </div>
+            <p className="timeline-commit-updatedTime">{updatedTime}</p>
         </div>
     );
 }
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, elementChanged, date, project, description, tags } = props;
+    const { author, elementChanged, date, project, tags } = props;
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
     CONSTANTS.PROJECTS.forEach(element => {

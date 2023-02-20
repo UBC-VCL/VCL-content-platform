@@ -26,7 +26,7 @@ section {
     margin: 2em 0;
 }
 
-.Join .join-header {
+.join-header {
     position: relative;
     top: 3.68%;
     padding-top: 130px;
@@ -34,17 +34,17 @@ section {
     max-width: 100%;
 }
 
-.Join .join-header * {
+.join-header * {
     text-align: center;
 }
 
-.Join .join-sub-header {
+.join-sub-header {
     color: #535353;
     margin-top: 8px;
 }
 
 
-.join-divider {
+.role-divider {
     text-align: left;
     width: min(100%, 1000px);
     margin: 38px auto;
@@ -67,9 +67,6 @@ section {
 }
 
 .join-main-body h3 {
-    font-size: 16px;
-    color: #000000;
-    max-width: 100%;
 }
 
 .join-main-body {
@@ -82,38 +79,16 @@ section {
     line-height: 1.5;
 }
 
-.join-announcements {
-    position: relative;
-    background-color: #1C426D;
-    width: 100%;
-    height: 76px;
-    font-family: 'Arial';
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: #ffffff;
-    display: flex;
-}
-
-.img_placeholder {
-    height: 371px;
-    background: #DAE2E4;
-    border-radius: 8px;
-    width: 100%;
-    position: relative;
-    max-width: 100%;
-}
-
-.Join .join-main-body ul {
+.join-main-body ul {
     margin-left: 32px;
 }
 
-.Join .join-main-body ul li {
+.join-main-body ul li {
     position: relative;
     margin: 8px 0;
 }
 
-.Join .join-main-body ul li::before {
+.join-main-body ul li::before {
     content: "";
     position: absolute;
     width: 20px;
@@ -124,16 +99,16 @@ section {
     top: 2px;
 }
 
-.Join .join-main-body ol {
+.join-main-body ol {
     margin-left: 32px;
 }
 
-.Join .join-main-body ol li {
+.join-main-body ol li {
     position: relative;
     margin: 8px 0;
 }
 
-.Join .join-main-body ol li::before {
+.join-main-body ol li::before {
     content: "";
     position: absolute;
     width: 20px;
@@ -142,75 +117,13 @@ section {
     background-position: center;
     left: -32px;
     top: 2px;
-}
-
-.join-responsability-list li::before { 
-    background-image: url("task.png");   
-}
-
-.join-value-list li::before { 
-    background-image: url("tick.png");   
-}
-
-.join-gain-section {
-    padding: 48px 10%;
-    background-color: #FFFFFF;
-    color: #3f3f3f;
-}
-
-.join-gain-section h2 {
-    text-align: center;
-    margin-top: 0;
-}
-
-.join-contact {
-    width: 80%;
-    margin: 48px auto;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 24px;
-}
-
-.join-map-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.join-contact-info {
-    text-align: left;
-}
-
-.join-contact-info h2 {
-    margin-top: 0;
-}
-
-.join-contact-info ul {
-    margin-top: 8px;
-    margin-left: 16px;
-}
-
-.join-contact-info ul li {
-    margin: 0;
 }
 
 @media (max-width: 1023px) {
     .join-main-body {
         width: 90%;
     }
-    .join-gain-section {
-        padding: 48px 5%;
-    }
-    .join-contact {
-        width: 90%;
-    }
     .Join .join-sub-header {
         font-size: 14px;
-    }
-}
-
-@media (max-width: 767px) {  
-    .join-contact {
-        grid-template-columns: 1fr;
     }
 }

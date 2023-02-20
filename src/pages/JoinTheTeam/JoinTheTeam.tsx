@@ -19,7 +19,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 				<p className='join-sub-header'>Interested in what we do? Find out how you can join our activities here</p>
 			</div>
 			<div className="join-main-body">
-				<div className='join-divider'/>
+				<div className='role-divider'/>
 				<section>
 					<h2>Get Involved as a Participant</h2>
 					<p>
@@ -117,7 +117,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 						Note that if you were previously a lab member but have been away for at least a term, you will need to go through the application process again.
 					</p>	
 				</section>
-				<div className='join-divider'/>
+				<div className='role-divider'/>
 				<section>
 					<h2>Get Involved as a Co-Pilot...</h2>
 					<p>To be a co-pilot, you don't need to have any background in research and you can help out whenever you want. Co-Pilots sign a contract with the lab 
@@ -153,7 +153,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 						joining the lab with a different project, please apply near the start of 2021W Term 2.
 					</p>
 				</section>
-				<div className='join-divider'/>
+				<div className='role-divider'/>
 				<section>
 					<h2>Get Involved as a Data Science Co-Pilot...</h2>
 					<p>
@@ -180,7 +180,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 						</Link>	
 					</p>
 				</section>
-				<div className='join-divider'/>
+				<div className='role-divider'/>
 				<section>
 					<h2>Get Involved as a Volunteer...</h2>
 					<p>
@@ -211,7 +211,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 						</Link>
 					</p>
 				</section>
-				<div className='join-divider'/>
+				<div className='role-divider'/>
 				<section>
 					<h2>Get Involved as a Directed Studies/COGS 402 Student...</h2>
 					<p>
@@ -260,7 +260,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 
 				</section>
-				<div className='join-divider'/>
+				<div className='role-divider'/>
 				<section>
 					<h2>Get Involved as a Research Assistant...</h2>
 					<p>

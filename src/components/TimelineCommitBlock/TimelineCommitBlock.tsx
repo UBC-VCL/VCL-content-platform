@@ -7,7 +7,7 @@ interface TimelineCommitBlockProps {
     author: string;
     elementChanged: string;
     project: string;
-    date: Date;
+    date: string;
     description: string;
     tags: Array<string>;
 }

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './Timeline.css';
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
+import axios from "axios";
 
 // dummy data
+/*
 const commitsArray = [{
       author: "Samanshiang Chiang",
       elementChanged: "Documentation Website Updates",
@@ -48,13 +50,41 @@ const commitsArray = [{
       description: "DDDescription", 
       tags: ['Meeting'],
   }]
-
+*/
 interface TimelineProps {}
+
+type SnapShot = {
+    author: {username: string};
+    categories: string[];
+    contributors: string[];
+    date: string;
+    description: string;
+    imageURL: string;
+    project: string;
+    title: string;
+    updatedAt: string;
+    _v: number;
+    _id: string;
+}
 
 const Timeline: React.FC<TimelineProps> = (props) => {
   let prjs: any[] = []
+
+  let [commits, setCommits] = useState<SnapShot[]>([]);
+
+  useEffect(() => {
+    //fetch data
+    axios
+      .get('http://localhost:4000/api/snapshots')
+      .then(response => {
+        setCommits(response.data.data);
+        console.log(commits);
+        console.log(response.data.data);
+      });
+  }, []);
+
   // hardcode className to display corresponding colors
-  commitsArray.forEach(commit => {
+  commits.forEach(commit => {
     let prj = 'others';
     switch (commit.project.toLowerCase()) {
       case 'correlation':
@@ -87,17 +117,17 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       <div className="timeline-main-body">
         <div className="timeline-container">
           <ul>
-            {commitsArray.map((commit,i)=> {
+            {commits.map((commit,i)=> {
               return (
                 <li>
                   <span className={"timeline-container-span-"+prjs[i]}></span>
                   <TimelineCommitBlock 
-                    author={commit.author} 
-                    elementChanged={commit.elementChanged} 
+                    author={commit.author.username} 
+                    elementChanged={commit.title} 
                     project={commit.project} 
                     date={commit.date} 
                     description={commit.description} 
-                    tags={commit.tags} 
+                    tags={commit.categories} 
                   />
                 </li>
               )

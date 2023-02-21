@@ -8,7 +8,7 @@ export default class ProjectAPI {
     static async getAllProjects(): Promise<any> {
         try {
             const response = await axios.get("/api/projects", {
-                baseURL,
+                baseURL: "http://localhost:4000",
             });
             return response;
         } catch (e) {

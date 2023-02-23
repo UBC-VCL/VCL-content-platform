@@ -1,0 +1,129 @@
+
+body{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0%;
+}
+
+.Join {
+    background-color: #FAFAFA;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    color: #000000;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-bottom: -2000px;
+}
+
+.Join p + p,
+.Join ul + p {
+    margin-top: 12px;
+}
+
+section {
+    margin: 2em 0;
+}
+
+.join-header {
+    position: relative;
+    top: 3.68%;
+    padding-top: 130px;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 100%;
+}
+
+.join-header * {
+    text-align: center;
+}
+
+.join-sub-header {
+    color: #535353;
+    margin-top: 8px;
+}
+
+
+.role-divider {
+    text-align: left;
+    width: min(100%, 1000px);
+    margin: 38px auto;
+	border: 1.2px solid #8c9fc2;
+}
+
+.join-header h1 {
+    font-weight: 700;
+    font-size: 35px;
+    max-width: 100%;
+}
+
+.join-main-body h2 {
+    text-align: left;
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0.8em 0;
+    color: #1C426D;
+}
+
+.join-main-body h3 {
+}
+
+.join-main-body {
+    text-align: left;
+    width: min(80%, 1000px);
+    margin: 48px auto;
+}
+
+.join-main-body p {
+    line-height: 1.5;
+}
+
+.join-main-body ul {
+    margin-left: 32px;
+}
+
+.join-main-body ul li {
+    position: relative;
+    margin: 8px 0;
+}
+
+.join-main-body ul li::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    left: -32px;
+    top: 2px;
+}
+
+.join-main-body ol {
+    margin-left: 32px;
+}
+
+.join-main-body ol li {
+    position: relative;
+    margin: 8px 0;
+}
+
+.join-main-body ol li::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    left: -32px;
+    top: 2px;
+}
+
+@media (max-width: 1023px) {
+    .join-main-body {
+        width: 90%;
+    }
+    .Join .join-sub-header {
+        font-size: 14px;
+    }
+}

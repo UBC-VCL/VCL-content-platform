@@ -5,7 +5,7 @@ import { TEXT } from '@statics';
 import kennyMap from '@statics/images/kenny-map.png';
 import Card from '@components/Card';
 import Footer from '@components/Footer';
-import MissionStatement from '@components/MissionStatement';
+import LabGoalsFooter from '@components/LabGoalsFooter';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 
@@ -294,7 +294,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 				</section>
 			</div>
-			<MissionStatement />
+			<LabGoalsFooter />
 		</div>
 	);
 };

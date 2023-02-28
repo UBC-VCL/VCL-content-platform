@@ -26,4 +26,15 @@ export default class ProjectAPI {
             throw e;
         }
     }
+
+    static async getAllSnapshots(): Promise<any> {
+        try {
+            const response = await axios.get("/api/snapshots", {
+                baseURL: "http://localhost:4000",
+            });
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
 }

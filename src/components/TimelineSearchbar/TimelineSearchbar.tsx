@@ -7,7 +7,6 @@ import { IconButton } from '@mui/material';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
 import { useState } from "react";
 import { SnapShot } from "@pages/Timeline/Timeline";
-import { filter } from "lodash";
 
 interface TimelineSearchbarProps {
   commits: Array<SnapShot>;

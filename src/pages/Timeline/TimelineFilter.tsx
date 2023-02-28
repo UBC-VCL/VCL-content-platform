@@ -6,7 +6,8 @@ import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
-
+import { useEffect } from 'react';
+import axios from 'axios';
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
 const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
 const dummyDataForDate = ['Last day', 'Last month', 'Last year'];
@@ -22,6 +23,17 @@ const TimelineFilterContainer = () => {
   const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
   const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
+
+  
+
+  useEffect(() => {
+    //fetch data
+    axios
+      .get('http://localhost:4000/api/projects')
+      .then(response => {
+        
+      });
+  }, []);
 
   return (
     <div className='timeline-filter' style={{display: 'inline'}}>

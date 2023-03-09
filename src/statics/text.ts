@@ -141,7 +141,7 @@ const TEXT = {
       DESCRIPTION_2:"Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables."
     }, 
     YOU_MIGHT_LIKE:{
-      TITLE:"You might like this if you are..."
+      TITLE:"You might like this if you like..."
     },
     PAST_POSITIONS_AND_PROJECTS:{
       TITLE:"Past Positions and Projects",
@@ -158,7 +158,7 @@ const TEXT = {
         DESCRIPTION:"Include a short description of what this project is about, what roles people took on, etc."
       }
     },
-    WHAT_OUR_TEAM_SAY:{
+    MEMBER_TESTIMONIALS:{
       TITLE:"What our team members say"
     },
     APPLICATION_INSTRUCTIONS:{

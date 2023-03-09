@@ -1,13 +1,6 @@
-@media (max-width: 500px) {
-    .research-img {
-        display: none;
-    }
-    .intro-to-join-our-team{
-        gap: 0px
-    }
-    .Application-Instructions{
-        grid-template-columns: repeat(1, 1fr);
-    }
+.project-breadcrumbs{
+    padding-left: 9.6%;
+    margin-top: 35px;
 }
 
 .join-our-team-homepage{
@@ -15,7 +8,7 @@
     line-height: 30px;
 }
 
-.relative-project-position-display {
+.project-breadcrumbs {
     margin-bottom: 5%; 
 }
 
@@ -30,7 +23,7 @@
 }
 
 .full-bleed{
-    box-shadow: 0 -8vmax 0vmax 0vmax #E8EFF7;
+    box-shadow: 0 -20vmax 0vmax 0vmax #E8EFF7;
     clip-path: inset(0,100vmax);
 }
 
@@ -81,12 +74,6 @@
 }
 
 .research-img {
-    /* position: relative;
-    margin-left: -100%;
-    margin-top: -45%;
-    max-width: 250%;
-    min-height: 70%;
-    z-index: 3; */
     text-align: center;
     width: 100%;
     height: auto;
@@ -181,10 +168,11 @@
 }
 
 .card {
-    width: 70%;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
     margin-bottom: 1%;
-    position: relative;
-    margin-left: 20%;
+    margin-left: 25%;
     background-color: white;
     box-shadow: 0px 3.03834px 16.7109px -5.31709px rgba(0, 0, 0, 0.09);
 }
@@ -253,9 +241,30 @@
     margin-bottom: 2%;
 
 }
-.Application-Instructions .app-row{
-    display:flex;
-    flex-wrap: wrap;
+
+@media (max-width: 500px) {
+    .research-img {
+        display: none;
+    }
+    .intro-to-join-our-team{
+        gap: 0px
+    }
+    .Application-Instructions{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .project-breadcrumbs{
+        padding-left: 25vw;
+        margin-top: 50px;
+    }
 }
 
-
+@media (max-width: 900px){
+    .project-breadcrumbs{
+        padding-left: 12%;
+        margin-top: 40px;
+    }
+    .Application-Instructions{
+        justify-content: center;
+        align-content: center;
+    }
+}

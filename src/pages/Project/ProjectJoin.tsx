@@ -22,7 +22,7 @@ interface ProjectProps {
 const ProjectJoin: React.FC<ProjectProps> = (props) => {
     return (
         <div className='join-our-team-homepage'>
-        <div className='relative-project-position-display' style={{paddingLeft:"8vw"}}>
+        <div className='project-breadcrumbs'>
             <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.JOIN_THE_TEAM}/> 
         </div>
         <section className='full-bleed'>
@@ -101,7 +101,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         <section className='full-bleed5' style={{marginTop:"10%"}}>
         <div className='what-our-team-member-say'>
             <p style={{paddingTop: "7%"}}>04</p>
-            <h2>{TEXT.PROJECT_JOIN.WHAT_OUR_TEAM_SAY.TITLE}</h2>
+            <h2>{TEXT.PROJECT_JOIN.MEMBER_TESTIMONIALS.TITLE}</h2>
             <h1 style={{textAlign:"center", color:"white", paddingBottom:"20%"}}>Carousel placeholder</h1>
         </div>
         </section>

@@ -18,6 +18,7 @@ const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: {
     setProjectSelected: React.Dispatch<React.SetStateAction<string[]>>,
     dummyData: string[],
 }) => {
+        console.log(dummyData);
         const list = {
           'name': 'Project', 
           'options': dummyData,

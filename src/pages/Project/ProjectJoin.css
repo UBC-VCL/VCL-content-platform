@@ -1,15 +1,12 @@
 .project-breadcrumbs{
     padding-left: 9.6%;
     margin-top: 35px;
+    margin-bottom: 5%; 
 }
 
 .join-our-team-homepage{
     font-family: 'Source Sans Pro';
     line-height: 30px;
-}
-
-.project-breadcrumbs {
-    margin-bottom: 5%; 
 }
 
 .intro-to-join-our-team {
@@ -167,7 +164,7 @@
     margin-bottom: 2%;
 }
 
-.card {
+.project-join-card {
     justify-content: center;
     align-items: center;
     width: 50%;
@@ -177,11 +174,11 @@
     box-shadow: 0px 3.03834px 16.7109px -5.31709px rgba(0, 0, 0, 0.09);
 }
 
-.card h5 {
+.project-join-card h5 {
     text-align: left;
     color: #1C426D;
 }
-.card p {
+.project-join-card p {
     text-align: left;
     color: black;
 }

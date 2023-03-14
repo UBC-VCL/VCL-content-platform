@@ -92,7 +92,7 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
                    
                 }}
             >
-                Add New Entry
+                Add Update
             </Button>
             </Link>
         </div>

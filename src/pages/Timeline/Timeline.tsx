@@ -115,7 +115,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <p>Browse project history and detailed updates</p>
       </div>
       <TimelineSearchbar commits={commits} setCommits={setCommits} allCommits={allCommits}/> 
-      <TimelineFilter />
+      <TimelineFilter  setCommits={setCommits} allCommits={allCommits}/>
       <div className="timeline-main-body">
         <div className="timeline-container">
           <ul>

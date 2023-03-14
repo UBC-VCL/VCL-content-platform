@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SnapShot } from "@pages/Timeline/Timeline";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -13,10 +14,12 @@ const MenuProps = {
   },
 };
 
-const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: {
+const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData, setCommits, allCommits}: {
     projectSelected: string[],
     setProjectSelected: React.Dispatch<React.SetStateAction<string[]>>,
     dummyData: string[],
+    setCommits(arg: Array<SnapShot>): void,
+    allCommits: Array<SnapShot>,
 }) => {
         console.log(dummyData);
         const list = {
@@ -30,7 +33,13 @@ const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: {
           setProjectSelected(
             typeof value === 'string' ? value.split(',') : value,
           );
+          filterCommit(allCommits);
         };
+
+        const filterCommit = (commits: Array<SnapShot>) => {
+          let currCommits = commits.filter(commit => projectSelected.includes(commit.project));
+          setCommits(currCommits);
+        }
 
         return (
             <FormControl sx={{ m: 1, display: 'inline' }}>

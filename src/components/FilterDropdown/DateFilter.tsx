@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SnapShot } from "@pages/Timeline/Timeline";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -13,11 +14,36 @@ const MenuProps = {
   },
 };
 
-const DateFilter = ({dateSelected, setDateSelected, dummyData}: {
+const DateFilter = ({dateSelected, setDateSelected, dummyData, setCommits, allCommits}: {
     dateSelected: string,
     setDateSelected: React.Dispatch<React.SetStateAction<string>>,
     dummyData: string[],
+    setCommits(arg: Array<SnapShot>): void,
+    allCommits: Array<SnapShot>,
 }) => {
+
+    React.useEffect(() => {
+        let currCommits: Array<SnapShot> = [];
+        var today = new Date();
+        if (dateSelected === 'Last month') {
+            currCommits = allCommits.filter(commit => {
+                let date = new Date(commit.date);
+                if (date.getMonth() == today.getMonth() - 1) {
+                    return true;
+                } return false;
+            }) 
+        }
+        //currCommits = allCommits.filter(commit => dateSelected.includes(commit.project));
+        if (dateSelected === 'Last year') {
+            currCommits = allCommits.filter(commit => {
+                let date = new Date(commit.date);
+                if (date.getFullYear() == today.getFullYear() - 1) {
+                    return true;
+                } return false;
+            }) 
+        }
+        setCommits(currCommits);
+      }, [dateSelected]);
 
     const list = {
         'name': 'Date', 

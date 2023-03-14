@@ -24,7 +24,7 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
 
   const [dataForProject, setDataForProject] = useState<string[]>([]);
   useEffect(() => {
-    //fetch data
+    //fetch data for projects
     axios
       .get('http://localhost:4000/api/projects')
       .then(response => {
@@ -35,6 +35,18 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
         } 
         setDataForProject(data);
       });
+    
+    // fetch data for users
+    // axios
+    //   .get('http://localhost:4000/api/users')
+    //   .then(response => {
+    //     let users = response.data.data;
+    //     let data: string[] = [];
+    //     for (var user of users) {
+    //       data.push(user.name);
+    //     } 
+    //     setDataForProject(data);
+    //   });
   }, []);
   
 
@@ -56,7 +68,7 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
             <span className='filter-divider'></span> 
             <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} setCommits={props.setCommits} allCommits={props.allCommits}/>
             <span className='filter-divider'></span> 
-            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate}/>
+            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} setCommits={props.setCommits} allCommits={props.allCommits}/>
             <span className='filter-divider'></span>  
             <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor}/>
           </div>

@@ -82,6 +82,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         setAllCommits(response.data.data);
         console.log(commits);
         console.log(response.data.data);
+       
       });
   }, []);
 

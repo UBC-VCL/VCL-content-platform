@@ -9,6 +9,8 @@ import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { SnapShot } from './Timeline';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@statics';
 
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
 const dummyDataForCategory = ['hiring', 'Workshops', 'Analysis', 'Conditions', 'Meetings', 'Guest Speaker', 'Resources', 'Dev/Code', 'Progress'];
@@ -75,7 +77,8 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
         </div>
 
         <div className='add-update-button' style={{display: 'inline-block'}}>
-            <Button
+            <Link to={ROUTES.TIMELINE_CREATE} style={{textDecoration: 'none'}}>
+              <Button
                 // onClick={formik.handleSubmit}
                 variant="outlined" 
                 style={{
@@ -86,10 +89,12 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
                     textTransform: 'none',
                     marginLeft: '10px',
                     fontSize: 16,
+                   
                 }}
             >
                 Add New Entry
             </Button>
+            </Link>
         </div>
     </div>
   );

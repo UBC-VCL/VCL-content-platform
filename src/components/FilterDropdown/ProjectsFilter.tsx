@@ -21,6 +21,12 @@ const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData, setComm
     setCommits(arg: Array<SnapShot>): void,
     allCommits: Array<SnapShot>,
 }) => {
+  
+        React.useEffect(() => {
+          let currCommits = allCommits.filter(commit => projectSelected.includes(commit.project));
+          setCommits(currCommits);
+        }, [projectSelected]);
+        
         console.log(dummyData);
         const list = {
           'name': 'Project', 
@@ -33,13 +39,9 @@ const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData, setComm
           setProjectSelected(
             typeof value === 'string' ? value.split(',') : value,
           );
-          filterCommit(allCommits);
+         
         };
 
-        const filterCommit = (commits: Array<SnapShot>) => {
-          let currCommits = commits.filter(commit => projectSelected.includes(commit.project));
-          setCommits(currCommits);
-        }
 
         return (
             <FormControl sx={{ m: 1, display: 'inline' }}>

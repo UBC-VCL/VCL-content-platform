@@ -2,7 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-
+import { SnapShot } from "@pages/Timeline/Timeline";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -13,11 +13,21 @@ const MenuProps = {
   },
 };
 
-const CategoriesFilter = ({categorySelected, setCategorySelected, dummyData}: {
+const CategoriesFilter = ({categorySelected, setCategorySelected, dummyData, setCommits, allCommits}: {
     categorySelected: string[],
     setCategorySelected: React.Dispatch<React.SetStateAction<string[]>>,
     dummyData: string[],
+    setCommits(arg: Array<SnapShot>): void,
+    allCommits: Array<SnapShot>,
 }) => {
+
+  React.useEffect(() => {
+    let currCommits = allCommits.filter(commit => 
+      commit.categories.some(cat => categorySelected.includes(cat))
+    );
+    setCommits(currCommits);
+  }, [categorySelected]);
+
     const list = {
       'name': 'Category', 
       'options': dummyData,

@@ -18,17 +18,22 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
   
   let [keyword, setKeyword] = useState('');
 
+  // whenever keyword changes commits change
+  React.useEffect(() => {
+    let currCommits = props.allCommits.filter(commit => commit.title.includes(keyword) || commit.description.includes(keyword));
+    props.setCommits(currCommits);
+  }, [keyword]);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value);
     console.log(`This is the current keyword ${keyword}`);
-    filterCommits(props.allCommits, keyword);
   }
 
   // filter commits based on keywords, setCommits to present real-time changes
-  const filterCommits = (commits: Array<SnapShot>, key: string) => {
-    let currCommits = commits.filter(commit => commit.title.includes(key) || commit.description.includes(key));
-    props.setCommits(currCommits);
-  }
+  // const filterCommits = (commits: Array<SnapShot>, key: string) => {
+  //   let currCommits = commits.filter(commit => commit.title.includes(key) || commit.description.includes(key));
+  //   props.setCommits(currCommits);
+  // }
 
     return(
         <div  className="TimelineSearchbar" >

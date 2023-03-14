@@ -11,7 +11,7 @@ import axios from 'axios';
 import { SnapShot } from './Timeline';
 
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
-const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
+const dummyDataForCategory = ['hiring', 'Workshops', 'Analysis', 'Conditions', 'Meetings', 'Guest Speaker', 'Resources', 'Dev/Code', 'Progress'];
 const dummyDataForDate = ['Last day', 'Last month', 'Last year'];
 const dummyDataForAuthor = ['One', 'two', 'three'];
 
@@ -54,7 +54,7 @@ const TimelineFilterContainer: React.FC<TimelineFilterProps> = (props) => {
           <div className='filter-dropdown'>
             <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dataForProject} setCommits={props.setCommits} allCommits={props.allCommits}/>
             <span className='filter-divider'></span> 
-            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory}/>
+            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} setCommits={props.setCommits} allCommits={props.allCommits}/>
             <span className='filter-divider'></span> 
             <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate}/>
             <span className='filter-divider'></span>  

@@ -99,11 +99,13 @@ export default function Sidebar(props: any) {
                 anchor="left"
                 open={open}
             >
+                <div className='DrawerHeader'>
                 <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose} style={{marginTop:"25%"}}>
+                    <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <FirstPageTwoToneIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </DrawerHeader>
+                </div>
                 <List>
                     <Typography variant='subtitle2' marginLeft='20px' color = '#AEC7E3'>
                         Now Viewing

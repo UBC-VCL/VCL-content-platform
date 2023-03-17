@@ -8,14 +8,28 @@
     border-radius: 5px;
 }
 
+.timeline-commit-header {
+    display: flex;
+}
+
+.timeline-commit-header-text {
+    float: left;
+}
+
+.timeline-commit-header-icons {
+    display: flex; 
+    justify-content: flex-end;
+}
+
 .timeline-commit-date {
     color: rgb(152, 152, 152);
     font-size: 15px;
     margin-top: 6px;
 }
 
-.expandedTimeline, .closedTimeline {
-    padding: 12px 14px 16px 14px;
+.expandedTimeline, 
+.closedTimeline {
+    padding: 15px 20px 16px 17px;
     box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
     border-radius: 8px;
 }
@@ -38,7 +52,53 @@
     border-radius: 8px;
 }
 
-.shortDescription {
-    color: rgb(79, 79, 79);
+.timeline-commit-descriptions-container {
+    padding: 8px 0;
+}
+
+.timeline-commit-contributors-container {
+    
+}
+
+.descriptions-content, 
+.contributors-content, 
+.hyperlinks-content {
+    color: rgb(98, 98, 98);
+}
+
+.descriptions-content {
     margin-top: 12px;
 }
+
+.contributors-content {
+    display: inline;
+    margin-top: 12px;
+}
+
+.hyperlinks-content {
+    padding-bottom: 5px;
+}
+
+.timeline-commit-hyperlink, 
+.timeline-commit-contributor {
+    color: rgb(98, 98, 98);
+    margin: 15px 0;
+}
+
+.timeline-commit-updatedTime {
+    color: rgb(98, 98, 98);
+    text-align: right;
+    margin: 4px 0;
+}
+
+.timeline-commit-divider {
+    margin: 15px 0 10px 0;
+    border: 1.5px solid rgb(226, 226, 226);
+}
+
+.vl-divider {
+    border-left: 1.5px solid rgb(226, 226, 226);
+    height: 23px;
+    position: relative;
+    margin: 0 8px;
+  }

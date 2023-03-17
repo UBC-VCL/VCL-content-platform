@@ -5,7 +5,7 @@ interface ResourcesProps {};
 const Resources: React.FC<ResourcesProps> = props => {
 	return (
 		<div>
-			<div>This is the resources page</div>
+			<h1>This is the resources page</h1>
 		</div>
 	);
 };

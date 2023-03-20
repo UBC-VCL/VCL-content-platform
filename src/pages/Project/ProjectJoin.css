@@ -1,0 +1,267 @@
+.project-breadcrumbs{
+    padding-left: 9.6%;
+    margin-top: 35px;
+    margin-bottom: 5%; 
+}
+
+.join-our-team-homepage{
+    font-family: 'Source Sans Pro';
+    line-height: 30px;
+}
+
+.intro-to-join-our-team {
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+    align-items: center;
+    background-color: #E8EFF7;
+    background-size: 100% 100%;
+    padding-bottom: 5%;
+}
+
+.full-bleed{
+    box-shadow: 0 -20vmax 0vmax 0vmax #E8EFF7;
+    clip-path: inset(0,100vmax);
+}
+
+.left-side {
+    padding-left: 9%;
+    text-align: left;
+
+}
+
+
+.left-side h1{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0.015em;
+    color: #4A6999; 
+}
+
+.left-side h4{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    color: #44618D;
+}
+
+
+.co-pilot-description {
+    margin-top: 4%;
+    margin-bottom: 3%;
+    color: #44618D;
+}
+
+.right-side {
+    margin-right: 10%;
+    text-align: right;
+}
+
+.divider {
+    padding-left: 30%;
+}
+
+.line-below-joining-team {
+    border: 2px solid #8EA9D2;    
+    width: 17%;
+
+}
+
+.research-img {
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+.btn-application-instructions {
+    display: flex;
+    width: 219px;
+    height: 42px;
+    background-color: #1C426D;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 20%;
+}
+
+.full-bleed2{
+    box-shadow: 0vmax -4vmax 0vmax 0vmax #6E87A3;
+    clip-path: inset(0,100vmax);
+}
+.what-we-do {
+    background-color: #6E87A3;
+}
+
+
+.what-we-do p{
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 25%;
+    z-index: 7;
+    color: white;
+}
+
+.what-we-do h2{
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-bottom: 3%;
+    z-index: 3;
+    color: white;
+
+}
+
+
+.full-bleed3{
+    box-shadow: 0vmax -3vmax 0vmax 0vmax white;
+    clip-path: inset(0,100vmax);
+}
+.you-might-like {
+    background-color: white;
+}
+
+.you-might-like p {
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    z-index: 3;
+    color: #455C6C;
+    font-weight: bolder;
+}
+
+.you-might-like .column{
+  float: left;
+  width: 10%;
+  padding: 5px;
+}
+
+.you-might-like .row::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+.full-bleed4{
+    box-shadow: 0vmax 9vmax 0vmax 0vmax #FAFAFA;
+    clip-path: inset(0,-100vmax);
+}
+
+.past-positions-and-projects {
+    background-color: #FAFAFA;
+}
+
+.past-positions-and-projects p {
+    text-align: center;
+    color: #B2C9EC;
+}
+
+.past-positions-and-projects h2 {
+    text-align: center;
+    color: #5387A5;
+    margin-bottom: 2%;
+}
+
+.project-join-card {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 1%;
+    margin-left: 25%;
+    background-color: white;
+    box-shadow: 0px 3.03834px 16.7109px -5.31709px rgba(0, 0, 0, 0.09);
+}
+
+.project-join-card h5 {
+    text-align: left;
+    color: #1C426D;
+}
+.project-join-card p {
+    text-align: left;
+    color: black;
+}
+
+.full-bleed5{
+    box-shadow: 0vmax 9vmax 0vmax 0vmax #2A3749;
+    clip-path: inset(0,-100vmax);
+}
+
+.what-our-team-member-say {
+    background-color: #2A3749;
+}
+
+.what-our-team-member-say p{
+    text-align: center;
+    color: #B2C9EC;
+}
+
+.what-our-team-member-say h2{
+    text-align: center;
+    color: white;
+}
+
+.Application-Instructions {
+    margin-top: -1%;
+    background-color: #FBFBFB;
+    display: grid;
+    grid-template-columns: 2 repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+.full-bleed6{
+    box-shadow: 0vmax 9vmax 0vmax 0vmax #FBFBFB;
+    clip-path: inset(0,-100vmax);
+}
+
+.Application-Instructions .rectangle-card{
+    margin-bottom: 1%;
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 3.03834px 16.7109px -5.31709px rgba(0, 0, 0, 0.09);
+}
+
+.Application-Instructions .rectangle-card .top-card-row{
+    margin-top: 5%;
+    margin-right: 10%;
+    float:right;
+    display:flex;
+}
+
+.Application-Instructions .rectangle-card p{
+    margin-left: 10%;
+    font-size:medium;
+    margin-bottom: 2%;
+
+}
+
+@media (max-width: 500px) {
+    .research-img {
+        display: none;
+    }
+    .intro-to-join-our-team{
+        gap: 0px
+    }
+    .Application-Instructions{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .project-breadcrumbs{
+        padding-left: 25vw;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 900px){
+    .project-breadcrumbs{
+        padding-left: 12%;
+        margin-top: 40px;
+    }
+    .Application-Instructions{
+        justify-content: center;
+        align-content: center;
+    }
+}

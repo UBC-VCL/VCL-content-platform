@@ -89,27 +89,29 @@ export default function Sidebar(props: any) {
                     width: drawerWidth,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        position: 'sticky',
+                        position: 'static',
                         width: drawerWidth,
                         boxSizing: 'border-box',
-                        borderColor: 'white'  
+                        borderColor: 'white'
                     },
                 }}
                 variant="persistent"
                 anchor="left"
                 open={open}
             >
+                <div className='DrawerHeader'>
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <FirstPageTwoToneIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </DrawerHeader>
+                </div>
                 <List>
-                    <Typography variant='subtitle2' marginLeft='10px' color = '#AEC7E3'>
+                    <Typography variant='subtitle2' marginLeft='20px' color = '#AEC7E3'>
                         Now Viewing
                     </Typography>
                     <ListItem>
-                        <Typography variant='h5' marginTop='15px' marginLeft='-6px' marginBottom='10px' color = '#1C426D' fontWeight='bold'>
+                        <Typography variant='h5' marginTop='15px' marginLeft='6px' marginBottom='10px' color = '#1C426D' fontWeight='bold'>
                             {props.currProject.name}
                         </Typography>
                     </ListItem>
@@ -118,14 +120,14 @@ export default function Sidebar(props: any) {
                     {props.links.map((link: any, index: any) => (
                         <ListItem key={link.title}>
                             <ListItemButton component={Link} to={link.ref}>
-                                <Typography color = '#5B7E98' marginLeft='-25px'>
+                                <Typography color = '#5B7E98' marginLeft='0px'>
                                     {link.title}
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
 
                     ))}
-                    <Box textAlign='left' marginTop='50px'>
+                    <Box textAlign='left' marginTop='50px' marginLeft='20px'>
                         <Button onClick={() => {
                             window.location.pathname=ROUTES.PROJECT.BASE
                         }} variant ='outlined' style={{textTransform: 'none'}}>

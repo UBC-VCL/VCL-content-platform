@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import moment from "moment";
 import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
 import { Link } from 'react-router-dom';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './TimelineCommitBlock.css';
 
 interface TimelineCommitBlockProps {
@@ -38,9 +40,14 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     
     return(
         <div className="expandedTimeline">
-            <p className="timeline-commit-header">
+            <p className="timeline-commit-header-text">
                 <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
+            <div className="timeline-commit-header-icons">
+                <BorderColorIcon style={{color: "rgb(188, 188, 188"}} />
+                <div className="vl"></div>
+                <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} />
+            </div>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
                 {tags.map((tagName) => (
@@ -97,9 +104,14 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
     return(
         <div className="closedTimeline">
-            <p className="timeline-commit-header">
+            <p className="timeline-commit-header-text">
                 <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
+            <div className="timeline-commit-header-icons">
+                <BorderColorIcon style={{color: "rgb(188, 188, 188"}} />
+                <div className="vl"></div>
+                <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} />
+            </div>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
                 {tags.map((tagName) => (

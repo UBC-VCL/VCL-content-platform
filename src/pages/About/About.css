@@ -150,6 +150,11 @@ h3 {
 
 .contact-info h2 {
     margin-top: 0;
+    letter-spacing: 0.04em;
+}
+
+.contact-info a {
+    color: black;
 }
 
 .contact-info ul {

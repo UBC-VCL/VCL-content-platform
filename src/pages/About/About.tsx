@@ -66,7 +66,7 @@ const About: React.FC<AboutProps> = props => {
 				</div>
 				<div className="contact-info">
 					<h2>Contact Us</h2>
-					<p>We are located in the Department of Psychology at the University of British Columbia</p>
+					<p>We are located in the <a href="https://psych.ubc.ca/" target="_blank">Department of Psychology</a> at the <a href="https://www.ubc.ca/" target="_blank">University of British Columbia.</a></p>
 					<p><strong>Address</strong><br></br>
 					{TEXT.LAB_INFO.ADDRESS}</p>
 					<p><strong>Tel</strong> {TEXT.LAB_INFO.TEL}<br></br>

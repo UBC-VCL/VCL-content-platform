@@ -166,6 +166,11 @@ h3 {
     margin: 0;
 }
 
+.lab-address {
+    line-height: 16px;
+    letter-spacing: 0.04em;
+}
+
 @media (max-width: 1023px) {
     .About .header {
         margin-top: 35%;

@@ -70,7 +70,8 @@ const TEXT = {
         SOGOL: ''
       },
       CAMPUS: 'Vancouver Campus',
-      ADDRESS: '3204 - 2136 West Mall Vancouver, BC CANADA V6T 1Z4',
+      ADDRESS_LINE_ONE: '3204 - 2136 West Mall',
+      ADDRESS_LINE_TWO: 'Vancouver, BC Canada V6T 1Z4',
       HOURS: {
         WEEKDAYS: 'Weekdays: 9AM-5PM',
         WEEKENDS: 'Closed'

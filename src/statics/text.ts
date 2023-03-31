@@ -29,7 +29,7 @@ const TEXT = {
     OVERVIEW: 'Overview',
     ABOUT: 'About',
     RESOURCES: 'Resources',
-    JOIN_THE_TEAM: 'Get involved'
+    GET_INVOLVED: 'Get Involved'
   },
 
   PROJECT_NAV: {

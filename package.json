@@ -2,6 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@date-io/date-fns": "^1.3.13",

@@ -1,5 +1,8 @@
+html {
+    scroll-behavior: smooth;
+}
 
-body{
+body {
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -64,9 +67,6 @@ section {
     font-size: 24px;
     margin: 0.8em 0;
     color: #1C426D;
-}
-
-.join-main-body h3 {
 }
 
 .join-main-body {

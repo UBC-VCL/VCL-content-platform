@@ -150,6 +150,11 @@ h3 {
 
 .contact-info h2 {
     margin-top: 0;
+    letter-spacing: 0.04em;
+}
+
+.contact-info a {
+    color: black;
 }
 
 .contact-info ul {
@@ -159,6 +164,11 @@ h3 {
 
 .contact-info ul li {
     margin: 0;
+}
+
+.lab-address {
+    line-height: 16px;
+    letter-spacing: 0.04em;
 }
 
 @media (max-width: 1023px) {

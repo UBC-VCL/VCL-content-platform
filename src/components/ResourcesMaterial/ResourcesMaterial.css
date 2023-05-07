@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+.card {
+  width: min(200px, 15%);
+  padding: 20px;
+  box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
+  border-radius: 2px;
+}
+
+#card-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  text-align: left;
+  margin: 8px 0;
+}
+
+#card-desc {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14;
+  text-align: left;
+}
+
+#icon {
+  display: block;
+}
+
+.circle {
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 40%;
+    margin: 5px;
+    padding: 8px;
+  }
+
+  #card-desc {
+    font-size: 12;
+  }
+}

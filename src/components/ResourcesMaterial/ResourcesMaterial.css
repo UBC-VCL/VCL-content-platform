@@ -1,47 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 
-.card {
-  width: min(200px, 15%);
+.resources-material {
+  width: 100%;
   padding: 20px;
-  box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
-  border-radius: 2px;
 }
 
-#card-title {
+#resources-material-title {
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
+  font-weight: 580;
   text-align: left;
-  margin: 8px 0;
+  color: black;
+  margin: 15px 0;
+  font-size: 23px;
 }
 
-#card-desc {
+#resources-material-desc {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 14;
+  font-size: 20px;
   text-align: left;
-}
-
-#icon {
-  display: block;
-}
-
-.circle {
-  width: 49px;
-  height: 49px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 @media (max-width: 768px) {
-  .card {
-    width: 40%;
+  .resources-material {
+    width: 90%;
     margin: 5px;
     padding: 8px;
-  }
-
-  #card-desc {
-    font-size: 12;
   }
 }

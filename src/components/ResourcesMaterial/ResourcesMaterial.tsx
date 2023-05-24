@@ -15,12 +15,9 @@ const defaultProps: MaterialProps = {
 
 const ResourcesMaterial = ({ title, desc, backgroundColor}: MaterialProps) => {
   return (
-    <div className="card">
-      <div className="circle" style={{backgroundColor: backgroundColor}}>
-        <SettingsOutlinedIcon fontSize="large" color='primary' id="icon" />
-      </div>
-      <h3 id="card-title">{title}</h3>
-      <p id="card-desc">{desc}</p>
+    <div className="resources-material">
+      <p id="resources-material-title">{title}</p>
+      <p id="resources-material-desc">{desc}</p>
     </div>
   );
 };

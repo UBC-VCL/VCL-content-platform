@@ -1,12 +1,12 @@
 import React from 'react';
-import Card from "@components/Card";
 import './Resources.css';
 import ResourcesTool from '@components/ResourcesTool';
+import ResourcesMaterial from '@components/ResourcesMaterial';
 
 interface ResourcesProps {};
 
 const announcements = {
-	content: "Viva will be offering Analytics workshops again this winter, both at SFU Burnaby starting January 30th and at UBC starting January 31st. Registrations will be open until January 30th: apply here!; Viva will be offering Analytics workshops again this winter, both at SFU Burnaby starting January 30th and at UBC starting January 31st. Registrations will be open until January 30th: apply here!"
+	content: "Viva will be offering Analytics workshops again this winter, both at SFU Burnaby starting January 30th and at UBC starting January 31st. Registrations will be open until January 30th: apply here!"
 }
 
 const Resources: React.FC<ResourcesProps> = props => {
@@ -21,34 +21,37 @@ const Resources: React.FC<ResourcesProps> = props => {
 			</div>
 			<div className='Resources-body'>
 				<div className="resources-section-one">
-					<div className=''>
-						<div className="resource-tool-section">
-							<div className="resources-section-one-text">
-								<h1 className='text-one'>Most&nbsp;</h1>
-								<h1 className='text-two'>Commonly Used</h1>
-							</div>
-							<div className="resource-tool-container">
-								<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-								<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-								<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-								<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-								<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-							</div>
+					<div className="resource-tool-section-one">
+						<div className="resources-section-one-text">
+							<h1 className='text-one'>Most&nbsp;</h1>
+							<h1 className='text-two'>Commonly Used</h1>
+						</div>
+						<div className="resource-tool-container">
+							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
 						</div>
 					</div>
 				</div>
 				<div className="resources-section-two">
-					<div className="resource-tool-section">
+					<div className="resource-tool-section-two">
 						<div className="resource-tool-container">
-						<Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
-						<Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
-						<Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
-						<Card title="Card Title" desc="Description of how the lab can help COGS students with this project" />
+							<div className='resource-material-item'><ResourcesMaterial title="Speaker Talks" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Presentation" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Official Home Page" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Presentation" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Official Home Page" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Speaker Talks" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Presentation" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Official Home Page" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Presentation" desc="Description of this resource and what you can use it for" /></div>
+							<div className='resource-material-item'><ResourcesMaterial title="Official Home Page" desc="Description of this resource and what you can use it for" /></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	);
 };

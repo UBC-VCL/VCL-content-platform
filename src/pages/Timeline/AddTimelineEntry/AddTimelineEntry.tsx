@@ -63,12 +63,13 @@ const AddTimelineEntry = () => {
       headers: {
         authorization: access_token
       }
+    }).then(() => {
+        history.push("/timeline");
+        dispatch(appActions.setAlert("Add Entry Successful!"));
+    }).catch(err => {
+        console.log("lol");
+        dispatch(appActions.setAlert("Add Entry Failed!"));
     })
-    if (editResponse.status === 200) {
-      history.push("/timeline");
-      //TODO: success message
-      return;
-    }
   }
 
   return (

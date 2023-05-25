@@ -35,26 +35,8 @@ const AddTimelineEntry = () => {
 
   let { timeline_id } = useParams<TimelineParams>();
 
-  const { response } = useAxios({
-    method: "GET",
-    url: `/api/snapshots/${timeline_id}`,
-  });
 
-  useEffect(() => {
-    if (!response) return;
-    const {title, description, date, project, author, categories, contributors} = response.data;
-    setTimeline({
-      title,
-      description,
-      date,
-      project,
-      author: author.username,
-      categories,
-      contributors: contributors.map((c: { username: string; }) => c.username).join(", "),
-    })
-  }, [response]);
-
-  const save = async () => {
+  const add = async () => {
     const updatedTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
     const editResponse = await axios({
       method: 'put',
@@ -67,7 +49,6 @@ const AddTimelineEntry = () => {
         history.push("/timeline");
         dispatch(appActions.setAlert("Add Entry Successful!"));
     }).catch(err => {
-        console.log("lol");
         dispatch(appActions.setAlert("Add Entry Failed!"));
     })
   }
@@ -76,8 +57,8 @@ const AddTimelineEntry = () => {
     <div className={styles.page}>
       <div className={styles.container}>
       <div className={styles.headers}>
-        <h1 className={styles.header}>Edit Timeline Entry</h1>
-        <h2 className={styles.subHeader}>Edit the blanks below to edit the timeline entry</h2>
+        <h1 className={styles.header}>Add Timeline Entry</h1>
+        <h2 className={styles.subHeader}>Edit the blanks below to add the timeline entry</h2>
       </div>
       <main>
         <div className={styles.gridContainer}>
@@ -95,7 +76,7 @@ const AddTimelineEntry = () => {
         </div>
         <div className={styles.controls}>
           <button className={styles.cancelButton} onClick={() => history.push("/timeline")}>Cancel</button>
-          <button className={styles.saveButton} disabled={!timeline.author || !timeline.title} onClick={save}>Save</button>
+          <button className={styles.saveButton} disabled={!timeline.author || !timeline.title} onClick={add}>Add</button>
         </div>
       </main>
       </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import './TimelineFilter.css';
-
 import { Button } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
+import { useHistory } from "react-router-dom";
 
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
 const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
@@ -22,6 +22,12 @@ const TimelineFilterContainer = () => {
   const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
   const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
+
+  const history = useHistory();
+
+  const handleAddEntry = () => {
+    history.push('./timeline/add');
+  }
 
   return (
     <div className='timeline-filter' style={{display: 'inline'}}>
@@ -40,6 +46,7 @@ const TimelineFilterContainer = () => {
         <div className='add-update-button' style={{display: 'inline-block'}}>
             <Button
                 // onClick={formik.handleSubmit}
+                onClick = {handleAddEntry}
                 variant="outlined" 
                 style={{
                     backgroundColor: "#1E5487",

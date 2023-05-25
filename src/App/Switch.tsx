@@ -8,6 +8,7 @@ import About from '@pages/About';
 import Resources from '@pages/Resources';
 import TimelineEntry from "@pages/Timeline/TimelineEntry";
 import EditTimelineEntry from '@pages/Timeline/EditTimelineEntry/EditTimelineEntry';
+import AddTimelineEntry from '@pages/Timeline/AddTimelineEntry/AddTimelineEntry';
 import GetInvolved from '@pages/GetInvolved/GetInvolved';
 
 const AppSwitch = () => {
@@ -17,6 +18,7 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.TIMELINE} component={Timeline} />
       <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry}/>
       <Route exact path={ROUTES.TIMELINE_EDIT} component={EditTimelineEntry}/>
+      <Route exact path={ROUTES.TIMELINE_ADD} component={AddTimelineEntry}/>
       <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
       <Route exact path={ROUTES.ABOUT} component={About} />

@@ -139,12 +139,16 @@ interface CommitOBJ {
   tags:string[];
 }
 
+// Make https request inorder to retrieve information from the backend
+//  regarding to the timeline that needs to be displayed
 const retrieveCommitOBjs = () => {
-  
+
 }
 
 const Timeline: React.FC<TimelineProps> = (props) => {
 
+  // An array of all timineline history that will be set by retrieveCommitOBJs()
+  //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
   const [commitsArray, setCommitArray] = useState<CommitOBJ[]>([]);
 
   let prjs: any[] = []

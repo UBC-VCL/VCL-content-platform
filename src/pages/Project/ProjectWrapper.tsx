@@ -1,7 +1,7 @@
 import React from 'react'
-import {RouteComponentProps, Switch, Route} from 'react-router';
-import {useAppSelector} from '@redux/hooks';
-import {selectProjects} from '@redux/slices/ProjectRedux';
+import { RouteComponentProps, Switch, Route } from 'react-router';
+import { useAppSelector } from '@redux/hooks';
+import { selectProjects } from '@redux/slices/ProjectRedux';
 import ToggleButton from '@mui/material/ToggleButton'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
@@ -13,7 +13,7 @@ import {
     ProjectTeam,
     ProjectContact
 } from './'
-import {Project} from '@entities/Project'
+import { Project } from '@entities/Project'
 import PROJECT_NAV from '@statics/projectNav'
 import ProjectNavbar from '@components/ProjectNavbar'
 import "./ProjectWrapper.css"
@@ -25,7 +25,7 @@ interface MatchParams {
 interface ProjectProps extends RouteComponentProps<MatchParams> {
 }
 
-const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
+const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
     const [selected, setSelected] = React.useState(true);
     const expand = selected ? 'expand' : '';
 
@@ -34,22 +34,22 @@ const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
     const projects = [{ // dummy projects
         name: "Correlation"
     },
-        {
-            name: "NOVA"
-        }, {
-            name: "Perceptual Modes"
-        }, {
-            name: "SHIVA"
-        }, {
-            name: "IDEO"
-        }, {
-            name: "IT"
-        }, {
-            name: "Dormant"
-        },
-         {
-            name: "Image Transitions"
-        }]
+    {
+        name: "NOVA"
+    }, {
+        name: "Perceptual Modes"
+    }, {
+        name: "SHIVA"
+    }, {
+        name: "IDEO"
+    }, {
+        name: "IT"
+    }, {
+        name: "Dormant"
+    },
+    {
+        name: "Image Transitions"
+    }]
 
     const curr_project: any = projects.find(project => project.name === match.params.project_id)
 
@@ -66,7 +66,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
 
     return (
         <div className={"project-page"}>
-            <ProjectNavbar links ={links} currProject={curr_project} match = {match}/>
+            <ProjectNavbar links={links} currProject={curr_project} match={match} />
         </div>
     )
 }

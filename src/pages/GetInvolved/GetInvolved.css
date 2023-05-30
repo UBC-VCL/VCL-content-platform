@@ -67,7 +67,8 @@ html {
 }
 
 .join-main-body ul {
-    margin-left: 32px;
+    margin-left: 3%;
+    list-style-type: disc;
 }
 
 .join-main-body ul li {

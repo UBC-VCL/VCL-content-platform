@@ -14,7 +14,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 			<GetInvolvedSidebar />
 			<div className="join-header">
 				<h1>GET INVOLVED</h1>
-				<p className='join-sub-header'>Interested in what we do? Find out how you can join our activities here</p>
+				<p className='join-sub-header'>Interested in what we do? Find out how you can join our activities here.</p>
 			</div>
 			<div className="join-main-body">
 				<div className='role-divider'/>

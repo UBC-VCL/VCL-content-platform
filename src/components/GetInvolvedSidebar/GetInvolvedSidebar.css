@@ -1,40 +1,38 @@
-a:link { 
+.text-component a:link { 
     text-decoration: none; 
     color: #5B7E98;
 }
 
-a:visited { 
+.text-component a:visited { 
     text-decoration: none; 
     color: #5B7E98;
     font-weight: 700;
 }
 
 
-a:hover { 
+.text-component a:hover { 
     text-decoration: none; 
     font-weight: 700;
 }
 
 
-a:active { 
+.text-component a:active { 
     text-decoration: none; 
 }
 
 .sidebar {
-    width: 345px;
-    margin: 0px;
-    height: 981px;
-    position: absolute;
+    width: 23%;
+    float: left;
     text-align: left;
-    padding: 30px;
-    padding-top: 10px;
     background-color: #FFFFFF;
     left:0;
+    margin-top: 4%;
+    position: absolute;
 }
 
 #sidebar-icon {
     margin-left: 83%;
-    margin-top: 1.63%;
+    margin-top: 9%;
     width: 36px;
     height: 36px;
     box-sizing: border-box;
@@ -45,25 +43,19 @@ a:active {
 
 #now-viewing {
     text-align: left;
-    left: 17.1%;
-    right: 58.42%; 
-    top: 7.75%;
-    bottom: 90.38%;
-
     font-weight: 600;
     font-size: 14.6897px;
-    line-height: 18px;
+    line-height: 5px;
     color: #AEC7E3;
 
-    margin-bottom: 17.64px;
-    margin-top: 24px;
+    margin-top: 33px;
 }
 
 ul{
     list-style-type: none;
 }
 
-.component {
+.text-component {
     font-family: 'Source Sans Pro';
     letter-spacing: 0.02em;
     margin-left: 59px;
@@ -71,12 +63,7 @@ ul{
     color: #5B7E98;
 }
 
-
 #get_involved_heading {
-    left: 17.1%;
-    right: 16.52%;
-    top: 11.42%;
-    bottom: 84.4%;
     width: 210.55px;
     margin-top: 36px;
 
@@ -92,82 +79,55 @@ ul{
     border-width: 1.5px;
 }
 
-#as-a-participant {
-    left: 17.81%;
-    right: 38.19%;
-    top: 22.47%;
-    bottom: 75.28%;
+.lab-roles {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+}
 
-    font-size: 17.1379px;
-    line-height: 22px;
-    margin-top: 48.96px;
+#as-a-participant {
+    margin-top: 50px;
 }
 
 #as-a-lab-mem {
-    left: 17.39%;
-    right: 33.04%;
-    top: 27.12%;
-    bottom: 70.64%;
-
-    font-weight: 400;
-    font-size: 17.1379px;
-    line-height: 22px;
-
-    margin-top: 23.52px;
+    margin-top: 25px;
 }
 
 .labMem li {
-    font-weight: 400;
-    font-size: 17.1379px;
-    line-height: 22px;
     margin-top: 23px;
     margin-left: 23px;
 }
 
 
 #application-instructions {
-    left: 17.39%;
-    right: 24.64%;
-    top: 64.02%;
-    bottom: 33.74%;
-
-    margin-top: 23px;
-    line-height: 22px;
-    font-size: 17.1379px;
+    margin-top: 25px;
 }
 
-.view-projects-btn{
-    left: 17.68%;
-    right: 30.14%;
-    top: 82.26%;
-    bottom: 12.95%;
-    width: 180px;
-
-    height: 25px;
-
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 14px;
-    padding-right: 9.72px;
-
-    background: #FFFFFF;
-    border: 1px solid #60779A;
-
-    margin-top: 157px;
-}
-
-#view-prj-text {
-    left: 17.1%;
-    right: 32.96%;
-    top: 83.79%;
-    bottom: 14.37%;
-
+#view-prj-btn {
     font-weight: 600;
     font-size: 14.5px;
     line-height: 18px;
-    
     letter-spacing: 0.025em;
+
+    margin-top: 60%;
+    margin-bottom: 10%;
+    margin-left: 18%;
+
+    width: 187px;
+    height: 55px;
+
+    text-align: center;
+    padding-top: 18px;
+
     color: #1C426D;
+    background-color: white;
+    border: 1px solid #60779A;
+}
+
+#view-prj-btn:hover {
+    background-color: var(--fc-navyblue);
+    color: white;
+    cursor: pointer;
 }
 
 

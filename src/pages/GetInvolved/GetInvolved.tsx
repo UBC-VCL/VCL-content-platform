@@ -4,12 +4,14 @@ import { TEXT } from '@statics';
 import LabGoalsFooter from '@components/LabGoalsFooter';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
+import GetInvolvedSidebar from '@components/GetInvolvedSidebar';
 
 interface GetInvolvedProps {}
 
 const GetInvolved: React.FC<GetInvolvedProps> = props => {
 	return (
 		<div className="Join">
+			<GetInvolvedSidebar />
 			<div className="join-header">
 				<h1>GET INVOLVED</h1>
 				<p className='join-sub-header'>Interested in what we do? Find out how you can join our activities here</p>

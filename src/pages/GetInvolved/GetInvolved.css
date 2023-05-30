@@ -2,19 +2,9 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0%;
-}
-
 .Join {
     background-color: #FAFAFA;
-    max-width: 100%;
     width: 100%;
-    position: relative;
     color: #000000;
     font-family: 'Source Sans Pro', sans-serif;
     padding-bottom: -2000px;
@@ -25,16 +15,14 @@ body {
     margin-top: 12px;
 }
 
-section {
-    margin: 2em 0;
+.Join section {
+    margin-left: 22%;
 }
 
 .join-header {
-    position: relative;
-    top: 3.68%;
+    margin-left: 15%;
     padding-top: 130px;
     font-family: 'Open Sans', sans-serif;
-    max-width: 100%;
 }
 
 .join-header * {
@@ -48,9 +36,8 @@ section {
 
 
 .role-divider {
-    text-align: left;
-    width: min(100%, 1000px);
-    margin: 38px auto;
+    width: 80%;
+    margin-left: 22%;
 	border: 1.2px solid #8c9fc2;
 }
 

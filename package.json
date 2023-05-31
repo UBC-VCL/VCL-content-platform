@@ -67,6 +67,8 @@
   },
   "devDependencies": {
     "@types/react-burger-menu": "^2.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
     "react-app-rewire-alias": "^1.0.3",
     "react-app-rewired": "^2.1.8"
   }

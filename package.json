@@ -39,10 +39,7 @@
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
-    "lint": "eslint src/**/*{.ts,.tsx}",
-    "lint:fix": "eslint src/**/*{.ts,.tsx} --fix"
+    "test": "react-app-rewired test"
   },
   "eslintConfig": {
     "extends": [
@@ -64,10 +61,6 @@
   },
   "devDependencies": {
     "@types/react-burger-menu": "^2.8.3",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
-    "eslint": "^8.23.1",
-    "eslint-plugin-react": "^7.31.8",
     "react-app-rewire-alias": "^1.0.3",
     "react-app-rewired": "^2.1.8"
   }

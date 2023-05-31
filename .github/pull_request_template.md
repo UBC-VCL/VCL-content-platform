@@ -8,7 +8,6 @@
 
 ## Checklist
 
-- [ ] Ran `npm run lint:fix` to format code
 - [ ] Requested at least one reviewer
 - [ ] Connected PR to Trello ticket (steps below)
 - [ ] Addressed code review comments

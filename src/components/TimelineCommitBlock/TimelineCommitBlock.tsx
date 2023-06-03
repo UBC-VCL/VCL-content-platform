@@ -50,23 +50,23 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             </div>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
-                {tags.map((tagName) => (
-                    <div className="timeline-commit-tag">
+                {tags.map((tagName, i) => (
+                    <div key={i} className="timeline-commit-tag">
                         {tagName}
                     </div>
                 ))}
             </div>
             <div className="timeline-commit-descriptions-container">
-                {descriptions.map((desc) => (
-                    <p className="descriptions-content">
+                {descriptions.map((desc, i) => (
+                    <p key={i} className="descriptions-content">
                         {desc}
                     </p>
                 ))}
             </div>
             <p className="timeline-commit-hyperlink">Reference/Image Hyperlinks:</p>
             <div className="timeline-commit-hyperlinks-container">
-                {hyperlinks.map((link) => (
-                    <div className="hyperlinks-content">
+                {hyperlinks.map((link, i) => (
+                    <div key={i} className="hyperlinks-content">
                         <Link to={"//" + link}
                             style={{color: "rgba(28,66,109,255)"}} 
                             target="_blank" 
@@ -81,8 +81,8 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             <div className='timeline-commit-divider'></div>  
             <p className="timeline-commit-contributor">Contributors:</p>
             <div className="timeline-commit-contributors-container">
-                {contributors.map((contr) => (
-                    <p className="contributors-content">
+                {contributors.map((contr, i) => (
+                    <p key={i} className="contributors-content">
                         {contr} &emsp;
                     </p>
                 ))}
@@ -114,8 +114,8 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             </div>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
-                {tags.map((tagName) => (
-                    <div className="timeline-commit-tag">
+                {tags.map((tagName, i) => (
+                    <div key={i} className="timeline-commit-tag">
                         {tagName}
                     </div>
                 ))}

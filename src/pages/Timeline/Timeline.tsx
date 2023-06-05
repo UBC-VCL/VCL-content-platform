@@ -8,130 +8,12 @@ import id from "date-fns/esm/locale/id/index";
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
-// dummy data
-// const commitsArray = [{
-//       author: "Samanshiang Chiang",
-//       elementChanged: "Documentation Website Updates",
-//       project: "Correlation",
-//       date: new Date('2022-05-23'),
-//       descriptions: [
-//         "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-//         "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-//       ], 
-//       hyperlinks:[
-//         "www.google.com",
-//         "www.google.com",
-//       ],
-//       contributors: [
-//         "Sally Lim",
-//         "John Doe"
-//       ],
-//       updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-//       tags: ['Website', 'Meeting'],
-//   }, {
-//       author: "Samanshiang Chiang",
-//       elementChanged: "Documentation Website Updates",
-//       project: "Correlation",
-//       date: new Date('2022-05-23'),
-//       descriptions: [
-//         "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-//         "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-//       ], 
-//       hyperlinks:[
-//         "www.google.com",
-//         "www.google.com",
-//       ],
-//       contributors: [
-//         "Sally Lim",
-//         "John Doe"
-//       ],
-//       updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-//       tags: ['Website'],
-//   }, {
-//       author: "Samanshiang Chiang",
-//       elementChanged: "Documentation Website Updates",
-//       project: "v",
-//       date: new Date('2022-05-23'),
-//       descriptions: [
-//         "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-//         "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-//       ], 
-//       hyperlinks:[
-//         "www.google.com",
-//         "www.google.com",
-//       ],
-//       contributors: [
-//         "Sally Lim",
-//         "John Doe"
-//       ],
-//       updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-//       tags: ['Website'],
-//   }, {
-//       author: "Michael Rotman",
-//       elementChanged: "Element Name",
-//       project: "Project",
-//       date: new Date('2022-05-26'),
-//       descriptions: [
-//         "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-//         "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-//       ], 
-//       hyperlinks:[
-//         "www.google.com",
-//         "www.google.com",
-//       ],
-//       contributors: [
-//         "Sally Lim",
-//         "John Doe"
-//       ],
-//       updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-//       tags: ['Website', 'Meeting'],
-//   }, {
-//       author: "Alicia Coleman",
-//       elementChanged: "Element Name",
-//       project: "Shiva",
-//       date: new Date('2021-06-03'),
-//       descriptions: [
-//         "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-//         "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-//       ], 
-//       hyperlinks:[
-//         "www.google.com",
-//         "www.google.com",
-//       ],
-//       contributors: [
-//         "Sally Lim",
-//         "John Doe"
-//       ],
-//       updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-//       tags: ['workshop'],
-//   }, {
-//       author: "Russell Black",
-//       elementChanged: "Documentation Website Updates",
-//       project: "IDEO",
-//       date: new Date('2022-05-23'),
-//       descriptions: [
-//         "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-//         "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-//       ], 
-//       hyperlinks:[
-//         "www.google.com",
-//         "www.google.com",
-//       ],
-//       contributors: [
-//         "Sally Lim",
-//         "John Doe"
-//       ],
-//       updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-//       tags: ['Meeting'],
-//   }]
-
 interface TimelineProps { }
 
 const Timeline: React.FC<TimelineProps> = (props) => {
 
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
-  interface CommitOBJ {
+  interface SnapshotOBJ {
     author: string;
     elementChanged: string;
     project: string;
@@ -144,15 +26,15 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }
   // An array of all timineline history that will be set by retrieveCommitOBJs()
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
-  const [commitsArray, setCommitArray] = useState<CommitOBJ[]>([]);
+  const [commitsArray, setCommitArray] = useState<SnapshotOBJ[]>([]);
 
   // If the reuqest for the list of timelines is successful than success = true,
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
   // creates a http request
-  const objCommitHTTPS = async (): Promise<CommitOBJ[]> => {
-    var returnData: CommitOBJ[] = []
+  const objCommitHTTPS = async (): Promise<SnapshotOBJ[]> => {
+    var returnData: SnapshotOBJ[] = []
 
     /* 
       Structure of a snapshot object from the retrieved list
@@ -190,7 +72,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }, [])
 
   let prjs: any[] = []
-  
+
   // hardcode className to display corresponding colors
   commitsArray.forEach(commit => {
     let prj = 'others';
@@ -227,7 +109,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           {
             success ?
               <ul>
-                {commitsArray.map((commit: CommitOBJ, i) => {
+                {commitsArray.map((commit: SnapshotOBJ, i) => {
                   return (
                     <li key={i}>
                       <span className={"timeline-container-span-" + prjs[i]}></span>

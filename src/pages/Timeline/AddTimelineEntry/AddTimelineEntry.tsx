@@ -31,17 +31,28 @@ const AddTimelineEntry = () => {
 
   const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "", project: "", author: "", categories: [], contributors: ""});
 
+  const [allTimeline, setAllTimeline] = useState([]);
+
   const history = useHistory();
+  const fetchTimeline = async () => {
+    try {
+      await axios.get("https://localhost:4000/api/snapshots")
+      .then(response => {
+        setAllTimeline([...response.data.data])
+      })
+    } catch(err){
 
-  let { timeline_id } = useParams<TimelineParams>();
-
-
+    }
+}
+  
   const add = async () => {
-    const updatedTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
-    const editResponse = await axios({
-      method: 'put',
-      url: `/api/snapshots/${timeline_id}`,
-      data: updatedTimeline,
+    fetchTimeline();
+    const newTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
+    const newAllTimeline = [...allTimeline, newTimeline];
+    await axios({
+      method: 'POST',
+      url: `https://localhost:4000/api/snapshots`,
+      data: newTimeline,
       headers: {
         authorization: access_token
       }
@@ -49,7 +60,9 @@ const AddTimelineEntry = () => {
         history.push("/timeline");
         dispatch(appActions.setAlert("Add Entry Successful!"));
     }).catch(err => {
-        dispatch(appActions.setAlert("Add Entry Failed!"));
+        // console.log(err.message);
+        // dispatch(appActions.setAlert("Add Entry Failed!"));
+        dispatch(appActions.setAlert(err.message));
     })
   }
 

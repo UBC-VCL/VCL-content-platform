@@ -1,4 +1,3 @@
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import "./ResourcesMaterial.css";
 
 interface MaterialProps {
@@ -13,7 +12,7 @@ const defaultProps: MaterialProps = {
   backgroundColor: '#ffffff'
 }
 
-const ResourcesMaterial = ({ title, desc, backgroundColor}: MaterialProps) => {
+const ResourcesMaterial = ({ title, desc}: MaterialProps) => {
   return (
     <div className="resources-material">
       <p id="resources-material-title">{title}</p>

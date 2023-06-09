@@ -13,13 +13,13 @@ const defaultProps: ToolProps = {
   backgroundColor: '#ffffff'
 }
 
-const ResourcesTool = ({ title, desc, backgroundColor}: ToolProps) => {
+const ResourcesTool = ({ title}: ToolProps) => {
   return (
     <div className="ResourcesTool">
-      <div className="resource-tool-section-one">
+      <div className="resource-tool-logo">
         <img src={githubLogo} alt="Logo" style={{width: '100px'}} />
       </div>
-      <div className="resource-tool-section-two">
+      <div className="resource-tool-logo-title">
         <div id="resource-tool-title">{title}</div>
       </div>
     </div>

@@ -20,24 +20,24 @@ const Resources: React.FC<ResourcesProps> = props => {
 				<div className='banner-text'><b>Announcements:&nbsp;</b>{announcements.content}</div>
 			</div>
 			<div className='Resources-body'>
-				<div className="resources-section-one">
-					<div className="resource-tool-section-one">
-						<div className="resources-section-one-text">
-							<h1 className='text-one'>Most&nbsp;</h1>
-							<h1 className='text-two'>Commonly Used</h1>
-						</div>
-						<div className="resource-tool-container">
-							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-							<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
-						</div>
+				<div className="resource-tool-section-one">
+					<div className="resources-section-one-text">
+						<h1 className='text-one'>Most&nbsp;</h1>
+						<h1 className='text-two'>Commonly Used</h1>
+					</div>
+					<div className="resource-tool-container">
+						{/* Hardcoded several resource tool cards */}
+						<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+						<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+						<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+						<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
+						<div className='resource-tool-item'><ResourcesTool title="Github" /></div>
 					</div>
 				</div>
 				<div className="resources-section-two">
-					<div className="resource-tool-section-two">
-						<div className="resource-tool-container">
+					<div className="resource-material-section-two">
+						<div className="resource-material-container">
+							{/* Hardcoded several resources speech cards */}
 							<div className='resource-material-item'><ResourcesMaterial title="Speaker Talks" desc="Description of this resource and what you can use it for" /></div>
 							<div className='resource-material-item'><ResourcesMaterial title="Presentation" desc="Description of this resource and what you can use it for" /></div>
 							<div className='resource-material-item'><ResourcesMaterial title="Official Home Page" desc="Description of this resource and what you can use it for" /></div>

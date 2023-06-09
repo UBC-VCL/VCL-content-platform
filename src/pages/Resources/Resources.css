@@ -1,18 +1,16 @@
 @import '../../index.css';
 
 .Resources {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     max-width: 100%;
     width: 100%;
-    position: relative;
     color: #000000;
     font-family: 'Source Sans Pro', sans-serif;
     padding-bottom: -2000px;
 }
 
 .Resources .header {
-    position: relative;
-    margin-top: 5%;
+    margin-top: 12vh;
     padding-top: 2%;
     font-family: 'Open Sans', sans-serif;
     max-width: 100%;
@@ -37,20 +35,25 @@
     background-color: var(--fc-navyblue);
     margin: 45px 0;
     padding: 25px 15vw;
+    display : block;
 }
 
 .banner-text {
-    position: relative;
     text-align: center;
     color: white;
     font-size: 19px;
 }
 
+.resource-tool-section-one {
+    display: flex;
+    margin: 6%;
+}
+
 .resources-section-one-text {
-    float: center;
+    float: left;
     text-align: left;
-    width: 40%;
-    margin: 0% 7% 0% 5%;
+    width: 750px;
+    margin: 2% 0% 0% 12%;
     line-height: 0.98;
 }
 
@@ -68,19 +71,23 @@
     display: inline;
 }
 
-.resource-tool-section-one {
-    width: min(95%, 1500px);
-    margin: 8% auto;
+.resource-tool-container {
     display: flex;
+    float: right;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 80%;
 }
 
-.resource-tool-section-two {
+.resource-tool-section-two,
+.resource-material-section-two {
     width: min(84%, 1300px);
     margin: 12% auto;
-    display: flex;
+    display : block;
 }
 
-.resource-tool-container {
+.resource-material-container {
     display: flex;
     justify-content: space-between;
     gap: 8px;
@@ -92,39 +99,41 @@
     width: 18%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1540px) {
 
-    .Resources .header {
-        margin-top: 23vh;
+    .resources-section-one-text {
+        width: 450px;
+        margin: 2% 0% 0% 5%;
+    }
+}
+
+@media (max-width: 1108px) {
+    .resources-section-one-text {
+        float: center;
+        text-align: left;
+        width: 100%;
+        margin: 0% 6% 10% 10%;
     }
 
     .resource-tool-section-one {
-        display: flex;
+        display: block;
         flex-direction: column;
         justify-content: center;
+        width: 80%;
+        margin: auto;
     }
 
     .resource-tool-section-two {
-        display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    .resources-section-one-text {
-        display: flex;
-        float: center;
-        text-align: left;
-        margin: 0 35% 10% 30%;
-        line-height: 0.98;
-    }
-
-    .resources-section-one-text {
-        display: flex;
-        float: center;
-        text-align: left;
-        margin: 0 25% 10% 10%;
-        line-height: 0.98;
-        width: 500px;
+    .resource-material-section-two {
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        width: min(84%, 1300px);
+        margin: auto;
     }
 
     .text-one {
@@ -134,35 +143,32 @@
         display: inline;
     }
 
-    .resource-tool-container {
-        display: flex;
-        justify-content: space-between;
-        gap: 8px;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-left: 18%;
-    }
-
-    .resource-tool-item {
-        width: 30%;
-    }
-  }
-
-@media (max-width: 900px) {
-    .resources-section-one-text {
-        display: flex;
-        float: center;
-        text-align: left;
-        margin: 0 25% 10% 10%;
-        line-height: 0.98;
-        /* width: 500px; */
-    }
-
     .resource-tool-item {
         width: 48%;
+    }
+
+    .resource-material-container {
+        margin-left: 8%;
+        width: 100%;
     }
 
     .resource-material-item {
         width: 90%;
     }
+
+    .resource-tool-container {
+        width: 70%;
+    }
+
+  }
+
+@media (max-width: 700px) {
+    .Resources {
+        margin-top: 20vh;
+    }
+
+    .resource-tool-container {
+        width: 80%;
+    }
+
 }

@@ -1,45 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 
 .ResourcesTool {
-  width: 145px;
-  height: 180px;
-  padding: 20px 5px 0px;
+  width: 125px;
+  height: 160px;
+  padding: 13px 5px 0px;
   box-shadow: 4px 6px 13px -1px rgba(128, 128, 128, 0.25);
-  /* box-shadow: 4px 6px 13px 10px rgba(0, 0, 0, 0.25); */
   border-radius: 2px;
 }
 
 #resource-tool-title {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 550;
   text-align: left;
-  margin: 42px 28px 10px 28px;
+  margin: 53px 28px 10px 28px;
 }
 
-.resource-tool-section-one, 
-.resource-tool-section-two {
+.resource-tool-logo, 
+.resource-tool-logo-title {
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.resource-tool-section-one {
+.resource-tool-logo {
   height: 49px;
-  padding: 30px 20px 0;
+  padding: 40px 20px 0;
 }
 
-.resource-tool-container {
-  margin-top: 50px;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1284px) {
   .ResourcesTool {
-    /* width: 40%; */
     width: 120px;
     margin: 5px;
     padding: 20px 5px 0px;
   }
-  
+}
+
+
+@media (max-width: 768px) {
+  .ResourcesTool {
+    width: 120px;
+    margin: 5px;
+    padding: 20px 5px 0px;
+  }
 }

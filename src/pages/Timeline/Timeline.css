@@ -65,7 +65,6 @@
 .timeline-container-span-correlation:before{
     border: 2px solid #6776fe;
     background-color: #6776fe;
-    /* margin-left: 32px; */
 }
 
 .timeline-container-span-nova:before{
@@ -100,4 +99,11 @@
     .timeline-main-body {
         width: 90%;
     }
+}
+
+.errorString {
+    color: red;
+    text-align: center;
+    padding: 3rem;
+    font-size: 4rem;
 }

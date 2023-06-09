@@ -53,7 +53,7 @@ const TimelineFilterContainer = () => {
       {isMobile ? (
 
         <div className='timeline-filter-mobile' style={{ display: 'inline-block' }}> 
-          {/*<MobileMainFilter mobileMainFilterSelected={projectSelected} setMobileMainFilterSelected={setMobileMainFilterSelected} dummyData={dummyDataForProject} /> */}
+          {/*<MobileMainFilter/>*/}
           <div className='filter-dropdown-mobile'>
             <div className='single-dropdown-mobile'>
               <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />

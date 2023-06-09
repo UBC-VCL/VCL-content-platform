@@ -13,15 +13,11 @@ const MenuProps = {
   },
 };
 
-const MobileMainFilter = ({dateSelected, setDateSelected, dummyData}: {
-    dateSelected: string,
-    setDateSelected: React.Dispatch<React.SetStateAction<string>>,
-    dummyData: string[],
+const MobileMainFilter = ({}: {
 }) => {
 
     const list = {
-        'name': 'Filters', 
-        'options': dummyData,
+        'options': ,
     };
     const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
         setDateSelected(event.target.value);
@@ -30,7 +26,6 @@ const MobileMainFilter = ({dateSelected, setDateSelected, dummyData}: {
     return (
         <FormControl sx={{ m: 1, display: 'inline' }}>
             <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
-                {list.name}:
             </div>
             <div style={{display: 'inline-block'}}>
                 <Select
@@ -38,7 +33,6 @@ const MobileMainFilter = ({dateSelected, setDateSelected, dummyData}: {
                     id="demo-simple-select-autowidth"
                     variant="standard"
                     disableUnderline
-                    value={dateSelected}
                     onChange={handleChange}
                     label="Date"
                     MenuProps={MenuProps}

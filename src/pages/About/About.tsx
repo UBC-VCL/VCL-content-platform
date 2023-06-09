@@ -66,10 +66,13 @@ const About: React.FC<AboutProps> = props => {
 				</div>
 				<div className="contact-info">
 					<h2>Contact Us</h2>
-					<p>We are located in the Department of Psychology at the University of British Columbia</p>
-					<p><strong>Address</strong><br></br>
-					{TEXT.LAB_INFO.ADDRESS}</p>
-					<p><strong>Tel</strong> {TEXT.LAB_INFO.TEL}<br></br>
+					<p>We are located in the <a href="https://psych.ubc.ca/" target="_blank">Department of Psychology</a> at the <a href="https://www.ubc.ca/" target="_blank">University of British Columbia.</a></p>
+					<p><strong>Address</strong> <br/>
+						<p className="lab-address">
+						{TEXT.LAB_INFO.ADDRESS_LINE_ONE} <br/>
+						{TEXT.LAB_INFO.ADDRESS_LINE_TWO}</p> 
+					</p>
+					<p><strong>Tel</strong> {TEXT.LAB_INFO.TEL} <br/>
 					<strong>Fax</strong> {TEXT.LAB_INFO.FAX}</p>
 					<p><strong>Contact</strong></p>
 					<ul>
@@ -79,8 +82,8 @@ const About: React.FC<AboutProps> = props => {
 						<li><strong>Sara (Admin):</strong></li>
 						<li><strong>Sogol (Admin):</strong></li>
 					</ul>
-					<p><strong>Hours</strong><br></br>
-					Weekdays: 9AM-5PM<br></br>
+					<p><strong>Lab Hours</strong> <br/>
+					Weekdays: 9AM-5PM <br/>
 					Weekends: Closed</p>		
 				</div>
 			</div>

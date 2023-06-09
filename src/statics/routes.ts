@@ -1,19 +1,20 @@
 const ROUTES = {
   HOME: '/',
+  TIMELINE: '/timeline',
+  TIMELINE_CREATE: '/timeline/create',
+  TIMELINE_EDIT: '/timeline/:timeline_id/edit',
   PROJECT: {
     PATH: '/projects/:project_id/',
     BASE: '/projects',
     OVERVIEW: '/projects/overview',
   },
-  TIMELINE: '/timeline',
-  TIMELINE_CREATE: '/timeline/create',
-  TIMELINE_EDIT: '/timeline/:timeline_id/edit',
-  ABOUT: '/about',
-  RESOURCES: '/resources',
   PROJECT_DESCRIPTION: '/',
   JOIN_THE_TEAM: '/join',
   TEAM: '/team',
   CONTACT: '/contact',
+  ABOUT: '/about',
+  RESOURCES: '/resources',
+  GET_INVOLVED: '/get_involved',
 } as const;
 
 export default ROUTES;

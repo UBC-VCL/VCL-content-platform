@@ -1,17 +1,13 @@
-import Grid from '@mui/material/Grid';
 import React from 'react';
-import './JoinTheTeam.css';
+import './GetInvolved.css';
 import { TEXT } from '@statics';
-import kennyMap from '@statics/images/kenny-map.png';
-import Card from '@components/Card';
-import Footer from '@components/Footer';
 import LabGoalsFooter from '@components/LabGoalsFooter';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 
-interface JoinTheTeamProps {}
+interface GetInvolvedProps {}
 
-const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
+const GetInvolved: React.FC<GetInvolvedProps> = props => {
 	return (
 		<div className="Join">
 			<div className="join-header">
@@ -38,54 +34,43 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					<br></br>
 					<ul style={{color: "#5387a5"}}>
 						<li>
-							<Link 
-								to="//viscoglab.psych.ubc.ca/get-involved/vcl-co-pilots/" 
-								style={{color: "#5387a5"}}  
-								target="_blank" 
-								rel="noreferrer"
-								>
+							<a href="#co-pilot"
+							style={{color: "#5387a5"}} 
+							>
 									Co-Pilot
-							</Link>
+							</a>
 						</li>
 						<li>
-							<Link 
-								to="//viscoglab.psych.ubc.ca/get-involved/data-science-co-pilot/" 
+							<a
+								href="#data-science"
 								style={{color: "#5387a5"}}  
-								target="_blank" 
-								rel="noreferrer"
 								>
 									Data Science Co-Pilot
-							</Link>
+							</a>
 						</li>
 						<li>
-							<Link 
-								to="//viscoglab.psych.ubc.ca/get-involved/volunteeringdirected-studies/" 
+							<a
+								href="volunteer"
 								style={{color: "#5387a5"}}  
-								target="_blank" 
-								rel="noreferrer"
 								>
 									Volunteer
-							</Link>
+							</a>
 						</li>
 						<li>
-							<Link 
-								to="//viscoglab.psych.ubc.ca/get-involved/directed-studies/" 
+							<a
+								href="directed-studies"
 								style={{color: "#5387a5"}}  
-								target="_blank" 
-								rel="noreferrer"
 								>
 									Directed Studies
-							</Link>
+							</a>
 						</li>
 						<li>
-							<Link 
-								to="//viscoglab.psych.ubc.ca/get-involved/student-awards/" 
+							<a
+								href="research-assistant"
 								style={{color: "#5387a5"}}  
-								target="_blank" 
-								rel="noreferrer"
 								>
 									Research Assistant
-							</Link>
+							</a>
 						</li>
 						<li>
 							<Link 
@@ -118,7 +103,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>	
 				</section>
 				<div className='role-divider'/>
-				<section>
+				<section id="co-pilot">
 					<h2>Get Involved as a Co-Pilot...</h2>
 					<p>To be a co-pilot, you don't need to have any background in research and you can help out whenever you want. Co-Pilots sign a contract with the lab 
 						that lasts for a school term, with the possibility for renewal. Co-Pilots are assigned to a particular project team based on their interests, but have
@@ -154,7 +139,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 				</section>
 				<div className='role-divider'/>
-				<section>
+				<section id="data-science">
 					<h2>Get Involved as a Data Science Co-Pilot...</h2>
 					<p>
 						We are looking for a Co-pilot with a strong Data Science or Statistics background to join the percepttual Modes (SHIVA) project. The successful applicant 
@@ -181,7 +166,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 				</section>
 				<div className='role-divider'/>
-				<section>
+				<section id="volunteer">
 					<h2>Get Involved as a Volunteer...</h2>
 					<p>
 						Volunteers take priority over Co-Pilots in being trained in research activities and must dedicate a minimum of 
@@ -212,7 +197,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 					</p>
 				</section>
 				<div className='role-divider'/>
-				<section>
+				<section id="directed-studies">
 					<h2>Get Involved as a Directed Studies/COGS 402 Student...</h2>
 					<p>
 						Directed Studies take priority over Co-Pilots in being trained in research activities and must dedicate a minimum of <b>9 hours per week</b> to the lab.
@@ -261,7 +246,7 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 
 				</section>
 				<div className='role-divider'/>
-				<section>
+				<section id="research-assistant">
 					<h2>Get Involved as a Research Assistant...</h2>
 					<p>
 						Volunteers take priority over Co-Pilots in being trained in research activities ad must dedicate a minimum of
@@ -299,4 +284,4 @@ const JoinTheTeam: React.FC<JoinTheTeamProps> = props => {
 	);
 };
 
-export default JoinTheTeam;
+export default GetInvolved;

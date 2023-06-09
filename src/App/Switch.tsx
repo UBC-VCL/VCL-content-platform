@@ -8,20 +8,20 @@ import About from '@pages/About';
 import Resources from '@pages/Resources';
 import TimelineEntry from "@pages/Timeline/TimelineEntry";
 import EditTimelineEntry from '@pages/Timeline/EditTimelineEntry/EditTimelineEntry';
-import JoinTheTeam from '@pages/JoinTheTeam/JoinTheTeam';
+import GetInvolved from '@pages/GetInvolved/GetInvolved';
 
 const AppSwitch = () => {
   return (
     <Switch>
-      <Route exact path={ROUTES.TIMELINE} component={Timeline} />
-      <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
-      <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
       <Route exact path={ROUTES.HOME} component={Home} />
-      <Route exact path={ROUTES.ABOUT} component={About} />
-      <Route exact path={ROUTES.RESOURCES} component={Resources} />
-      <Route exact path={ROUTES.JOIN_THE_TEAM} component={JoinTheTeam} />
+      <Route exact path={ROUTES.TIMELINE} component={Timeline} />
       <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry}/>
       <Route exact path={ROUTES.TIMELINE_EDIT} component={EditTimelineEntry}/>
+      <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
+      <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
+      <Route exact path={ROUTES.ABOUT} component={About} />
+      <Route exact path={ROUTES.RESOURCES} component={Resources} />
+      <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
     </Switch>
   );
 }

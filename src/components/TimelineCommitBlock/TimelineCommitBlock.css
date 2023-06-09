@@ -8,10 +8,6 @@
     border-radius: 5px;
 }
 
-.timeline-commit-header {
-    display: flex;
-}
-
 .timeline-commit-header-text {
     float: left;
 }
@@ -20,6 +16,12 @@
     display: flex; 
     justify-content: flex-end;
 }
+
+.vl {
+    border-left: 1.5px solid rgb(188, 188, 188);
+    margin: 0 8px;
+    height: 25px;
+  }
 
 .timeline-commit-date {
     color: rgb(152, 152, 152);
@@ -95,10 +97,3 @@
     margin: 15px 0 10px 0;
     border: 1.5px solid rgb(226, 226, 226);
 }
-
-.vl-divider {
-    border-left: 1.5px solid rgb(226, 226, 226);
-    height: 23px;
-    position: relative;
-    margin: 0 8px;
-  }

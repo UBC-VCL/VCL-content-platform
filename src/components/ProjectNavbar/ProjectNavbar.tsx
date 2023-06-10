@@ -101,7 +101,7 @@ export default function Sidebar(props: any) {
             >
                 <div className='DrawerHeader'>
                 <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
+                    <IconButton onClick={handleDrawerClose} style={{marginTop:"25%"}}>
                         {theme.direction === 'ltr' ? <FirstPageTwoToneIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </DrawerHeader>

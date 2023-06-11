@@ -35,11 +35,13 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [success, setSuccess] = useState<boolean>(true)
 
   // An object containing a the necessary conditions of how the user wants to filter or search for snapshots
+  // Have to make this more universal somehow, this exact same list is in TimelineFilter.tsx
+  // But this is the intial state of which snapshots to show, the list in TimeineFilter.tsx outlines which options to choose
   const [filterBy, setFilter] = useState<FilterOBJ>({
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
-    date: "",
-    author: ['One', 'two', 'three']
+    date: "Last day",
+    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe']
   })
 
   // creates a http request
@@ -83,29 +85,32 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
     Object.entries(filterOBJ).forEach(([key, value]) => {
       if (typeof value !== 'string') {
-        if (key === "project") {console.log(listFilter.filter(item => value.includes(item.project)))}
+        if (key === "project") {
+          listFilter = listFilter.filter(item => value.includes(item.project))
+        }
         // listFilter = listFilter.filter(item => value.includes(item.project))
         if (key === "category") {
           // console.log(listFilter.filter(item => value.includes(item.tags)))
-          console.log(console.log(listFilter.filter(item => item.tags.some(element => value.includes(element)))))
-          }
+          listFilter = listFilter.filter(item => item.tags.some(element => value.includes(element)))
+        }
         // listFilter = listFilter.filter(item => value.includes(item.tags))
-        if (key === "author") {console.log(key)}
+        if (key === "author") {
+          listFilter = listFilter.filter(item => value.includes(item.author))
+        }
         // listFilter = listFilter.filter(item => value.includes(item.author))
         // console.log(listFilter)
-      } 
-      // else {
-      //   // add date calculator
-      // }
+      }
+      else {
+        const currentDate = new Date()
+
+        if (value === "Last day")
+          listFilter = listFilter.filter(item => Math.abs(Math.ceil((currentDate.getTime() - new Date(item.date).getTime()) / (1000 * 3600 * 24))) <= 1)
+        if (value === "Last month")
+          listFilter = listFilter.filter(item => Math.abs(Math.ceil((currentDate.getTime() - new Date(item.date).getTime()) / (1000 * 3600 * 24))) <= 31)
+        if (value === "Last year")
+          listFilter = listFilter.filter(item => Math.abs(Math.ceil((currentDate.getTime() - new Date(item.date).getTime()) / (1000 * 3600 * 24))) <= 365)
+      }
     })
-    // // category in the filter box are labelled as tags
-    // if (filterOBJ.category.length !== 0) {
-    //   listFilter.filter(e => {
-    //     e.tags.map(element => {
-    //       filterOBJ.category.includes(element)
-    //     })
-    //   })
-    // }
 
     return (
       <ul>

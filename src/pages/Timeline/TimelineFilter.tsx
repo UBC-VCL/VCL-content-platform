@@ -11,7 +11,7 @@ import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'];
 const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
 const dummyDataForDate = ['Last day', 'Last month', 'Last year'];
-const dummyDataForAuthor = ['One', 'two', 'three'];
+const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
 
 
 interface PropsOBJ {

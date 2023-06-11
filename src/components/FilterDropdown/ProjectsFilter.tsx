@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { FilterOBJ } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -13,10 +14,13 @@ const MenuProps = {
   },
 };
 
-const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: {
+const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData, 
+  setFilter, filterBy}: {
     projectSelected: string[],
     setProjectSelected: React.Dispatch<React.SetStateAction<string[]>>,
     dummyData: string[],
+    setFilter: (obj: FilterOBJ) => void,
+    filterBy: FilterOBJ
 }) => {
         const list = {
           'name': 'Project', 
@@ -29,6 +33,8 @@ const ProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: {
           setProjectSelected(
             typeof value === 'string' ? value.split(',') : value,
           );
+
+          setFilter({ ...filterBy, project: typeof value === 'string' ? value.split(',') : value,})
         };
 
         return (

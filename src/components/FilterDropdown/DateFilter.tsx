@@ -2,29 +2,35 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { FilterOBJ } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        },
     },
-  },
 };
 
-const DateFilter = ({dateSelected, setDateSelected, dummyData}: {
-    dateSelected: string,
-    setDateSelected: React.Dispatch<React.SetStateAction<string>>,
-    dummyData: string[],
-}) => {
+const DateFilter = ({ dateSelected, setDateSelected, dummyData,
+    setFilter, filterBy }: {
+        dateSelected: string,
+        setDateSelected: React.Dispatch<React.SetStateAction<string>>,
+        dummyData: string[],
+        setFilter: (obj: FilterOBJ) => void,
+    filterBy: FilterOBJ
+    }) => {
 
     const list = {
-        'name': 'Date', 
+        'name': 'Date',
         'options': dummyData,
     };
     const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
         setDateSelected(event.target.value);
+        
+        setFilter({ ...filterBy, date: event.target.value })
     };
 
     return (
@@ -32,7 +38,7 @@ const DateFilter = ({dateSelected, setDateSelected, dummyData}: {
             <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
                 {list.name}:
             </div>
-            <div style={{display: 'inline-block'}}>
+            <div style={{ display: 'inline-block' }}>
                 <Select
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
@@ -47,14 +53,14 @@ const DateFilter = ({dateSelected, setDateSelected, dummyData}: {
                     }}
                     sx={{ width: 120 }}
                 >
-                {list.options.map((name) => (
-                    <MenuItem
-                        key={name}
-                        value={name}
-                    >
-                        {name}
-                    </MenuItem>
-                ))}
+                    {list.options.map((name) => (
+                        <MenuItem
+                            key={name}
+                            value={name}
+                        >
+                            {name}
+                        </MenuItem>
+                    ))}
                 </Select>
             </div>
         </FormControl>

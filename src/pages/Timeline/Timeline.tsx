@@ -11,7 +11,6 @@ import axios from 'axios';
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
-
 interface TimelineProps { }
 import ConfirmationDailog from "@components/ConfirmationWindow/confirmationWindow";
 
@@ -82,7 +81,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // creates a http request
 
   const objCommitHTTPS = async () => {
-
 
     /* 
       Structure of a snapshot object from the retrieved list
@@ -206,11 +204,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // this method send a DELETE request to snapshot api to delete the snapshot
   const deleteCommit = async (_id: string) => {   
    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+
       headers: {
         authorization: access_token
       } 
     })
-
       .then((response)=> {
         if(response.status != 200) {
           throw new Error("did not delete it successfully");

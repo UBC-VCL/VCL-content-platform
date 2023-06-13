@@ -75,11 +75,11 @@
     font-size: 14px;
     font-weight: 100;
     text-align: left;
-    color: var(--fc-dark);
 }
 
 .card__subtitle--involvement {
     margin-bottom: 8px;
+    color: var(--fc-dark);
 }
 
 .card__text {

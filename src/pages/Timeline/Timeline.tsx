@@ -14,6 +14,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
   interface SnapshotOBJ {
+    _id: string;
     author: string;
     elementChanged: string;
     project: string;
@@ -71,6 +72,21 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     retrieveCommitOBjs()
   }, [])
 
+  const deleteCommit = async (_id: string) => {
+    await axios.delete("http://localhost:4000/api/snapshots/",  { params: { id: _id} })
+      .then((response)=> {
+        if(response.status != 200) {
+          throw new Error("did not delete it successfully");
+        }
+        let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+        const tempArray = commitsArray.slice();
+        tempArray.splice(i, 1);
+        setCommitArray(tempArray);
+      }).catch((err)=>{
+        console.log(err);
+      })
+  };
+
   let prjs: any[] = []
 
   // hardcode className to display corresponding colors
@@ -110,8 +126,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             success ?
               <ul>
                 {commitsArray.map((commit: SnapshotOBJ, i) => {
+                  console.log(commit);
                   return (
-                    <li key={i}>
+                    <li key={commit._id}>
                       <span className={"timeline-container-span-" + prjs[i]}></span>
                       <TimelineCommitBlock
                         author={commit.author}
@@ -123,6 +140,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                         hyperlinks={commit.hyperlinks}
                         updatedTime={commit.updatedTime}
                         tags={commit.tags}
+                        onClickDelete = {()=>{deleteCommit(commit._id)}}
                       />
                     </li>
                   )

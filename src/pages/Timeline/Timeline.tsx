@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import { selectAuth } from '@redux/slices/AuthRedux';
 
 interface TimelineProps { }
 
@@ -51,7 +52,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   })
 
   // creates a http request
+
   const objCommitHTTPS = async () => {
+
 
     /* 
       Structure of a snapshot object from the retrieved list
@@ -169,7 +172,15 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }, [])
 
   const deleteCommit = async (_id: string) => {
-    await axios.delete("http://localhost:4000/api/snapshots/",  { params: { id: _id} })
+    const { access_token } = useAppSelector(selectAuth);
+    await axios.delete("http://localhost:4000/api/snapshots",  { 
+      params: { 
+        id: _id
+      }, 
+      headers: {
+        authorization: access_token
+      } 
+    })
       .then((response)=> {
         if(response.status != 200) {
           throw new Error("did not delete it successfully");

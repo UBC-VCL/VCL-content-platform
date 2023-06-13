@@ -36,7 +36,9 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 };
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
+
     const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete, isLoggedIn} = props;
+
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
@@ -120,6 +122,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             <p className="timeline-commit-header-text">
                 <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
+
 
             {isLoggedIn ?
                 <div className="timeline-commit-header-icons">

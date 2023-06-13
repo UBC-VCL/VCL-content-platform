@@ -202,6 +202,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     objCommitHTTPS()
   }, [])
 
+
   // this method send a DELETE request to snapshot api to delete the snapshot
   const deleteCommit = async (_id: string) => {   
    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
@@ -209,6 +210,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         authorization: access_token
       } 
     })
+
       .then((response)=> {
         if(response.status != 200) {
           throw new Error("did not delete it successfully");
@@ -220,6 +222,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         return Promise.resolve(true);
       }).catch((err)=>{
         return Promise.reject();
+
       })
   };
 
@@ -260,7 +263,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-
+            
               filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
 
           }

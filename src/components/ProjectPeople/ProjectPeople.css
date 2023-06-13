@@ -64,6 +64,8 @@
 .card__subtitle,
 .card__text {
     font-family: var(--ff-primary);
+    color: #000000;
+    text-decoration: none;
 }
 
 .card__title {

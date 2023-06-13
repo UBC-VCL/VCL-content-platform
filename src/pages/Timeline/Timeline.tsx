@@ -17,6 +17,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
   interface SnapshotOBJ {
+    _id: string;
     author: string;
     title: string;
     project: string;
@@ -152,6 +153,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
               updatedTime={commit.updatedTime}
               categories={commit.categories}
               isLoggedIn={isLoggedIn}
+              onClickDelete = {()=>{deleteCommit(commit._id)}}
             />
           </li>
         ))}
@@ -165,6 +167,21 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   useEffect(() => {
     objCommitHTTPS()
   }, [])
+
+  const deleteCommit = async (_id: string) => {
+    await axios.delete("http://localhost:4000/api/snapshots/",  { params: { id: _id} })
+      .then((response)=> {
+        if(response.status != 200) {
+          throw new Error("did not delete it successfully");
+        }
+        let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+        const tempArray = commitsArray.slice();
+        tempArray.splice(i, 1);
+        setCommitArray(tempArray);
+      }).catch((err)=>{
+        console.log(err);
+      })
+  };
 
   let prjs: any[] = []
 
@@ -204,6 +221,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           {
             success ?
               filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
+
           }
         </div>
       </div>

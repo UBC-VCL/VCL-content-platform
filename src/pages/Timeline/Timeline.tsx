@@ -201,10 +201,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }, [])
 
 
+
   // this method send a DELETE request to snapshot api to delete the snapshot
   const deleteCommit = async (_id: string) => {   
    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
-
       headers: {
         authorization: access_token
       } 

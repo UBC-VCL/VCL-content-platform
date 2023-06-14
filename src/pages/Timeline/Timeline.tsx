@@ -11,8 +11,13 @@ import { useAppSelector } from '@redux/hooks';
 import { selectAuth } from '@redux/slices/AuthRedux';
 interface TimelineProps { }
 
-const Timeline: React.FC<TimelineProps> = (props) => {
+/** 
+* Paste one or more documents here
+*/
 
+
+const Timeline: React.FC<TimelineProps> = (props) => {
+  const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
   interface SnapshotOBJ {
     _id: string;
@@ -75,11 +80,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }, [])
 
   const deleteCommit = async (_id: string) => {
-    const { access_token } = useAppSelector(selectAuth);
-    await axios.delete("http://localhost:4000/api/snapshots",  { 
-      params: { 
-        id: _id
-      }, 
+    //const { access_token } = useAppSelector(selectAuth);
+    await axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
       headers: {
         authorization: access_token
       } 

@@ -15,14 +15,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
   interface SnapshotOBJ {
     author: string;
-    elementChanged: string;
+    title: string;
     project: string;
     date: Date;
+    categories: Array<string>;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    tags: Array<string>;
   }
   // An array of all timineline history that will be set by retrieveCommitOBJs()
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
@@ -115,14 +115,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                       <span className={"timeline-container-span-" + prjs[i]}></span>
                       <TimelineCommitBlock
                         author={commit.author}
-                        elementChanged={commit.elementChanged}
+                        title={commit.title}
                         project={commit.project}
                         date={commit.date}
+                        categories={commit.categories}
                         descriptions={commit.descriptions}
-                        contributors={commit.contributors}
                         hyperlinks={commit.hyperlinks}
+                        contributors={commit.contributors}
                         updatedTime={commit.updatedTime}
-                        tags={commit.tags}
                       />
                     </li>
                   )

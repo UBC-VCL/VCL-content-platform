@@ -45,7 +45,6 @@ const TimelineFilterContainer = () => {
 
         <div className='add-update-button' style={{display: 'inline-block'}}>
             <Button
-                // onClick={formik.handleSubmit}
                 onClick = {handleAddEntry}
                 variant="outlined" 
                 style={{

@@ -19,7 +19,6 @@ function App() {
             <Navbar />
             <Switch />
             <Modals />
-            <AlertPopup />
             <Footer />
         </Router>
     </div>

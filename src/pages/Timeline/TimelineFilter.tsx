@@ -9,6 +9,7 @@ import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
+import MobileFilterDropdown from '@components/FilterDropdown/MobileFilterDropdown';
 
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
 const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
@@ -21,7 +22,6 @@ const TimelineFilterContainer = () => {
   // const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
   // const [dateSelected, setDateSelected] = React.useState('Last Month');
   // const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
-  const [mobileMainFilterSelected, setMobileMainFilterSelected] = React.useState<string[]>();
   const [projectSelected, setProjectSelected] = React.useState<string[]>(dummyDataForProject);
   const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
   const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
@@ -52,57 +52,40 @@ const TimelineFilterContainer = () => {
 
       {isMobile ? (
 
-        <div className='timeline-filter-mobile'>
-          <select className="filter-dropdown">
-              <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
-              <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
-              <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} />
-              <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
-          </select>
-
-        </div>
-
-      /*
-        <select name="Filters" className='timeline-filter-mobile'>
-          <option><ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} /></option>
-          <option> <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} /></option>
-          <option><DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} /></option>
-          <option> <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} /></option>
-        </select>
-      */
+        <div className='filter-dropdown-mobile'><MobileFilterDropdown /></div>
 
       ) : (
-      <div className='timeline-filter' style={{ display: 'inline' }}>
-        <div style={{ display: 'inline-block' }}>
-          <div className='filter-dropdown'>
-            <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
-            <span className='filter-divider'></span>
-            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
-            <span className='filter-divider'></span>
-            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} />
-            <span className='filter-divider'></span>
-            <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
+        <div className='timeline-filter' style={{ display: 'inline' }}>
+          <div style={{ display: 'inline-block' }}>
+            <div className='filter-dropdown'>
+              <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
+              <span className='filter-divider'></span>
+              <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
+              <span className='filter-divider'></span>
+              <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} />
+              <span className='filter-divider'></span>
+              <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
+            </div>
+          </div>
+
+          <div className='add-update-button' style={{ display: 'inline-block' }}>
+            <Button
+              // onClick={formik.handleSubmit}
+              variant="outlined"
+              style={{
+                backgroundColor: "#1E5487",
+                color: "white",
+                width: 150,
+                height: 50,
+                textTransform: 'none',
+                marginLeft: '10px',
+                fontSize: 16,
+              }}
+            >
+              Add New Entry
+            </Button>
           </div>
         </div>
-
-        <div className='add-update-button' style={{ display: 'inline-block' }}>
-          <Button
-            // onClick={formik.handleSubmit}
-            variant="outlined"
-            style={{
-              backgroundColor: "#1E5487",
-              color: "white",
-              width: 150,
-              height: 50,
-              textTransform: 'none',
-              marginLeft: '10px',
-              fontSize: 16,
-            }}
-          >
-            Add New Entry
-          </Button>
-        </div>
-      </div>
       )}
     </div>
   );

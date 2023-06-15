@@ -10,6 +10,7 @@ import axios from 'axios'
 import { useAppSelector } from '@redux/hooks';
 import { selectAuth } from '@redux/slices/AuthRedux';
 interface TimelineProps { }
+import ConfirmationDailog from "@components/ConfirmationWindow/confirmationWindow";
 
 /** 
 * Paste one or more documents here
@@ -38,6 +39,17 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // If the reuqest for the list of timelines is successful than success = true,
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
+
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [idToDelete, setIdToDelete] = useState<string>("");
+  const handleClose =  ()=> {
+    setOpenDialog(false);
+  }
+  const handleClickOpen = ()=>{
+    setOpenDialog(true);
+  }
+
+
 
   // creates a http request
   const objCommitHTTPS = async (): Promise<SnapshotOBJ[]> => {
@@ -81,7 +93,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   const deleteCommit = async (_id: string) => {
     //const { access_token } = useAppSelector(selectAuth);
-    await axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+   
+   return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
       headers: {
         authorization: access_token
       } 
@@ -94,8 +107,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         const tempArray = commitsArray.slice();
         tempArray.splice(i, 1);
         setCommitArray(tempArray);
+        return Promise.resolve(true);
       }).catch((err)=>{
-        console.log(err);
+        return Promise.reject();
       })
   };
 
@@ -152,7 +166,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                         hyperlinks={commit.hyperlinks}
                         contributors={commit.contributors}
                         updatedTime={commit.updatedTime}
-                        onClickDelete = {()=>{deleteCommit(commit._id)}}
+                        onClickDelete = {()=>{
+                          setIdToDelete(commit._id);
+                          handleClickOpen();
+                        }}
                       />
                     </li>
                   )
@@ -161,7 +178,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           }
         </div>
       </div>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
+  
     </div>
+    
   );
 };
 

@@ -15,7 +15,7 @@ interface TimelineCommitBlockProps {
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    tags: Array<string>;
+    categories: Array<string>;
     onClickDelete: ()=>void
 }
 
@@ -31,7 +31,7 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 };
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const {author, elementChanged, date, project, descriptions, hyperlinks, contributors, updatedTime, tags, onClickDelete} = props;
+    const {author, elementChanged, date, project, descriptions, hyperlinks, contributors, updatedTime, categories: categories, onClickDelete} = props;
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
@@ -51,7 +51,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             </div>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
-                {tags.map((tagName, i) => (
+                {categories.map((tagName, i) => (
                     <div key={i} className="timeline-commit-tag">
                         {tagName}
                     </div>
@@ -94,7 +94,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 }
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, elementChanged, date, project, tags, onClickDelete} = props;
+    const { author, elementChanged, date, project, categories: tags, onClickDelete} = props;
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
     CONSTANTS.PROJECTS.forEach(element => {

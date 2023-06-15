@@ -33,6 +33,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
+    tags: Array<string>;
   }
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -44,39 +45,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // If the reuqest for the list of timelines is successful then success = true,
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
-
-
-  // An object containing a the necessary conditions of how the user wants to filter or search for snapshots
-  // Have to make this more universal somehow, this exact same list is in TimelineFilter.tsx
-  // But this is the intial state of which snapshots to show, the list in TimeineFilter.tsx outlines which options to choose
-  const [filterBy, setFilter] = useState<SearchFilter >({
-    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
-    category: ['Website', 'Meeting', 'Workshop'],
-    date: "All",
-    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
-    keyword: ""
-  })
-
-  // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
-  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
-  // If user close the pop up window, then openDialog = false.
-  // It is set to false by default
-
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
-  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
-  const [idToDelete, setIdToDelete] = useState<string>("");
-
-  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
-  const handleClose =  ()=> {
-    setOpenDialog(false);
-  }
-  const handleClickOpen = ()=>{
-    setOpenDialog(true);
-  }
-
-
-
 
   // creates a http request
 
@@ -200,11 +168,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     objCommitHTTPS()
   }, [])
 
-
-
-  // this method send a DELETE request to snapshot api to delete the snapshot
-  const deleteCommit = async (_id: string) => {   
-   return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+  const deleteCommit = async (_id: string) => {
+    //const { access_token } = useAppSelector(selectAuth);
+    await axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
       headers: {
         authorization: access_token
       } 
@@ -219,8 +185,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         setCommitArray(tempArray);
         return Promise.resolve(true);
       }).catch((err)=>{
-        return Promise.reject();
-
+        console.log(err);
       })
   };
 
@@ -261,9 +226,28 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-            
-              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
-
+              <ul>
+                {commitsArray.map((commit: SnapshotOBJ, i) => {
+                  console.log(commit);
+                  return (
+                    <li key={commit._id}>
+                      <span className={"timeline-container-span-" + prjs[i]}></span>
+                      <TimelineCommitBlock
+                        author={commit.author}
+                        elementChanged={commit.elementChanged}
+                        project={commit.project}
+                        date={commit.date}
+                        descriptions={commit.descriptions}
+                        contributors={commit.contributors}
+                        hyperlinks={commit.hyperlinks}
+                        updatedTime={commit.updatedTime}
+                        tags={commit.tags}
+                        onClickDelete = {()=>{deleteCommit(commit._id)}}
+                      />
+                    </li>
+                  )
+                })}
+              </ul> : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
           }
         </div>
       </div>

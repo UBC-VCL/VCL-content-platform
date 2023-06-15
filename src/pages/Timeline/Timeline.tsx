@@ -13,6 +13,7 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 
 interface TimelineProps { }
+import ConfirmationDailog from "@components/ConfirmationWindow/confirmationWindow";
 
 /** 
 * Paste one or more documents here
@@ -45,6 +46,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
+
   // An object containing a the necessary conditions of how the user wants to filter or search for snapshots
   // Have to make this more universal somehow, this exact same list is in TimelineFilter.tsx
   // But this is the intial state of which snapshots to show, the list in TimeineFilter.tsx outlines which options to choose
@@ -55,6 +57,18 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
     keyword: ""
   })
+
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [idToDelete, setIdToDelete] = useState<string>("");
+  const handleClose =  ()=> {
+    setOpenDialog(false);
+  }
+  const handleClickOpen = ()=>{
+    setOpenDialog(true);
+  }
+
+
+
 
   // creates a http request
 
@@ -161,7 +175,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
               updatedTime={commit.updatedTime}
               categories={commit.categories}
               isLoggedIn={isLoggedIn}
-              onClickDelete = {()=>{deleteCommit(commit._id)}}
+              onClickDelete = {()=>{
+                setIdToDelete(commit._id);
+                handleClickOpen();
+              }}
             />
           </li>
         ))}
@@ -178,7 +195,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   const deleteCommit = async (_id: string) => {
     //const { access_token } = useAppSelector(selectAuth);
-    await axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+   
+   return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
       headers: {
         authorization: access_token
       } 
@@ -191,8 +209,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         const tempArray = commitsArray.slice();
         tempArray.splice(i, 1);
         setCommitArray(tempArray);
+        return Promise.resolve(true);
       }).catch((err)=>{
-        console.log(err);
+        return Promise.reject();
       })
   };
 
@@ -233,12 +252,16 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
+
               filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
 
           }
         </div>
       </div>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
+  
     </div>
+    
   );
 };
 

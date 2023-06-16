@@ -49,7 +49,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
   const [idToDelete, setIdToDelete] = useState<string>("");
 
-  // handle c
+  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
   const handleClose =  ()=> {
     setOpenDialog(false);
   }
@@ -99,9 +99,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     retrieveCommitOBjs()
   }, [])
 
-  const deleteCommit = async (_id: string) => {
-    //const { access_token } = useAppSelector(selectAuth);
-   
+  // this method send a DELETE request to snapshot api to delete the snapshot
+  const deleteCommit = async (_id: string) => {   
    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
       headers: {
         authorization: access_token

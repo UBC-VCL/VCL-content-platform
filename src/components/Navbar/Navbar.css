@@ -196,3 +196,16 @@
 	position: relative;
 }
 
+.vcl-title {
+	font-family: 'Poppins';
+	font-weight: 600;
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+.vcl-title:hover {
+	text-decoration: none;
+}
+
+

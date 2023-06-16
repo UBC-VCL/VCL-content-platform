@@ -56,7 +56,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
   const [idToDelete, setIdToDelete] = useState<string>("");
 
-  // handle c
+  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
   const handleClose =  ()=> {
     setOpenDialog(false);
   }

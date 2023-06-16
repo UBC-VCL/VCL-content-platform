@@ -36,12 +36,20 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
   const [commitsArray, setCommitArray] = useState<SnapshotOBJ[]>([]);
 
-  // If the reuqest for the list of timelines is successful than success = true,
+  // If the reuqest for the list of timelines is successful then success = true,
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
+  // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
+  // If user close the pop up window, then openDialog = false.
+  // It is set to false by default
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
+  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
   const [idToDelete, setIdToDelete] = useState<string>("");
+
+  // handle c
   const handleClose =  ()=> {
     setOpenDialog(false);
   }

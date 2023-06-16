@@ -1,14 +1,12 @@
 import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
+import MobileAuthorsFilter from '@components/FilterDropdown/MobileAuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
@@ -34,12 +32,12 @@ export default function MobileFilterDropdown() {
   return (
     <div className='timeline-filter-mobile'>
       <List
-        sx={{ width: '95%', maxWidth: 650, bgcolor: 'background.paper', margin: '0 auto' }} // ADD CSS FOR SHADING
+        sx={{ width: '95%', maxWidth: 650, bgcolor: 'background.paper', margin: '0 auto' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
       >
         <ListItemButton onClick={handleClick}>
-          <ListItemText primary="Filters" />
+          <ListItemText primary="Filters" sx={{ color: '#7e7e7e' }}/>
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -51,7 +49,7 @@ export default function MobileFilterDropdown() {
           <div className='mobile-filter-dropdown'>
             <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} /></div>
           <div className='mobile-filter-dropdown' style={{ marginBottom: '15px' }}>
-            <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} /></div>
+            <MobileAuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} /></div>
 
         </Collapse>
       </List>

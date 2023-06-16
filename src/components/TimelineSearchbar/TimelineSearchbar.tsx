@@ -10,6 +10,12 @@ interface TimelineSearchbarProps {}
 
 const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
 
+  const handleKeyPress = (event:React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  }
+
     return(
         <div  className="TimelineSearchbar" >
           <Box
@@ -28,6 +34,7 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                 variant="outlined"
                 defaultValue="Search by keyword"
                 sx={{ input: { color: 'rgba(47, 47, 47, 0.8)' }}}
+                onKeyDown={handleKeyPress}
                 onFocus={(e) => e.target.value = ""}
                 InputProps={{
                   startAdornment: (

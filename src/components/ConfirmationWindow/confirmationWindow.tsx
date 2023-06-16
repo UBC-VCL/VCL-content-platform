@@ -14,6 +14,8 @@ export interface SimpleDialogProps {
 
 function ConfirmationDailog(props: SimpleDialogProps) {
     const { onClose, open, deleteSnapshot } = props;
+    // This state variable indicates if the snapshot selected is deleted successfully, which can be used to controll the ending of the dialog associated and error message.
+    // if the snapshot clicked is deleted,deleteSucces = true.
     const [deleteSuccess, setDeleteSuccess] = React.useState(true);
     const handleClose = () => {
       onClose();

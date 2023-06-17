@@ -6,4 +6,5 @@ export interface FilterOBJ {
     category: Array<string>;
     date: string; // the logic is that this will either be a Date object or an empty string (meaning it shouldnt filter for this aspect)
     author: Array<string>;
+    keyword: string;
   }

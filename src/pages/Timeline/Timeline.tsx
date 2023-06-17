@@ -41,7 +41,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
     date: "All",
-    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe']
+    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
+    keyword: ""
   })
 
   // creates a http request
@@ -109,14 +110,32 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         }
       }
       else {
-        const currentDate = new Date()
+        if (key === 'date') {
+          const currentDate = new Date()
 
-        if (value === "Last day")
-          listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)))
-        if (value === "Last month")
-          listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)))
-        if (value === "Last year")
-          listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)))
+          if (value === "Last day")
+            listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)))
+          if (value === "Last month")
+            listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)))
+          if (value === "Last year")
+            listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)))
+        }
+
+        if (key === 'keyword' && value !== "") {
+          listFilter = commitsArray.filter((item: SnapshotOBJ) => {
+            console.log(value);
+            const result = Object.entries(item).some((entry: [string, any]) => {
+              const [entryKey, entryValue] = entry;
+              if (typeof entryValue !== 'string') {
+                return entryValue.some((element: string) => element.split(" ").includes(value));
+              } else {
+                return entryValue.split(" ").includes(value);
+              }
+            });
+            return result;
+          });
+        }
+
       }
     })
     return (
@@ -180,7 +199,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       <div className='timeline-sub-header'>
         <p>{TEXT.TIMELINE_PAGE.SUBHEADER}</p>
       </div>
-      <TimelineSearchbar />
+      <TimelineSearchbar setFilter={setFilter} filterBy={filterBy} />
       <TimelineFilter setFilter={setFilter} filterBy={filterBy} />
       <div className="timeline-main-body">
         <div className="timeline-container">

@@ -11,15 +11,17 @@ type Props = {
 
 const ProjectSelect = ({timeline, setTimeline}:Props) => {
   const projects = useAppSelector(selectProjects); 
-
+  let id = 0;
   return (
     <div className={styles.selectContainer}>
         <label className={styles.label}>Select a Project</label>
         <div className={styles.optionsContainer}>
             {projects && projects.length > 0 && (
                 projects.map((project) => {
+                    // console.log(project.key); project keys are undefined
+                    id++;
                     return (
-                        <span className={styles.item} key={project.key}>
+                        <span className={styles.item} key={id}>
                             <input type="radio" 
                             id={project.key} 
                             name="project"

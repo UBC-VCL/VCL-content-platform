@@ -18,18 +18,17 @@ import { appActions } from '@redux/slices/AppRedux';
 interface TimelineProps { }
 
 interface SnapshotOBJ {
-  author: string;
-  elementChanged: string;
-  project: string;
-  date: Date;
-  descriptions: Array<string>;
-  hyperlinks: Array<string>;
-  contributors: Array<string>;
-  updatedTime: string;
-  tags: Array<string>;
+  title: string,
+  descriptions: Array<string>,
+  hyperlinks: Array<string>,
+  date: string,
+  project: string,
+  author: string,
+  categories: Array<string>,
+  contributors: Array<string> 
 }
 
-interface WrongTimelineInfo {
+interface TimelineInfo {
   title: string,
   description: string,
   date: string,
@@ -39,22 +38,12 @@ interface WrongTimelineInfo {
   contributors: string,
 }
 
-// interface TimelineInfo {
-//   title: string,
-//   description: string,
-//   date: string,
-//   project: string,
-//   author: string,
-//   categories: Array<string>,
-//   contributors: Array<string>,
-// }
-
 const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
   // let { timeline_id } = useParams<TimelineParams>();
   const { access_token } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
 
-  const [timeline, setTimeline] = useState<WrongTimelineInfo>({title: "", description: "", date: "", project: "", author: "", categories: [], contributors: ""});
+  const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "2023-06-15", project: "", author: "", categories: [], contributors: ""});
 
   const [allTimeline, setAllTimeline] = useState<SnapshotOBJ[]>([]);
 
@@ -72,28 +61,32 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
         });
       return returnData
     }
+
+    const splitParagraphs = (description: string) => {
+        return description.split('\n');
+    }
+
     const newTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
     console.log(timeline);
     const snapshot = {
       author: newTimeline.author,
-      elementChanged: newTimeline.title,
+      title: newTimeline.title,
       project: newTimeline.project,
       date: newTimeline.date,
-      descriptions: newTimeline.description,
+      categories: newTimeline.categories, 
+      descriptions: splitParagraphs(timeline.description),
       hyperlinks: ["google.com"],
-      contributors: newTimeline.contributors,
-      updatedTime: "just now",
-      tags: newTimeline.categories
+      contributors: newTimeline.contributors
     }
     objCommitHTTPS();
-    // await axios({
-    //   method: "POST",
-    //   url: "http://localhost:4000/api/snapshots",
-    //   data: allTimeline,
-    //   headers: {
-    //     authorization: access_token
-    //   }
-    await axios.post("http://localhost:4000/api/snapshots", allTimeline)
+    await axios({
+      method: "POST",
+      url: "http://localhost:4000/api/snapshots",
+      data: allTimeline,
+      headers: {
+        authorization: access_token
+      }
+    })
     .then(() => {
         history.push("/timeline");
         dispatch(appActions.setAlert("Add Entry Successful!"));
@@ -122,7 +115,7 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
           <div className={styles.descriptionGroup}>
             <label className={styles.descriptionLabel} htmlFor="timeline-description">Timeline Entry Description</label>
             <textarea name="description" id="timeline-description" value={timeline.description}
-            onChange={(e) => setTimeline(prev => ({...prev, description: e.target.value} as WrongTimelineInfo))}></textarea>
+            onChange={(e) => setTimeline(prev => ({...prev, description: e.target.value} as TimelineInfo))}></textarea>
           </div>
         </div>
         <div className={styles.controls}>

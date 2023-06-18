@@ -90,77 +90,71 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
+
   const filterList = (list: SnapshotOBJ[], filterOBJ: FilterOBJ) => {
-
-    // this is the copy of the list that you want to filter
-    var listFilter: SnapshotOBJ[] = list
-
-    Object.entries(filterOBJ).forEach(([key, value]) => {
+    let listFilter: SnapshotOBJ[] = list;
+  
+    const { keyword, ...restFilters } = filterOBJ;
+  
+    if (keyword && keyword !== "") {
+      const lowercaseKeyword = keyword.toLowerCase();
+      listFilter = listFilter.filter((item: SnapshotOBJ) =>
+        Object.values(item).some(value =>
+          Array.isArray(value)
+            ? value.some(element => element.toLowerCase().includes(lowercaseKeyword))
+            : typeof value === 'string' && value.toLowerCase().includes(lowercaseKeyword)
+        )
+      );
+    }
+  
+    Object.entries(restFilters).forEach(([key, value]) => {
       if (typeof value !== 'string') {
         if (key === "project") {
-          listFilter = listFilter.filter(item => value.includes(item.project))
+          listFilter = listFilter.filter(item => value.includes(item.project));
         }
         if (key === "category") {
           listFilter = listFilter.filter(item =>
-            item.categories.some(element => value.includes(element)
-            ))
+            item.categories.some(element => value.includes(element))
+          );
         }
         if (key === "author") {
-          listFilter = listFilter.filter(item => value.includes(item.author))
+          listFilter = listFilter.filter(item => value.includes(item.author));
         }
-      }
-      else {
+      } else {
         if (key === 'date') {
-          const currentDate = new Date()
-
+          const currentDate = new Date();
           if (value === "Last day")
-            listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)))
+            listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)));
           if (value === "Last month")
-            listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)))
+            listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)));
           if (value === "Last year")
-            listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)))
+            listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)));
         }
-
-        if (key === 'keyword' && value !== "") {
-          listFilter = commitsArray.filter((item: SnapshotOBJ) => {
-            console.log(value);
-            const result = Object.entries(item).some((entry: [string, any]) => {
-              const [entryKey, entryValue] = entry;
-              if (typeof entryValue !== 'string') {
-                return entryValue.some((element: string) => element.split(" ").includes(value));
-              } else {
-                return entryValue.split(" ").includes(value);
-              }
-            });
-            return result;
-          });
-        }
-        
       }
-    })
+    });
+  
     return (
       <ul>
-        {listFilter.map((commit: SnapshotOBJ, i) => {
-          return (
-            <li key={i}>
-              <span className={"timeline-container-span-" + prjs[i]}></span>
-              <TimelineCommitBlock
-                author={commit.author}
-                elementChanged={commit.title}
-                project={commit.project}
-                date={commit.date}
-                descriptions={commit.descriptions}
-                contributors={commit.contributors}
-                hyperlinks={commit.hyperlinks}
-                updatedTime={commit.updatedTime}
-                tags={commit.categories}
-              />
-            </li>
-          )
-        })}
+        {listFilter.map((commit: SnapshotOBJ, i) => (
+          <li key={i}>
+            <span className={"timeline-container-span-" + prjs[i]}></span>
+            <TimelineCommitBlock
+              author={commit.author}
+              elementChanged={commit.title}
+              project={commit.project}
+              date={commit.date}
+              descriptions={commit.descriptions}
+              contributors={commit.contributors}
+              hyperlinks={commit.hyperlinks}
+              updatedTime={commit.updatedTime}
+              tags={commit.categories}
+            />
+          </li>
+        ))}
       </ul>
-    )
+    );
   }
+  
 
   // The functions within the useEffect will only be called when the user mounts on to the page
   // so once at the very start of the user entering the Timeline page

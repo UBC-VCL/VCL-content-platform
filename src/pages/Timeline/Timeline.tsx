@@ -19,11 +19,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     title: string;
     project: string;
     date: Date;
+    categories: Array<string>;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    categories: Array<string>;
   }
 
   // An array of all timineline history that will be set by retrieveCommitOBJs()
@@ -199,7 +199,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
+
               filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
+
           }
         </div>
       </div>

@@ -43,7 +43,7 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
 
-  const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "2023-06-15", project: "", author: "", categories: [], contributors: ""});
+  const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "2004-01-01", project: "", author: "", categories: [], contributors: ""});
 
   const [allTimeline, setAllTimeline] = useState<SnapshotOBJ[]>([]);
 

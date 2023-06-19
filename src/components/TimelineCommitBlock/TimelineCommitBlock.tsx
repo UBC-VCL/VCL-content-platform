@@ -8,16 +8,17 @@ import './TimelineCommitBlock.css';
 
 interface TimelineCommitBlockProps {
     author: string;
-    elementChanged: string;
+    title: string;
     project: string;
     date: Date;
+    categories: Array<string>;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    categories: Array<string>;
     onClickDelete: ()=>void
 }
+
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
     const [expand, setExpand] = useState(false);
@@ -42,7 +43,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="expandedTimeline">
             <p className="timeline-commit-header-text">
-                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
             <div className="timeline-commit-header-icons">
                 <BorderColorIcon style={{color: "rgb(188, 188, 188"}} />
@@ -53,7 +54,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             <div className="timeline-commit-tag-container"> 
                 {categories.map((tagName, i) => (
                     <div key={i} className="timeline-commit-tag">
-                        {tagName}
+                        {category}
                     </div>
                 ))}
             </div>
@@ -106,7 +107,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="closedTimeline">
             <p className="timeline-commit-header-text">
-                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
             <div className="timeline-commit-header-icons">
                 <BorderColorIcon style={{color: "rgb(188, 188, 188"}} />

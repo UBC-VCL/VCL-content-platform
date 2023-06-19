@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+.resources-material {
+  width: 100%;
+  padding: 20px;
+}
+
+#resources-material-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 580;
+  text-align: left;
+  color: black;
+  margin: 15px 0;
+  font-size: 23px;
+}
+
+#resources-material-desc {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .resources-material {
+    width: 90%;
+    margin: 5px;
+    padding: 8px;
+  }
+}

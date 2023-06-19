@@ -23,14 +23,15 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   interface SnapshotOBJ {
     _id: string;
     author: string;
-    elementChanged: string;
+    title: string;
     project: string;
     date: Date;
+    categories: Array<string>;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    categories: Array<string>;
+
   }
   // An array of all timineline history that will be set by retrieveCommitOBJs()
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
@@ -165,18 +166,19 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                       <span className={"timeline-container-span-" + prjs[i]}></span>
                       <TimelineCommitBlock
                         author={commit.author}
-                        elementChanged={commit.elementChanged}
+                        title={commit.title}
                         project={commit.project}
                         date={commit.date}
-                        descriptions={commit.descriptions}
-                        contributors={commit.contributors}
-                        hyperlinks={commit.hyperlinks}
-                        updatedTime={commit.updatedTime}
                         categories={commit.categories}
+                        descriptions={commit.descriptions}
+                        hyperlinks={commit.hyperlinks}
+                        contributors={commit.contributors}
+                        updatedTime={commit.updatedTime}
                         onClickDelete = {()=>{
                           setIdToDelete(commit._id);
                           handleClickOpen();
                         }}
+
                       />
                     </li>
                   )

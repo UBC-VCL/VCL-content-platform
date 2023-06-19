@@ -20,7 +20,7 @@ interface TimelineCommitBlockProps {
     updatedTime: string;
     isLoggedIn: boolean;
     categories: Array<string>;
-    onClickDelete: ()=>void
+    onClickDelete: () => void
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {

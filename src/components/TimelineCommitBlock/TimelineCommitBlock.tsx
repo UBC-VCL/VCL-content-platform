@@ -19,9 +19,8 @@ interface TimelineCommitBlockProps {
     contributors: Array<string>;
     updatedTime: string;
     isLoggedIn: boolean;
-    onClickDelete: ()=>void;
     categories: Array<string>;
-
+    onClickDelete: ()=>void
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
@@ -48,7 +47,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="expandedTimeline">
             <p className="timeline-commit-header-text">
-                <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
 
             {isLoggedIn ?
@@ -63,9 +62,11 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
+
                 {categories.map((category, i) => (
              <div key={i} className="timeline-commit-tag">
                         {category}
+
 
                     </div>
                 ))}
@@ -120,7 +121,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="closedTimeline">
             <p className="timeline-commit-header-text">
-                <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
 
 

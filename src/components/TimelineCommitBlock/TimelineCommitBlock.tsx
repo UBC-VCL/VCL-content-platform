@@ -8,15 +8,16 @@ import './TimelineCommitBlock.css';
 
 interface TimelineCommitBlockProps {
     author: string;
-    title: string;
+    elementChanged: string;
     project: string;
     date: Date;
-    categories: Array<string>;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    onClickDelete: ()=>void
+    categories: Array<string>;
+    onClickDelete: ()=>void;
+    title: String;
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
@@ -56,6 +57,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
                 {categories.map((category, i) => (
              <div key={i} className="timeline-commit-tag">
                         {category}
+
                     </div>
                 ))}
             </div>

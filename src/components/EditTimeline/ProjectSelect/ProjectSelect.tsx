@@ -21,16 +21,12 @@ const ProjectSelect = ({timeline, setTimeline}:Props) => {
                     // console.log(project.key); project keys are undefined
                     id++;
                     return (
-                        <span className={styles.item} key={id}>
-                            <input type="radio" 
-                            id={project.key} 
-                            name="project"
-                            checked={project.name === timeline.project}
-                            onChange={() => setTimeline(prev => ({...prev, project: project.name} as TimelineInfo))} />
-                            <label className={`${styles.itemButton} ${project.name === timeline.project ? styles.activeButton : styles.inactiveButton}`}
+                        <label className={`${styles.itemButton} ${project.name === timeline.project ? styles.activeButton : styles.inactiveButton}`}
+                        key={project.name}
+                        onClick={() => setTimeline(prev => ({...prev, project: project.name} as TimelineInfo))}
                             tabIndex={0}
-                            htmlFor={project.key}>{project.name}</label>
-                        </span>
+                            htmlFor={project.key}>{project.name}
+                        </label>
                     )
                 })     
             )}

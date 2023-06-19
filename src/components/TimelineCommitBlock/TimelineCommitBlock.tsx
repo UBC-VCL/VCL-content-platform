@@ -94,7 +94,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 }
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, elementChanged, date, project, categories: tags, onClickDelete} = props;
+    const { author, elementChanged, date, project, categories, onClickDelete} = props;
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
     CONSTANTS.PROJECTS.forEach(element => {
@@ -115,9 +115,9 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             </div>
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
-                {tags.map((tagName, i) => (
+                {categories.map((category, i) => (
                     <div key={i} className="timeline-commit-tag">
-                        {tagName}
+                        {category}
                     </div>
                 ))}
             </div>

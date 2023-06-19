@@ -8,7 +8,7 @@ import './TimelineCommitBlock.css';
 
 interface TimelineCommitBlockProps {
     author: string;
-    elementChanged: string;
+    title: string;
     project: string;
     date: Date;
     descriptions: Array<string>;
@@ -16,8 +16,7 @@ interface TimelineCommitBlockProps {
     contributors: Array<string>;
     updatedTime: string;
     categories: Array<string>;
-    onClickDelete: ()=>void;
-    title: String;
+    onClickDelete: ()=>{}
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
@@ -32,9 +31,7 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 };
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-
-    const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete} = props;
-
+    const { author, title, project, date, categories, descriptions, hyperlinks, contributors, updatedTime, onClickDelete} = props;
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
@@ -55,9 +52,8 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
                 {categories.map((category, i) => (
-             <div key={i} className="timeline-commit-tag">
+                    <div key={i} className="timeline-commit-tag">
                         {category}
-
                     </div>
                 ))}
             </div>
@@ -98,8 +94,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 }
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-
-    const { author, title, date, project, categories, onClickDelete} = props;
+    const { author, title, project, date, categories, onClickDelete } = props;
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
     CONSTANTS.PROJECTS.forEach(element => {

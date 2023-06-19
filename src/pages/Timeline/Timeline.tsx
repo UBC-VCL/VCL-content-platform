@@ -12,11 +12,6 @@ import { selectAuth } from '@redux/slices/AuthRedux';
 interface TimelineProps { }
 import ConfirmationDailog from "@components/ConfirmationWindow/confirmationWindow";
 
-/** 
-* Paste one or more documents here
-*/
-
-
 const Timeline: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
@@ -31,6 +26,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
+
   }
   // An array of all timineline history that will be set by retrieveCommitOBJs()
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
@@ -159,7 +155,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             success ?
               <ul>
                 {commitsArray.map((commit: SnapshotOBJ, i) => {
-                  console.log(commit);
                   return (
                     <li key={commit._id}>
                       <span className={"timeline-container-span-" + prjs[i]}></span>
@@ -177,6 +172,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                           setIdToDelete(commit._id);
                           handleClickOpen();
                         }}
+
                       />
                     </li>
                   )

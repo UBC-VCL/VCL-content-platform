@@ -16,7 +16,7 @@ interface TimelineCommitBlockProps {
     contributors: Array<string>;
     updatedTime: string;
     categories: Array<string>;
-    onClickDelete: ()=>{}
+    onClickDelete: () => void
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {

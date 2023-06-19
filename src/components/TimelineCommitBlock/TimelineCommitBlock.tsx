@@ -10,16 +10,17 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 
 interface TimelineCommitBlockProps {
     author: string;
-    title: string;
+    elementChanged: string;
     project: string;
     date: Date;
-    categories: Array<string>;
+    title: String;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
     isLoggedIn: boolean;
-    onClickDelete: ()=>void
+    onClickDelete: ()=>void;
+    categories: Array<string>;
 
 }
 
@@ -35,7 +36,7 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 };
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete} = props;
+    const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete, isLoggedIn} = props;
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
@@ -63,6 +64,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
                 {categories.map((category, i) => (
              <div key={i} className="timeline-commit-tag">
                         {category}
+
                     </div>
                 ))}
             </div>
@@ -104,7 +106,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
-    const { author, title, date, project, categories, onClickDelete} = props;
+    const { author, title, date, project, categories, onClickDelete, isLoggedIn} = props;
 
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed

@@ -21,6 +21,7 @@ import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
 import VCLIcon from '@statics/images/vcl-icon.svg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MobileMenu from '@components/MobileNavbar';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();
@@ -122,6 +123,8 @@ const Navbar: React.FC<{}> = () => {
                 </Menu>
               </React.Fragment>
             )
+    } else if (TITLE === TEXT.PAGE_TITLES.RESOURCES) {
+        if (!isLoggedIn) return <div hidden />
     } else {
         return (
             <GenericLink 
@@ -140,18 +143,24 @@ const Navbar: React.FC<{}> = () => {
         <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
           <div className="logo-container">
-            <img src={VCLIcon} alt="VCL logo" />
-            <p>{TEXT.COMMON.TITLE}</p>
+            <a href={ROUTES.HOME}><img src={VCLIcon} alt="VCL logo" /></a>
+            <a href={ROUTES.HOME} className="vcl-title">{TEXT.COMMON.TITLE}</a>
           </div>
           <div className="nav-right">           
             <span className="nav-rendered-links">{renderedLinks}</span>
             <div className="nav-icon-container">
-              <IconButton onClick={handleSearchBtnClick}>
+              <IconButton size="small" className="search-icon" onClick={handleSearchBtnClick} >
                 <SearchIcon/>
               </IconButton>
-              <IconButton onClick={handleMenuClick}>
-                <AccountCircleIcon/>
-              </IconButton>
+              <IconButton
+              size="large"
+              edge="end"
+              aria-haspopup="true"
+              onClick={handleMenuClick}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
             </div>
           </div>
           <Menu
@@ -163,10 +172,12 @@ const Navbar: React.FC<{}> = () => {
               'aria-labelledby': 'menu-button',
             }}>
             {isLoggedIn ? (
-              <MenuItem onClick={handleLogout}>{TEXT.COMMON.LOGOUT}</MenuItem>
+              <MenuItem onClick={handleLogout} className="signin-menu">
+                  {TEXT.COMMON.LOGOUT}
+              </MenuItem>
             ) : (
-              <MenuItem onClick={handleOpenLoginModal}>
-                {TEXT.COMMON.LOGIN}
+              <MenuItem onClick={handleOpenLoginModal} className="signin-menu">
+                  {TEXT.COMMON.LOGIN}
               </MenuItem>
             )}
           </Menu>

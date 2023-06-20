@@ -67,22 +67,25 @@ const MobileNavbar = () => {
                 </div>
                 <MobileMenu>
                 <a className="menu-item" href="/">
-                    Home
+                    {TEXT.PAGE_TITLES.HOME}
                 </a>
                 <a className="menu-item" href="/timeline">
-                    Timeline
+                    {TEXT.PAGE_TITLES.TIMELINE}
                 </a>
                 <a className="menu-item" href="/projects">
-                    Projects
+                    {TEXT.PAGE_TITLES.PROJECTS}
                 </a>
                 <a className="menu-item" href="/about">
-                    About
+                    {TEXT.PAGE_TITLES.ABOUT}
                 </a>
-                <a className="menu-item" href="/resources">
-                    Resources
-                </a>
-                <a className="menu-item" href="/join">
-                    Get Involved
+                { isLoggedIn ? 
+                    <a className="menu-item" href="/resources">
+                        {TEXT.PAGE_TITLES.RESOURCES}
+                    </a> :
+                    <a hidden href="/home" />
+                }
+                <a className="menu-item" href="/get_involved">
+                    {TEXT.PAGE_TITLES.GET_INVOLVED}
                 </a>
                 </MobileMenu>
                 <div className="account-icon-wrapper">

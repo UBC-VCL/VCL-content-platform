@@ -208,4 +208,12 @@
 	text-decoration: none;
 }
 
+.signin-menu {
+	height: 5px;
+	top: 5px;
+}
+
+.search-icon {
+	right: 10%;
+}
 

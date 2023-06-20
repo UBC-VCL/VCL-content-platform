@@ -92,7 +92,7 @@ const TEXT = {
   TIMELINE_PAGE: {
     TITLE: 'Timeline',
     SUBHEADER: 'Browse project history and detailed updates',
-    ERRORMESSAGE: 'Something went wrong :('
+    ERROR_MESSAGE: 'Something went wrong! :('
   },
 
   ABOUT_PAGE: {

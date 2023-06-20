@@ -101,9 +101,7 @@
     }
 }
 
-.errorString {
-    color: red;
-    text-align: center;
-    padding: 3rem;
-    font-size: 4rem;
+.timeline-error {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

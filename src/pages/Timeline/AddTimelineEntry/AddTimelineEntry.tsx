@@ -67,7 +67,6 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
     }
 
     const newTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
-    console.log(timeline);
     const snapshot = {
       author: newTimeline.author,
       title: newTimeline.title,
@@ -78,11 +77,12 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
       hyperlinks: ["google.com"],
       contributors: newTimeline.contributors
     }
-    objCommitHTTPS();
+    console.log(snapshot);
+    console.log(access_token);
     await axios({
       method: "POST",
       url: "http://localhost:4000/api/snapshots",
-      data: allTimeline,
+      data: snapshot,
       headers: {
         authorization: access_token
       }

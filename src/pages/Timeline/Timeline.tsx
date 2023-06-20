@@ -28,7 +28,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
-  console.log(isLoggedIn);
 
   // An array of all timineline history that will be set by retrieveCommitOBJs()
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display

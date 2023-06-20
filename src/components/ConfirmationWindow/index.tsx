@@ -1,1 +1,1 @@
-export { default } from "./confirmationWindow";
+export { default } from "./ConfirmationWindow";

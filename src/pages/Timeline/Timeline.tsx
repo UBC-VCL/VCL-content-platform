@@ -91,11 +91,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
 
+  // filters through an array and filters corresponding to an object structuring what to filter the list for
+  //  The filter object may have properties of an empty string meaning that it should not be filter for
+
   const filterList = (list: SnapshotOBJ[], filterOBJ: FilterOBJ) => {
     let listFilter: SnapshotOBJ[] = list;
-  
+
     const { keyword, ...restFilters } = filterOBJ;
-  
+
     if (keyword && keyword !== "") {
       const lowercaseKeyword = keyword.toLowerCase();
       listFilter = listFilter.filter((item: SnapshotOBJ) =>
@@ -106,7 +109,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         )
       );
     }
-  
+
     Object.entries(restFilters).forEach(([key, value]) => {
       if (typeof value !== 'string') {
         if (key === "project") {
@@ -132,7 +135,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         }
       }
     });
-  
+
     return (
       <ul>
         {listFilter.map((commit: SnapshotOBJ, i) => (
@@ -140,21 +143,21 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             <span className={"timeline-container-span-" + prjs[i]}></span>
             <TimelineCommitBlock
               author={commit.author}
-              elementChanged={commit.title}
+              title={commit.title}
               project={commit.project}
               date={commit.date}
               descriptions={commit.descriptions}
               contributors={commit.contributors}
               hyperlinks={commit.hyperlinks}
               updatedTime={commit.updatedTime}
-              tags={commit.categories}
+              categories={commit.categories}
             />
           </li>
         ))}
       </ul>
     );
   }
-  
+
 
   // The functions within the useEffect will only be called when the user mounts on to the page
   // so once at the very start of the user entering the Timeline page

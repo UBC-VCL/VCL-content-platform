@@ -11,22 +11,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import styles from './AddTimelineEntry.module.css';
 import { appActions } from '@redux/slices/AppRedux';
 
-// type TimelineParams = {
-//   timeline_id: string;
-// };
-
 interface TimelineProps { }
-
-interface SnapshotOBJ {
-  title: string,
-  descriptions: Array<string>,
-  hyperlinks: Array<string>,
-  date: string,
-  project: string,
-  author: string,
-  categories: Array<string>,
-  contributors: Array<string> 
-}
 
 interface TimelineInfo {
   title: string,
@@ -45,40 +30,23 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
 
   const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "2004-01-01", project: "", author: "", categories: [], contributors: ""});
 
-  const [allTimeline, setAllTimeline] = useState<SnapshotOBJ[]>([]);
-
   const history = useHistory();
   
   const add = async () => {
-    const objCommitHTTPS = async (): Promise<SnapshotOBJ[]> => {
-      var returnData: SnapshotOBJ[] = [];
-      await axios.get("http://localhost:4000/api/snapshots")
-        .then(response => {
-          setAllTimeline([...response.data.data, snapshot])
-          console.log(allTimeline);
-        }).catch(err => {
-          
-        });
-      return returnData
-    }
-
     const splitParagraphs = (description: string) => {
         return description.split('\n');
     }
 
-    const newTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
     const snapshot = {
-      author: newTimeline.author,
-      title: newTimeline.title,
-      project: newTimeline.project,
-      date: newTimeline.date,
-      categories: newTimeline.categories, 
+      author: timeline.author,
+      title: timeline.title,
+      project: timeline.project,
+      date: timeline.date,
+      categories: timeline.categories, 
       descriptions: splitParagraphs(timeline.description),
       hyperlinks: ["google.com"],
-      contributors: newTimeline.contributors
+      contributors: timeline.contributors.split(",").map((c: string) => c.trim())
     }
-    console.log(snapshot);
-    console.log(access_token);
     await axios({
       method: "POST",
       url: "http://localhost:4000/api/snapshots",
@@ -91,8 +59,6 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
         history.push("/timeline");
         dispatch(appActions.setAlert("Add Entry Successful!"));
     }).catch(err => {
-        // console.log(err.message);
-        // dispatch(appActions.setAlert("Add Entry Failed!"));
         dispatch(appActions.setAlert(err.message));
     })
   }

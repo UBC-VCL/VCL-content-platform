@@ -12,7 +12,7 @@ import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 interface TimelineProps { }
-import ConfirmationDailog from "@components/ConfirmationWindow/confirmationWindow";
+import ConfirmationDailog from "@components/ConfirmationWindow";
 
 /** 
 * Paste one or more documents here
@@ -71,16 +71,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
     /* 
       Structure of a snapshot object from the retrieved list
-
-      { author: string
-      categories: string[]
-      contributors: string[]
-      date: date
-      description: string
-      imageURL: string
-      project: string
-      title: string
-      _id: string
+      { author: "..." {string}
+      categories: ['...'] {string[]}
+      contributors: ['...'] {string[]}
+      date: "..." {date}
+      descriptions: ['...'] {string[]}
+      hyperlinks: ['...'] {string[]}
+      project: "..." {string}
+      title: "..." {string}
       } 
     */
     await axios.get("http://localhost:4000/api/snapshots")

@@ -1,9 +1,8 @@
 
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import './confirmationWindow.css';
+import './ConfirmationWindow.css';
 import { DialogContentText } from "@mui/material";
-const emails = ["username@gmail.com", "user02@gmail.com"];
 import * as React from "react";
 import Button from "@mui/material/Button";
 export interface SimpleDialogProps {
@@ -12,8 +11,7 @@ export interface SimpleDialogProps {
   deleteSnapshot: ()=> Promise<boolean>;
 }
 
-function ConfirmationDailog(props: SimpleDialogProps) {
-    const { onClose, open, deleteSnapshot } = props;
+function ConfirmationDailog({open, onClose, deleteSnapshot}: SimpleDialogProps) {
     // This state variable indicates if the snapshot selected is deleted successfully, which can be used to controll the ending of the dialog associated and error message.
     // if the snapshot clicked is deleted,deleteSucces = true.
     const [deleteSuccess, setDeleteSuccess] = React.useState(true);

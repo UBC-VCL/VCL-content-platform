@@ -7,9 +7,9 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import MobileAuthorsFilter from '@components/FilterDropdown/MobileAuthorsFilter';
-import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
-import DateFilter from '@components/FilterDropdown/DateFilter';
-import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
+import MobileCategoriesFilter from '@components/FilterDropdown/MobileCategoriesFilter';
+import MobileDateFilter from '@components/FilterDropdown/MobileDateFilter';
+import MobileProjectsFilter from '@components/FilterDropdown/MobileProjectsFilter';
 
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
 const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
@@ -43,11 +43,11 @@ export default function MobileFilterDropdown() {
         <Collapse in={open} timeout="auto" unmountOnExit>
 
           <div className='mobile-filter-dropdown'>
-            <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} /> </div>
+            <MobileProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} /> </div>
           <div className='mobile-filter-dropdown'>
-            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} /></div>
+            <MobileCategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} /></div>
           <div className='mobile-filter-dropdown'>
-            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} /></div>
+            <MobileDateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} /></div>
           <div className='mobile-filter-dropdown' style={{ marginBottom: '15px' }}>
             <MobileAuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} /></div>
 

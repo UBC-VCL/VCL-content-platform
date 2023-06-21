@@ -14,21 +14,20 @@ const MenuProps = {
 };
 
 
-const MobileAuthorsFilter = ({ authorSelected, setAuthorSelected, dummyData }: {
-  authorSelected: string[],
-  setAuthorSelected: React.Dispatch<React.SetStateAction<string[]>>,
+const MobileCategoriesFilter = ({ categorySelected, setCategorySelected, dummyData }: {
+  categorySelected: string[],
+  setCategorySelected: React.Dispatch<React.SetStateAction<string[]>>,
   dummyData: string[],
 }) => {
-
   const list = {
-    'name': 'Author',
+    'name': 'Category',
     'options': dummyData,
   };
-  const handleChange = (event: SelectChangeEvent<typeof authorSelected>) => {
+  const handleChange = (event: SelectChangeEvent<typeof categorySelected>) => {
     const {
       target: { value },
     } = event;
-    setAuthorSelected(
+    setCategorySelected(
       typeof value === 'string' ? value.split(',') : value,
     );
   };
@@ -42,12 +41,12 @@ const MobileAuthorsFilter = ({ authorSelected, setAuthorSelected, dummyData }: {
         variant="standard"
         disableUnderline
         multiple
-        value={authorSelected}
+        value={categorySelected}
         onChange={handleChange}
         MenuProps={MenuProps}
         displayEmpty={true}
         renderValue={() => {
-          return 'Author';
+          return 'Category';
         }}
         sx={{ width: 490, color: '#7e7e7e', textAlign: 'left' }}
       >
@@ -55,7 +54,6 @@ const MobileAuthorsFilter = ({ authorSelected, setAuthorSelected, dummyData }: {
           <MenuItem
             key={name}
             value={name}
-            sx={{ color: '#7e7e7e' }}
           >
             {name}
           </MenuItem>
@@ -88,4 +86,4 @@ const MobileAuthorsFilter = ({ authorSelected, setAuthorSelected, dummyData }: {
   )
 }
 
-export default MobileAuthorsFilter
+export default MobileCategoriesFilter

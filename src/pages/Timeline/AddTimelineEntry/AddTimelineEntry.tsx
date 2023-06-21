@@ -24,7 +24,6 @@ interface TimelineInfo {
 }
 
 const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
-  // let { timeline_id } = useParams<TimelineParams>();
   const { access_token } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
 

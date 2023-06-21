@@ -52,7 +52,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
                     <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} />
                 </div>
                 :
-                <div className="vl"></div>
+                <br />
             }
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
@@ -119,7 +119,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
                     <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} />
                 </div>
                 :
-                <div className="vl"></div>
+                <br />
             }
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 

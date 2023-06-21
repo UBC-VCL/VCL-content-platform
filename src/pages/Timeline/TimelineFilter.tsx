@@ -6,6 +6,8 @@ import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 import { useHistory } from "react-router-dom";
+import { selectAuth, selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import { useAppSelector } from '@redux/hooks';
 
 const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
 const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
@@ -29,6 +31,8 @@ const TimelineFilterContainer = () => {
     history.push('./timeline/add');
   }
 
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
   return (
     <div className='timeline-filter' style={{display: 'inline'}}>
         <div style={{display: 'inline-block'}}>
@@ -42,24 +46,25 @@ const TimelineFilterContainer = () => {
             <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor}/>
           </div>
         </div>
-
-        <div className='add-update-button' style={{display: 'inline-block'}}>
-            <Button
-                onClick = {handleAddEntry}
-                variant="outlined" 
-                style={{
-                    backgroundColor: "#1E5487",
-                    color: "white",
-                    width: 150,
-                    height: 50,
-                    textTransform: 'none',
-                    marginLeft: '10px',
-                    fontSize: 16,
-                }}
-            >
-                Add New Entry
-            </Button>
-        </div>
+        {isLoggedIn && 
+          <div className='add-update-button' style={{display: 'inline-block'}}>
+              <Button
+                  onClick = {handleAddEntry}
+                  variant="outlined" 
+                  style={{
+                      backgroundColor: "#1E5487",
+                      color: "white",
+                      width: 150,
+                      height: 50,
+                      textTransform: 'none',
+                      marginLeft: '10px',
+                      fontSize: 16,
+                  }}
+              >
+                  Add New Entry
+              </Button>
+          </div>
+        }
     </div>
   );
 }

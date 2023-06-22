@@ -7,7 +7,9 @@ import TimelineCommitBlock from "@components/TimelineCommitBlock";
 import { TEXT } from '@statics';
 import id from "date-fns/esm/locale/id/index";
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import { useAppSelector } from '@redux/hooks';
+import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 
 interface TimelineProps { }
 
@@ -25,6 +27,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     contributors: Array<string>;
     updatedTime: string;
   }
+
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   // An array of all timineline history that will be set by retrieveCommitOBJs()
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
@@ -198,9 +202,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-
               filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
-
           }
         </div>
       </div>

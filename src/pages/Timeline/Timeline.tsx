@@ -90,10 +90,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
-
-  // filters through an array and filters corresponding to an object structuring what to filter the list for
-  //  The filter object may have properties of an empty string meaning that it should not be filter for
-
   const filterList = (list: SnapshotOBJ[], filterOBJ: FilterOBJ) => {
     let listFilter: SnapshotOBJ[] = list;
 

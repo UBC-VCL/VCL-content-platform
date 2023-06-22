@@ -151,6 +151,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
               hyperlinks={commit.hyperlinks}
               updatedTime={commit.updatedTime}
               categories={commit.categories}
+              isLoggedIn={isLoggedIn}
             />
           </li>
         ))}

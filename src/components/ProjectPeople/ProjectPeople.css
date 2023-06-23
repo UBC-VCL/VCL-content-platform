@@ -64,7 +64,6 @@
 .card__subtitle,
 .card__text {
     font-family: var(--ff-primary);
-    color: #000000;
     text-decoration: none;
 }
 
@@ -116,4 +115,8 @@
     margin-right: 15px;
     display: inline-block;
     padding: 2px 2px 2px 2px;
+}
+
+.card__subtitle--contact {
+    color: black;
 }

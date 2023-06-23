@@ -125,6 +125,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             </p>
 
 
+
             {isLoggedIn ?
                 <div className="timeline-commit-header-icons">
                     <BorderColorIcon style={{color: "rgb(188, 188, 188"}} /> 
@@ -134,6 +135,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
                 :
                 <br />
             }
+
 
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 

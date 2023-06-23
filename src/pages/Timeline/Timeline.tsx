@@ -8,17 +8,12 @@ import { TEXT } from '@statics';
 import id from "date-fns/esm/locale/id/index";
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+
+
+interface TimelineProps { }
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
-interface TimelineProps { }
-import ConfirmationDailog from "@components/ConfirmationWindow";
-
-/** 
-* Paste one or more documents here
-*/
-
-
 const Timeline: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
@@ -33,7 +28,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
-    tags: Array<string>;
   }
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -46,28 +40,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
-
-  // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
-  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
-  // If user close the pop up window, then openDialog = false.
-  // It is set to false by default
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
-  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
-  const [idToDelete, setIdToDelete] = useState<string>("");
-
-  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
-  const handleClose =  ()=> {
-    setOpenDialog(false);
-  }
-  const handleClickOpen = ()=>{
-    setOpenDialog(true);
-  }
-
-
   // creates a http request
-
-  const objCommitHTTPS = async () => {
+  const objCommitHTTPS = async (): Promise<SnapshotOBJ[]> => {
+    var returnData: SnapshotOBJ[] = []
 
     /* 
       Structure of a snapshot object from the retrieved list
@@ -185,27 +160,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     objCommitHTTPS()
   }, [])
 
-  const deleteCommit = async (_id: string) => {
-    //const { access_token } = useAppSelector(selectAuth);
-    await axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
-      headers: {
-        authorization: access_token
-      } 
-    })
-      .then((response)=> {
-        if(response.status != 200) {
-          throw new Error("did not delete it successfully");
-        }
-        let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
-        const tempArray = commitsArray.slice();
-        tempArray.splice(i, 1);
-        setCommitArray(tempArray);
-        return Promise.resolve(true);
-      }).catch((err)=>{
-        console.log(err);
-      })
-  };
-
   let prjs: any[] = []
 
   // hardcode className to display corresponding colors
@@ -258,8 +212,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                         contributors={commit.contributors}
                         hyperlinks={commit.hyperlinks}
                         updatedTime={commit.updatedTime}
-                        tags={commit.tags}
-                        onClickDelete = {()=>{deleteCommit(commit._id)}}
                       />
                     </li>
                   )

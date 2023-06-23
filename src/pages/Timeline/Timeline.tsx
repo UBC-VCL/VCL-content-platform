@@ -274,6 +274,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           }
         </div>
       </div>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
     </div>
   );
 };

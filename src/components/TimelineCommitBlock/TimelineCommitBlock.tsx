@@ -63,7 +63,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             <div className="timeline-commit-tag-container"> 
 
                 {categories.map((category, i) => (
-                    <div key={i} className="timeline-commit-tag">
+             <div key={i} className="timeline-commit-tag">
                         {category}
 
 
@@ -109,7 +109,6 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
     const { author, title, date, project, categories, onClickDelete, isLoggedIn} = props;
-
 
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed

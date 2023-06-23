@@ -42,6 +42,52 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
+
+    // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
+  // If user close the pop up window, then openDialog = false.
+  // It is set to false by default
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
+  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
+  const [idToDelete, setIdToDelete] = useState<string>("");
+
+  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
+  const handleClose =  ()=> {
+    setOpenDialog(false);
+  }
+  const handleClickOpen = ()=>{
+    setOpenDialog(true);
+  }
+
+  const deleteCommit = async (_id: string) => {   
+    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+       headers: {
+         authorization: access_token
+       } 
+     })
+       .then((response)=> {
+         if(response.status != 200) {
+           throw new Error("did not delete it successfully");
+         }
+         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+         const tempArray = commitsArray.slice();
+         tempArray.splice(i, 1);
+         setCommitArray(tempArray);
+         return Promise.resolve(true);
+       }).catch((err)=>{
+         return Promise.reject();
+       })
+   };
+
+  const [filterBy, setFilter] = useState<SearchFilter >({
+    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
+    category: ['Website', 'Meeting', 'Workshop'],
+    date: "All",
+    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
+    keyword: ""
+  });
+
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -162,26 +208,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }, [])
 
 
-  const deleteCommit = async (_id: string) => {
-    //const { access_token } = useAppSelector(selectAuth);
-    await axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
-      headers: {
-        authorization: access_token
-      } 
-    })
-      .then((response)=> {
-        if(response.status != 200) {
-          throw new Error("did not delete it successfully");
-        }
-        let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
-        const tempArray = commitsArray.slice();
-        tempArray.splice(i, 1);
-        setCommitArray(tempArray);
-      }).catch((err)=>{
-        console.log(err);
-      })
-  };
-
   let prjs: any[] = []
 
   // hardcode className to display corresponding colors
@@ -234,17 +260,12 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                         contributors={commit.contributors}
                         hyperlinks={commit.hyperlinks}
                         updatedTime={commit.updatedTime}
-<<<<<<< HEAD
                         categories={commit.categories}
                         isLoggedIn={isLoggedIn}
                         onClickDelete = {()=>{
                           setIdToDelete(commit._id);
                           handleClickOpen();
                         }}
-                        
-=======
-                        onClickDelete = {()=>{deleteCommit(commit._id)}}
->>>>>>> parent of 2700e30 (add the window for deleting)
                       />
                     </li>
                   )

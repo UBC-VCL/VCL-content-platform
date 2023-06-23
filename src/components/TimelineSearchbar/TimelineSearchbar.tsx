@@ -1,6 +1,6 @@
 import React from "react";
 import './TimelineSearchbar.css';
-import { FilterOBJ } from '../../pages/Timeline/types';
+import { SearchFilter  } from '../../pages/Timeline/types';
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -9,8 +9,8 @@ import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
 import {useRef} from 'react'
 
 interface TimelineSearchbarProps {
-  setFilter: (obj: FilterOBJ) => void;
-  filterBy: FilterOBJ
+  setFilter: (obj: SearchFilter ) => void;
+  filterBy: SearchFilter 
 }
 
 const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {

@@ -2,7 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { FilterOBJ } from "@pages/Timeline/types";
+import { SearchFilter } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,8 +19,8 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
         dateSelected: string,
         setDateSelected: React.Dispatch<React.SetStateAction<string>>,
         dummyData: string[],
-        setFilter: (obj: FilterOBJ) => void,
-    filterBy: FilterOBJ
+        setFilter: (obj: SearchFilter) => void,
+        filterBy: SearchFilter
     }) => {
 
     const list = {
@@ -29,7 +29,7 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
     };
     const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
         setDateSelected(event.target.value);
-        
+
         setFilter({ ...filterBy, date: event.target.value })
     };
 

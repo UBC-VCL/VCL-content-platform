@@ -2,7 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { FilterOBJ } from "@pages/Timeline/types";
+import { SearchFilter } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -18,8 +18,8 @@ const CategoriesFilter = ({categorySelected, setCategorySelected, dummyData, set
     categorySelected: string[],
     setCategorySelected: React.Dispatch<React.SetStateAction<string[]>>,
     dummyData: string[],
-    setFilter: (obj: FilterOBJ) => void,
-    filterBy: FilterOBJ
+    setFilter: (obj: SearchFilter) => void,
+    filterBy: SearchFilter
 }) => {
     const list = {
       'name': 'Category', 

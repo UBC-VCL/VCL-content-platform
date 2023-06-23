@@ -1,6 +1,6 @@
 import React from "react";
 import './Timeline.css';
-import { FilterOBJ } from "./types";
+import { SearchFilter  } from "./types";
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
@@ -41,7 +41,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // An object containing a the necessary conditions of how the user wants to filter or search for snapshots
   // Have to make this more universal somehow, this exact same list is in TimelineFilter.tsx
   // But this is the intial state of which snapshots to show, the list in TimeineFilter.tsx outlines which options to choose
-  const [filterBy, setFilter] = useState<FilterOBJ>({
+  const [filterBy, setFilter] = useState<SearchFilter >({
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
     date: "All",
@@ -94,7 +94,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
-  const filterList = (list: SnapshotOBJ[], filterOBJ: FilterOBJ) => {
+  const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter ) => {
     let listFilter: SnapshotOBJ[] = list;
 
     const { keyword, ...restFilters } = filterOBJ;

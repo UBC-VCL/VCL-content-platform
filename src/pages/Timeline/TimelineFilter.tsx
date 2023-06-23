@@ -1,6 +1,6 @@
 import React from 'react';
 import './TimelineFilter.css';
-import { FilterOBJ } from './types';
+import { SearchFilter } from './types';
 
 import { Button } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
@@ -12,8 +12,8 @@ import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 
 
 interface PropsOBJ {
-  setFilter: (obj: FilterOBJ) => void;
-  filterBy: FilterOBJ;
+  setFilter: (obj: SearchFilter) => void;
+  filterBy: SearchFilter;
 }
 
 const TimelineFilterContainer = (props: PropsOBJ) => {

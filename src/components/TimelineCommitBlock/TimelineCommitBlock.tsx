@@ -5,16 +5,19 @@ import { Link } from 'react-router-dom';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './TimelineCommitBlock.css';
+import { useAppSelector } from '@redux/hooks';
+import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 
 interface TimelineCommitBlockProps {
     author: string;
-    title: string;
     project: string;
     date: Date;
+    title: String;
     descriptions: Array<string>;
     hyperlinks: Array<string>;
     contributors: Array<string>;
     updatedTime: string;
+    isLoggedIn: boolean;
     categories: Array<string>;
     onClickDelete: () => void
 }
@@ -31,29 +34,39 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 };
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, title, project, date, categories, descriptions, hyperlinks, contributors, updatedTime, onClickDelete} = props;
+
+    const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete, isLoggedIn} = props;
+
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
         if (project.toLowerCase() === element.name.toLowerCase()) {
             colorOfProject = element.color;
         }
     });
-    
     return(
         <div className="expandedTimeline">
             <p className="timeline-commit-header-text">
                 <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
-            <div className="timeline-commit-header-icons">
-                <BorderColorIcon style={{color: "rgb(188, 188, 188"}} />
-                <div className="vl"></div>
-                <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} onClick={onClickDelete}/>
-            </div>
+
+            {isLoggedIn ?
+                <div className="timeline-commit-header-icons">
+                    <BorderColorIcon style={{color: "rgb(188, 188, 188"}} /> 
+                    <div className="vl"></div>
+                    <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} onClick={onClickDelete}/>
+                </div>
+                :
+                <br />
+            }
+
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
+
                 {categories.map((category, i) => (
                     <div key={i} className="timeline-commit-tag">
                         {category}
+
+
                     </div>
                 ))}
             </div>
@@ -94,7 +107,10 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 }
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
-    const { author, title, project, date, categories, onClickDelete } = props;
+
+    const { author, title, date, project, categories, onClickDelete, isLoggedIn} = props;
+
+
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
     CONSTANTS.PROJECTS.forEach(element => {
@@ -102,17 +118,25 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
             colorOfProject = element.color;
         }
     });
-
     return(
         <div className="closedTimeline">
             <p className="timeline-commit-header-text">
                 <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
-            <div className="timeline-commit-header-icons">
-                <BorderColorIcon style={{color: "rgb(188, 188, 188"}} />
-                <div className="vl"></div>
-                <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} onClick={onClickDelete} />
-            </div>
+
+
+
+            {isLoggedIn ?
+                <div className="timeline-commit-header-icons">
+                    <BorderColorIcon style={{color: "rgb(188, 188, 188"}} /> 
+                    <div className="vl"></div>
+                    <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} onClick={onClickDelete}/>
+                </div>
+                :
+                <br />
+            }
+
+
             <p className="timeline-commit-date">{moment(date).format('MMMM DD, YYYY')}</p>
             <div className="timeline-commit-tag-container"> 
                 {categories.map((category, i) => (

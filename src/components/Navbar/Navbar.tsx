@@ -139,9 +139,9 @@ const Navbar: React.FC<{}> = () => {
       <div className="navbar-menu">
         <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
-          <div className="logo-container">
-            <img src={VCLIcon} alt="VCL logo" />
-            <p>{TEXT.COMMON.TITLE}</p>
+          <div className="logo-container" style={{width: "28%"}}>
+            <img src={VCLIcon} alt="VCL logo" style={{width: "15%"}}/> 
+            <span style={{ fontSize: 'large' }}>{TEXT.COMMON.TITLE}</span>
           </div>
           <div className="nav-right">           
             <span className="nav-rendered-links">{renderedLinks}</span>

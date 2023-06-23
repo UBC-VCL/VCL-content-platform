@@ -34,7 +34,7 @@ const TEXT = {
 
   PROJECT_NAV: {
       PROJECT_DESCRIPTION: 'Project Description',
-      JOIN_THE_TEAM: 'Join the Team',
+      JOIN_OUR_TEAM: 'Join Our Team',
       RESOURCES: 'Resources',
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',

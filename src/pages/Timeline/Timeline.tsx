@@ -5,7 +5,6 @@ import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
 import { TEXT } from '@statics';
-import id from "date-fns/esm/locale/id/index";
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useAppSelector } from '@redux/hooks';

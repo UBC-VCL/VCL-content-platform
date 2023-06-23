@@ -1,4 +1,3 @@
-
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import './ConfirmationWindow.css';

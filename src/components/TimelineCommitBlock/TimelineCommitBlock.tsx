@@ -10,7 +10,6 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 
 interface TimelineCommitBlockProps {
     author: string;
-    elementChanged: string;
     project: string;
     date: Date;
     title: String;
@@ -47,7 +46,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="expandedTimeline">
             <p className="timeline-commit-header-text">
-                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
 
             {isLoggedIn ?
@@ -121,7 +120,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
     return(
         <div className="closedTimeline">
             <p className="timeline-commit-header-text">
-                <b>{author}</b> added {elementChanged} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
+                <b>{author}</b> added {title} to <div style={{display: 'inline', color: `${colorOfProject}`}}><b>{project}</b></div>
             </p>
 
 

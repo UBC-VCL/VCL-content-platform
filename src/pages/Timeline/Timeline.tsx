@@ -8,12 +8,11 @@ import { TEXT } from '@statics';
 import id from "date-fns/esm/locale/id/index";
 import { useState, useEffect } from 'react'
 import axios from 'axios';
-
-
-interface TimelineProps { }
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
+import ConfirmationDailog from '@components/ConfirmationWindow';
+interface TimelineProps { }
 const Timeline: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
@@ -40,10 +39,53 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
-  // creates a http request
-  const objCommitHTTPS = async (): Promise<SnapshotOBJ[]> => {
-    var returnData: SnapshotOBJ[] = []
 
+    // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
+  // If user close the pop up window, then openDialog = false.
+  // It is set to false by default
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
+  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
+  const [idToDelete, setIdToDelete] = useState<string>("");
+
+  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
+  const handleClose =  ()=> {
+    setOpenDialog(false);
+  }
+  const handleClickOpen = ()=>{
+    setOpenDialog(true);
+  }
+
+  const deleteCommit = async (_id: string) => {   
+    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+       headers: {
+         authorization: access_token
+       } 
+     })
+       .then((response)=> {
+         if(response.status != 200) {
+           throw new Error("did not delete it successfully");
+         }
+         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+         const tempArray = commitsArray.slice();
+         tempArray.splice(i, 1);
+         setCommitArray(tempArray);
+         return Promise.resolve(true);
+       }).catch((err)=>{
+         return Promise.reject();
+       })
+   };
+
+  const [filterBy, setFilter] = useState<SearchFilter >({
+    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
+    category: ['Website', 'Meeting', 'Workshop'],
+    date: "All",
+    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
+    keyword: ""
+  });
+  // creates a http request
+  const objCommitHTTPS = async () => {
     /* 
       Structure of a snapshot object from the retrieved list
       { author: "..." {string}
@@ -61,6 +103,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
         // list for the commitsArray useState
         var commitList = response.data.data.map((item: SnapshotOBJ) => ({
+          _id: item._id,
           author: item.author,
           categories: item.categories,
           title: item.title,
@@ -205,13 +248,20 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                       <span className={"timeline-container-span-" + prjs[i]}></span>
                       <TimelineCommitBlock
                         author={commit.author}
-                        elementChanged={commit.elementChanged}
+                        title={commit.title}
                         project={commit.project}
                         date={commit.date}
                         descriptions={commit.descriptions}
                         contributors={commit.contributors}
                         hyperlinks={commit.hyperlinks}
                         updatedTime={commit.updatedTime}
+                        categories={commit.categories}
+                        isLoggedIn={isLoggedIn}
+                        onClickDelete = {()=>{
+                          setIdToDelete(commit._id);
+                          handleClickOpen();
+                        }}
+                        
                       />
                     </li>
                   )

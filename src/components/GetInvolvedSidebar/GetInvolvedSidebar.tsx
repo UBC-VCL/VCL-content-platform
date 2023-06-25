@@ -4,9 +4,23 @@ import './GetInvolvedSidebar.css';
 import sidebarIcon from '@statics/images/involved-sidebar-icon.png';
 import { useHistory } from 'react-router-dom';
 
+interface propsOBJ {
+    pRef:React.RefObject<HTMLElement>;
+    labMemberRef: React.RefObject<HTMLElement>;
+    coPilotRef: React.RefObject<HTMLElement>;
+    dsCoPilotRef: React.RefObject<HTMLElement>;
+    volunteerRef: React.RefObject<HTMLElement>;
+    directedStudiesRef: React.RefObject<HTMLElement>;
+    raRef: React.RefObject<HTMLElement>;
+    tsRef: React.RefObject<HTMLElement>;
+    labManagerRef: React.RefObject<HTMLElement>;
+    customAutoScroll: (refOBJ: React.RefObject<HTMLElement>) =>  void
+}
 
-const GetInvolvedSidebar = () => {
+const GetInvolvedSidebar = (props:propsOBJ) => {
     const history = useHistory();
+
+    const {pRef, labMemberRef,coPilotRef,dsCoPilotRef,volunteerRef,directedStudiesRef,raRef,tsRef,labManagerRef, customAutoScroll} = props;
 
     return(
         
@@ -16,16 +30,16 @@ const GetInvolvedSidebar = () => {
             <div id="get_involved_heading" className='text-component'> Get Involved</div>
             
             <div className="lab-roles">
-                <div className="text-component" id="as-a-participant"> <a href="#">As a Participant</a></div>
+                <div className="text-component"> <a onClick={() => customAutoScroll(pRef)}>As a Participant</a></div>
                 <ul className="text-component labMem" id="as-a-lab-mem">
-                    <a href="#">As a Lab Member</a>
-                    <li id="co-pilot"><a href="#">Co-Pilot</a></li>
-                    <li id="dscico-pilot"><a href="#">Data Science Co-Pilot</a></li>
-                    <li id="volunteer"><a href="#">Volunteer</a></li>
-                    <li id="directed-studies"><a href="#">Directed Studies</a></li>
-                    <li id="research-assistant"><a href="#">Research Assistant</a></li>
+                    <a onClick={() => customAutoScroll(labMemberRef)}>As a Lab Member</a>
+                    <li id="co-pilot"><a onClick={() => customAutoScroll(coPilotRef)}>Co-Pilot</a></li>
+                    <li id="dscico-pilot"><a onClick={() => customAutoScroll(dsCoPilotRef)}>Data Science Co-Pilot</a></li>
+                    <li id="volunteer"><a onClick={() => customAutoScroll(volunteerRef)}>Volunteer</a></li>
+                    <li id="directed-studies"><a onClick={() => customAutoScroll(directedStudiesRef)}>Directed Studies</a></li>
+                    <li id="research-assistant"><a onClick={() => customAutoScroll(raRef)}>Research Assistant</a></li>
                     <li id="tech-support"><a href="#">Tech Support</a></li>
-                    <li id="lab-mana"><a href="#">Lab Manager</a></li>
+                    <li id="lab-mana"><a href="#" >Lab Manager</a></li>
                 </ul>
             </div>
             

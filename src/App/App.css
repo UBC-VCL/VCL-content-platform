@@ -13,3 +13,8 @@
 .opensans {
   font-family: "Open Sans", sans-serif;
 }
+
+
+#NavbarID {
+  height: fit-content;
+}

@@ -18,7 +18,6 @@ const ProjectSelect = ({timeline, setTimeline}:Props) => {
         <div className={styles.optionsContainer}>
             {projects && projects.length > 0 && (
                 projects.map((project) => {
-                    // console.log(project.key); project keys are undefined
                     id++;
                     return (
                         <label className={`${styles.itemButton} ${project.name === timeline.project ? styles.activeButton : styles.inactiveButton}`}

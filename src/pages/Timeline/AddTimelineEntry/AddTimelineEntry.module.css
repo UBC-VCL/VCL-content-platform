@@ -90,7 +90,7 @@ textarea:focus {
     font-size: 20px;
 }
 
-.saveButton {
+.addButton {
     background-color: #daeaff;
     color: #00224f;
     border: none;
@@ -101,12 +101,12 @@ textarea:focus {
     font-size: 20px;
 }
 
-.saveButton:disabled {
+.addButton:disabled {
     background-color: #d8e0ea;
     color: gray;
 }
 
-.cancelButton:focus, .saveButton:focus {
+.cancelButton:focus, .addButton:focus {
     outline-color: black;
 }
 

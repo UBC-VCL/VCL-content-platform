@@ -27,7 +27,7 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
 
-  const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "2004-01-01", project: "", author: "", categories: [], contributors: ""});
+  const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: new Date().toISOString().slice(0, 10), project: "", author: "", categories: [], contributors: ""});
 
   const history = useHistory();
   
@@ -58,7 +58,7 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
         history.push("/timeline");
         dispatch(appActions.setAlert("Add Entry Successful!"));
     }).catch(err => {
-        dispatch(appActions.setAlert(err.message));
+        dispatch(appActions.setAlert(err.message)); 
     })
   }
 
@@ -85,7 +85,7 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
         </div>
         <div className={styles.controls}>
           <button className={styles.cancelButton} onClick={() => history.push("/timeline")}>Cancel</button>
-          <button className={styles.saveButton} disabled={!timeline.author || !timeline.title} onClick={add}>Add</button>
+          <button className={styles.addButton} disabled={!timeline.author || !timeline.title} onClick={add}>Add</button>
         </div>
       </main>
       </div>

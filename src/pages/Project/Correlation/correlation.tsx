@@ -7,6 +7,7 @@ import img1 from '../../../statics/images/correlation/correlation1.png';
 import img2 from '../../../statics/images/correlation/correlation2.png';
 import img3 from '../../../statics/images/correlation/correlation3.png';
 import img4 from '../../../statics/images/correlation/correlation4.png';
+import ProjectGallery from '@components/ProjectGallery';
 
 interface ProjectProps {
     project : Project,
@@ -88,6 +89,8 @@ const Correlation: React.FC<ProjectProps> = (props) => {
             </a>
             <a href='http://www2.psych.ubc.ca/~rensink/publications/abs.14.1.html'>Rensink RA (2014a). On the Prospects for a Science of Visualization.  In W. Huang (Ed.) Handbook of Human Centric Visualization: Theories, Methodologies, and Case Studies. New York: Springer.  pp. 147-175.
             </a>
+
+            <ProjectGallery />
         </div>
     )
 };

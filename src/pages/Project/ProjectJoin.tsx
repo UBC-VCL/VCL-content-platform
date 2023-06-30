@@ -23,7 +23,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
     return (
         <div className='join-our-team-homepage'>
         <div className='project-breadcrumbs'>
-            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.JOIN_THE_TEAM}/> 
+            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.JOIN_OUR_TEAM}/> 
         </div>
         <section className='full-bleed'>
         <div className='intro-to-join-our-team'>

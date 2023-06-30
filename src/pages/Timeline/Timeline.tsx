@@ -245,32 +245,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              <ul>
-                {commitsArray.map((commit: SnapshotOBJ, i) => {
-                  console.log(commit);
-                  return (
-                    <li key={commit._id}>
-                      <span className={"timeline-container-span-" + prjs[i]}></span>
-                      <TimelineCommitBlock
-                        author={commit.author}
-                        title={commit.title}
-                        project={commit.project}
-                        date={commit.date}
-                        descriptions={commit.descriptions}
-                        contributors={commit.contributors}
-                        hyperlinks={commit.hyperlinks}
-                        updatedTime={commit.updatedTime}
-                        categories={commit.categories}
-                        isLoggedIn={isLoggedIn}
-                        onClickDelete = {()=>{
-                          setIdToDelete(commit._id);
-                          handleClickOpen();
-                        }}
-                      />
-                    </li>
-                  )
-                })}
-              </ul> : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
+              filterList(commitsArray,filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
           }
         </div>
       </div>

@@ -28,10 +28,9 @@
     width: fit-content;
     text-align: left;
     background-color: #FFFFFF;
-    margin-top: 5%;
-    height: 100vh;
+    margin-top: 3%;
     white-space: nowrap;
-
+    position: absolute;
 }
 
 #sidebar-icon {
@@ -42,6 +41,7 @@
     border: 1px solid #1C426D;
     border-radius: 3px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .clickableOption:hover {
@@ -153,51 +153,43 @@ ul {
     cursor: pointer;
 }
 
-/* .animationOn {
-    transform: translateX(0);
-    transition: 1s ease-out;
+
+
+@keyframes slideOutAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
 }
 
-.animationOff {
-    transform: translateX(-100%);
-    transition: 1s ease-in;
-} */
-
-.animationOn {
-    translate: 0;
-    display:block;
-    animation-timing-function: linear;
-    transition-duration: 0.5s;
-}
-
-.animationOff {
-    translate: +100%;
-    visibility: hidden;
-    display: none;
-    animation-timing-function: linear;
-    transition-duration: 1s;
-}
-
-@keyframes slide-in {
+@keyframes slideInAnimation {
     0% {
         transform: translateX(-100%);
     }
 
     100% {
         transform: translateX(0);
-    }
-}
-
-@keyframes slide-out {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
         
     }
 }
+
+.slide-in {
+    animation-name: slideInAnimation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.slide-out {
+    animation-name: slideOutAnimation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    display: none;
+}
+
+
 
 
 /* #co-pilot {

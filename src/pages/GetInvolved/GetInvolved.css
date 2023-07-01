@@ -39,7 +39,7 @@ html {
 }
 
 #info-encapsulate {
-    display:relative;
+    position: relative;
 }
 
 .join-header * {

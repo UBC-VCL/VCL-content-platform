@@ -52,7 +52,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 				setbarState={setbarState}
 			/>
 			<div id='info-encapsulate'>
-				{!sidebarState ?
+			{!sidebarState ?
 					<div id="info-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => setbarState(!sidebarState)} /></div> : <div></ div>
 				}
 				<div id='getInvolvedInfo'>

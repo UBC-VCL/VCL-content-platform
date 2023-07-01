@@ -11,6 +11,8 @@ import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
+import Alert from '@mui/material/Alert';
+
 interface TimelineProps { }
 
 /** 
@@ -270,7 +272,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                     </li>
                   )
                 })}
-              </ul> : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
+              </ul> : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
+
           }
         </div>
       </div>

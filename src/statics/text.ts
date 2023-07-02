@@ -6,6 +6,7 @@ const TEXT = {
     BACK: 'Back',
     NEXT: 'Next',
     TITLE: 'UBC Visual Cognition Lab',
+    LAB_TITLE_ONLY: 'Visual Cognition Lab',
     LOGIN: 'Login',
     LOGOUT: 'Logout',
   },
@@ -34,7 +35,7 @@ const TEXT = {
 
   PROJECT_NAV: {
       PROJECT_DESCRIPTION: 'Project Description',
-      JOIN_THE_TEAM: 'Join the Team',
+      JOIN_OUR_TEAM: 'Join Our Team',
       RESOURCES: 'Resources',
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
@@ -92,7 +93,7 @@ const TEXT = {
   TIMELINE_PAGE: {
     TITLE: 'Timeline',
     SUBHEADER: 'Browse project history and detailed updates',
-    ERRORMESSAGE: 'Something went wrong :('
+    ERROR_MESSAGE: 'Something went wrong :('
   },
 
   ABOUT_PAGE: {

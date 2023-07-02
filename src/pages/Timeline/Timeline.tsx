@@ -5,18 +5,24 @@ import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
 import { TEXT } from '@statics';
-import id from "date-fns/esm/locale/id/index";
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import { selectAuth } from '@redux/slices/AuthRedux';
+import ConfirmationDailog from '@components/ConfirmationWindow';
+import Alert from '@mui/material/Alert';
 
 interface TimelineProps { }
 
+/** 
+* Paste one or more documents here
+*/
 const Timeline: React.FC<TimelineProps> = (props) => {
-
+  const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
   interface SnapshotOBJ {
+    _id: string;
     author: string;
     title: string;
     project: string;
@@ -34,36 +40,68 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
   const [commitsArray, setCommitArray] = useState<SnapshotOBJ[]>([]);
 
-  // If the reuqest for the list of timelines is successful than success = true,
+  // If the reuqest for the list of timelines is successful then success = true,
   //  else success = false with "success" defaulted to true
   const [success, setSuccess] = useState<boolean>(true)
 
-  // An object containing a the necessary conditions of how the user wants to filter or search for snapshots
-  // Have to make this more universal somehow, this exact same list is in TimelineFilter.tsx
-  // But this is the intial state of which snapshots to show, the list in TimeineFilter.tsx outlines which options to choose
+
+    // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
+  // If user close the pop up window, then openDialog = false.
+  // It is set to false by default
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
+  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
+  const [idToDelete, setIdToDelete] = useState<string>("");
+
+  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
+  const handleClose =  ()=> {
+    setOpenDialog(false);
+  }
+  const handleClickOpen = ()=>{
+    setOpenDialog(true);
+  }
+
+  const deleteCommit = async (_id: string) => {   
+    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+       headers: {
+         authorization: access_token
+       } 
+     })
+       .then((response)=> {
+         if(response.status != 200) {
+           throw new Error("did not delete it successfully");
+         }
+         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+         const tempArray = commitsArray.slice();
+         tempArray.splice(i, 1);
+         setCommitArray(tempArray);
+         return Promise.resolve(true);
+       }).catch((err)=>{
+         return Promise.reject();
+       })
+   };
+
   const [filterBy, setFilter] = useState<SearchFilter >({
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
     date: "All",
     author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
     keyword: ""
-  })
+  });
 
   // creates a http request
   const objCommitHTTPS = async () => {
-
     /* 
       Structure of a snapshot object from the retrieved list
-
-      { author: string
-      categories: string[]
-      contributors: string[]
-      date: date
-      description: string
-      imageURL: string
-      project: string
-      title: string
-      _id: string
+      { author: "..." {string}
+      categories: ['...'] {string[]}
+      contributors: ['...'] {string[]}
+      date: "..." {date}
+      descriptions: ['...'] {string[]}
+      hyperlinks: ['...'] {string[]}
+      project: "..." {string}
+      title: "..." {string}
       } 
     */
     await axios.get("http://localhost:4000/api/snapshots")
@@ -71,6 +109,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
         // list for the commitsArray useState
         var commitList = response.data.data.map((item: SnapshotOBJ) => ({
+          _id: item._id,
           author: item.author,
           categories: item.categories,
           title: item.title,
@@ -152,6 +191,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
               updatedTime={commit.updatedTime}
               categories={commit.categories}
               isLoggedIn={isLoggedIn}
+              onClickDelete = {()=>{
+                setIdToDelete(commit._id);
+                handleClickOpen();
+              }}
             />
           </li>
         ))}
@@ -165,6 +208,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   useEffect(() => {
     objCommitHTTPS()
   }, [])
+
 
   let prjs: any[] = []
 
@@ -203,10 +247,37 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
+              <ul>
+                {commitsArray.map((commit: SnapshotOBJ, i) => {
+                  console.log(commit);
+                  return (
+                    <li key={commit._id}>
+                      <span className={"timeline-container-span-" + prjs[i]}></span>
+                      <TimelineCommitBlock
+                        author={commit.author}
+                        title={commit.title}
+                        project={commit.project}
+                        date={commit.date}
+                        descriptions={commit.descriptions}
+                        contributors={commit.contributors}
+                        hyperlinks={commit.hyperlinks}
+                        updatedTime={commit.updatedTime}
+                        categories={commit.categories}
+                        isLoggedIn={isLoggedIn}
+                        onClickDelete = {()=>{
+                          setIdToDelete(commit._id);
+                          handleClickOpen();
+                        }}
+                      />
+                    </li>
+                  )
+                })}
+              </ul> : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
+
           }
         </div>
       </div>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
     </div>
   );
 };

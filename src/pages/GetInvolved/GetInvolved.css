@@ -22,12 +22,13 @@ html {
 }
 
 #info-icon {
-    margin-top: 8%;
+    margin-top: 6%;
     margin-left: 2rem;
     transform: rotate(180deg);
-    display: absolute;
+    position: absolute;
     left: 0;
     float: left;
+    display: none;
 }
 
 #info-icon:hover {

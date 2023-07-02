@@ -33,6 +33,7 @@ const GetInvolvedSidebar = (props: propsOBJ) => {
                         setbarState(!sidebarState)
                         setTimeout(function() {
 							document.getElementById('get-involved-sidebar')!.style.display = 'none'
+                            document.getElementById('info-icon')!.style.display = 'block'
 						}, 400)
                     }
                     } /></div>

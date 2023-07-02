@@ -152,16 +152,6 @@ ul {
     cursor: pointer;
 }
 
-/* .animationOn {
-    transform: translateX(0);
-    transition: 1s ease-out;
-}
-
-.animationOff {
-    transform: translateX(-100%);
-    transition: 1s ease-in;
-} */
-
 .animationOn {
     animation-name: slide-in;
     display:block;

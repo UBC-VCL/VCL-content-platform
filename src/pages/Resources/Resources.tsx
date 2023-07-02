@@ -2,6 +2,7 @@ import React from 'react';
 import './Resources.css';
 import ResourcesTool from '@components/ResourcesTool';
 import ResourcesMaterial from '@components/ResourcesMaterial';
+import Announcements from '@components/Announcements';
 
 interface ResourcesProps {};
 
@@ -16,14 +17,12 @@ const Resources: React.FC<ResourcesProps> = props => {
 				<h1>Lab-Wide Resources</h1>
 				<p className='sub-header'>Navigate through all lab resources here</p>
 			</div>
-			<div className="banner">
-				<div className='banner-text'><b>Announcements:&nbsp;</b>{announcements.content}</div>
-			</div>
+			<Announcements content={announcements.content} />
 			<div className='Resources-body'>
 				<div className="resource-tool-section-one">
 					<div className="resources-section-one-text">
-						<h1 className='text-one'>Most&nbsp;</h1>
-						<h1 className='text-two'>Commonly Used</h1>
+						<h1 className='resources-upper-text'>Most&nbsp;</h1>
+						<h1 className='resources-bottom-text'>Commonly Used</h1>
 					</div>
 					<div className="resource-tool-container">
 						{/* Hardcoded several resource tool cards */}

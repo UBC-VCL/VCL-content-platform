@@ -6,6 +6,7 @@ const TEXT = {
     BACK: 'Back',
     NEXT: 'Next',
     TITLE: 'UBC Visual Cognition Lab',
+    LAB_TITLE_ONLY: 'Visual Cognition Lab',
     LOGIN: 'Login',
     LOGOUT: 'Logout',
   },
@@ -92,7 +93,7 @@ const TEXT = {
   TIMELINE_PAGE: {
     TITLE: 'Timeline',
     SUBHEADER: 'Browse project history and detailed updates',
-    ERRORMESSAGE: 'Something went wrong :('
+    ERROR_MESSAGE: 'Something went wrong :('
   },
 
   ABOUT_PAGE: {

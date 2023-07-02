@@ -26,10 +26,16 @@ const GetInvolvedSidebar = (props: propsOBJ) => {
 
     return (
 
-        <div className={`sidebar ${sidebarState ? "animationOn" : "animationOff"}`}>
+        <div id='get-involved-sidebar' className={`sidebar ${sidebarState ? "animationOn" : "animationOff"}`}>
             <div id="contentEncapsulate">
                 <div id='titleDiv'>
-                    <div id="sidebar-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => setbarState(!sidebarState)} /></div>
+                    <div id="sidebar-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => {
+                        setbarState(!sidebarState)
+                        setTimeout(function() {
+							document.getElementById('get-involved-sidebar')!.style.display = 'none'
+						}, 400)
+                    }
+                    } /></div>
                     <div id="now-viewing" className="text-component">Now Viewing</div>
                     <div id="get_involved_heading" className='text-component'> Get Involved</div>
                 </div>

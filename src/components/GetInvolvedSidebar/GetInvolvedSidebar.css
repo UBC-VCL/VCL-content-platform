@@ -28,8 +28,7 @@
     width: fit-content;
     text-align: left;
     background-color: #FFFFFF;
-    margin-top: 5%;
-    height: 100vh;
+    margin-top: 3%;
     white-space: nowrap;
 
 }
@@ -164,23 +163,21 @@ ul {
 } */
 
 .animationOn {
-    translate: 0;
+    animation-name: slide-in;
     display:block;
     animation-timing-function: linear;
-    transition-duration: 0.5s;
+    animation-duration: 0.5s;
 }
 
 .animationOff {
-    translate: +100%;
-    visibility: hidden;
-    display: none;
+    animation-name: slide-out;
     animation-timing-function: linear;
-    transition-duration: 1s;
+    animation-duration: 0.5s;
 }
 
 @keyframes slide-in {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(-100%);    
     }
 
     100% {
@@ -190,12 +187,11 @@ ul {
 
 @keyframes slide-out {
     0% {
-        transform: translateX(0);
+        transform: translateX(0);    
     }
 
     100% {
         transform: translateX(-100%);
-        
     }
 }
 

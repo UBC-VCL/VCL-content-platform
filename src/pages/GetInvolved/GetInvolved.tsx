@@ -53,7 +53,10 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 			/>
 			<div id='info-encapsulate'>
 				{!sidebarState ?
-					<div id="info-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => setbarState(!sidebarState)} /></div> : <div></ div>
+					<div id="info-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => {
+						document.getElementById('get-involved-sidebar')!.style.display = 'block'
+						setbarState(!sidebarState)
+					}} /></div> : ''
 				}
 				<div id='getInvolvedInfo'>
 					<div className="join-header">

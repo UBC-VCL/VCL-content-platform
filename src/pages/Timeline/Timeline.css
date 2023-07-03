@@ -3,7 +3,7 @@
 .timeline-header {
     max-width: 100%;
     margin-top: 5%;
-    margin-left: 43%;
+    margin-left: 45%;
     padding-top: 30px;
     text-transform: uppercase;
     line-height: 48px;
@@ -14,7 +14,7 @@
 
 .timeline-sub-header {
     color: #535353;
-    margin-left: 37.5%;
+    margin-left: 40%;
     margin-top: 2%;
 }
 
@@ -65,7 +65,6 @@
 .timeline-container-span-correlation:before{
     border: 2px solid #6776fe;
     background-color: #6776fe;
-    /* margin-left: 32px; */
 }
 
 .timeline-container-span-nova:before{

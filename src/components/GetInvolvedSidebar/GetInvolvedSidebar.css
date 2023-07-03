@@ -1,0 +1,183 @@
+.text-component a:link { 
+    text-decoration: none; 
+    color: #5B7E98;
+}
+
+.text-component a:visited { 
+    text-decoration: none; 
+    color: #5B7E98;
+    font-weight: 700;
+}
+
+
+.text-component a:hover { 
+    text-decoration: none; 
+    font-weight: 700;
+}
+
+
+.text-component a:active { 
+    text-decoration: none; 
+}
+
+.sidebar {
+    width: 23%;
+    float: left;
+    text-align: left;
+    background-color: #FFFFFF;
+    left:0;
+    margin-top: 4%;
+    position: absolute;
+}
+
+#sidebar-icon {
+    margin-left: 83%;
+    margin-top: 9%;
+    width: 36px;
+    height: 36px;
+    box-sizing: border-box;
+    border: 1px solid #1C426D;
+    border-radius: 3px;
+    padding: 8px;
+}
+
+#now-viewing {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14.6897px;
+    line-height: 5px;
+    color: #AEC7E3;
+
+    margin-top: 33px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.text-component {
+    font-family: 'Source Sans Pro';
+    letter-spacing: 0.02em;
+    margin-left: 59px;
+    font-style: normal;
+    color: #5B7E98;
+}
+
+#get_involved_heading {
+    width: 210.55px;
+    margin-top: 36px;
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 0.04em;  
+    color: #1C426D;
+
+    padding-bottom: 18.48px;
+    border-bottom: #B2C9EC;
+    border-bottom-style: solid;
+    border-width: 1.5px;
+}
+
+.lab-roles {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+#as-a-participant {
+    margin-top: 50px;
+}
+
+#as-a-lab-mem {
+    margin-top: 25px;
+}
+
+.labMem li {
+    margin-top: 23px;
+    margin-left: 23px;
+}
+
+
+#application-instructions {
+    margin-top: 25px;
+}
+
+#view-prj-btn {
+    font-weight: 600;
+    font-size: 14.5px;
+    line-height: 18px;
+    letter-spacing: 0.025em;
+
+    margin-top: 60%;
+    margin-bottom: 10%;
+    margin-left: 18%;
+
+    width: 187px;
+    height: 55px;
+
+    text-align: center;
+    padding-top: 18px;
+
+    color: #1C426D;
+    background-color: white;
+    border: 1px solid #60779A;
+}
+
+#view-prj-btn:hover {
+    background-color: var(--fc-navyblue);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/* #co-pilot {
+    left: 24.06%;
+    right: 53.94%;
+    top: 31.7%;
+    bottom: 66.05%;
+}
+
+#dscico-pilot {
+    left: 24.06%;
+    right: 14.2%;
+    top: 36.29%;
+    bottom: 61.47%;
+}
+
+#volunteer {
+    left: 24.35%;
+    right: 44.93%;
+    top: 40.88%;
+    bottom: 56.88%;
+}
+
+#directed-studies {
+    left: 24.06%;
+    right: 33.91%;
+    top: 45.57%;
+    bottom: 52.19%;
+}
+
+#research-assistant {
+    left: 24.06%;
+    right: 33.91%;
+    top: 50.15%;
+    bottom: 47.6%;
+}
+
+#tech-support {
+    left: 24.06%;
+    right: 33.91%;
+    top: 54.74%;
+    bottom: 43.02%;
+
+}
+
+#lab-mana {
+    left: 24.35%;
+    right: 33.62%;
+    top: 59.33%;
+    bottom: 38.43%;
+} */

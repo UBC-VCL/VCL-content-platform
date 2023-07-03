@@ -3,6 +3,7 @@ import './TimelineFilter.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Select from 'react-select'
+import { SearchFilter } from './types';
 
 import { Button, MenuItem } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
@@ -11,12 +12,23 @@ import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 import MobileFilterDropdown from '@components/FilterDropdown/MobileFilterDropdown';
 
-const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
-const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
-const dummyDataForDate = ['Last day', 'Last month', 'Last year'];
-const dummyDataForAuthor = ['One', 'two', 'three'];
 
-const TimelineFilterContainer = () => {
+
+
+interface PropsOBJ {
+  setFilter: (obj: SearchFilter) => void;
+  filterBy: SearchFilter;
+}
+
+const TimelineFilterContainer = (props: PropsOBJ) => {
+
+  // Destrcuturing the props
+  const { setFilter, filterBy } = props;
+
+  const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'];
+  const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
+  const dummyDataForDate = ['All','Last day', 'Last month', 'Last year'];
+  const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
 
   // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
   // const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);

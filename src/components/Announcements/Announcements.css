@@ -1,0 +1,12 @@
+.banner {
+    background-color: var(--fc-navyblue);
+    margin: 45px 0;
+    padding: 25px 15vw;
+    display : block;
+}
+
+.banner-text {
+    text-align: center;
+    color: white;
+    font-size: 19px;
+}

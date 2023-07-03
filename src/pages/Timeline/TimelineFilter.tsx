@@ -60,7 +60,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
       {isMobile ? (
 
-        <div className='filter-dropdown-mobile'><MobileFilterDropdown /></div>
+        <div className='filter-dropdown-mobile'><MobileFilterDropdown  setFilter={setFilter} filterBy={filterBy}/></div>
 
       ) : (
         <div className='timeline-filter' style={{ display: 'inline' }}>

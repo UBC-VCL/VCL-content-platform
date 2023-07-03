@@ -2,12 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import { SearchFilter } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -20,11 +15,14 @@ const MenuProps = {
 };
 
 
-const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData }: {
-  dateSelected: string,
-  setDateSelected: React.Dispatch<React.SetStateAction<string>>,
-  dummyData: string[],
-}) => {
+const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData,
+  setFilter, filterBy }: {
+    dateSelected: string,
+    setDateSelected: React.Dispatch<React.SetStateAction<string>>,
+    dummyData: string[],
+    setFilter: (obj: SearchFilter) => void,
+    filterBy: SearchFilter
+  }) => {
 
   const list = {
     'name': 'Date',
@@ -32,6 +30,8 @@ const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData }: {
   };
   const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
     setDateSelected(event.target.value);
+
+    setFilter({ ...filterBy, date: event.target.value })
   };
 
   return (
@@ -50,7 +50,7 @@ const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData }: {
         renderValue={() => {
           return 'Date';
         }}
-        sx={{ width: 490, color: '#7e7e7e', textAlign: 'left'}}
+        sx={{ width: 490, color: '#7e7e7e', textAlign: 'left' }}
       >
 
         {list.options.map((name) => (

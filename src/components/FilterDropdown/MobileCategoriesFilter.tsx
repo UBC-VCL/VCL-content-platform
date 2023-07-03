@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SearchFilter } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -14,15 +15,19 @@ const MenuProps = {
 };
 
 
-const MobileCategoriesFilter = ({ categorySelected, setCategorySelected, dummyData }: {
+const MobileCategoriesFilter = ({ categorySelected, setCategorySelected, dummyData, setFilter, filterBy }: {
   categorySelected: string[],
   setCategorySelected: React.Dispatch<React.SetStateAction<string[]>>,
   dummyData: string[],
+  setFilter: (obj: SearchFilter) => void,
+  filterBy: SearchFilter
 }) => {
+
   const list = {
     'name': 'Category',
     'options': dummyData,
   };
+
   const handleChange = (event: SelectChangeEvent<typeof categorySelected>) => {
     const {
       target: { value },
@@ -30,6 +35,7 @@ const MobileCategoriesFilter = ({ categorySelected, setCategorySelected, dummyDa
     setCategorySelected(
       typeof value === 'string' ? value.split(',') : value,
     );
+    setFilter({ ...filterBy, category: typeof value === 'string' ? value.split(',') : value })
   };
 
   return (

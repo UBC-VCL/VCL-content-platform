@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SearchFilter } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -13,24 +14,28 @@ const MenuProps = {
   },
 };
 
-
-const MobileAuthorsFilter = ({ authorSelected, setAuthorSelected, dummyData }: {
-  authorSelected: string[],
-  setAuthorSelected: React.Dispatch<React.SetStateAction<string[]>>,
-  dummyData: string[],
-}) => {
+const MobileAuthorsFilter = ({
+  authorSelected, setAuthorSelected,
+  dummyData,
+  setFilter, filterBy }: {
+    authorSelected: string[],
+    setAuthorSelected: React.Dispatch<React.SetStateAction<string[]>>,
+    dummyData: string[],
+    setFilter: (obj: SearchFilter) => void,
+    filterBy: SearchFilter
+  }) => {
 
   const list = {
     'name': 'Author',
     'options': dummyData,
   };
   const handleChange = (event: SelectChangeEvent<typeof authorSelected>) => {
-    const {
-      target: { value },
-    } = event;
+    const { target: { value } } = event;
     setAuthorSelected(
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === 'string' ? value.split(',') : value
     );
+
+    setFilter({ ...filterBy, author: typeof value === 'string' ? value.split(',') : value })
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SearchFilter } from "@pages/Timeline/types";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -14,23 +15,30 @@ const MenuProps = {
 };
 
 
-const MobileProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: {
-  projectSelected: string[],
-  setProjectSelected: React.Dispatch<React.SetStateAction<string[]>>,
-  dummyData: string[],
-}) => {
-      const list = {
-        'name': 'Project', 
-        'options': dummyData,
-      };
-      const handleChange = (event: SelectChangeEvent<typeof projectSelected>) => {
-        const {
-          target: { value },
-        } = event;
-        setProjectSelected(
-          typeof value === 'string' ? value.split(',') : value,
-        );
-      };
+const MobileProjectsFilter = ({ projectSelected, setProjectSelected, dummyData,
+  setFilter, filterBy }: {
+    projectSelected: string[],
+    setProjectSelected: React.Dispatch<React.SetStateAction<string[]>>,
+    dummyData: string[],
+    setFilter: (obj: SearchFilter) => void,
+    filterBy: SearchFilter
+  }) => {
+
+  const list = {
+    'name': 'Project',
+    'options': dummyData,
+  };
+  
+  const handleChange = (event: SelectChangeEvent<typeof projectSelected>) => {
+    const {
+      target: { value },
+    } = event;
+    setProjectSelected(
+      typeof value === 'string' ? value.split(',') : value,
+    );
+
+    setFilter({ ...filterBy, project: typeof value === 'string' ? value.split(',') : value, })
+  };
 
   return (
 
@@ -51,13 +59,13 @@ const MobileProjectsFilter = ({projectSelected, setProjectSelected, dummyData}: 
         sx={{ width: 490, color: '#7e7e7e', textAlign: 'left' }}
       >
         {list.options.map((name) => (
-                    <MenuItem
-                    key={name}
-                    value={name}
-                    >
-                    {name}
-                    </MenuItem>
-                ))}
+          <MenuItem
+            key={name}
+            value={name}
+          >
+            {name}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   )

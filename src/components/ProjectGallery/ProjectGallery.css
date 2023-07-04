@@ -67,11 +67,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 920px;
 }
 
 .gallery-img {
-    width: 920px;
-    height: 303.4px;
+    width: 500px;
     margin: auto;
 }
 

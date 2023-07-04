@@ -1,0 +1,31 @@
+.project-description-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    z-index: 1;
+}
+
+.project-description-paragraph-one,
+.project-description-paragraph-two {
+    color: #92AED8;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.08px;
+    margin-bottom: 2%;
+    flex: 1 1 0px;
+}
+
+.emphasized-statement {
+    color: #A8C9FF;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    margin-top: 90px;
+    margin-bottom: 60px;
+}

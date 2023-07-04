@@ -58,16 +58,16 @@ const ProjectGallery = () => {
         }
     }
 
-    // This is the autoscrolling feature
-    useEffect(() => {
-        resetTimeout()
-        timeoutRef.current = setTimeout(
-            () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
-        )
-        return () => {
-            resetTimeout()
-        }
-    }, [galleryIndex])
+    // // This is the autoscrolling feature
+    // useEffect(() => {
+    //     resetTimeout()
+    //     timeoutRef.current = setTimeout(
+    //         () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
+    //     )
+    //     return () => {
+    //         resetTimeout()
+    //     }
+    // }, [galleryIndex])
 
     return (
         <>
@@ -78,19 +78,21 @@ const ProjectGallery = () => {
                             The titles below should not be hardcoded like this, but should be instead inside a prop
                         */
                     }
-                    <h1 id='container-title-h1'>
-                        02
-                    </h1>
-                    <h2 id='container-title-h2'>
-                        Gallery
-                    </h2>
+                    <div>
+                        <h1 id='container-title-h1'>
+                            02
+                        </h1>
+                        <h2 id='container-title-h2'>
+                            Gallery
+                        </h2>
+                    </div>
                 </div>
                 <div id='gallery-container'>
                     < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === 0 ? setGalleryIndex(dummyList.length - 1) : setGalleryIndex(galleryIndex - 1)
                     }} />
                     <div className="gallery-box">
-                        <div className='slideshowSlider' style={{ transform: `translate3d(${-galleryIndex * 100}%, 0, 0)` }}>
+                        <div className='slideshowSlider' style={{ transform: `translate3d(${-galleryIndex * 100.5}%, 0, 0)` }}>
                             {
                                 /* 
                                     Theses displayed properties should also be from props

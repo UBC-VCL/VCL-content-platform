@@ -3,7 +3,7 @@
 .timeline-header {
     max-width: 100%;
     margin-top: 5%;
-    margin-left: 43%;
+    margin-left: 45%;
     padding-top: 30px;
     text-transform: uppercase;
     line-height: 48px;
@@ -14,7 +14,7 @@
 
 .timeline-sub-header {
     color: #535353;
-    margin-left: 37.5%;
+    margin-left: 40%;
     margin-top: 2%;
 }
 
@@ -101,9 +101,8 @@
     }
 }
 
-.errorString {
-    color: red;
+.error-string {
     text-align: center;
-    padding: 3rem;
-    font-size: 4rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

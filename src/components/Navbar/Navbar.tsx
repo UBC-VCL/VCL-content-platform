@@ -137,7 +137,6 @@ const Navbar: React.FC<{}> = () => {
   return (
     <div className="nav">
       <div className="navbar-menu">
-        <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
           <div className="logo-container">
             <a href={ROUTES.HOME}>
@@ -173,7 +172,6 @@ const Navbar: React.FC<{}> = () => {
             )}
           </Menu>
         </Toolbar>
-      </AppBar>
       </div>
         <MobileMenu/>
     </div>

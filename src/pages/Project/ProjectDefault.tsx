@@ -8,8 +8,7 @@ import TitleCard from '@components/TitleCard/TitleCard';
 import ProjectDescription from '@components/ProjectDescription';
 import VerticalSpacer from '@components/VerticalSpacer/VerticalSpacer';
 import COLORS from '@statics/colors';
-import TopLeftCog from '@statics/images/ProjectDescriptionPage/TopLeftCog.png';
-import BottomRightCog from '@statics/images/ProjectDescriptionPage/BottomRightCog.png';
+import BackgroundCog from '@statics/images/ProjectDescriptionPage/BottomRightCog.png';
 import GalleryCog from '@statics/images/ProjectDescriptionPage/GalleryCog.png';
 import { callGetProjectByNameAPI, ProjectResponse } from '@services/adapters/projectAdapter';
 import { useLocation } from 'react-router-dom';
@@ -54,7 +53,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
         <div className='main'>
             <div className='description-container'>
                 <div className="top-cog-container">
-                    <img src={TopLeftCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
+                    <img src={BackgroundCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
                 </div>
 
                  <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_DESCRIPTION}/> 
@@ -73,7 +72,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
             </div>
 
             <div className="bottom-cog-container">
-                    <img src={BottomRightCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
+                    <img src={BackgroundCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
             </div>
 
             <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />

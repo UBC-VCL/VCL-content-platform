@@ -68,6 +68,7 @@ const ProjectGallery = () => {
             resetTimeout()
         }
     }, [galleryIndex])
+    
 
     return (
         <>

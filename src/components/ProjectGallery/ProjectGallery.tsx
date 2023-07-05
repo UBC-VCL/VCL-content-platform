@@ -58,16 +58,16 @@ const ProjectGallery = () => {
         }
     }
 
-    // // This is the autoscrolling feature
-    // useEffect(() => {
-    //     resetTimeout()
-    //     timeoutRef.current = setTimeout(
-    //         () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
-    //     )
-    //     return () => {
-    //         resetTimeout()
-    //     }
-    // }, [galleryIndex])
+    // This is the autoscrolling feature
+    useEffect(() => {
+        resetTimeout()
+        timeoutRef.current = setTimeout(
+            () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
+        )
+        return () => {
+            resetTimeout()
+        }
+    }, [galleryIndex])
 
     return (
         <>

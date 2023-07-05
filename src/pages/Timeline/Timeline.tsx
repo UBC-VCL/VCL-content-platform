@@ -11,6 +11,8 @@ import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
+import Alert from '@mui/material/Alert';
+
 interface TimelineProps { }
 
 /** 
@@ -245,7 +247,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray,filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERRORMESSAGE}</p>
+              filterList(commitsArray,filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
           }
         </div>
       </div>

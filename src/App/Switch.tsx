@@ -4,7 +4,6 @@ import ROUTES from '@statics/routes';
 import Timeline from '@pages/Timeline';
 import Home from '@pages/Home';
 import { ProjectWrapper, ProjectOverview } from '@pages/Project';
-import About from '@pages/About';
 import Resources from '@pages/Resources';
 import TimelineEntry from "@pages/Timeline/TimelineEntry";
 import EditTimelineEntry from '@pages/Timeline/EditTimelineEntry/EditTimelineEntry';
@@ -27,7 +26,6 @@ const AppSwitch = () => {
       }
       <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
-      <Route exact path={ROUTES.ABOUT} component={About} />
       <Route exact path={ROUTES.RESOURCES} component={Resources} />
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
     </Switch>

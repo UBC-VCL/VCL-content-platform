@@ -1,5 +1,7 @@
 import React from 'react';
 import './TimelineFilter.css';
+import { SearchFilter } from './types';
+
 import { Button } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
@@ -9,12 +11,23 @@ import { useHistory } from "react-router-dom";
 import { selectAuth, selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { useAppSelector } from '@redux/hooks';
 
-const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Projects'];
-const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
-const dummyDataForDate = ['Last day', 'Last month', 'Last year'];
-const dummyDataForAuthor = ['One', 'two', 'three'];
 
-const TimelineFilterContainer = () => {
+
+
+interface PropsOBJ {
+  setFilter: (obj: SearchFilter) => void;
+  filterBy: SearchFilter;
+}
+
+const TimelineFilterContainer = (props: PropsOBJ) => {
+
+  // Destrcuturing the props
+  const { setFilter, filterBy } = props;
+
+  const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'];
+  const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
+  const dummyDataForDate = ['All','Last day', 'Last month', 'Last year'];
+  const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
 
   // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
   // const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
@@ -34,17 +47,16 @@ const TimelineFilterContainer = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   return (
-    <div className='timeline-filter' style={{display: 'inline'}}>
-        <div style={{display: 'inline-block'}}>
-          <div className='filter-dropdown'>
-            <ProjectsFilter projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject}/>
-            <span className='filter-divider'></span> 
-            <CategoriesFilter categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory}/>
-            <span className='filter-divider'></span> 
-            <DateFilter dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate}/>
-            <span className='filter-divider'></span>  
-            <AuthorsFilter authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor}/>
-          </div>
+    <div className='timeline-filter' style={{ display: 'inline' }}>
+      <div style={{ display: 'inline-block' }}>
+        <div className='filter-dropdown'>
+          <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
+          <span className='filter-divider'></span>
+          <CategoriesFilter  filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
+          <span className='filter-divider'></span>
+          <DateFilter filterBy={filterBy} setFilter={setFilter} dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} />
+          <span className='filter-divider'></span>
+          <AuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
         </div>
         {isLoggedIn && 
           <div className='add-update-button' style={{display: 'inline-block'}}>
@@ -65,6 +77,7 @@ const TimelineFilterContainer = () => {
               </Button>
           </div>
         }
+    </div>
     </div>
   );
 }

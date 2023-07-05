@@ -1,134 +1,219 @@
 import React from "react";
 import './Timeline.css';
+import { SearchFilter  } from "./types";
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
 import { TEXT } from '@statics';
-import id from "date-fns/esm/locale/id/index";
+import { useState, useEffect } from 'react'
+import axios from 'axios';
+import { useAppSelector } from '@redux/hooks';
+import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import { selectAuth } from '@redux/slices/AuthRedux';
+import ConfirmationDailog from '@components/ConfirmationWindow';
+import Alert from '@mui/material/Alert';
 
-// dummy data
-const commitsArray = [{
-      author: "Samanshiang Chiang",
-      elementChanged: "Documentation Website Updates",
-      project: "Correlation",
-      date: new Date('2022-05-23'),
-      descriptions: [
-        "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-        "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-      ], 
-      hyperlinks:[
-        "www.google.com",
-        "www.google.com",
-      ],
-      contributors: [
-        "Sally Lim",
-        "John Doe"
-      ],
-      updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-      tags: ['Website', 'Meeting'],
-  }, {
-      author: "Samanshiang Chiang",
-      elementChanged: "Documentation Website Updates",
-      project: "Correlation",
-      date: new Date('2022-05-23'),
-      descriptions: [
-        "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-        "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-      ], 
-      hyperlinks:[
-        "www.google.com",
-        "www.google.com",
-      ],
-      contributors: [
-        "Sally Lim",
-        "John Doe"
-      ],
-      updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-      tags: ['Website'],
-  }, {
-      author: "Samanshiang Chiang",
-      elementChanged: "Documentation Website Updates",
-      project: "NOVA",
-      date: new Date('2022-05-23'),
-      descriptions: [
-        "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-        "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-      ], 
-      hyperlinks:[
-        "www.google.com",
-        "www.google.com",
-      ],
-      contributors: [
-        "Sally Lim",
-        "John Doe"
-      ],
-      updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-      tags: ['Website'],
-  }, {
-      author: "Michael Rotman",
-      elementChanged: "Element Name",
-      project: "Project",
-      date: new Date('2022-05-26'),
-      descriptions: [
-        "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-        "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-      ], 
-      hyperlinks:[
-        "www.google.com",
-        "www.google.com",
-      ],
-      contributors: [
-        "Sally Lim",
-        "John Doe"
-      ],
-      updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-      tags: ['Website', 'Meeting'],
-  }, {
-      author: "Alicia Coleman",
-      elementChanged: "Element Name",
-      project: "Shiva",
-      date: new Date('2021-06-03'),
-      descriptions: [
-        "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-        "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-      ], 
-      hyperlinks:[
-        "www.google.com",
-        "www.google.com",
-      ],
-      contributors: [
-        "Sally Lim",
-        "John Doe"
-      ],
-      updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-      tags: ['workshop'],
-  }, {
-      author: "Russell Black",
-      elementChanged: "Documentation Website Updates",
-      project: "IDEO",
-      date: new Date('2022-05-23'),
-      descriptions: [
-        "Completed changes to timeline mockups. Added \"Author\" category to the original three category filter bar to better refine timeline entry categorization and search time. ",
-        "Added hover effect for individual timeline entries, created expanded entry display on timeline mockup to showcase on-click effect. Removed default descriptions on Projects, Acbout, and Resources with descriptions from VCL's website. Created timeline entry form mockup."
-      ], 
-      hyperlinks:[
-        "www.google.com",
-        "www.google.com",
-      ],
-      contributors: [
-        "Sally Lim",
-        "John Doe"
-      ],
-      updatedTime: "Last Edited on June 6, 2021 21: 49 by Kevin Peng",
-      tags: ['Meeting'],
-  }]
+interface TimelineProps { }
 
-interface TimelineProps {}
-
+/** 
+* Paste one or more documents here
+*/
 const Timeline: React.FC<TimelineProps> = (props) => {
+  const { access_token } = useAppSelector(selectAuth);
+  // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
+  interface SnapshotOBJ {
+    _id: string;
+    author: string;
+    title: string;
+    project: string;
+    date: Date;
+    categories: Array<string>;
+    descriptions: Array<string>;
+    hyperlinks: Array<string>;
+    contributors: Array<string>;
+    updatedTime: string;
+  }
+
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
+  // An array of all timineline history that will be set by retrieveCommitOBJs()
+  //  If there are any errors in the retrieveCommitOBJs() than an empty array will be set as the display
+  const [commitsArray, setCommitArray] = useState<SnapshotOBJ[]>([]);
+
+  // If the reuqest for the list of timelines is successful then success = true,
+  //  else success = false with "success" defaulted to true
+  const [success, setSuccess] = useState<boolean>(true)
+
+
+    // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // If user click the delete icon on the top right of each timeline box, then openDialog = true,
+  // If user close the pop up window, then openDialog = false.
+  // It is set to false by default
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  // This state variable tracks which timeline item the user is about to delete by that timeline item's id
+  // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
+  const [idToDelete, setIdToDelete] = useState<string>("");
+
+  // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
+  const handleClose =  ()=> {
+    setOpenDialog(false);
+  }
+  const handleClickOpen = ()=>{
+    setOpenDialog(true);
+  }
+
+  const deleteCommit = async (_id: string) => {   
+    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+       headers: {
+         authorization: access_token
+       } 
+     })
+       .then((response)=> {
+         if(response.status != 200) {
+           throw new Error("did not delete it successfully");
+         }
+         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+         const tempArray = commitsArray.slice();
+         tempArray.splice(i, 1);
+         setCommitArray(tempArray);
+         return Promise.resolve(true);
+       }).catch((err)=>{
+         return Promise.reject();
+       })
+   };
+
+  const [filterBy, setFilter] = useState<SearchFilter >({
+    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
+    category: ['Website', 'Meeting', 'Workshop'],
+    date: "All",
+    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
+    keyword: ""
+  });
+
+  // creates a http request
+  const objCommitHTTPS = async () => {
+    /* 
+      Structure of a snapshot object from the retrieved list
+      { author: "..." {string}
+      categories: ['...'] {string[]}
+      contributors: ['...'] {string[]}
+      date: "..." {date}
+      descriptions: ['...'] {string[]}
+      hyperlinks: ['...'] {string[]}
+      project: "..." {string}
+      title: "..." {string}
+      } 
+    */
+    await axios.get("http://localhost:4000/api/snapshots")
+      .then(response => {
+
+        // list for the commitsArray useState
+        var commitList = response.data.data.map((item: SnapshotOBJ) => ({
+          _id: item._id,
+          author: item.author,
+          categories: item.categories,
+          title: item.title,
+          project: item.project,
+          date: item.date,
+          descriptions: item.descriptions,
+          hyperlinks: item.hyperlinks,
+          contributors: item.contributors,
+          updatedTime: item.updatedTime
+        }));
+        setCommitArray([...commitList])
+      }).catch(err => {
+        setSuccess(false)
+      });
+  }
+
+  // will return a boolean whether or not the difference betweent the two dates is less or equal to the "target" provided
+  const dateCalc = (target: number, currentDate: Date, targetDate: Date) => {
+    return (Math.abs(Math.ceil((currentDate.getTime() - targetDate.getTime()) / (1000 * 3600 * 24))) <= target)
+  }
+
+  // filters through an array and filters corresponding to an object structuring what to filter the list for
+  //  The filter object may have properties of an empty string meaning that it should not be filter for
+  const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter ) => {
+    let listFilter: SnapshotOBJ[] = list;
+
+    const { keyword, ...restFilters } = filterOBJ;
+
+    if (keyword && keyword !== "") {
+      const lowercaseKeyword = keyword.toLowerCase();
+      listFilter = listFilter.filter((item: SnapshotOBJ) =>
+        Object.values(item).some(value =>
+          Array.isArray(value)
+            ? value.some(element => element.toLowerCase().includes(lowercaseKeyword))
+            : typeof value === 'string' && value.toLowerCase().includes(lowercaseKeyword)
+        )
+      );
+    }
+
+    Object.entries(restFilters).forEach(([key, value]) => {
+      if (typeof value !== 'string') {
+        if (key === "project") {
+          listFilter = listFilter.filter(item => value.includes(item.project));
+        }
+        if (key === "category") {
+          listFilter = listFilter.filter(item =>
+            item.categories.some(element => value.includes(element))
+          );
+        }
+        if (key === "author") {
+          listFilter = listFilter.filter(item => value.includes(item.author));
+        }
+      } else {
+        if (key === 'date') {
+          const currentDate = new Date();
+          if (value === "Last day")
+            listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)));
+          if (value === "Last month")
+            listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)));
+          if (value === "Last year")
+            listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)));
+        }
+      }
+    });
+
+    return (
+      <ul>
+        {listFilter.map((commit: SnapshotOBJ, i) => (
+          <li key={i}>
+            <span className={"timeline-container-span-" + prjs[i]}></span>
+            <TimelineCommitBlock
+              author={commit.author}
+              title={commit.title}
+              project={commit.project}
+              date={commit.date}
+              descriptions={commit.descriptions}
+              contributors={commit.contributors}
+              hyperlinks={commit.hyperlinks}
+              updatedTime={commit.updatedTime}
+              categories={commit.categories}
+              isLoggedIn={isLoggedIn}
+              onClickDelete = {()=>{
+                setIdToDelete(commit._id);
+                handleClickOpen();
+              }}
+            />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+
+  // The functions within the useEffect will only be called when the user mounts on to the page
+  // so once at the very start of the user entering the Timeline page
+  useEffect(() => {
+    objCommitHTTPS()
+  }, [])
+
+
   let prjs: any[] = []
+
   // hardcode className to display corresponding colors
-  commitsArray.forEach(commit => {
+  commitsArray.forEach((commit: SnapshotOBJ) => {
     let prj = 'others';
     switch (commit.project.toLowerCase()) {
       case 'correlation':
@@ -145,7 +230,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     }
     prjs.push(prj);
   })
-  
+
   return (
     <div className="timeline">
       <div className="timeline-header">
@@ -156,32 +241,43 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       <div className='timeline-sub-header'>
         <p>{TEXT.TIMELINE_PAGE.SUBHEADER}</p>
       </div>
-      <TimelineSearchbar /> 
-      <TimelineFilter />
+      <TimelineSearchbar setFilter={setFilter} filterBy={filterBy} />
+      <TimelineFilter setFilter={setFilter} filterBy={filterBy} />
       <div className="timeline-main-body">
         <div className="timeline-container">
-          <ul>
-            {commitsArray.map((commit, i)=> {
-              return (
-                <li key={i}>
-                  <span className={"timeline-container-span-"+prjs[i]}></span>
-                  <TimelineCommitBlock 
-                    author={commit.author} 
-                    elementChanged={commit.elementChanged} 
-                    project={commit.project} 
-                    date={commit.date} 
-                    descriptions={commit.descriptions} 
-                    contributors={commit.contributors} 
-                    hyperlinks={commit.hyperlinks} 
-                    updatedTime={commit.updatedTime} 
-                    tags={commit.tags} 
-                  />
-                </li>
-              )
-              })}
-          </ul>
+          {
+            success ?
+              <ul>
+                {commitsArray.map((commit: SnapshotOBJ, i) => {
+                  console.log(commit);
+                  return (
+                    <li key={commit._id}>
+                      <span className={"timeline-container-span-" + prjs[i]}></span>
+                      <TimelineCommitBlock
+                        author={commit.author}
+                        title={commit.title}
+                        project={commit.project}
+                        date={commit.date}
+                        descriptions={commit.descriptions}
+                        contributors={commit.contributors}
+                        hyperlinks={commit.hyperlinks}
+                        updatedTime={commit.updatedTime}
+                        categories={commit.categories}
+                        isLoggedIn={isLoggedIn}
+                        onClickDelete = {()=>{
+                          setIdToDelete(commit._id);
+                          handleClickOpen();
+                        }}
+                      />
+                    </li>
+                  )
+                })}
+              </ul> : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
+
+          }
         </div>
       </div>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
     </div>
   );
 };

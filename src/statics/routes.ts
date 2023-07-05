@@ -10,7 +10,7 @@ const ROUTES = {
     OVERVIEW: '/projects/overview',
   },
   PROJECT_DESCRIPTION: '/',
-  JOIN_THE_TEAM: '/join',
+  JOIN_OUR_TEAM: '/join',
   TEAM: '/team',
   CONTACT: '/contact',
   ABOUT: '/about',

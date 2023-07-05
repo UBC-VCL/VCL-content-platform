@@ -1,14 +1,32 @@
 import React from "react";
 import './TimelineSearchbar.css';
+import { SearchFilter  } from '../../pages/Timeline/types';
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { IconButton } from '@mui/material';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
+import {useRef} from 'react'
 
-interface TimelineSearchbarProps {}
+interface TimelineSearchbarProps {
+  setFilter: (obj: SearchFilter ) => void;
+  filterBy: SearchFilter 
+}
 
 const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
+
+  const { setFilter, filterBy } = props;
+
+  const textFieldRef = useRef<HTMLInputElement>(null);
+
+  const handleKeyPress = (event:React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+
+      setFilter({...filterBy, keyword: textFieldRef.current? textFieldRef.current.value : ""})
+    }
+  }
+
 
     return(
         <div  className="TimelineSearchbar" >
@@ -28,6 +46,8 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                 variant="outlined"
                 defaultValue="Search by keyword"
                 sx={{ input: { color: 'rgba(47, 47, 47, 0.8)' }}}
+                onKeyDown={handleKeyPress}
+                inputRef={textFieldRef}
                 onFocus={(e) => e.target.value = ""}
                 InputProps={{
                   startAdornment: (
@@ -40,7 +60,7 @@ const TimelineSearchbar: React.FC<TimelineSearchbarProps> = (props) => {
                       }}
                     >
                       <Box sx={{  ml: 2 }} >
-                        <IconButton><SearchIcon />
+                        <IconButton onClick={() => setFilter({...filterBy, keyword: textFieldRef.current? textFieldRef.current.value : ""})}><SearchIcon />
                         </IconButton>
                       </Box>
                       <Box sx={{ mt: 1, mx: 2 }}>

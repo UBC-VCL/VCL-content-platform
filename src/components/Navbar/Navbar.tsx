@@ -18,7 +18,7 @@ import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
-import VCLIcon from '@statics/images/vcl-icon.svg';
+import VCLIcon from '@statics/images/new-vcl-icon.png';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MobileMenu from '@components/MobileNavbar';
 
@@ -137,11 +137,12 @@ const Navbar: React.FC<{}> = () => {
   return (
     <div className="nav">
       <div className="navbar-menu">
-        <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
           <div className="logo-container">
-            <img src={VCLIcon} alt="VCL logo" />
-            <p>{TEXT.COMMON.TITLE}</p>
+            <a href={ROUTES.HOME}>
+              <img src={VCLIcon} alt="VCL logo" className="vcl-logo"/>
+            </a>
+            <a href={ROUTES.HOME} className="vcl-title-link">{TEXT.COMMON.LAB_TITLE_ONLY}</a>
           </div>
           <div className="nav-right">           
             <span className="nav-rendered-links">{renderedLinks}</span>
@@ -171,7 +172,6 @@ const Navbar: React.FC<{}> = () => {
             )}
           </Menu>
         </Toolbar>
-      </AppBar>
       </div>
         <MobileMenu/>
     </div>

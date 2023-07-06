@@ -19,8 +19,9 @@ import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
 import VCLIcon from '@statics/images/new-vcl-icon.png';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import MobileMenu from '@components/MobileNavbar';
+import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();
@@ -148,15 +149,15 @@ const Navbar: React.FC<{}> = () => {
             <span className="nav-rendered-links">{renderedLinks}</span>
             <div className="nav-icon-container">
               <IconButton onClick={handleSearchBtnClick}>
-                <SearchIcon/>
+                <SearchSharpIcon sx={{ color: "black", fontSize: 32, marginRight: 0.5 }}/>
               </IconButton>
               <IconButton onClick={handleMenuClick}>
-                <AccountCircleIcon/>
+                <AccountCircleOutlinedIcon sx={{ color: "black", fontSize: 36 }}/>
               </IconButton>
             </div>
           </div>
           <Menu
-            id="basic-menu"
+            id="authentication-menu"
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
@@ -166,7 +167,7 @@ const Navbar: React.FC<{}> = () => {
             {isLoggedIn ? (
               <MenuItem onClick={handleLogout}>{TEXT.COMMON.LOGOUT}</MenuItem>
             ) : (
-              <MenuItem onClick={handleOpenLoginModal}>
+              <MenuItem onClick={handleOpenLoginModal} className="login-button">
                 {TEXT.COMMON.LOGIN}
               </MenuItem>
             )}

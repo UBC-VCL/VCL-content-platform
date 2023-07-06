@@ -126,6 +126,15 @@
 	gap: 4px;
 }
 
+#authentication-menu {
+	margin-top: 8px;
+}
+
+.login-button {
+	height: 10px;
+	top: 5px;
+}
+
 @media only screen and (max-width: 1023px) {
 	.logo-container {
 		flex-direction: column;
@@ -146,7 +155,7 @@
 	font-family: 'Poppins';
 	font-style: normal;
 	font-weight: 600;
-	font-size: 15px;
+	font-size: 15.5px;
 	line-height: 22.5px;
 	text-transform: uppercase;
 }

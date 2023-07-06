@@ -1,5 +1,7 @@
 .login-view-root {
-  margin: 28px;
+  margin: 50px;
+  border-radius: 25px;
+  width: 30em;
 }
 
 .login-error {
@@ -7,5 +9,6 @@
 }
 
 .login-view-title {
-  margin-bottom: 28px;
+  font-size: 30px;
+  margin-bottom: 10%;
 }

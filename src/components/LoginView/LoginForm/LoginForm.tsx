@@ -63,11 +63,12 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
         className="login-form-field"
       />
       <Button
+        className="login-button"
         variant="contained"
         disableElevation
         type="submit"
         disabled={props.disabled}>
-        {TEXT.COMMON.SUBMIT}
+        {TEXT.COMMON.LOGIN}
       </Button>
     </form>
   );

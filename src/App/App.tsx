@@ -15,13 +15,13 @@ function App() {
 
   return (
     <div className="App">
-        <Router>
-            <Navbar />
-            <Switch />
-            <Modals />
-            <AlertPopup />
-            <Footer />
-        </Router>
+      <Router>
+        <Navbar />
+        <Switch />
+        <Modals />
+        <AlertPopup />
+        <Footer />
+      </Router>
     </div>
   );
 }

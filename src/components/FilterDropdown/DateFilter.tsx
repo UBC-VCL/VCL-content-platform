@@ -35,9 +35,9 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
 
     return (
         <FormControl sx={{ m: 1, display: 'inline' }}>
-            <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
+            {/* <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
                 {list.name}:
-            </div>
+            </div> */}
             <div style={{ display: 'inline-block' }}>
                 <Select
                     labelId="demo-simple-select-autowidth-label"
@@ -49,18 +49,18 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
                     label="Date"
                     MenuProps={MenuProps}
                     renderValue={(selected) => {
-                        return selected;
+                        return "Date";
                     }}
                     sx={{ width: 120 }}
                 >
-                    {list.options.map((name) => (
+                    {/* {list.options.map((name) => (
                         <MenuItem
                             key={name}
                             value={name}
                         >
                             {name}
                         </MenuItem>
-                    ))}
+                    ))} */}
                 </Select>
             </div>
         </FormControl>

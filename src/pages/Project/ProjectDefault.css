@@ -1,11 +1,10 @@
 .description-container,
-.qa-container,
-.gallery-container {
+.qa-container
+{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    overflow-x: hidden;
 }
 
 .description-container {
@@ -31,24 +30,14 @@
     margin: 0;
 }
 
-.gallery-container {
-    display: flex;
-    height: 30em;
-    justify-content: center;
-    align-items: center;
-    background-color: #1A283B;
-}
-
 h1, h2, h3, p {
     text-align: left;
 }
 
 .top-left-cog {
-    position: absolute; 
-    width: 260px;
-    height: 230px; 
-    top: 0px;
-    left: 175px;
+    height: 226px;
+    margin-top: -12%;
+    margin-left: -27.25%;
 }
 
 .bottom-right-cog {

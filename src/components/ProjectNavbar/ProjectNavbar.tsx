@@ -50,6 +50,7 @@ const DrawerHeader = styled('div')(({theme}) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    zIndex: '5',
 }));
 
 export default function Sidebar(props: any) {
@@ -76,7 +77,7 @@ export default function Sidebar(props: any) {
                     edge="start"
                     sx={{...(open && {display: 'none'})}}
                 >
-                    <MenuIcon sx={{width: "58px", height: "38px"}}/>
+                    <MenuIcon sx={{width: "58px", height: "38px", color: "white", zIndex: '5'}}/>
                 </IconButton>
             </div>
 

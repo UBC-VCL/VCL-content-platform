@@ -11,6 +11,7 @@ import COLORS from '@statics/colors';
 import TopLeftCog from '@statics/images/ProjectDescriptionPage/TopLeftCog.png';
 import BottomRightCog from '@statics/images/ProjectDescriptionPage/BottomRightCog.png';
 import GalleryCog from '@statics/images/ProjectDescriptionPage/GalleryCog.png';
+import ProjectGallery from '@components/ProjectGallery';
 import { callGetProjectByNameAPI, ProjectResponse } from '@services/adapters/projectAdapter';
 import { useLocation } from 'react-router-dom';
 
@@ -74,9 +75,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                 <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
 
             {/* todo gallery component */}
-            <div className='gallery-container'>
-                <p style={{ "color": COLORS.white }}>todo gallery</p>
-            </div>
+            <ProjectGallery />
 
             <VerticalSpacer height={20} />
 

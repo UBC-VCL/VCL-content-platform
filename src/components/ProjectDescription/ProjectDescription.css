@@ -1,4 +1,8 @@
 .project-description-container {
+    z-index: 1;
+}
+
+.description-paragraph-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -6,7 +10,6 @@
     text-align: left;
     flex-wrap: wrap;
     column-gap: 40px;
-    z-index: 1;
 }
 
 .project-description-paragraph-one,

@@ -8,7 +8,8 @@ import TitleCard from '@components/TitleCard/TitleCard';
 import ProjectDescription from '@components/ProjectDescription';
 import VerticalSpacer from '@components/VerticalSpacer/VerticalSpacer';
 import COLORS from '@statics/colors';
-import BackgroundCog from '@statics/images/ProjectDescriptionPage/BottomRightCog.png';
+import TopLeftCog from '@statics/images/ProjectDescriptionPage/TopLeftCog.png';
+import BottomRightCog from '@statics/images/ProjectDescriptionPage/BottomRightCog.png';
 import GalleryCog from '@statics/images/ProjectDescriptionPage/GalleryCog.png';
 import { callGetProjectByNameAPI, ProjectResponse } from '@services/adapters/projectAdapter';
 import { useLocation } from 'react-router-dom';
@@ -52,9 +53,9 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
     return (
         <div className='main'>
             <div className='description-container'>
-                <div className="top-cog-container">
-                    <img src={BackgroundCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
-                </div>
+
+                <img src={TopLeftCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
+                <img src={BottomRightCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
 
                  <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_DESCRIPTION}/> 
 
@@ -70,12 +71,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                     emphasizedStatement = "Although scatter plots are far more common, there’s no evidence of them being more effective than ring strip-plots, or any other possible alternatives."
                 />
             </div>
-
-            <div className="bottom-cog-container">
-                    <img src={BackgroundCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
-            </div>
-
-            <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
+                <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
 
             {/* todo gallery component */}
             <div className='gallery-container'>

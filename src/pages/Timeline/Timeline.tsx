@@ -12,6 +12,10 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const baseURL = process.env.REACT_APP_API_URL;
 
 interface TimelineProps { }
 
@@ -62,25 +66,27 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     setOpenDialog(true);
   }
 
-  const deleteCommit = async (_id: string) => {
-    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`, {
-      headers: {
-        authorization: access_token
-      }
-    })
-      .then((response) => {
-        if (response.status != 200) {
-          throw new Error("did not delete it successfully");
-        }
-        let i = commitsArray.findIndex((snapshot: SnapshotOBJ) => { return snapshot._id == _id });
-        const tempArray = commitsArray.slice();
-        tempArray.splice(i, 1);
-        setCommitArray(tempArray);
-        return Promise.resolve(true);
-      }).catch((err) => {
-        return Promise.reject();
-      })
-  };
+
+  const deleteCommit = async (_id: string) => {   
+    return axios.delete(`${baseURL}/api/snapshots/${_id}`,  { 
+       headers: {
+         authorization: access_token
+       } 
+     })
+       .then((response)=> {
+         if(response.status != 200) {
+           throw new Error("did not delete it successfully");
+         }
+         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
+         const tempArray = commitsArray.slice();
+         tempArray.splice(i, 1);
+         setCommitArray(tempArray);
+         return Promise.resolve(true);
+       }).catch((err)=>{
+         return Promise.reject();
+       })
+   };
+
 
   const [filterBy, setFilter] = useState<SearchFilter >({
     project: ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project', 'NCIS'],
@@ -104,7 +110,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       title: "..." {string}
       } 
     */
-    await axios.get("http://localhost:4000/api/snapshots")
+    await axios.get(`${baseURL}/api/snapshots`)
       .then(response => {
 
         // list for the commitsArray useState

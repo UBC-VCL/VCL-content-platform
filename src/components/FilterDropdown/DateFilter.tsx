@@ -3,6 +3,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { SearchFilter } from "@pages/Timeline/types";
+import  DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -61,6 +62,7 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
                             {name}
                         </MenuItem>
                     ))} */}
+                    <DateRangePicker />
                 </Select>
             </div>
         </FormControl>

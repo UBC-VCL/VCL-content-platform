@@ -12,6 +12,10 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const baseURL = process.env.REACT_APP_API_URL;
 
 interface TimelineProps { }
 
@@ -63,7 +67,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }
 
   const deleteCommit = async (_id: string) => {   
-    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+    return axios.delete(`${baseURL}/api/snapshots/${_id}`,  { 
        headers: {
          authorization: access_token
        } 
@@ -104,7 +108,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       title: "..." {string}
       } 
     */
-    await axios.get("http://localhost:4000/api/snapshots")
+    await axios.get(`${baseURL}/api/snapshots`)
       .then(response => {
 
         // list for the commitsArray useState

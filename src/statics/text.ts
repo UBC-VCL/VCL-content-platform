@@ -30,7 +30,8 @@ const TEXT = {
     OVERVIEW: 'Overview',
     ABOUT: 'About',
     RESOURCES: 'Resources',
-    GET_INVOLVED: 'Get Involved'
+    GET_INVOLVED: 'Get Involved',
+    PUBLICATIONS: 'Publications'
   },
 
   PROJECT_NAV: {
@@ -39,6 +40,7 @@ const TEXT = {
       RESOURCES: 'Resources',
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
+      PUBLICATIONS: 'Publications'
   },
 
   PROJECT_NAMES: {

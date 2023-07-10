@@ -7,6 +7,7 @@
 	left: 0;
 	z-index: 1030;
 	height: auto;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 2px;
 }
 
 .hamburger-menu {
@@ -77,21 +78,6 @@
 	font-size: 19px;
 }
 
-@media only screen and (max-width: 700px) {
-	.hamburger-menu {
-	  display: block;
-	}
-
-	.navbar-menu {
-	  display: none;
-	  height: 0% !important;
-	}
-
-	.nav {
-		height: 100px;
-	}
-}
-
 .logo-container {
 	margin: 4px;
 	display: flex;
@@ -152,29 +138,6 @@
 	}
 }
 
-@media only screen and (max-width: 880px) {
-	.logo-container p {
-		font-size: 12px;
-		width: 120px;
-		text-align: center;
-	}
-
-	.nav-rendered-links > * {
-		font-size: 14px;
-	}
-}
-
-@media (min-width: 700px) {
-	.css-hyum1k-MuiToolbar-root {
-		padding-top: 4px !important;
-		padding-bottom: 4px !important;
-	}
-}
-
-.nav-appbar {
-	margin-bottom: 10px;
-}
-
 .nav-toolbar {
 	box-sizing: border-box;
 	display: flex;
@@ -214,3 +177,47 @@
 .vcl-title-link:hover {
 	text-decoration: none;
 }
+@media only screen and (max-width: 700px) {
+	.hamburger-menu {
+	  display: block;
+	}
+
+	.navbar-menu {
+	  display: none;
+	  height: 0% !important;
+	}
+
+	.nav {
+		height: 100px;
+	}
+}
+
+@media only screen and (max-width: 880px) {
+	.logo-container p {
+		font-size: 12px;
+		width: 120px;
+		text-align: center;
+	}
+
+	.nav-rendered-links > * {
+		font-size: 14px;
+	}
+
+	.vcl-logo {
+		margin-right: 7em;
+	}
+	
+	.vcl-title-link {
+		font-size: 14px;
+		margin-top: -5em;
+	}
+}
+
+@media (min-width: 700px) {
+	.css-hyum1k-MuiToolbar-root {
+		padding-top: 4px !important;
+		padding-bottom: 4px !important;
+	}
+}
+
+

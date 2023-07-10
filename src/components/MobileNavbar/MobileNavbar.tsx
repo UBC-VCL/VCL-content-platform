@@ -13,7 +13,7 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './MobileNavbar.css';
 import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
-import {ReactComponent as VCLIcon} from '@statics/images/vcl-icon2.svg';
+import VCLIcon from '@statics/images/new-vcl-icon.png';
 import { slide as MobileMenu } from 'react-burger-menu';
 
 const MobileNavbar = () => {
@@ -56,7 +56,7 @@ const MobileNavbar = () => {
         <div className="container">
         <AppBar position="fixed" className="mobile-header">
             <div>
-              <VCLIcon/>
+            <img src={VCLIcon} alt="VCL logo" className="mobile-vcl-logo"/>
             <div className="title">{TEXT.COMMON.TITLE}</div>
             </div>
             <div className="row">

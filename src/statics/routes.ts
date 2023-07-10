@@ -15,6 +15,7 @@ const ROUTES = {
   ABOUT: '/about',
   RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
+  PUBLICATIONS: '/publications'
 } as const;
 
 export default ROUTES;

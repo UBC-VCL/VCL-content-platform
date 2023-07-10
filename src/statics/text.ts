@@ -23,22 +23,24 @@ const TEXT = {
   },
 
   PAGE_TITLES: {
-    NAVIGATE: "Navigate",
-    HOME: "Home",
-    TIMELINE: "Timeline",
-    PROJECTS: "Projects",
-    OVERVIEW: "Overview",
-    ABOUT: "About",
-    RESOURCES: "Resources",
-    GET_INVOLVED: "Get Involved",
+    NAVIGATE: 'Navigate',
+    HOME: 'Home',
+    TIMELINE: 'Timeline',
+    PROJECTS: 'Projects',
+    OVERVIEW: 'Overview',
+    ABOUT: 'About',
+    RESOURCES: 'Resources',
+    GET_INVOLVED: 'Get Involved',
+    PUBLICATIONS: 'Publications'
   },
 
   PROJECT_NAV: {
-    PROJECT_DESCRIPTION: "Project Description",
-    JOIN_OUR_TEAM: "Join Our Team",
-    RESOURCES: "Resources",
-    TEAM_AND_ALUMNI: "Team & Alumni",
-    CONTACT: "Contact",
+      PROJECT_DESCRIPTION: 'Project Description',
+      JOIN_OUR_TEAM: 'Join Our Team',
+      RESOURCES: 'Resources',
+      TEAM_AND_ALUMNI: 'Team & Alumni',
+      CONTACT: 'Contact',
+      PUBLICATIONS: 'Publications'
   },
 
   PROJECT_NAMES: {

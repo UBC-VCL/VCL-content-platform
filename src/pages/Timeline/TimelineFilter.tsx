@@ -30,10 +30,10 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   // const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
   // const [dateSelected, setDateSelected] = React.useState('Last Month');
   // const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
-  const [projectSelected, setProjectSelected] = React.useState<string[]>(dummyDataForProject);
-  const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
-  const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
-  const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
+  const [projectSelected, setProjectSelected] = React.useState<string[]>(filterBy.project);
+  const [categorySelected, setCategorySelected] = React.useState<string[]>(filterBy.category);
+  const [dateSelected, setDateSelected] = React.useState(filterBy.date);
+  const [authorSelected, setAuthorSelected] = React.useState<string[]>(filterBy.author);
 
   return (
     <div className='timeline-filter' style={{ display: 'inline' }}>

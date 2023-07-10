@@ -16,8 +16,17 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
+interface Filter {
 
-interface TimelineProps { }
+  project: string[];
+  category: string[];
+  date: string;
+  author: string[];
+  keyword: string;
+};
+interface TimelineProps {
+  defaultFilter: Filter
+};
 
 /** 
 * Paste one or more documents here
@@ -88,13 +97,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
    };
 
 
-  const [filterBy, setFilter] = useState<SearchFilter >({
-    project: ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project', 'NCIS'],
-    category: ['Website', 'Meeting', 'Workshop'],
-    date: "All",
-    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
-    keyword: ""
-  });
+  const [filterBy, setFilter] = useState<SearchFilter >(props.defaultFilter);
+
 
   // creates a http request
   const objCommitHTTPS = async () => {

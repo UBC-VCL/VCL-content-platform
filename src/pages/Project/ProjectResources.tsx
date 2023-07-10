@@ -11,6 +11,7 @@ interface ProjectProps {
 
 const ProjectDefault: React.FC<ProjectProps> = (props) => {
     
+
     const projectTimelineFilter: SearchFilter = {
         project: [],
         category: ['Website', 'Meeting', 'Workshop'],

@@ -1,6 +1,6 @@
 import React from 'react';
 import './TimelineFilter.css';
-import { SearchFilter } from './types';
+import { SearchFilter, dateTuple } from './types';
 
 import { Button } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
@@ -23,7 +23,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
   const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'];
   const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
-  const dummyDataForDate = ['All','Last day', 'Last month', 'Last year'];
+  const dummyDataForDate = ['All', 'Last day', 'Last month', 'Last year'];
   const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
 
   // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
@@ -32,7 +32,8 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   // const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
   const [projectSelected, setProjectSelected] = React.useState<string[]>(dummyDataForProject);
   const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
-  const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
+  // const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
+  const [dateRange, setRange] = React.useState<[dateTuple?, dateTuple?]>([]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
 
   return (
@@ -41,9 +42,13 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
         <div className='filter-dropdown'>
           <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
           <span className='filter-divider'></span>
-          <CategoriesFilter  filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
+          <CategoriesFilter filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
           <span className='filter-divider'></span>
-          <DateFilter filterBy={filterBy} setFilter={setFilter} dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} />
+          <DateFilter filterBy={filterBy} setFilter={setFilter}
+            // dateSelected={dateSelected} setDateSelected={setDateSelected} 
+            dateRange={dateRange}
+            setRange={setRange}
+            dummyData={dummyDataForDate} />
           <span className='filter-divider'></span>
           <AuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
         </div>

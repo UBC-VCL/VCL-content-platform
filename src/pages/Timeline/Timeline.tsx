@@ -85,7 +85,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [filterBy, setFilter] = useState<SearchFilter >({
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
-    date: "All",
+    date: [],
     author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
     keyword: ""
   });
@@ -136,7 +136,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter ) => {
     let listFilter: SnapshotOBJ[] = list;
 
-    const { keyword, ...restFilters } = filterOBJ;
+    const { keyword, date, ...restFilters } = filterOBJ;
 
     if (keyword && keyword !== "") {
       const lowercaseKeyword = keyword.toLowerCase();
@@ -162,17 +162,18 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         if (key === "author") {
           listFilter = listFilter.filter(item => value.includes(item.author));
         }
-      } else {
-        if (key === 'date') {
-          const currentDate = new Date();
-          if (value === "Last day")
-            listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)));
-          if (value === "Last month")
-            listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)));
-          if (value === "Last year")
-            listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)));
-        }
-      }
+      } 
+      // else {
+      //   if (key === 'date') {
+      //     const currentDate = new Date();
+      //     if (value === "Last day")
+      //       listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)));
+      //     if (value === "Last month")
+      //       listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)));
+      //     if (value === "Last year")
+      //       listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)));
+      //   }
+      // }
     });
 
     return (

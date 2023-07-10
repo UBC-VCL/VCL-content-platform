@@ -2,7 +2,7 @@ import React from "react";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { SearchFilter } from "@pages/Timeline/types";
+import { SearchFilter, dateTuple } from "@pages/Timeline/types";
 import  DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
 
 const ITEM_HEIGHT = 48;
@@ -15,10 +15,13 @@ const MenuProps = {
     },
 };
 
-const DateFilter = ({ dateSelected, setDateSelected, dummyData,
+const DateFilter = ({ 
+    // dateSelected, setDateSelected, 
+    dateRange, setRange,
+    dummyData,
     setFilter, filterBy }: {
-        dateSelected: string,
-        setDateSelected: React.Dispatch<React.SetStateAction<string>>,
+        dateRange: [dateTuple?, dateTuple?],
+        setRange: (array:[dateTuple?, dateTuple?]) => void,
         dummyData: string[],
         setFilter: (obj: SearchFilter) => void,
         filterBy: SearchFilter
@@ -28,11 +31,13 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
         'name': 'Date',
         'options': dummyData,
     };
-    const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
-        setDateSelected(event.target.value);
 
-        setFilter({ ...filterBy, date: event.target.value })
-    };
+    // const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
+    //     // setDateSelected(event.target.value);
+
+    //     // setFilter({ ...filterBy, date: event.target.value })
+    // };
+
 
     return (
         <FormControl sx={{ m: 1, display: 'inline' }}>
@@ -45,8 +50,6 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
                     id="demo-simple-select-autowidth"
                     variant="standard"
                     disableUnderline
-                    value={dateSelected}
-                    onChange={handleChange}
                     label="Date"
                     MenuProps={MenuProps}
                     renderValue={(selected) => {
@@ -62,7 +65,7 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
                             {name}
                         </MenuItem>
                     ))} */}
-                    <DateRangePicker />
+                    <DateRangePicker dateRange={dateRange} setRange={setRange} filterBy={filterBy} setFilter={setFilter} />
                 </Select>
             </div>
         </FormControl>

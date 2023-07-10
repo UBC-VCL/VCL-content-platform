@@ -4,7 +4,9 @@
 export interface SearchFilter  {
     project: Array<string>;
     category: Array<string>;
-    date: string; // the logic is that this will either be a Date object or an empty string (meaning it shouldnt filter for this aspect)
+    date: [dateTuple?, dateTuple?]; // Logic is that this will be an array of at max 2 tuples, and a minimum of 0
     author: Array<string>;
     keyword: string;
   }
+
+export type dateTuple = ['initial' | 'target', string]

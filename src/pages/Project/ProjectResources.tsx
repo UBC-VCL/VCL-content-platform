@@ -3,22 +3,15 @@ import { Project } from '@entities/Project';
 import ProjectBreadcrumbs from '@components/ProjectBreadcrumbs';
 import { TEXT } from '@statics';
 import "./Project.css";
-import Timeline from '@pages/Timeline/Timeline';
-
+import {Timeline} from '@pages/Timeline/Timeline';
+import { SearchFilter } from "@pages/Timeline/types";
 interface ProjectProps {
     project : Project,
 }
 
 const ProjectDefault: React.FC<ProjectProps> = (props) => {
-    interface Filter {
-
-        project: string[];
-        category: string[];
-        date: string;
-        author: string[];
-        keyword: string;
-    };
-    const timeLineDefaultFilter: Filter = {
+    
+    const timeLineDefaultFilter: SearchFilter = {
         project: [],
         category: ['Website', 'Meeting', 'Workshop'],
         date: "All",

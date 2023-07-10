@@ -18,15 +18,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
-interface Filter {
-  project: string[];
-  category: string[];
-  date: string;
-  author: string[];
-  keyword: string;
-};
+
 interface TimelineProps {
-  defaultFilter: Filter
+  defaultFilter: SearchFilter
 };
 
 /** 

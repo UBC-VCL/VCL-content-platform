@@ -83,7 +83,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
    };
 
   const [filterBy, setFilter] = useState<SearchFilter >({
-    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
+    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project', 'NCIS'],
     category: ['Website', 'Meeting', 'Workshop'],
     date: "All",
     author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],

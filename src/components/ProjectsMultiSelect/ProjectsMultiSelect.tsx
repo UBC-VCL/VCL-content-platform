@@ -21,6 +21,8 @@ const ProjectsMultiSelect = ({project, setProject}: {
             name: "IT"
         }, {
             name: "Dormant"
+        }, {
+            name: "NCIS"
         }]
 
     return (

@@ -12,7 +12,7 @@ const constants = {
         name: "SHIVA",
         color: "#fece25"
       }, {
-          name: "Perceptual Modes",
+          name: "NCIS",
           color: "#848484"
       }, {
           name: "IDEO",

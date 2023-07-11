@@ -47,6 +47,7 @@ const TEXT = {
     IMG_TRANSITIONS: 'Image Transitions',
     NOVA: 'NOVA',
     PERCEPTUAL_MODES: 'Perceptual Modes',
+    NCIS: 'NCIS',
 },
 
   ALERTS: {

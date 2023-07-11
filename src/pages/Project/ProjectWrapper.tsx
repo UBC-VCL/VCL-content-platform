@@ -37,7 +37,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
     {
         name: "NOVA"
     }, {
-        name: "Perceptual Modes"
+        name: "NCIS"
     }, {
         name: "SHIVA"
     }, {

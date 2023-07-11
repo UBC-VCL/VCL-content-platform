@@ -18,6 +18,8 @@ const Footer = () => {
             name: "IT"
         }, {
             name: "Dormant"
+        }, {
+            name: "NCIS"
         }]
 
     return (

@@ -135,7 +135,7 @@ const Navbar: React.FC<{}> = () => {
   });
 
   return (
-    <div className="nav">
+    <div className="nav" id='nav'>
       <div className="navbar-menu">
         <Toolbar className="nav-toolbar">
           <div className="logo-container">

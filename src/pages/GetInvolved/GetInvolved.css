@@ -8,6 +8,7 @@ html {
     color: #000000;
     font-family: 'Source Sans Pro', sans-serif;
     padding-bottom: -2000px;
+    display: flex;
 }
 
 .Join p + p,
@@ -15,14 +16,31 @@ html {
     margin-top: 12px;
 }
 
-.Join section {
-    margin-left: 22%;
-}
-
 .join-header {
-    margin-left: 15%;
     padding-top: 130px;
     font-family: 'Open Sans', sans-serif;
+}
+
+#info-icon {
+    margin-top: 6%;
+    margin-left: 2rem;
+    transform: rotate(180deg);
+    position: absolute;
+    left: 0;
+    float: left;
+    display: none;
+}
+
+#info-icon:hover {
+    cursor: pointer;
+}
+
+#getInvolvedInfo {
+    display: absolute;
+}
+
+#info-encapsulate {
+    display:relative;
 }
 
 .join-header * {
@@ -36,8 +54,6 @@ html {
 
 
 .role-divider {
-    width: 80%;
-    margin-left: 22%;
 	border: 1.2px solid #8c9fc2;
 }
 

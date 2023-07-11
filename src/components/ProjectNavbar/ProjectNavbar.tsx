@@ -24,6 +24,8 @@ import Correlation from '@pages/Project/Correlation/correlation';
 import ImageTransitions from '@pages/Project/ImageTransitions/imageTransitions';
 import Ideo from '@pages/Project/Ideo/ideo';
 import { width } from '@mui/system';
+import Subpage1 from '@pages/Project/Subpage1';
+import Subpage2 from '@pages/Project/Subpage2';
 
 const drawerWidth = 280;
 
@@ -68,6 +70,7 @@ export default function Sidebar(props: any) {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -117,15 +120,30 @@ export default function Sidebar(props: any) {
                     </ListItem>
                     <Divider sx={{ borderBottomWidth: 1, marginBottom: '35px' }} color='#B2C9EC' />
 
+
                     {props.links.map((link: any, index: any) => (
-                        <ListItem key={link.title}>
-                            <ListItemButton component={Link} to={link.ref}>
-                                <Typography color='#5B7E98' marginLeft='0px'>
-                                    {link.title}
-                                </Typography>
-                            </ListItemButton>
-                        </ListItem>
-                        // if currProject.name == correlation, add subpages
+                        link.title == 'Subpage 1' || link.title == 'Subpage 2' ?
+                        props.currProject.name == 'Correlation' ? 
+                            <div style={{ marginTop: "-4%", marginBottom: "-2%" }}>
+                                <div style={{ marginLeft: "5%" }}>
+                                    <ListItem key='link.title'>
+                                        <ListItemButton component={Link} to={link.ref}>
+                                            <Typography color='#5B7E98' marginLeft='0px'>
+                                            {link.title}
+                                            </Typography>
+                                        </ListItemButton>
+                                    </ListItem>
+                                </div>
+                            </div> :
+                            <div/>
+                            :
+                            <ListItem key={link.title}>
+                                <ListItemButton component={Link} to={link.ref}>
+                                    <Typography color='#5B7E98' marginLeft='0px'>
+                                        {link.title}
+                                    </Typography>
+                                </ListItemButton>
+                            </ListItem>
                     ))}
 
 
@@ -155,9 +173,11 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/publications`} render={() => <ProjectPublications project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/subpage1`} render={() => <Subpage1 project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/subpage2`} render={() => <Subpage2 project={props.currProject} />} />
                     </Switch>
                 </div>
             </Main>
-        </Box>
+        </Box >
     );
 }

@@ -40,7 +40,9 @@ const TEXT = {
       RESOURCES: 'Resources',
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
-      PUBLICATIONS: 'Publications'
+      PUBLICATIONS: 'Publications',
+      SUBPAGE1: 'Subpage 1',
+      SUBPAGE2: 'Subpage 2'
   },
 
   PROJECT_NAMES: {

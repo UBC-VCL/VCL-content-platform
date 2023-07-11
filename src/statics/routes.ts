@@ -15,7 +15,9 @@ const ROUTES = {
   ABOUT: '/about',
   RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
-  PUBLICATIONS: '/publications'
+  PUBLICATIONS: '/publications',
+  SUBPAGE1: '/subpage1',
+  SUBPAGE2: '/subpage2'
 } as const;
 
 export default ROUTES;

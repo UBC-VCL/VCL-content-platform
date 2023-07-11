@@ -8,7 +8,7 @@ interface ProjectProps {
     project : Project,
 }
 
-const ProjectDefault: React.FC<ProjectProps> = (props) => {
+const ProjectPublications: React.FC<ProjectProps> = (props) => {
     return (
         <div className='project-subcontent-container'>
             <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PUBLICATIONS} /> 
@@ -17,4 +17,4 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
     )
 };
 
-export default ProjectDefault;
+export default ProjectPublications;

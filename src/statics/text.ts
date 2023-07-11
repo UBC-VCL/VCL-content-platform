@@ -43,7 +43,7 @@ const TEXT = {
 
   PROJECT_NAMES: {
     CORRELATION: 'Correlation',
-    IDEO: 'IDEO',
+    IDEO: 'Ideo',
     IMG_TRANSITIONS: 'Image Transitions',
     NOVA: 'NOVA',
     PERCEPTUAL_MODES: 'Perceptual Modes',

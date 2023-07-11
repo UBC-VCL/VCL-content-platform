@@ -13,7 +13,7 @@ const Footer = () => {
         }, {
             name: "Perceptual Modes"
         }, {
-            name: "IDEO"
+            name: "Ideo"
         }, {
             name: "IT"
         }, {

@@ -16,7 +16,7 @@ const ProjectsMultiSelect = ({project, setProject}: {
         }, {
             name: "Perceptual Modes"
         }, {
-            name: "IDEO"
+            name: "Ideo"
         }, {
             name: "IT"
         }, {

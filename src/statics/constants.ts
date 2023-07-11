@@ -15,7 +15,7 @@ const constants = {
           name: "NCIS",
           color: "#848484"
       }, {
-          name: "IDEO",
+          name: "Ideo",
           color: "#f66364"
       }, {
           name: "IT",

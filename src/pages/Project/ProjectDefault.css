@@ -1,6 +1,6 @@
 .description-container,
-.qa-container,
-.gallery-container {
+.qa-container
+{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -30,14 +30,28 @@
     margin: 0;
 }
 
-.gallery-container {
-    display: flex;
-    height: 30em;
-    justify-content: center;
-    align-items: center;
-    background-color: #1A283B;
-}
-
 h1, h2, h3, p {
     text-align: left;
 }
+
+.top-left-cog {
+    height: 226px;
+    margin-top: -12%;
+    margin-left: -27.25%;
+}
+
+.bottom-right-cog {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 77em;
+    top: 300px; 
+}
+
+.gallery-cog {
+    position: absolute;
+    left: 125px;
+    margin-top: 5%;
+}
+
+

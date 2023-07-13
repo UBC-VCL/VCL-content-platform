@@ -15,7 +15,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import { Link } from "react-router-dom";
 import { Route, Switch } from "react-router";
-import { ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam, ProjectPublications } from "@pages/Project";
+import { ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam, ProjectTimeline } from "@pages/Project";
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import { Button } from "@mui/material";
 import { ROUTES } from "@statics";
@@ -169,7 +169,7 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/join`} render={() => <ProjectJoin project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/publications`} render={() => <ProjectPublications project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/timeline`} render={() => <ProjectTimeline project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/subpage1`} render={() => <Subpage1 project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/subpage2`} render={() => <Subpage2 project={props.currProject} />} />
                     </Switch>

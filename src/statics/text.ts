@@ -31,7 +31,7 @@ const TEXT = {
     ABOUT: 'About',
     RESOURCES: 'Resources',
     GET_INVOLVED: 'Get Involved',
-    PUBLICATIONS: 'Publications'
+    PROJECTTIMELINE: 'Timeline'
   },
 
   PROJECT_NAV: {
@@ -40,7 +40,7 @@ const TEXT = {
       RESOURCES: 'Resources',
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
-      PUBLICATIONS: 'Publications',
+      PROJECTTIMELINE: 'Timeline',
       SUBPAGE1: 'Subpage 1',
       SUBPAGE2: 'Subpage 2'
   },

@@ -2,26 +2,41 @@ import React from 'react'
 import { useRef } from 'react'
 import './DateRangePicker.css'
 import { SearchFilter, dateTuple } from "@pages/Timeline/types";
+import { date } from 'yup';
 
 interface PropsOBJ {
     dateRange: [dateTuple?, dateTuple?],
-    setRange: (array:[dateTuple?, dateTuple?]) => void,
+    setRange: (array: [dateTuple, dateTuple]) => void,
     filterBy: SearchFilter,
     setFilter: (obj: SearchFilter) => void
 }
 
-const DateRangePicker = (props:PropsOBJ) => {
+const DateRangePicker = (props: PropsOBJ) => {
 
-    const { dateRange, setRange, filterBy, setFilter} = props;
+    const { dateRange, setRange, filterBy, setFilter } = props;
 
-    const handleChange = (tupleComp:string, date:string) => {
-        
+    const initialDate = useRef<HTMLInputElement>(null);
+    const targetDate = useRef<HTMLInputElement>(null);
+
+    const handleChange = () => {
+        setRange([
+            ['initial', initialDate.current?.value? initialDate.current.value : ""],
+            ['target', targetDate.current?.value? targetDate.current.value : ""]
+        ])
+
+        setFilter({...filterBy, date: [
+            ['initial', initialDate.current?.value ? initialDate.current.value : ""],
+            ['target', targetDate.current?.value ? targetDate.current.value : ""]
+        ]})
+
+        console.log(dateRange)
+        console.log(filterBy)
     }
 
     return (
         <div className='date-range-div'>
             <div className='input-div'>
-                <input type='date' id='initial-date-input' className='date-input' />
+                <input type='date' id='initial-date-input' className='date-input' ref={initialDate} required />
                 <div className='range-divider'>
                     <div className='range-divider-line'></div>
                     <p className='range-divider-text'>
@@ -29,9 +44,9 @@ const DateRangePicker = (props:PropsOBJ) => {
                     </p>
                     <div className='range-divider-line'></div>
                 </div>
-                <input type='date' id='target-date-input' className='date-input' />
+                <input type='date' id='target-date-input' className='date-input' ref={targetDate} required />
                 <div className='button-div'>
-                    <div className='submit-button'>
+                    <div className='submit-button' onClick={handleChange}>
                         <p>
                             Submit
                         </p>

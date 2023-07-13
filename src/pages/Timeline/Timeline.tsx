@@ -12,6 +12,7 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
+import { SnapshotOBJ } from "./types";
 
 interface TimelineProps { }
 
@@ -20,19 +21,7 @@ interface TimelineProps { }
 */
 const Timeline: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
-  // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
-  interface SnapshotOBJ {
-    _id: string;
-    author: string;
-    title: string;
-    project: string;
-    date: Date;
-    categories: Array<string>;
-    descriptions: Array<string>;
-    hyperlinks: Array<string>;
-    contributors: Array<string>;
-    updatedTime: string;
-  }
+  
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
@@ -85,7 +74,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [filterBy, setFilter] = useState<SearchFilter >({
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
-    date: [],
+    date: [['initial', ""], ['target', ""]],
     author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
     keyword: ""
   });
@@ -147,6 +136,24 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             : typeof value === 'string' && value.toLowerCase().includes(lowercaseKeyword)
         )
       );
+    }
+
+    if (date[0][1] != '') {
+      const initialDate = new Date(date[0][1])
+      
+      listFilter = listFilter.filter((item:SnapshotOBJ) => {
+        const itemDate = new Date(item.date)
+        return itemDate >= initialDate
+      })
+    }
+
+    if (date[1][1] != '') {
+      const targetDate = new Date(date[1][1])
+      
+      listFilter = listFilter.filter((item:SnapshotOBJ) => {
+        const itemDate = new Date(item.date)
+        return itemDate <= targetDate
+      })
     }
 
     Object.entries(restFilters).forEach(([key, value]) => {

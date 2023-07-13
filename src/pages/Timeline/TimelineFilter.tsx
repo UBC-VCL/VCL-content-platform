@@ -9,8 +9,6 @@ import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 
 
-
-
 interface PropsOBJ {
   setFilter: (obj: SearchFilter) => void;
   filterBy: SearchFilter;
@@ -33,7 +31,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   const [projectSelected, setProjectSelected] = React.useState<string[]>(dummyDataForProject);
   const [categorySelected, setCategorySelected] = React.useState<string[]>(dummyDataForCategory);
   // const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
-  const [dateRange, setRange] = React.useState<[dateTuple?, dateTuple?]>([]);
+  const [dateRange, setRange] = React.useState<[dateTuple, dateTuple]>([['initial', ""], ['target', ""]]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
 
   return (

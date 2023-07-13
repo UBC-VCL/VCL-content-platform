@@ -21,7 +21,7 @@ const DateFilter = ({
     dummyData,
     setFilter, filterBy }: {
         dateRange: [dateTuple?, dateTuple?],
-        setRange: (array:[dateTuple?, dateTuple?]) => void,
+        setRange: (array:[dateTuple, dateTuple]) => void,
         dummyData: string[],
         setFilter: (obj: SearchFilter) => void,
         filterBy: SearchFilter
@@ -51,10 +51,9 @@ const DateFilter = ({
                     variant="standard"
                     disableUnderline
                     label="Date"
+                    value={"Date"}
                     MenuProps={MenuProps}
-                    renderValue={(selected) => {
-                        return "Date";
-                    }}
+                    renderValue={() => "Date"}
                     sx={{ width: 120 }}
                 >
                     {/* {list.options.map((name) => (

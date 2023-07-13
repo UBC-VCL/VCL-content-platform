@@ -4,10 +4,16 @@
     gap: 7px;
 }
 
-.underline {
-    border-bottom: 1px solid black;
-    width: 90px;
-    margin-bottom: 20px;
+.section-title {
+    line-height: 45px;
+    letter-spacing: 2.5px;
+    margin-bottom: 6%;
+}
+
+.section-title-underline {
+    border-bottom: 4px solid #8EA9D2;
+    width: 110px;
+    margin-bottom: 50px;
 }
 
 h1, h2 {

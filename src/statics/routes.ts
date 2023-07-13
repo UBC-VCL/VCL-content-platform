@@ -15,7 +15,7 @@ const ROUTES = {
   ABOUT: '/about',
   RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
-  PUBLICATIONS: '/publications',
+  PROJECTTIMELINE: '/timeline',
   SUBPAGE1: '/subpage1',
   SUBPAGE2: '/subpage2'
 } as const;

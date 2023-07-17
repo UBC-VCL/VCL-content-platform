@@ -11,14 +11,14 @@ interface ProjectProps {
 
 const ProjectDefault: React.FC<ProjectProps> = (props) => {
     
-    const timeLineDefaultFilter: SearchFilter = {
+    const projectTimelineFilter: SearchFilter = {
         project: [],
         category: ['Website', 'Meeting', 'Workshop'],
         date: "All",
         author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
         keyword: ""
     };
-    timeLineDefaultFilter.project.push(props.project.name);
+    projectTimelineFilter.project.push(props.project.name);
     if(props.project.name != "IDEO") {
         return (
             <div className='project-subcontent-container'>
@@ -30,7 +30,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
         return (
             <div className='project-subcontent-container'>
                 <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.RESOURCES} /> 
-                <Timeline defaultFilter={timeLineDefaultFilter}/>
+                <Timeline defaultFilter={projectTimelineFilter}/>
             </div>
         )
     }

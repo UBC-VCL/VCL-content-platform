@@ -6,7 +6,7 @@ import { date } from 'yup';
 
 interface PropsOBJ {
     dateRange: [dateTuple?, dateTuple?],
-    setRange: (array: [dateTuple, dateTuple]) => void,
+    setDateRange: (array: [dateTuple, dateTuple]) => void,
     filterBy: SearchFilter,
     setFilter: (obj: SearchFilter) => void
 }

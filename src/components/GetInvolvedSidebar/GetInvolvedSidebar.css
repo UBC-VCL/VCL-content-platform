@@ -156,13 +156,13 @@ ul {
     animation-name: slide-in;
     display:block;
     animation-timing-function: linear;
-    animation-duration: 0.5s;
+    animation-duration: 0.4s;
 }
 
 .animationOff {
     animation-name: slide-out;
     animation-timing-function: linear;
-    animation-duration: 0.5s;
+    animation-duration: 0.4s;
 }
 
 @keyframes slide-in {

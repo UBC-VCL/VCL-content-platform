@@ -34,18 +34,27 @@ h1, h2, h3, p {
     text-align: left;
 }
 
+.top-cog-container {
+    position: absolute;
+    margin-left: -260px;
+    margin-top: -120px;
+}
+
 .top-left-cog {
     height: 226px;
-    margin-top: -12%;
-    margin-left: -27.25%;
+    flex-shrink:0;
+}
+
+.bottom-cog-container {
+    position: absolute;
+    left: 77em;
+    top: 300px; 
 }
 
 .bottom-right-cog {
-    position: absolute;
     width: 400px;
     height: 400px;
-    left: 77em;
-    top: 300px; 
+    flex-shrink: 0;
 }
 
 .gallery-cog {

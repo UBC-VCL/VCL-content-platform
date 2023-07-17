@@ -13,7 +13,7 @@ const About: React.FC<AboutProps> = (props) => {
   return (
     <div className="About">
       <div className="header">
-        <p className="header-text">About the Lab</p>
+        <p className="header-text">About the Visual Cognition Lab</p>
         <div className="title-underline"></div>
       </div>
       <div className="main-body">

@@ -42,12 +42,13 @@ const TEXT = {
   },
 
   PROJECT_NAMES: {
-    CORRELATION: "Correlation",
-    IDEO: "IDEO",
-    IMG_TRANSITIONS: "Image Transitions",
-    NOVA: "NOVA",
-    PERCEPTUAL_MODES: "Perceptual Modes",
-  },
+    CORRELATION: 'Correlation',
+    IDEO: 'Ideo',
+    IMG_TRANSITIONS: 'Image Transitions',
+    NOVA: 'NOVA',
+    SHIVA: 'SHIVA',
+    NCIS: 'NCIS',
+},
 
   ALERTS: {
     AUTH_SUCCESS: "Authentication successful.",

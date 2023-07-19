@@ -11,11 +11,13 @@ const Footer = () => {
         {
             name: "NOVA"
         }, {
-            name: "Perceptual Modes"
+            name: "SHIVA"
         }, {
-            name: "IDEO"
+            name: "Ideo"
         }, {
-            name: "IT"
+            name: "Image Transitions"
+        }, {
+            name: "NCIS"
         }, {
             name: "Dormant"
         }]

@@ -1,8 +1,10 @@
 import React from 'react';
 import './TimelineFilter.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { SearchFilter } from './types';
 
-import { Button } from "@mui/material";
+import { Button, MenuItem } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
@@ -13,6 +15,7 @@ import { useAppSelector } from '@redux/hooks';
 
 
 
+import MobileFilterDropdown from '@components/FilterDropdown/MobileFilterDropdown';
 
 interface PropsOBJ {
   setFilter: (obj: SearchFilter) => void;
@@ -24,9 +27,9 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   // Destrcuturing the props
   const { setFilter, filterBy } = props;
 
-  const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'];
+  const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project', 'NCIS'];
   const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
-  const dummyDataForDate = ['All','Last day', 'Last month', 'Last year'];
+  const dummyDataForDate = ['All', 'Last day', 'Last month', 'Last year'];
   const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
 
   // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
@@ -38,6 +41,25 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
 
+  const [isMobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth <= 1000) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth <= 1000) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
+    };
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
   const history = useHistory();
 
   const handleAddEntry = () => {
@@ -48,6 +70,11 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
   return (
     <div className='timeline-filter' style={{ display: 'inline' }}>
+      {isMobile ? (
+
+      <div className='filter-dropdown-mobile'><MobileFilterDropdown  setFilter={setFilter} filterBy={filterBy}/></div>
+
+      ) : (
       <div style={{ display: 'inline-block' }}>
         <div className='filter-dropdown'>
           <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
@@ -78,6 +105,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
           </div>
         }
     </div>
+      )}
     </div>
   );
 }

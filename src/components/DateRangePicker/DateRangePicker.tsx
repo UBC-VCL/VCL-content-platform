@@ -13,13 +13,13 @@ interface PropsOBJ {
 
 const DateRangePicker = (props: PropsOBJ) => {
 
-    const { dateRange, setRange, filterBy, setFilter } = props;
+    const { dateRange, setDateRange, filterBy, setFilter } = props;
 
     const initialDate = useRef<HTMLInputElement>(null);
     const targetDate = useRef<HTMLInputElement>(null);
 
     const handleChange = () => {
-        setRange([
+        setDateRange([
             ['initial', initialDate.current?.value? initialDate.current.value : ""],
             ['target', targetDate.current?.value? targetDate.current.value : ""]
         ])

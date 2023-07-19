@@ -64,7 +64,7 @@ const DateFilter = ({
                             {name}
                         </MenuItem>
                     ))} */}
-                    <DateRangePicker dateRange={dateRange} setRange={setRange} filterBy={filterBy} setFilter={setFilter} />
+                    <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} />
                 </Select>
             </div>
         </FormControl>

@@ -1,6 +1,6 @@
 import React from "react";
 import './Timeline.css';
-import { SearchFilter  } from "./types";
+import { SearchFilter } from "./types";
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
@@ -45,7 +45,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [success, setSuccess] = useState<boolean>(true)
 
 
-    // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
   // If user click the delete icon on the top right of each timeline box, then openDialog = true,
   // If user close the pop up window, then openDialog = false.
   // It is set to false by default
@@ -55,34 +55,34 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [idToDelete, setIdToDelete] = useState<string>("");
 
   // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
-  const handleClose =  ()=> {
+  const handleClose = () => {
     setOpenDialog(false);
   }
-  const handleClickOpen = ()=>{
+  const handleClickOpen = () => {
     setOpenDialog(true);
   }
 
-  const deleteCommit = async (_id: string) => {   
-    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
-       headers: {
-         authorization: access_token
-       } 
-     })
-       .then((response)=> {
-         if(response.status != 200) {
-           throw new Error("did not delete it successfully");
-         }
-         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
-         const tempArray = commitsArray.slice();
-         tempArray.splice(i, 1);
-         setCommitArray(tempArray);
-         return Promise.resolve(true);
-       }).catch((err)=>{
-         return Promise.reject();
-       })
-   };
+  const deleteCommit = async (_id: string) => {
+    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`, {
+      headers: {
+        authorization: access_token
+      }
+    })
+      .then((response) => {
+        if (response.status != 200) {
+          throw new Error("did not delete it successfully");
+        }
+        let i = commitsArray.findIndex((snapshot: SnapshotOBJ) => { return snapshot._id == _id });
+        const tempArray = commitsArray.slice();
+        tempArray.splice(i, 1);
+        setCommitArray(tempArray);
+        return Promise.resolve(true);
+      }).catch((err) => {
+        return Promise.reject();
+      })
+  };
 
-  const [filterBy, setFilter] = useState<SearchFilter >({
+  const [filterBy, setFilter] = useState<SearchFilter>({
     project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
     category: ['Website', 'Meeting', 'Workshop'],
     date: "All",
@@ -133,7 +133,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
-  const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter ) => {
+  const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter) => {
     let listFilter: SnapshotOBJ[] = list;
 
     const { keyword, ...restFilters } = filterOBJ;
@@ -191,7 +191,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
               updatedTime={commit.updatedTime}
               categories={commit.categories}
               isLoggedIn={isLoggedIn}
-              onClickDelete = {()=>{
+              onClickDelete={() => {
                 setIdToDelete(commit._id);
                 handleClickOpen();
               }}
@@ -247,11 +247,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray,filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
+              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
           }
         </div>
       </div>
-      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={() => { return deleteCommit(idToDelete) }} />
     </div>
   );
 };

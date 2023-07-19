@@ -95,6 +95,66 @@
     left: -12px;
 }
 
+@media (max-width: 650px) {
+    .timeline {
+        width: 647px;
+        margin-top: 130px;
+        padding-right: -10px;
+    }
+
+    .timeline-header {
+        margin: 0 auto;
+    }
+
+    .timeline-header h1 {
+        width: fit-content;
+        height: fit-content;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .timeline-sub-header {
+        width: fit-content;
+        height: fit-content;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+
+    .timeline-commit-header-text {
+        width: 85%;
+        margin-bottom: 5px;;
+    }
+
+    /*
+    .filter-dropdown {
+        visibility: hidden;
+        height: 0;
+    }
+    */
+
+    .timeline ul {
+        width: 103%;
+    }
+
+    .timeline-commit-date {
+        width: 100px;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .footer {
+        width: 170%;
+        font-size: 25px;
+    }
+
+    .footer h3 {
+        font-size: 25px;
+    }
+
+    
+}
+
 @media (max-width: 1023px) {
     .timeline-main-body {
         width: 90%;

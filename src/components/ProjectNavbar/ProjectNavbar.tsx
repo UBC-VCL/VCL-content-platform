@@ -77,7 +77,7 @@ export default function Sidebar(props: any) {
                     edge="start"
                     sx={{...(open && {display: 'none'})}}
                 >
-                    <MenuIcon sx={{width: "58px", height: "38px", color: "white", zIndex: '5'}}/>
+                    <MenuIcon sx={{width: "58px", height: "38px", color: "white"}}/>
                 </IconButton>
             </div>
 
@@ -98,7 +98,7 @@ export default function Sidebar(props: any) {
             >
                 <div className='DrawerHeader'>
                 <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose} style={{marginTop:"25%"}}>
+                    <IconButton onClick={handleDrawerClose} style={{marginTop:"25%", zIndex: "2"}}>
                         {theme.direction === 'ltr' ? <FirstPageTwoToneIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </DrawerHeader>

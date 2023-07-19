@@ -1,13 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Navbar from '@components/Navbar';
-import { useHandleCheckAuth } from '@services/authService';
-import { useHandleGetAllProjects } from '@services/projectService'
-import AlertPopup from '@components/AlertPopup';
-import Switch from './Switch';
-import Modals from './Modals';
-import Footer from '@components/Footer'
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "@components/Navbar";
+import { useHandleCheckAuth } from "@services/authService";
+import { useHandleGetAllProjects } from "@services/projectService";
+import Switch from "./Switch";
+import Modals from "./Modals";
+import Footer from "@components/Footer";
+import "./App.css";
 
 function App() {
   useHandleCheckAuth();
@@ -15,13 +14,12 @@ function App() {
 
   return (
     <div className="App">
-        <Router>
-            <Navbar />
-            <Switch />
-            <Modals />
-            <AlertPopup />
-            <Footer />
-        </Router>
+      <Router>
+        <Navbar />
+        <Switch />
+        <Modals />
+        <Footer />
+      </Router>
     </div>
   );
 }

@@ -202,6 +202,15 @@
 	.nav-rendered-links > * {
 		font-size: 14px;
 	}
+
+	.vcl-logo {
+		margin-right: 7em;
+	}
+	
+	.vcl-title-link {
+		font-size: 14px;
+		margin-top: -5em;
+	}
 }
 
 @media (min-width: 700px) {

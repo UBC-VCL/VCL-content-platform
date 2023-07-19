@@ -1,6 +1,6 @@
 .description-container,
-.qa-container,
-.gallery-container {
+.qa-container
+{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -30,14 +30,37 @@
     margin: 0;
 }
 
-.gallery-container {
-    display: flex;
-    height: 30em;
-    justify-content: center;
-    align-items: center;
-    background-color: #1A283B;
-}
-
 h1, h2, h3, p {
     text-align: left;
 }
+
+.top-cog-container {
+    position: absolute;
+    margin-left: -260px;
+    margin-top: -120px;
+}
+
+.top-left-cog {
+    height: 226px;
+    flex-shrink:0;
+}
+
+.bottom-cog-container {
+    position: absolute;
+    left: 77em;
+    top: 300px; 
+}
+
+.bottom-right-cog {
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+}
+
+.gallery-cog {
+    position: absolute;
+    left: 125px;
+    margin-top: 5%;
+}
+
+

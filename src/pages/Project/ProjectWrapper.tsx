@@ -43,8 +43,6 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
     }, {
         name: "Ideo"
     }, {
-        name: "IT"
-    }, {
         name: "Dormant"
     },
     {

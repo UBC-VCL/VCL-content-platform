@@ -46,7 +46,7 @@ const TEXT = {
     IDEO: 'Ideo',
     IMG_TRANSITIONS: 'Image Transitions',
     NOVA: 'NOVA',
-    PERCEPTUAL_MODES: 'Perceptual Modes',
+    SHIVA: 'SHIVA',
     NCIS: 'NCIS',
 },
 

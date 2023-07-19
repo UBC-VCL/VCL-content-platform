@@ -14,11 +14,11 @@ const ProjectsMultiSelect = ({project, setProject}: {
         {
             name: "Nova"
         }, {
-            name: "Perceptual Modes"
+            name: "SHIVA"
         }, {
             name: "Ideo"
         }, {
-            name: "IT"
+            name: "Image Transitions"
         }, {
             name: "Dormant"
         }, {

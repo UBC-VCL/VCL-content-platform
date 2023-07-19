@@ -18,9 +18,6 @@ const constants = {
           name: "Ideo",
           color: "#f66364"
       }, {
-          name: "IT",
-          color: "#848484"
-      }, {
         name: "Image Transitions",
         color: "#848484"
       }, {

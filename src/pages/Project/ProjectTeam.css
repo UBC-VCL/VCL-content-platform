@@ -16,6 +16,8 @@ body {
     position: relative;
     flex-direction: column;
     width: 100%;
+    position: relative;
+    /* top: -50vh; */
 }
 
 .team-header {
@@ -46,4 +48,33 @@ hr {
     justify-content: flex-end;
     width: 100%;
 
+}
+
+.add-mem-button-div {
+    color: white;
+    width: fit-content;
+    padding: .5rem 1.25rem;
+    height: full;
+    background-color: #80A3CC;
+    border-radius: 25px;
+    margin-left: auto;
+}
+
+.add-mem-button-div:hover {
+    cursor: pointer;
+    user-select: none;
+    background-color: #3980d0;
+    transition: background-color .25s;
+}
+
+.add-viewing-div {
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    margin: 0 auto;
 }

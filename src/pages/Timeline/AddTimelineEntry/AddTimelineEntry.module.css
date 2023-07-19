@@ -37,6 +37,7 @@ main {
 .basicInfo {
     display: flex;
     flex-direction: column;
+    width: 25vw;
     gap: 28px;
 }
 

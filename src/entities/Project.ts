@@ -9,4 +9,10 @@ export interface Project {
     isActive?: boolean,
     key?: string,
     qa?: {q:string, a: string}[],
+    joinTeam?: {
+        whatWeDo: {
+            p1?:string;
+            p2?:string;
+        }
+    },
 }

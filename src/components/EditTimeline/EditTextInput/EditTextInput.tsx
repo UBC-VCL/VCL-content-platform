@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useAppSelector, useAppDispatch } from '@redux/hooks';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import { appActions } from '@redux/slices/AppRedux';
-import { FormControl, MenuItem, InputLabel, OutlinedInput } from '@mui/material';
+import { FormControl, MenuItem, InputLabel, OutlinedInput, Checkbox } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 type Props = {
@@ -19,6 +19,14 @@ interface memberProps {
   lastName: string;
   _id: string;
 }
+
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: "10vw"
+    },
+  },
+};
 
 const EditTextInput = ({timeline, setTimeline}: Props) => {
   const [contributors, setContributors] = React.useState<string[]>([]);
@@ -81,6 +89,7 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
           value={timeline.author}
           label="Author"
           onChange={handleChangeAuthor}
+          MenuProps={MenuProps}
         >
           {members.map((member, i) => (
             <MenuItem key={i} value={member._id}>
@@ -103,6 +112,7 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
           value={contributors}
           onChange={handleChangeContributors}
           input={<OutlinedInput label="Contributors" />}
+          MenuProps={MenuProps}
         >
           {members.map((member, i) => (
             <MenuItem key={i} value={member._id}>

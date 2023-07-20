@@ -35,6 +35,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   const [dateSelected, setDateSelected] = React.useState(filterBy.date);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(filterBy.author);
 
+
   const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
+
 
   return (
     <div className='timeline-filter-main'>

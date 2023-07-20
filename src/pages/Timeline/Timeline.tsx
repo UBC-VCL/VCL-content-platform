@@ -90,6 +90,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
    };
 
 
+
   const [filterBy, setFilter] = useState<SearchFilter >(props.defaultFilter);
 
 

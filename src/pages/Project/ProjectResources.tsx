@@ -29,8 +29,10 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
     } else {
         return (
             <div className='project-subcontent-container'>
-                <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.RESOURCES} /> 
-                <Timeline defaultFilter={projectTimelineFilter}/>
+                <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.RESOURCES} />
+                <div style={{ transform: `scale(0.8)`, transformOrigin: 'top left' }}>
+                    <Timeline defaultFilter={projectTimelineFilter} />
+                </div>
             </div>
         )
     }

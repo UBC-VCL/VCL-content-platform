@@ -19,7 +19,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
         keyword: ""
     };
     projectTimelineFilter.project.push(props.project.name);
-    if(props.project.name != "IDEO") {
+    if(props.project.name != "Ideo") {
         return (
             <div className='project-subcontent-container'>
                 <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.RESOURCES} /> 

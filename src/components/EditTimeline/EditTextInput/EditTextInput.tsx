@@ -60,10 +60,10 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
     setTimeline(prev => ({...prev, author: value}));
   }
 
-  const handleChangeContributors = (event: SelectChangeEvent) => {
+  const handleChangeContributors = (event: SelectChangeEvent<typeof contributors>) => {
     const { value } = event.target;
-    setTimeline(prev => ({...prev, contributors: value.join(', ')}));
     const currentContributor = typeof value === 'string' ? value.split(',') : value;
+    setTimeline(prev => ({...prev, contributors: currentContributor.join(', ')}));
     setContributors(currentContributor);
   }
 

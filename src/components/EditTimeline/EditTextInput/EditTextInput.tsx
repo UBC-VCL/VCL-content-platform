@@ -72,7 +72,7 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
     setIsValid(prev => ({...prev, [name]: true}));
     setTimeline(prev => ({...prev, [name]: value}));
   }
-  console.log(timeline);
+
   return (
     <div className={styles.textInputs}>
       <FormControl fullWidth>

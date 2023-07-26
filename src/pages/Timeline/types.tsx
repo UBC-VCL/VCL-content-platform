@@ -4,7 +4,7 @@
 export interface SearchFilter  {
     project: Array<string>;
     category: Array<string>;
-    date: [dateTuple, dateTuple]; // Logic is that this will be an array of at max 2 tuples, and a minimum of 0
+    date: [['initial', string], ['target', string]]; // Logic is that this will be an array of at max 2 tuples, and a minimum of 0
     author: Array<string>;
     keyword: string;
   }

@@ -140,6 +140,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
     if (date[0][1] != '') {
       const initialDate = new Date(date[0][1])
+
+      // console.log(date[0][1])
       
       listFilter = listFilter.filter((item:SnapshotOBJ) => {
         const itemDate = new Date(item.date)

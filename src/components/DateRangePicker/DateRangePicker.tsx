@@ -19,24 +19,34 @@ const DateRangePicker = (props: PropsOBJ) => {
     const targetDate = useRef<HTMLInputElement>(null);
 
     const handleChange = () => {
-        setDateRange([
-            ['initial', initialDate.current?.value? initialDate.current.value : ""],
-            ['target', targetDate.current?.value? targetDate.current.value : ""]
-        ])
 
-        setFilter({...filterBy, date: [
+        // This is here for the case where the target date is before the initial date, this will switch the two values before setting values
+        if (initialDate.current?.value && targetDate.current?.value && (new Date(targetDate.current?.value) < new Date(initialDate.current?.value))) {
+            const initialBeforeSwitch = initialDate.current.value
+            const targetBeforeSwitch = targetDate.current.value
+
+            initialDate.current.value = targetBeforeSwitch;
+            targetDate.current.value = initialBeforeSwitch;
+        }
+
+        setDateRange([
             ['initial', initialDate.current?.value ? initialDate.current.value : ""],
             ['target', targetDate.current?.value ? targetDate.current.value : ""]
-        ]})
+        ])
 
-        console.log(dateRange)
-        console.log(filterBy)
+        setFilter({
+            ...filterBy, date: [
+                ['initial', initialDate.current?.value ? initialDate.current.value : ""],
+                ['target', targetDate.current?.value ? targetDate.current.value : ""]
+            ]
+        })
     }
 
     return (
         <div className='date-range-div'>
             <div className='input-div'>
-                <input type='date' id='initial-date-input' className='date-input' ref={initialDate} required />
+                <input type='date' id='initial-date-input' className='date-input' ref={initialDate}
+                />
                 <div className='range-divider'>
                     <div className='range-divider-line'></div>
                     <p className='range-divider-text'>

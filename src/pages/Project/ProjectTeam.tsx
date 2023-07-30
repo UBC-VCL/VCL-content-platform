@@ -2,6 +2,7 @@ import React from 'react';
 import { Project } from '@entities/Project'
 import ProjectBreadcrumbs from '@components/ProjectBreadcrumbs'
 import { Person } from '../../components/ProjectPeople/ProjectPeople';
+import ProjectAddMember from '@components/ProjectAddMember/ProjectAddMember';
 import { TEXT } from '@statics'
 import "./ProjectTeam.css";
 import "./Project.css";
@@ -17,11 +18,10 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
 
     return (
         <div className='project-subcontent-container'>
+
+            <ProjectAddMember isVisible={viewState} setVisibility={setViewState}/>
             
-            <div className='add-viewing-div' style={{ display: viewState ? 'block' : 'none' }}>
-            
-            </div>
-            <div className="project-team" style={{ pointerEvents: viewState ? 'none' : 'auto'}}>
+            <div className="project-team" style={{ pointerEvents: viewState ? 'none' : 'auto', filter: viewState ? "blur(5px)" : ""}}>
                 <div>
                     <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.TEAM_AND_ALUMNI} />
                 </div>

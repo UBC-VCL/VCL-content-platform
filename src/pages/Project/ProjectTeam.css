@@ -66,15 +66,3 @@ hr {
     background-color: #3980d0;
     transition: background-color .25s;
 }
-
-.add-viewing-div {
-    position: fixed;
-    width: 50vw;
-    height: 50vh;
-    background-color: black;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    margin: 0 auto;
-}

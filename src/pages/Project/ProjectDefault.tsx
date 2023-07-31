@@ -63,8 +63,12 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
         <div className='main'>
             <div className='description-container'>
 
-                <img src={TopLeftCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
-                <img src={BottomRightCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
+                <div className="top-cog-container">
+                    <img src={TopLeftCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
+                </div>
+                <div className='bottom-cog-container'>
+                    <img src={BottomRightCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
+                </div>
 
                 <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_DESCRIPTION} />
 

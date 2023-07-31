@@ -20,7 +20,7 @@ const DateFilter = ({
     dateRange, setRange,
     dummyData,
     setFilter, filterBy }: {
-        dateRange: [dateTuple?, dateTuple?],
+        dateRange: [dateTuple, dateTuple],
         setRange: (array:[dateTuple, dateTuple]) => void,
         dummyData: string[],
         setFilter: (obj: SearchFilter) => void,
@@ -31,13 +31,6 @@ const DateFilter = ({
         'name': 'Date',
         'options': dummyData,
     };
-
-    // const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
-    //     // setDateSelected(event.target.value);
-
-    //     // setFilter({ ...filterBy, date: event.target.value })
-    // };
-
 
     return (
         <FormControl sx={{ m: 1, display: 'inline' }}>

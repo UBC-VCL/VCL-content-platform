@@ -49,7 +49,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 emp: `The SHIVA project arose from an interest in how culture may have a significant effect on the mode of visual perception a person uses.`
             }
         }, {
-            name: "IDEO",
+            name: "Ideo",
             description: {
                 first: "What is the Ouija board? The Ouija board is used as a divination technique to find answers to questions. This is done by putting your hands on the planchette, asking the board a question, then letting the planchette move to the letters/words on the board.",
                 second: "This can be explained by ideomotor effects. In this study we compare the differences between conscious and unconscious knowledge. Using the ouija board as a medium, we investigate whether the unconscious mind knows more than the conscious mind. By asking questions to participants and measuring accuracies across experimental modes, a deeper understanding of unconscious knowledge can be achieved.",

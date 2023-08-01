@@ -50,9 +50,9 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         <div className='what-we-do'>
             <p style={{color: "#B2C9EC"}}>02</p>
             <h2>{TEXT.PROJECT_JOIN.WHAT_WE_DO.TITLE}</h2>
-            <p>{TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_1}</p>
+            <p>{props.project.joinTeam?.whatWeDo.p1 ? props.project.joinTeam?.whatWeDo.p1 : TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_1}</p>
             <VerticalSpacer height={30} />
-            <p>{TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_2}</p>
+            <p>{props.project.joinTeam?.whatWeDo.p2 ? props.project.joinTeam?.whatWeDo.p2 : TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_2}</p>
             {/* <img className='vector5' src="/join_the_team/what-we-do-vector.png" alt="vector5"/> */}
             {/* <img className='vector6' src="/join_the_team/what-we-do-vector1.png" alt="vector5"/> */}
             <div style={{paddingBottom: "8%"}}></div>

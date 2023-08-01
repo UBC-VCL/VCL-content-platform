@@ -61,25 +61,24 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
       {isMobile ? (
 
-        <div className='filter-dropdown-mobile'><MobileFilterDropdown  setFilter={setFilter} filterBy={filterBy} dateRange={dateRange} setRange={setRange}/></div>
+        <div className='filter-dropdown-mobile'><MobileFilterDropdown setFilter={setFilter} filterBy={filterBy} dateRange={dateRange} setRange={setRange} /></div>
 
       ) : (
-         <div className='timeline-filter' style={{ display: 'inline' }}>
-      <div style={{ display: 'inline-block' }}>
-        <div className='filter-dropdown'>
-          <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
-          <span className='filter-divider'></span>
-          <CategoriesFilter filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
-          <span className='filter-divider'></span>
-          <DateFilter filterBy={filterBy} setFilter={setFilter}
-            // dateSelected={dateSelected} setDateSelected={setDateSelected} 
-            dateRange={dateRange}
-            setRange={setRange}
-            dummyData={dummyDataForDate} />
-          <span className='filter-divider'></span>
-          <AuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
-        </div>
-      </div>
+        <div className='timeline-filter' style={{ display: 'inline' }}>
+          <div style={{ display: 'inline-block' }}>
+            <div className='filter-dropdown'>
+              <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
+              <span className='filter-divider'></span>
+              <CategoriesFilter filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
+              <span className='filter-divider'></span>
+              <DateFilter filterBy={filterBy} setFilter={setFilter}
+                dateRange={dateRange}
+                setRange={setRange}
+                dummyData={dummyDataForDate} />
+              <span className='filter-divider'></span>
+              <AuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
+            </div>
+          </div>
 
           <div className='add-update-button' style={{ display: 'inline-block' }}>
             <Button

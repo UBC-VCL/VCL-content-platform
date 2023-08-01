@@ -3,7 +3,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { SearchFilter, dateTuple } from "@pages/Timeline/types";
-import  DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
+import DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
+import { useRef, useState } from 'react'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -15,51 +16,44 @@ const MenuProps = {
     },
 };
 
-const DateFilter = ({ 
-    // dateSelected, setDateSelected, 
-    dateRange, setRange,
-    dummyData,
-    setFilter, filterBy }: {
-        dateRange: [dateTuple, dateTuple],
-        setRange: (array:[dateTuple, dateTuple]) => void,
-        dummyData: string[],
-        setFilter: (obj: SearchFilter) => void,
-        filterBy: SearchFilter
-    }) => {
+const DateFilter = ({ dateRange, setRange, dummyData, setFilter, filterBy }: {
+    dateRange: [dateTuple, dateTuple],
+    setRange: (array: [dateTuple, dateTuple]) => void,
+    dummyData: string[],
+    setFilter: (obj: SearchFilter) => void,
+    filterBy: SearchFilter
+}) => {
 
+    const [isVisible, setVisible] = useState<boolean>(false)
+    const [selected, setSelect] = useState('')
+    
     const list = {
         'name': 'Date',
         'options': dummyData,
     };
 
     return (
-        <FormControl sx={{ m: 1, display: 'inline' }}>
+        <FormControl sx={{ m: 1, display: 'inline' }} >
             {/* <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
                 {list.name}:
             </div> */}
-            <div style={{ display: 'inline-block' }}>
                 <Select
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
                     variant="standard"
                     disableUnderline
                     label="Date"
-                    value={"Date"}
+                    value={selected}
+                    onChange={(e) => console.log(e.target.value)}
                     MenuProps={MenuProps}
                     renderValue={() => "Date"}
+                    displayEmpty 
                     sx={{ width: 120 }}
+                    open={isVisible}
+                    onClick={() => setVisible(!isVisible)}
                 >
-                    {/* {list.options.map((name) => (
-                        <MenuItem
-                            key={name}
-                            value={name}
-                        >
-                            {name}
-                        </MenuItem>
-                    ))} */}
-                    <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} />
+                    <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} isVisible={isVisible} setVisible={setVisible}/>
                 </Select>
-            </div>
         </FormControl>
     )
 }

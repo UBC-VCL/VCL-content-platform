@@ -21,7 +21,7 @@ interface TimelineProps { }
 */
 const Timeline: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
-  
+
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
@@ -71,7 +71,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       })
   };
 
-  const [filterBy, setFilter] = useState<SearchFilter >({
+  const [filterBy, setFilter] = useState<SearchFilter>({
     project: ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project', 'NCIS'],
     category: ['Website', 'Meeting', 'Workshop'],
     date: [['initial', ""], ['target', ""]],
@@ -142,8 +142,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       const initialDate = new Date(date[0][1])
 
       // console.log(date[0][1])
-      
-      listFilter = listFilter.filter((item:SnapshotOBJ) => {
+
+      listFilter = listFilter.filter((item: SnapshotOBJ) => {
         const itemDate = new Date(item.date)
         return itemDate >= initialDate
       })
@@ -151,8 +151,8 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
     if (date[1][1] != '') {
       const targetDate = new Date(date[1][1])
-      
-      listFilter = listFilter.filter((item:SnapshotOBJ) => {
+
+      listFilter = listFilter.filter((item: SnapshotOBJ) => {
         const itemDate = new Date(item.date)
         return itemDate <= targetDate
       })
@@ -171,18 +171,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         if (key === "author") {
           listFilter = listFilter.filter(item => value.includes(item.author));
         }
-      } 
-      // else {
-      //   if (key === 'date') {
-      //     const currentDate = new Date();
-      //     if (value === "Last day")
-      //       listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)));
-      //     if (value === "Last month")
-      //       listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)));
-      //     if (value === "Last year")
-      //       listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)));
-      //   }
-      // }
+      }
     });
 
     return (

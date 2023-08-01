@@ -8,12 +8,14 @@ interface PropsOBJ {
     dateRange: [dateTuple?, dateTuple?],
     setDateRange: (array: [dateTuple, dateTuple]) => void,
     filterBy: SearchFilter,
-    setFilter: (obj: SearchFilter) => void
+    setFilter: (obj: SearchFilter) => void,
+    isVisible?: boolean, 
+    setVisible?: (boolean:boolean) => void
 }
 
 const DateRangePicker = (props: PropsOBJ) => {
 
-    const { dateRange, setDateRange, filterBy, setFilter } = props;
+    const { dateRange, setDateRange, filterBy, setFilter,isVisible, setVisible } = props;
 
     const initialDate = useRef<HTMLInputElement>(null);
     const targetDate = useRef<HTMLInputElement>(null);
@@ -40,10 +42,12 @@ const DateRangePicker = (props: PropsOBJ) => {
                 ['target', targetDate.current?.value ? targetDate.current.value : ""]
             ]
         })
+
+        setVisible && isVisible ? setVisible(false) : ""
     }
 
     return (
-        <div className='date-range-div'>
+        <div className='date-range-div' onClick={() => {setVisible && isVisible ? setVisible(true) : ""}}>
             <div className='input-div'>
                 <input type='date' id='initial-date-input' className='date-input' ref={initialDate}
                 />

@@ -3,8 +3,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { SearchFilter } from "@pages/Timeline/types";
-import  DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
+import DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
 import { dateTuple } from "@pages/Timeline/types";
+import { useState } from 'react'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -25,8 +26,10 @@ const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData,
     setFilter: (obj: SearchFilter) => void,
     filterBy: SearchFilter,
     dateRange: [dateTuple, dateTuple],
-    setRange: (array:[dateTuple, dateTuple]) => void
+    setRange: (array: [dateTuple, dateTuple]) => void
   }) => {
+
+  const [isVisible, setVisible] = useState<boolean>(false)
 
   const list = {
     'name': 'Date',
@@ -65,7 +68,7 @@ const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData,
             {name}
           </MenuItem>
         ))} */}
-        <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} />
+        <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} isVisible={isVisible} setVisible={setVisible} />
       </Select>
     </FormControl>
 

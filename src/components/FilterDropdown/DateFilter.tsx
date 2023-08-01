@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { SearchFilter, dateTuple } from "@pages/Timeline/types";
 import DateRangePicker from "../../components/DateRangePicker/DateRangePicker"
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -25,7 +25,6 @@ const DateFilter = ({ dateRange, setRange, dummyData, setFilter, filterBy }: {
 }) => {
 
     const [isVisible, setVisible] = useState<boolean>(false)
-    const [selected, setSelect] = useState('')
     
     const list = {
         'name': 'Date',
@@ -43,14 +42,13 @@ const DateFilter = ({ dateRange, setRange, dummyData, setFilter, filterBy }: {
                     variant="standard"
                     disableUnderline
                     label="Date"
-                    value={selected}
-                    onChange={(e) => console.log(e.target.value)}
                     MenuProps={MenuProps}
                     renderValue={() => "Date"}
                     displayEmpty 
                     sx={{ width: 120 }}
                     open={isVisible}
-                    onClick={() => setVisible(!isVisible)}
+                    onOpen={() => setVisible(true)}
+                    onClose={() => setVisible(false)}
                 >
                     <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} isVisible={isVisible} setVisible={setVisible}/>
                 </Select>

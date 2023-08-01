@@ -9,13 +9,13 @@ interface PropsOBJ {
     setDateRange: (array: [dateTuple, dateTuple]) => void,
     filterBy: SearchFilter,
     setFilter: (obj: SearchFilter) => void,
-    isVisible?: boolean, 
-    setVisible?: (boolean:boolean) => void
+    isVisible: boolean,
+    setVisible: (boolean: boolean) => void,
 }
 
 const DateRangePicker = (props: PropsOBJ) => {
 
-    const { dateRange, setDateRange, filterBy, setFilter,isVisible, setVisible } = props;
+    const { dateRange, setDateRange, filterBy, setFilter, isVisible, setVisible } = props;
 
     const initialDate = useRef<HTMLInputElement>(null);
     const targetDate = useRef<HTMLInputElement>(null);
@@ -42,12 +42,10 @@ const DateRangePicker = (props: PropsOBJ) => {
                 ['target', targetDate.current?.value ? targetDate.current.value : ""]
             ]
         })
-
-        setVisible && isVisible ? setVisible(false) : ""
     }
 
     return (
-        <div className='date-range-div' onClick={() => {setVisible && isVisible ? setVisible(true) : ""}}>
+        <div className='date-range-div'>
             <div className='input-div'>
                 <input type='date' id='initial-date-input' className='date-input' ref={initialDate}
                 />
@@ -60,7 +58,15 @@ const DateRangePicker = (props: PropsOBJ) => {
                 </div>
                 <input type='date' id='target-date-input' className='date-input' ref={targetDate} required />
                 <div className='button-div'>
-                    <div className='submit-button' onClick={handleChange}>
+                    <div className='submit-button'
+                        onClick={() => {
+                            handleChange()
+                            if (setVisible && isVisible) {
+                                setVisible(false)
+                                console.log(isVisible)
+                            }
+                        }}
+                    >
                         <p>
                             Submit
                         </p>

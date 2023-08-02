@@ -66,6 +66,12 @@
     align-items: center;
 }
 
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(7, 7, 155);
+    transition: background-color .25s;
+}
+
 .input {
     width: 40%;
     height: full;

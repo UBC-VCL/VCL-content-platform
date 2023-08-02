@@ -17,12 +17,15 @@ const ProjectAddMember = (props: PropsOBJ) => {
     const [currentPInput, setPInput] = useState<string>("")
 
     const handleSubmit = () => {
-        
+
     }
 
     const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+
         if (event.key == 'Enter') {
-            console.log('pressed enter for a project')
+            if(currentPInput !== '') {
+                setProjects([...inputtedProjects, currentPInput])
+            }
         }
     }
 
@@ -35,9 +38,9 @@ const ProjectAddMember = (props: PropsOBJ) => {
                         <div className='input-div'>
                             <input type='text' id='firstname-input' className='input' placeholder=" First name" />
                             <input type='text' id='lastname-input' className='input' placeholder=" Last name" />
-                            <input type='text' id='project-input' className='input' placeholder=" Projects" 
-                            onChange={(e) => setPInput(e.target.value)}
-                            onKeyDown={handleKeyDown}
+                            <input type='text' id='project-input' className='input' placeholder=" Projects"
+                                onChange={(e) => setPInput(e.target.value)}
+                                onKeyDown={handleKeyDown}
                             />
                             {/* <input type='text' id='involvement-input' className='input' placeholder="involvement" />
                             <input type='text' id='email-input' className='input' placeholder='email123@email.com' />
@@ -47,9 +50,9 @@ const ProjectAddMember = (props: PropsOBJ) => {
                         <div className='display-involvement'>
                             {
                                 inputtedProjects.map(
-                                    (item) => {
+                                    (item, index) => {
                                         return (
-                                            <div>
+                                            <div key={index}>
                                                 {item}
                                             </div>
                                         )
@@ -60,7 +63,7 @@ const ProjectAddMember = (props: PropsOBJ) => {
                     </div>
                     <div className='button-div'>
                         <div className='button' onClick={handleSubmit}>
-                            <p style={{color:"white"}}>
+                            <p style={{ color: "white" }}>
                                 Submit
                             </p>
                         </div>

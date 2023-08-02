@@ -30,7 +30,7 @@ const DateFilter = ({ dateSelected, setDateSelected, dummyData,
     const handleChange = (event: SelectChangeEvent<typeof dateSelected>) => {
         setDateSelected(event.target.value);
 
-        setFilter({ ...filterBy, date: event.target.value })
+        // setFilter({ ...filterBy, date: event.target.value })
     };
 
     return (

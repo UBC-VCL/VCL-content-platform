@@ -39,7 +39,7 @@
 .input-div {
     width: 50%;
     display: grid;
-    grid-template-rows: repeat(5, 30px);
+    grid-template-rows: repeat(6, 30px);
     grid-gap: 1.5rem;
 }
 

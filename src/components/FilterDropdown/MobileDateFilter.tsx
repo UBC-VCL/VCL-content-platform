@@ -49,14 +49,13 @@ const MobileDateFilter = ({ dateSelected, setDateSelected, dummyData,
         id="demo-multiple-name"
         variant="standard"
         disableUnderline
-        value={dateSelected}
         label="Date"
-        onChange={handleChange}
         MenuProps={MenuProps}
-        displayEmpty={true}
-        renderValue={() => {
-          return 'Date';
-        }}
+        renderValue={() => "Date"}
+        displayEmpty
+        open={isVisible}
+        onOpen={() => setVisible(true)}
+        onClose={() => setVisible(false)}
         sx={{ width: 490, color: '#7e7e7e', textAlign: 'left' }}
       >
 

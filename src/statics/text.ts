@@ -31,16 +31,7 @@ const TEXT = {
     ABOUT: 'About',
     RESOURCES: 'Resources',
     GET_INVOLVED: 'Get Involved',
-    PROJECTTIMELINE: 'Timeline'
-    NAVIGATE: 'Navigate',
-    HOME: 'Home',
-    TIMELINE: 'Timeline',
-    PROJECTS: 'Projects',
-    OVERVIEW: 'Overview',
-    ABOUT: 'About',
-    RESOURCES: 'Resources',
-    GET_INVOLVED: 'Get Involved',
-    PROJECTTIMELINE: 'Timeline'
+    PROJECT_TIMELINE: 'Timeline'
   },
 
   PROJECT_NAV: {
@@ -49,7 +40,7 @@ const TEXT = {
       RESOURCES: 'Resources',
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
-      PROJECTTIMELINE: 'Timeline',
+      PROJECT_TIMELINE: 'Timeline',
       SUBPAGE1: 'Subpage 1',
       SUBPAGE2: 'Subpage 2'
   },

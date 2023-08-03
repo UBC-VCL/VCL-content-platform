@@ -11,7 +11,7 @@ interface ProjectProps {
 const ProjectTimeline: React.FC<ProjectProps> = (props) => {
     return (
         <div className='project-subcontent-container'>
-            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECTTIMELINE} /> 
+            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_TIMELINE} /> 
             Timeline page for {props.project.name};
         </div>
     )

@@ -12,14 +12,11 @@ const constants = {
         name: "SHIVA",
         color: "#fece25"
       }, {
-          name: "Perceptual Modes",
+          name: "NCIS",
           color: "#848484"
       }, {
-          name: "IDEO",
+          name: "Ideo",
           color: "#f66364"
-      }, {
-          name: "IT",
-          color: "#848484"
       }, {
         name: "Image Transitions",
         color: "#848484"

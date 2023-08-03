@@ -139,6 +139,20 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
+  let members:string[] = [];
+  axios.get(`${baseURL}/api/members`)
+      .then((response)=>{
+        if(response.status != 200) {
+          throw new Error(response.data.message)
+        }
+        const memberObjects = response.data.data;
+        memberObjects.forEach((member) => {return member.})
+      }).catch((err)=>{
+        //do nothing
+      });
+
+  
+
   const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter) => {
     let listFilter: SnapshotOBJ[] = list;
 

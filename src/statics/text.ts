@@ -32,6 +32,15 @@ const TEXT = {
     RESOURCES: 'Resources',
     GET_INVOLVED: 'Get Involved',
     PROJECTTIMELINE: 'Timeline'
+    NAVIGATE: 'Navigate',
+    HOME: 'Home',
+    TIMELINE: 'Timeline',
+    PROJECTS: 'Projects',
+    OVERVIEW: 'Overview',
+    ABOUT: 'About',
+    RESOURCES: 'Resources',
+    GET_INVOLVED: 'Get Involved',
+    PROJECTTIMELINE: 'Timeline'
   },
 
   PROJECT_NAV: {

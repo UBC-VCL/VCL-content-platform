@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './ProjectNavbar.css';
 import { styled, useTheme } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,13 +14,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import { Link } from "react-router-dom";
-import { Route, Switch } from "react-router";
-import { ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam, ProjectTimeline } from "@pages/Project";
+import {  Link  } from "react-router-dom";
+import {  Route, Switch  } from "react-router";
+import {  ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam, ProjectTimeline , ProjectTimeline } from "@pages/Project";
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import { Button } from "@mui/material";
 import { ROUTES } from "@statics";
 import { width } from '@mui/system';
+import Subpage1 from '@pages/Project/Subpage1';
+import Subpage2 from '@pages/Project/Subpage2';
 import Subpage1 from '@pages/Project/Subpage1';
 import Subpage2 from '@pages/Project/Subpage2';
 
@@ -45,7 +48,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 }));
 
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({  theme  }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 0),
@@ -69,9 +72,10 @@ export default function Sidebar(props: any) {
     };
 
 
+
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
+        <Box sx={{  display: 'flex'  }}>
+            <CssBaseline  />
             <div className='menu-icon'>
                 <IconButton
                     color="inherit"
@@ -79,7 +83,9 @@ export default function Sidebar(props: any) {
                     onClick={handleDrawerOpen}
                     edge="start"
                     sx={{ ...(open && { display: 'none' }) }}
+                    sx={{ ...(open && { display: 'none' }) }}
                 >
+
                     <MenuIcon sx={{ width: "58px", height: "38px" }} />
                 </IconButton>
             </div>
@@ -100,22 +106,26 @@ export default function Sidebar(props: any) {
                 open={open}
             >
                 <div className='DrawerHeader'>
-                    <DrawerHeader>
-                        <IconButton onClick={handleDrawerClose} style={{ marginTop: "25%" }}>
-                            {theme.direction === 'ltr' ? <FirstPageTwoToneIcon /> : <ChevronRightIcon />}
-                        </IconButton>
-                    </DrawerHeader>
+
+                <DrawerHeader>
+                    <IconButton onClick={handleDrawerClose} style={{marginTop:"25%", zIndex: "2"}}>
+                        {theme.direction === 'ltr' ? <FirstPageTwoToneIcon/> : <ChevronRightIcon/>}
+                    </IconButton>
+                </DrawerHeader>
                 </div>
                 <List>
+                    <Typography variant='subtitle2' marginLeft='20px' color='#AEC7E3' style={{ marginTop: "-10px" }}>
                     <Typography variant='subtitle2' marginLeft='20px' color='#AEC7E3' style={{ marginTop: "-10px" }}>
                         Now Viewing
                     </Typography>
                     <ListItem>
                         <Typography variant='h5' marginTop='15px' marginLeft='6px' marginBottom='10px' color='#1C426D' fontWeight='bold'>
+                        <Typography variant='h5' marginTop='15px' marginLeft='6px' marginBottom='10px' color='#1C426D' fontWeight='bold'>
                             {props.currProject.name}
                         </Typography>
                     </ListItem>
-                    <Divider sx={{ borderBottomWidth: 1, marginBottom: '35px' }} color='#B2C9EC' />
+                    <Divider sx={{ borderBottomWidth: 1, marginBottom:  '35px'  }} color='#B2C9EC'  />
+
 
 
                     {props.links.map((link: any, index: any) => (
@@ -141,11 +151,38 @@ export default function Sidebar(props: any) {
                                     </Typography>
                                 </ListItemButton>
                             </ListItem>
+                        link.title == 'Subpage 1' || link.title == 'Subpage 2' ?
+                        props.currProject.name == 'Correlation' ? 
+                            <div style={{ marginTop: "-4%", marginBottom: "-2%" }}>
+                                <div style={{ marginLeft: "5%" }}>
+                                    <ListItem key='link.title'>
+                                        <ListItemButton component={Link} to={link.ref}>
+                                            <Typography color='#5B7E98' marginLeft='0px'>
+                                            {link.title}
+                                            </Typography>
+                                        </ListItemButton>
+                                    </ListItem>
+                                </div>
+                            </div> :
+                            <div/>
+                            :
+                            <ListItem key={link.title}>
+                                <ListItemButton component={Link} to={link.ref}>
+                                    <Typography color='#5B7E98' marginLeft='0px'>
+                                        {link.title}
+                                    </Typography>
+                                </ListItemButton>
+                            </ListItem>
                     ))}
+
+
 
 
                     <Box textAlign='left' marginTop='50px' marginLeft='20px'>
                         <Button onClick={() => {
+                            window.location.pathname = ROUTES.PROJECT.BASE
+                        }} variant='outlined' style={{ textTransform: 'none' }}>
+                            <Typography color='#60779A'>
                             window.location.pathname = ROUTES.PROJECT.BASE
                         }} variant='outlined' style={{ textTransform: 'none' }}>
                             <Typography color='#60779A'>
@@ -172,9 +209,11 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/timeline`} render={() => <ProjectTimeline project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/subpage1`} render={() => <Subpage1 project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/subpage2`} render={() => <Subpage2 project={props.currProject} />} />
+
                     </Switch>
                 </div>
             </Main>
+        </Box >
         </Box >
     );
 }

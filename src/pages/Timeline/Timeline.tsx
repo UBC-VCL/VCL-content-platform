@@ -42,6 +42,13 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     updatedTime: string;
   }
 
+  interface ProjectOBJ {
+    _id: string;
+    members: string[];
+    name: string;
+    description: string;
+    isActive: boolean;
+  }
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   // An array of all timineline history that will be set by retrieveCommitOBJs()
@@ -71,29 +78,29 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }
 
 
-  const deleteCommit = async (_id: string) => {   
-    return axios.delete(`${baseURL}/api/snapshots/${_id}`,  { 
-       headers: {
-         authorization: access_token
-       } 
-     })
-       .then((response)=> {
-         if(response.status != 200) {
-           throw new Error("did not delete it successfully");
-         }
-         let i = commitsArray.findIndex((snapshot: SnapshotOBJ)=> {return snapshot._id == _id});
-         const tempArray = commitsArray.slice();
-         tempArray.splice(i, 1);
-         setCommitArray(tempArray);
-         return Promise.resolve(true);
-       }).catch((err)=>{
-         return Promise.reject();
-       })
-   };
+  const deleteCommit = async (_id: string) => {
+    return axios.delete(`${baseURL}/api/snapshots/${_id}`, {
+      headers: {
+        authorization: access_token
+      }
+    })
+      .then((response) => {
+        if (response.status != 200) {
+          throw new Error("did not delete it successfully");
+        }
+        let i = commitsArray.findIndex((snapshot: SnapshotOBJ) => { return snapshot._id == _id });
+        const tempArray = commitsArray.slice();
+        tempArray.splice(i, 1);
+        setCommitArray(tempArray);
+        return Promise.resolve(true);
+      }).catch((err) => {
+        return Promise.reject();
+      })
+  };
 
 
 
-  const [filterBy, setFilter] = useState<SearchFilter >(props.defaultFilter);
+  const [filterBy, setFilter] = useState<SearchFilter>(props.defaultFilter);
 
 
   // creates a http request
@@ -139,19 +146,31 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
-  let members:string[] = [];
-  axios.get(`${baseURL}/api/members`)
-      .then((response)=>{
-        if(response.status != 200) {
+
+  //TODO: USE this react state variable  plus the hardcoded projects for the filter list
+  const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
+  const getProjectCommit = async () => {
+    await axios.get(`${baseURL}/api/projects`)
+      .then((response) => {
+        if (response.status != 200) {
           throw new Error(response.data.message)
         }
-        const memberObjects = response.data.data;
-        memberObjects.forEach((member) => {return member.})
-      }).catch((err)=>{
+        const projects: Array<ProjectOBJ> = response.data.data;
+        const filteredProjects =
+          projects
+            .filter((project) => {
+              return project.members.length != 0;
+            })
+            .map(project => project.name);
+        setProjectFilterList(filteredProjects);
+        
+      }).catch((err) => {
         //do nothing
       });
+  };
+  console.log(projectFilterList); 
 
-  
+
 
   const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter) => {
     let listFilter: SnapshotOBJ[] = list;
@@ -226,8 +245,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // The functions within the useEffect will only be called when the user mounts on to the page
   // so once at the very start of the user entering the Timeline page
   useEffect(() => {
-    objCommitHTTPS()
-  }, [])
+    objCommitHTTPS();
+    getProjectCommit();
+  }, []);
 
 
   let prjs: any[] = []
@@ -276,4 +296,4 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   );
 };
 
-export {Timeline};
+export { Timeline };

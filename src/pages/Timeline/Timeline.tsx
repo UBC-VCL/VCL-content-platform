@@ -102,7 +102,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   const [filterBy, setFilter] = useState<SearchFilter>(props.defaultFilter);
 
-
+  const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -133,7 +133,13 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           contributors: item.contributors,
           updatedTime: item.updatedTime
         }));
-        setCommitArray([...commitList])
+        const  filteredProjects: string[] = response.data.data.map((item: SnapshotOBJ) => {
+          if(item.project.length != 0) {
+            return item.project;
+          }
+        });
+        setCommitArray([...commitList]);
+        setProjectFilterList(Array.from(new Set(filteredProjects)));
       }).catch(err => {
         setSuccess(false)
       });
@@ -148,26 +154,26 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  The filter object may have properties of an empty string meaning that it should not be filter for
 
   //TODO: USE this react state variable  plus the hardcoded projects for the filter list
-  const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
-  const getProjectCommit = async () => {
-    await axios.get(`${baseURL}/api/projects`)
-      .then((response) => {
-        if (response.status != 200) {
-          throw new Error(response.data.message)
-        }
-        const projects: Array<ProjectOBJ> = response.data.data;
-        const filteredProjects =
-          projects
-            .filter((project) => {
-              return project.members.length != 0;
-            })
-            .map(project => project.name);
-        setProjectFilterList(filteredProjects);
+  // const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
+  // const getProjectCommit = async () => {
+  //   await axios.get(`${baseURL}/api/projects`)
+  //     .then((response) => {
+  //       if (response.status != 200) {
+  //         throw new Error(response.data.message)
+  //       }
+  //       const projects: Array<ProjectOBJ> = response.data.data;
+  //       const filteredProjects =
+  //         projects
+  //           .filter((project) => {
+  //             return project.members.length != 0;
+  //           })
+  //           .map(project => project.name);
+  //       setProjectFilterList(filteredProjects);
         
-      }).catch((err) => {
-        //do nothing
-      });
-  };
+  //     }).catch((err) => {
+  //       //do nothing
+  //     });
+  // };
   console.log(projectFilterList); 
 
 
@@ -246,7 +252,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // so once at the very start of the user entering the Timeline page
   useEffect(() => {
     objCommitHTTPS();
-    getProjectCommit();
   }, []);
 
 

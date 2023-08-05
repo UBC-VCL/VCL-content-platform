@@ -79,7 +79,6 @@ export default function Sidebar(props: any) {
                     onClick={handleDrawerOpen}
                     edge="start"
                     sx={{ ...(open && { display: 'none' }) }}
-                    sx={{ ...(open && { display: 'none' }) }}
                 >
 
                     <MenuIcon sx={{ width: "58px", height: "38px" }} />

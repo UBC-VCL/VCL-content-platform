@@ -14,17 +14,20 @@ import MobileFilterDropdown from '@components/FilterDropdown/MobileFilterDropdow
 interface PropsOBJ {
   setFilter: (obj: SearchFilter) => void;
   filterBy: SearchFilter;
+  dynamicProjects: Array<string>;
+  dynamicAuthors: Array<string>;
+  dynamicCategories: Array<string>;
 }
 
 const TimelineFilterContainer = (props: PropsOBJ) => {
 
   // Destrcuturing the props
-  const { setFilter, filterBy } = props;
+  const { setFilter, filterBy, dynamicProjects, dynamicAuthors, dynamicCategories } = props;
 
-  const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project', 'NCIS'];
-  const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
+  const dummyDataForProject = dynamicProjects;
+  const dummyDataForCategory = dynamicCategories;
   const dummyDataForDate = ['All', 'Last day', 'Last month', 'Last year'];
-  const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
+  const dummyDataForAuthor = dynamicAuthors;
 
   // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
   // const [categorySelected, setCategorySelected] = React.useState<string[]>(['All']);
@@ -34,6 +37,13 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   const [categorySelected, setCategorySelected] = React.useState<string[]>(filterBy.category);
   const [dateSelected, setDateSelected] = React.useState(filterBy.date);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(filterBy.author);
+
+
+  useEffect(() => {
+    setProjectSelected(dynamicProjects)
+    setCategorySelected(dynamicCategories)
+    setAuthorSelected(dynamicAuthors)
+  }, [dynamicProjects, dynamicAuthors, dynamicCategories])
 
   const [isMobile, setMobile] = useState(false);
 

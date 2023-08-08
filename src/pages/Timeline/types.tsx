@@ -8,3 +8,24 @@ export interface SearchFilter  {
     author: Array<string>;
     keyword: string;
   }
+
+export   interface SnapshotOBJ {
+  _id: string;
+  author: string;
+  title: string;
+  project: string;
+  date: Date;
+  categories: Array<string>;
+  descriptions: Array<string>;
+  hyperlinks: Array<string>;
+  contributors: Array<string>;
+  updatedTime: string;
+}
+
+export interface ProjectOBJ {
+  _id: string;
+  members: string[];
+  name: string;
+  description: string;
+  isActive: boolean;
+}

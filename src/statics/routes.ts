@@ -3,6 +3,7 @@ const ROUTES = {
   TIMELINE: '/timeline',
   TIMELINE_CREATE: '/timeline/create',
   TIMELINE_EDIT: '/timeline/:timeline_id/edit',
+  TIMELINE_ADD: '/timeline/add',
   PROJECT: {
     PATH: '/projects/:project_id/',
     BASE: '/projects',

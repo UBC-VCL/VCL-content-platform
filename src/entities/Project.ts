@@ -1,3 +1,14 @@
+interface Member {
+    name: string,
+    position: string,
+    education?: string,
+    description?: string,
+    email?: string,
+    phone?: string,
+    linkedIn?: string,
+    isCurrentMember?: boolean
+}
+
 export interface Project {
     name: string,
     description?: {
@@ -5,14 +16,11 @@ export interface Project {
         second: string,
         emp: string,
     },
-    members?: string[],
+    members?: Member[],
     isActive?: boolean,
     key?: string,
     qa?: {q:string, a: string}[],
     joinTeam?: {
-        whatWeDo: {
-            p1?:string;
-            p2?:string;
-        }
+        whatWeDo: string[]
     },
 }

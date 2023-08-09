@@ -10,6 +10,17 @@ interface ProjectProps {
     project : Project,
 }
 
+interface Member {
+    name: string,
+    position: string,
+    education: string,
+    description?: string,
+    email?: string,
+    phone?: string,
+    linkedIn?: string,
+    isCurrentMember?: boolean
+}
+
 const ProjectTeam: React.FC<ProjectProps> = (props) => {
     return (
         <div className='project-subcontent-container'>
@@ -20,6 +31,20 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
             <div className="team-header">Team Members</div>
             <hr/>
             <div>
+            {props.project.members ? 
+            (props.project.members.map(member => (
+                <Person 
+                name={member.name}
+                involvement={member.position + ', ' + member.education}
+                description={member.description ? member.description : ''}
+                email={member.email ? member.email : 'not available'}
+                phone={member.phone ? member.phone : 'not available'}
+                linkedIn={member.linkedIn ? member.linkedIn : 'not available'}
+                isCurrentMember={false}
+            />
+            ))) 
+            : 
+            (<>
             <Person 
                 name="Kevin Peng"
                 involvement='Project Lead, Graduate Student, Coding Team Manager, Analytics Manager'
@@ -37,7 +62,7 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
             phone='604 000 0000'
             linkedIn='linkedin.com'
             isCurrentMember={false}
-        />
+        /></>)}
         </div>
         </div>
         </div>

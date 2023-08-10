@@ -11,24 +11,21 @@ type Props = {
 
 const ProjectSelect = ({timeline, setTimeline}:Props) => {
   const projects = useAppSelector(selectProjects); 
-
+  let id = 0;
   return (
     <div className={styles.selectContainer}>
         <label className={styles.label}>Select a Project</label>
         <div className={styles.optionsContainer}>
             {projects && projects.length > 0 && (
                 projects.map((project) => {
+                    id++;
                     return (
-                        <span className={styles.item} key={project.key}>
-                            <input type="radio" 
-                            id={project.key} 
-                            name="project"
-                            checked={project.name === timeline.project}
-                            onChange={() => setTimeline(prev => ({...prev, project: project.name} as TimelineInfo))} />
-                            <label className={`${styles.itemButton} ${project.name === timeline.project ? styles.activeButton : styles.inactiveButton}`}
+                        <label className={`${styles.itemButton} ${project.name === timeline.project ? styles.activeButton : styles.inactiveButton}`}
+                        key={project.name}
+                        onClick={() => setTimeline(prev => ({...prev, project: project.name} as TimelineInfo))}
                             tabIndex={0}
-                            htmlFor={project.key}>{project.name}</label>
-                        </span>
+                            htmlFor={project.key}>{project.name}
+                        </label>
                     )
                 })     
             )}

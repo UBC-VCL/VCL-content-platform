@@ -34,3 +34,9 @@
     color: rgb(158, 158, 158);
     font-size: 14px;
 }
+
+.selectName {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}

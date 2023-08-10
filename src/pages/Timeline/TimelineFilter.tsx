@@ -9,6 +9,12 @@ import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
 import CategoriesFilter from '@components/FilterDropdown/CategoriesFilter';
 import DateFilter from '@components/FilterDropdown/DateFilter';
 import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
+import { useHistory } from "react-router-dom";
+import { selectAuth, selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import { useAppSelector } from '@redux/hooks';
+
+
+
 import MobileFilterDropdown from '@components/FilterDropdown/MobileFilterDropdown';
 
 interface PropsOBJ {
@@ -35,7 +41,6 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   // const [dateSelected, setDateSelected] = React.useState(dummyDataForDate[0]);
   const [dateRange, setRange] = React.useState<[dateTuple, dateTuple]>([['initial', ""], ['target', ""]]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(dummyDataForAuthor);
-
   const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -55,10 +60,16 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
+  const history = useHistory();
+
+  const handleAddEntry = () => {
+    history.push('./timeline/add');
+  }
+
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   return (
-    <div className='timeline-filter-main'>
-
+    <div className='timeline-filter' style={{ display: 'inline' }}>
       {isMobile ? (
 
         <div className='filter-dropdown-mobile'><MobileFilterDropdown setFilter={setFilter} filterBy={filterBy} dateRange={dateRange} setRange={setRange} /></div>
@@ -98,6 +109,26 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
             </Button>
           </div>
         </div>
+        {isLoggedIn && 
+          <div className='add-update-button' style={{display: 'inline-block'}}>
+              <Button
+                  onClick = {handleAddEntry}
+                  variant="outlined" 
+                  style={{
+                      backgroundColor: "#1E5487",
+                      color: "white",
+                      width: 150,
+                      height: 50,
+                      textTransform: 'none',
+                      marginLeft: '10px',
+                      fontSize: 16,
+                  }}
+              >
+                  Add New Entry
+              </Button>
+          </div>
+        }
+    </div>
       )}
     </div>
   );

@@ -24,7 +24,7 @@ const EditDateSelect = ({timeline, setTimeline}:Props) => {
     if (!timeline?.date) return;
     const dateObject = new Date(timeline.date);
     dateObject[name === "month" ? "setMonth" : name === "day" ? "setDate" : "setFullYear"](parseInt(value));
-    setTimeline(prev => ({...prev, date: dateObject.toISOString()} as TimelineInfo));
+    setTimeline(prev => ({...prev, date: dateObject.toISOString().slice(0, 10)} as TimelineInfo));
   }
 
   return (

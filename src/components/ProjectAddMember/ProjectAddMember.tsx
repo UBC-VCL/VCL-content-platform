@@ -11,33 +11,40 @@ interface PropsOBJ {
 
 const ProjectAddMember = (props: PropsOBJ) => {
 
+    // useRefs for getting the values, provided by the user, in the inputs.
     const usernameRef = useRef<HTMLInputElement>(null);
     const firstnameRef = useRef<HTMLInputElement>(null);
     const lastnameRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const linkedInRef = useRef<HTMLInputElement>(null);
 
+    // This is to determine the visibility of the add member page, false for non-visible and true for is-visible.
     const { isVisible, setVisibility } = props;
 
+    // This highlights the amount of inputted projects and will be displayed the on the screen.
+    //   Currently there is no way for a user to delete an already inputted project
     const [inputtedProjects, setProjects] = useState<Array<string>>([])
+
+    // This useState is used inorder to extract a user input for their current input
     const [currentPInput, setPInput] = useState<string>("")
 
     const handleSubmit = async () => {
-        console.log(firstnameRef.current!.value)
-        console.log(lastnameRef.current!.value)
-        console.log(inputtedProjects)
         try {
+            // a single line variable instantiation
             const [usernameData, firstnameData, lastnameData, projectsData, emailData, linkedInData] = [usernameRef.current?.value, firstnameRef.current?.value, lastnameRef.current?.value, inputtedProjects, emailRef.current?.value, linkedInRef?.current!.value]
 
-            const response = await axios.post('http://localhost:4000/api/members',
-                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isActive: true })
+            // a call to our backend API that inserts an memeber with the information that the user has inputted
+            await axios.post('http://localhost:4000/api/members',
+                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isActive: true }).catch(err => {throw err})
         } catch(err) {
-
+            // do nothing
         }
     }
 
+    // thsi function is used to handle the event when the user presses 'Enter' when monuted onto the projects' input field, id='project-input'
     const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
 
+        // When the user presses "Enter" it will set the current input (that is not a empty string to be inserted into the inputtedProjects useState)
         if (event.key == 'Enter') {
             if (currentPInput !== '') {
                 setProjects([...inputtedProjects, currentPInput])
@@ -61,8 +68,6 @@ const ProjectAddMember = (props: PropsOBJ) => {
                             />
                             <input type='text' id='linkedIn-input' className='input' placeholder=" LinkedIn" ref={linkedInRef} />
                             <input type='text' id='email-input' className='input' placeholder=' email123@email.com' ref={emailRef} />
-                            {/* <input type='text' id='involvement-input' className='input' placeholder="involvement" /> */}
-                            {/* <input type='text' id='phone-input' className='input' placeholder="123-45-678" /> */}
                         </div>
                         <div className='display-involvement'>
                             {

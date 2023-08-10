@@ -14,6 +14,8 @@ interface ProjectProps {
 
 const ProjectTeam: React.FC<ProjectProps> = (props) => {
 
+    // This is the state in which the add member tab will be dispalyed to the user
+    // - Toggled by a single button className='add-mem-button-div'
     const [viewState, setViewState] = useState<boolean>(false)
 
     return (
@@ -31,8 +33,8 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
                     </p>
                 </div>
                 <hr />
-                <div className='add-mem-button-div'>
-                    <div onClick={() => setViewState(!viewState)}>
+                <div className='add-mem-button-div' onClick={() => setViewState(!viewState)}>
+                    <div>
                         + Add Member
                     </div>
                 </div>

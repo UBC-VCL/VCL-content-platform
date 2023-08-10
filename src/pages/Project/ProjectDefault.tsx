@@ -16,7 +16,7 @@ import { callGetProjectByNameAPI, ProjectResponse } from '@services/adapters/pro
 import { useLocation } from 'react-router-dom';
 
 interface ProjectProps {
-    project : Project,
+    project: Project,
 }
 
 const ProjectDefault: React.FC<ProjectProps> = (props) => {
@@ -49,30 +49,42 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
     //     <h2>Hmm...couldn't find this project on the server.</h2>
     // )
 
+    const fillerDescrip = [
+        'The Correlation project studies the visual perception of correlation in data visualizations. A data visualization is a graphical representation of a data set. For instance, scatter plots are a common choice of visualization for data with two variables. In a scatter plot, data is translated into a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable.',
+        'Correlation in a scatter-plot corresponds to the degree to which the points form a straight line. Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables.',
+        "Although scatter plots are far more common, there’s no evidence of them being more effective than ring strip-plots, or any other possible alternatives."
+    ]
+
     const [error, setError] = useState<boolean>(false);
+
+    const { project } = props
 
     return (
         <div className='main'>
             <div className='description-container'>
 
-                <img src={TopLeftCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
-                <img src={BottomRightCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
+                <div className="top-cog-container">
+                    <img src={TopLeftCog} className="top-left-cog" alt="a design elemnt depicting a set of cogs" />
+                </div>
+                <div className='bottom-cog-container'>
+                    <img src={BottomRightCog} className="bottom-right-cog" alt="a design elemnt depicting a set of cogs" />
+                </div>
 
-                 <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_DESCRIPTION}/> 
+                <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_DESCRIPTION} />
 
-                <TitleCard 
-                    number='01' 
-                    title={props.project.name} 
+                <TitleCard
+                    number='01'
+                    title={props.project.name}
                     textColor="white"
                 />
-                
+
                 <ProjectDescription
-                    paragraphOne = 'The Correlation project studies the visual perception of correlation in data visualizations. A data visualization is a graphical representation of a data set. For instance, scatter plots are a common choice of visualization for data with two variables. In a scatter plot, data is translated into a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable.'
-                    paragraphTwo = 'Correlation in a scatter-plot corresponds to the degree to which the points form a straight line. Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables.'               
-                    emphasizedStatement = "Although scatter plots are far more common, there’s no evidence of them being more effective than ring strip-plots, or any other possible alternatives."
+                    paragraphOne={project.description ? project.description.first : fillerDescrip[0]}
+                    paragraphTwo={project.description ? project.description.second : fillerDescrip[1]}
+                    emphasizedStatement={project.description ? project.description.emp : fillerDescrip[2]}
                 />
             </div>
-                <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
+            <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
 
             {/* todo gallery component */}
             <ProjectGallery />
@@ -88,18 +100,31 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
 
                 {/* currently hardcoded qa, todo fetch from backend (need to update project model to achieve this) */}
                 <p style={{ "color": COLORS.darkBlue }} className='text'><i>To rigorously compare visualizations we need measures for how well they enable a viewer to understand the structure of the underlying data – which is why we measure the accuracy and perception with which viewers perceive correlation.</i></p>
-    
-                <VerticalSpacer height={20} />
-    
-                <h3 style={{ "color": COLORS.darkBlue }}>What methods are used to derive the measures?</h3>
-                <p style={{ "color": COLORS.darkBlue }}>We use two classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision, and a magnitude estimation task to measure accuracy. Performance in both respects is regular and well described by Weber and Fechner laws –  a linear relationship for discrimination and a logarithmic curve for estimation – regardless of which visual variables are chosen to represent the data.</p>
-    
-    
-                <VerticalSpacer height={20} />
-    
-                <h3 style={{ "color": COLORS.darkBlue }}>What are we currently studying?</h3>
-                <p style={{ "color": COLORS.darkBlue }}>Our working theory for these results is based on participants using the information entropy of the visualization to make their judgements. Currently we’re studying how different gamma levels impact the perception of correlation in black and white luminance strip plots, and evaluating the effects of mixed populations in scatter plots.</p>
-    
+
+                {
+                    project.qa ? project.qa.map(item => {
+                        return (
+                            <>
+                                <VerticalSpacer height={20} />
+                                <h3 style={{ "color": COLORS.darkBlue }}>{item.q}</h3>
+                                <p style={{ "color": COLORS.darkBlue }}>{item.a}</p>
+                            </>
+
+                        )
+                    }) :
+                        <>
+                            <VerticalSpacer height={20} />
+
+                            <h3 style={{ "color": COLORS.darkBlue }}>What methods are used to derive the measures?</h3>
+                            <p style={{ "color": COLORS.darkBlue }}>We use two classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision, and a magnitude estimation task to measure accuracy. Performance in both respects is regular and well described by Weber and Fechner laws –  a linear relationship for discrimination and a logarithmic curve for estimation – regardless of which visual variables are chosen to represent the data.</p>
+
+
+                            <VerticalSpacer height={20} />
+
+                            <h3 style={{ "color": COLORS.darkBlue }}>What are we currently studying?</h3>
+                            <p style={{ "color": COLORS.darkBlue }}>Our working theory for these results is based on participants using the information entropy of the visualization to make their judgements. Currently we’re studying how different gamma levels impact the perception of correlation in black and white luminance strip plots, and evaluating the effects of mixed populations in scatter plots.</p>
+                        </>
+                }
             </div>
 
         </div>

@@ -3,6 +3,7 @@ const ROUTES = {
   TIMELINE: '/timeline',
   TIMELINE_CREATE: '/timeline/create',
   TIMELINE_EDIT: '/timeline/:timeline_id/edit',
+  TIMELINE_ADD: '/timeline/add',
   PROJECT: {
     PATH: '/projects/:project_id/',
     BASE: '/projects',
@@ -15,6 +16,9 @@ const ROUTES = {
   ABOUT: '/about',
   RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
+  PROJECT_TIMELINE: '/timeline',
+  SUBPAGE1: '/subpage1',
+  SUBPAGE2: '/subpage2'
 } as const;
 
 export default ROUTES;

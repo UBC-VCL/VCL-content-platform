@@ -1,6 +1,6 @@
 import React from "react";
 import './Timeline.css';
-import { SearchFilter  } from "./types";
+import { SearchFilter } from "./types";
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
@@ -12,8 +12,16 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
+import dotenv from 'dotenv';
 
-interface TimelineProps { }
+
+
+dotenv.config();
+const baseURL = process.env.REACT_APP_API_URL;
+
+interface TimelineProps {
+  defaultFilter: SearchFilter
+};
 
 /** 
 * Paste one or more documents here
@@ -45,7 +53,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [success, setSuccess] = useState<boolean>(true)
 
 
-    // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
+  // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
   // If user click the delete icon on the top right of each timeline box, then openDialog = true,
   // If user close the pop up window, then openDialog = false.
   // It is set to false by default
@@ -55,15 +63,16 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [idToDelete, setIdToDelete] = useState<string>("");
 
   // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
-  const handleClose =  ()=> {
+  const handleClose = () => {
     setOpenDialog(false);
   }
-  const handleClickOpen = ()=>{
+  const handleClickOpen = () => {
     setOpenDialog(true);
   }
 
+
   const deleteCommit = async (_id: string) => {   
-    return axios.delete(`http://localhost:4000/api/snapshots/${_id}`,  { 
+    return axios.delete(`${baseURL}/api/snapshots/${_id}`,  { 
        headers: {
          authorization: access_token
        } 
@@ -82,13 +91,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
        })
    };
 
-  const [filterBy, setFilter] = useState<SearchFilter >({
-    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
-    category: ['Website', 'Meeting', 'Workshop'],
-    date: "All",
-    author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
-    keyword: ""
-  });
+
+
+  const [filterBy, setFilter] = useState<SearchFilter >(props.defaultFilter);
+
 
   // creates a http request
   const objCommitHTTPS = async () => {
@@ -104,7 +110,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       title: "..." {string}
       } 
     */
-    await axios.get("http://localhost:4000/api/snapshots")
+    await axios.get(`${baseURL}/api/snapshots`)
       .then(response => {
 
         // list for the commitsArray useState
@@ -133,7 +139,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // filters through an array and filters corresponding to an object structuring what to filter the list for
   //  The filter object may have properties of an empty string meaning that it should not be filter for
-  const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter ) => {
+  const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter) => {
     let listFilter: SnapshotOBJ[] = list;
 
     const { keyword, ...restFilters } = filterOBJ;
@@ -191,7 +197,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
               updatedTime={commit.updatedTime}
               categories={commit.categories}
               isLoggedIn={isLoggedIn}
-              onClickDelete = {()=>{
+              onClickDelete={() => {
                 setIdToDelete(commit._id);
                 handleClickOpen();
               }}
@@ -247,13 +253,13 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray,filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
+              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
           }
         </div>
       </div>
-      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={()=>{return deleteCommit(idToDelete)}}/>
+      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={() => { return deleteCommit(idToDelete) }} />
     </div>
   );
 };
 
-export default Timeline;
+export {Timeline};

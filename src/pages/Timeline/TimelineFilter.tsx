@@ -15,7 +15,7 @@ import { useAppSelector } from '@redux/hooks';
 
 
 
-import MobileFilterDropdown from '@components/FilterDropdown/MobileFilterDropdown';
+import MobileFilterDropdownContainer from '@components/FilterDropdown/MobileFilterDropdown';
 
 interface PropsOBJ {
   setFilter: (obj: SearchFilter) => void;
@@ -72,7 +72,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
     <div className='timeline-filter' style={{ display: 'inline' }}>
       {isMobile ? (
 
-      <div className='filter-dropdown-mobile'><MobileFilterDropdown  setFilter={setFilter} filterBy={filterBy}/></div>
+      <div className='filter-dropdown-mobile'><MobileFilterDropdownContainer  setFilter={setFilter} filterBy={filterBy}/></div>
 
       ) : (
       <div style={{ display: 'inline-block' }}>

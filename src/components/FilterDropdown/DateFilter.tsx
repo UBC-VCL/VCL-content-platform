@@ -16,20 +16,14 @@ const MenuProps = {
     },
 };
 
-const DateFilter = ({ dateRange, setRange, dummyData, setFilter, filterBy }: {
+const DateFilter = ({ dateRange, setRange, setFilter, filterBy }: {
     dateRange: [dateTuple, dateTuple],
     setRange: (array: [dateTuple, dateTuple]) => void,
-    dummyData: string[],
     setFilter: (obj: SearchFilter) => void,
     filterBy: SearchFilter
 }) => {
 
     const [isVisible, setVisible] = useState<boolean>(false)
-    
-    const list = {
-        'name': 'Date',
-        'options': dummyData,
-    };
 
     return (
         <FormControl sx={{ m: 1, display: 'inline' }} >

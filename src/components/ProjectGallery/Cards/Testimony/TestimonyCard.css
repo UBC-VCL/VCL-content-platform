@@ -1,0 +1,25 @@
+.testimony-box-content {
+    height: fit-content;
+    margin: auto;
+    background-color: #2A3749;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #7A92B4;
+    max-height: 100%;
+    display: flex;
+}
+
+.profile-photo {
+    max-width: 150px;
+    border-radius: 50px;
+}
+
+.description-section {
+    width: 800px;
+}
+
+#position {
+    font-size: small;
+}

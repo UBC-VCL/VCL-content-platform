@@ -13,6 +13,7 @@ import visualAttention from '../.././statics/images/JoinTeam/visualAttention.png
 import compModel from '../.././statics/images/JoinTeam/compModel.png';
 import browser from '../.././statics/images/JoinTeam/browser.png';
 import email from '../.././statics/images/JoinTeam/email.png';
+import ProjectGallery from '@components/ProjectGallery/ProjectGallery';
 
 interface ProjectProps {
     project : Project,
@@ -112,9 +113,10 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         </section>
         <section className='full-bleed5' style={{marginTop:"10%"}}>
         <div className='what-our-team-member-say'>
-            <p style={{paddingTop: "7%"}}>04</p>
+            {/* <p style={{paddingTop: "7%"}}>04</p>
             <h2>{TEXT.PROJECT_JOIN.MEMBER_TESTIMONIALS.TITLE}</h2>
-            <h1 style={{textAlign:"center", color:"white", paddingBottom:"20%"}}>Carousel placeholder</h1>
+            <h1 style={{textAlign:"center", color:"white", paddingBottom:"20%"}}>Carousel placeholder</h1> */}
+            <ProjectGallery /> 
         </div>
         </section>
         <section className='full-bleed6'>

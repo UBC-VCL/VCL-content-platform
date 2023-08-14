@@ -23,9 +23,9 @@ const TestimonyCard = (props:PropsOBJ) => {
                 <img src={blankPPic} className={'profile-photo'}/>
             </div>
             <div className='info-container'>
-                <ImQuotesLeft />
+                <ImQuotesLeft className='quote-icon' size={40}/>
                 <div className='description-section'>
-                    <p>
+                    <p className='description-p'>
                         {description}
                     </p>
                 </div>

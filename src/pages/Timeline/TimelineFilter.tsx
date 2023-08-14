@@ -2,7 +2,7 @@ import React from 'react';
 import './TimelineFilter.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { SearchFilter } from './types';
+import { SearchFilter, dateTuple } from './types';
 
 import { Button, MenuItem } from "@mui/material";
 import AuthorsFilter from '@components/FilterDropdown/AuthorsFilter';
@@ -29,7 +29,6 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
   const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project', 'NCIS'];
   const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
-  const dummyDataForDate = ['All', 'Last day', 'Last month', 'Last year'];
   const dummyDataForAuthor = ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'];
 
   // const [projectSelected, setProjectSelected] = React.useState<string[]>(['All']);
@@ -38,7 +37,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   // const [authorSelected, setAuthorSelected] = React.useState<string[]>(['All']);
   const [projectSelected, setProjectSelected] = React.useState<string[]>(filterBy.project);
   const [categorySelected, setCategorySelected] = React.useState<string[]>(filterBy.category);
-  const [dateSelected, setDateSelected] = React.useState(filterBy.date);
+  const [dateRange, setRange] = React.useState<[dateTuple, dateTuple]>([['initial', ""], ['target', ""]]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(filterBy.author);
 
   const [isMobile, setMobile] = useState(false);
@@ -72,42 +71,42 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
     <div className='timeline-filter' style={{ display: 'inline' }}>
       {isMobile ? (
 
-      <div className='filter-dropdown-mobile'><MobileFilterDropdownContainer  setFilter={setFilter} filterBy={filterBy}/></div>
+        <div className='filter-dropdown-mobile'><MobileFilterDropdownContainer setFilter={setFilter} filterBy={filterBy} setRange={setRange} dateRange={dateRange} /></div>
 
       ) : (
-      <div style={{ display: 'inline-block' }}>
-        <div className='filter-dropdown'>
-          <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
-          <span className='filter-divider'></span>
-          <CategoriesFilter  filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
-          <span className='filter-divider'></span>
-          <DateFilter filterBy={filterBy} setFilter={setFilter} dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} />
-          <span className='filter-divider'></span>
-          <AuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
-        </div>
-        {isLoggedIn && 
-          <div className='add-update-button' style={{display: 'inline-block'}}>
-              <Button
-                  onClick = {handleAddEntry}
-                  variant="outlined" 
-                  style={{
-                      backgroundColor: "#1E5487",
-                      color: "white",
-                      width: 150,
-                      height: 50,
-                      textTransform: 'none',
-                      marginLeft: '10px',
-                      fontSize: 16,
-                  }}
-              >
-                  Add New Entry
-              </Button>
+        <div style={{ display: 'inline-block' }}>
+          <div className='filter-dropdown'>
+            <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
+            <span className='filter-divider'></span>
+            <CategoriesFilter filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} />
+            <span className='filter-divider'></span>
+            <DateFilter filterBy={filterBy} setFilter={setFilter} setRange={setRange} dateRange={dateRange} />
+            <span className='filter-divider'></span>
+            <AuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} />
           </div>
-        }
-    </div>
+          <div>
+            {isLoggedIn &&
+              <div className='add-update-button' style={{ display: 'inline-block' }}>
+                <Button
+                  onClick={handleAddEntry}
+                  variant="outlined"
+                  style={{
+                    backgroundColor: "#1E5487",
+                    color: "white",
+                    width: 150,
+                    height: 50,
+                    textTransform: 'none',
+                    marginLeft: '10px',
+                    fontSize: 16,
+                  }}
+                >
+                  Add New Entry
+                </Button>
+              </div>
+            }
+          </div>
+        </div>
       )}
-    </div>
-  );
+    </div>)
 }
-
-export default TimelineFilterContainer
+export default TimelineFilterContainer;

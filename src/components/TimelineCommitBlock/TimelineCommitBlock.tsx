@@ -11,7 +11,7 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 interface TimelineCommitBlockProps {
     author: string;
     project: string;
-    date: Date;
+    date: string;
     title: String;
     descriptions: Array<string>;
     hyperlinks: Array<string>;

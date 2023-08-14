@@ -3,6 +3,9 @@ import './ProjectAddMember.css'
 import { GrClose } from "react-icons/gr";
 import { useState, useRef } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 interface PropsOBJ {
     isVisible: boolean;
@@ -10,6 +13,8 @@ interface PropsOBJ {
 }
 
 const ProjectAddMember = (props: PropsOBJ) => {
+    const baseURL = process.env.REACT_APP_API_URL;
+    
 
     // useRefs for getting the values, provided by the user, in the inputs.
     const usernameRef = useRef<HTMLInputElement>(null);
@@ -34,10 +39,10 @@ const ProjectAddMember = (props: PropsOBJ) => {
             const [usernameData, firstnameData, lastnameData, projectsData, emailData, linkedInData] = [usernameRef.current?.value, firstnameRef.current?.value, lastnameRef.current?.value, inputtedProjects, emailRef.current?.value, linkedInRef?.current!.value]
 
             // a call to our backend API that inserts an memeber with the information that the user has inputted
-            await axios.post('http://localhost:4000/api/members',
-                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isActive: true }).catch(err => {throw err})
+            await axios.post(`${baseURL}/api/members`,
+                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isActive: true }).catch(err => {throw err}).then(() => setVisibility(false))
         } catch(err) {
-            // do nothing
+            console.log(err)
         }
     }
 

@@ -111,14 +111,16 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
             </div>
         </div>
         </section>
-        <section className='full-bleed5' style={{marginTop:"10%"}}>
+        {/* <section className='full-bleed5' style={{marginTop:"10%"}}>
         <div className='what-our-team-member-say'>
-            {/* <p style={{paddingTop: "7%"}}>04</p>
+            <p style={{paddingTop: "7%"}}>04</p>
             <h2>{TEXT.PROJECT_JOIN.MEMBER_TESTIMONIALS.TITLE}</h2>
-            <h1 style={{textAlign:"center", color:"white", paddingBottom:"20%"}}>Carousel placeholder</h1> */}
-            <ProjectGallery /> 
+            <h1 style={{textAlign:"center", color:"white", paddingBottom:"20%"}}>Carousel placeholder</h1>
+            
         </div>
-        </section>
+        
+        </section> */}
+        <ProjectGallery /> 
         <section className='full-bleed6'>
         <div className='Application-Instructions'>
         <p style={{paddingTop: "7%", textAlign: "center", color:"#B2C9EC"}}>05</p>

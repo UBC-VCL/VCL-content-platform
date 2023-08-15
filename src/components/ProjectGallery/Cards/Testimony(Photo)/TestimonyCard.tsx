@@ -1,12 +1,10 @@
 import react from 'react'
 import './TestimonyCard.css'
-import blankPPic from "../../media/blank-profile-picture.webp"
 import { ImQuotesLeft } from "react-icons/im";
 
 interface PropsOBJ {
     key: number;
     imgSrc: string;
-    title: string;
     description: string;
     name: string;
     position: string;
@@ -15,12 +13,12 @@ interface PropsOBJ {
 
 const TestimonyCard = (props:PropsOBJ) => {
 
-    const {key, imgSrc, title, description, name, position} = props;
+    const {key, imgSrc, description, name, position} = props;
 
     return(
         <div className='testimony-box-content' key={key}>
             <div className='img-container'>
-                <img src={blankPPic} className={'profile-photo'}/>
+                <img src={imgSrc} className={'profile-photo'}/>
             </div>
             <div className='info-container'>
                 <ImQuotesLeft className='quote-icon' size={40}/>

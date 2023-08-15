@@ -1,5 +1,6 @@
 import './ProjectGallery.css'
 import img1 from '@statics/images/correlation/correlation1.png';
+import blankPPic from "./media/blank-profile-picture.webp"
 import img2 from '@statics/images/correlation/correlation2.png';
 import img3 from '@statics/images/correlation/correlation3.png';
 import img4 from '@statics/images/correlation/correlation4.png';
@@ -8,12 +9,13 @@ import DefaultCard from './Cards/Default/DefaultCard';
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 
 import { useState, useEffect, useRef } from 'react'
-import TestimonyCard from './Cards/Testimony/TestimonyCard';
+import TestimonyCard from './Cards/Testimony(Photo)/TestimonyCard';
+import NoPhotoTest from './Cards/Testimony(No-Photo)/NoPhotoTest';
 
 
 interface SlideShowOBJ {
-    img: string;
-    title: string;
+    img?: string;
+    title?: string;
     description: string;
     cardType: string;
     name?: string; // only if the card is of type 'testimony'
@@ -22,18 +24,17 @@ interface SlideShowOBJ {
 
 const dummyList: SlideShowOBJ[] = [
     {
-        img: img1,
-        title: 'Figure 1.1',
+        img: blankPPic,
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         cardType: 'testimony',
         name: 'Sally',
         position: 'Project Correlation, Researcher'
     },
     {
-        img: img2,
-        title: 'Figure 1.2',
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-        , cardType: 'default'
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+        cardType: 'no-photo-test',
+        name: 'Sally',
+        position: 'Project Correlation, Researcher'
     },
     {
         img: img3,
@@ -71,15 +72,15 @@ const ProjectGallery = () => {
     }
 
     // This is the autoscrolling feature
-    useEffect(() => {
-        resetTimeout()
-        timeoutRef.current = setTimeout(
-            () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
-        )
-        return () => {
-            resetTimeout()
-        }
-    }, [galleryIndex])
+    // useEffect(() => {
+    //     resetTimeout()
+    //     timeoutRef.current = setTimeout(
+    //         () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
+    //     )
+    //     return () => {
+    //         resetTimeout()
+    //     }
+    // }, [galleryIndex])
 
 
     return (
@@ -113,9 +114,11 @@ const ProjectGallery = () => {
                                 dummyList.map((obj, index) => {
                                     switch (obj.cardType) {
                                         case 'testimony':
-                                            return <TestimonyCard key={index} imgSrc={obj.img} title={obj.title} description={obj.description} name={obj.name!} position={obj.position!}/>;
+                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description} name={obj.name!} position={obj.position!}/>;
+                                        case 'no-photo-test':
+                                            return <NoPhotoTest key={index} description={obj.description} name={obj.name!} position={obj.position!}/>
                                         default:
-                                            return <DefaultCard key={index} imgSrc={obj.img} title={obj.title} description={obj.description} />;
+                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description} />;
                                     }
                                 })
                             }

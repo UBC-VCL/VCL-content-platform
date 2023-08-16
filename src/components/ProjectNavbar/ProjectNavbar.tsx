@@ -18,9 +18,6 @@ import {  ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam , ProjectTi
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import { Button } from "@mui/material";
 import { ROUTES } from "@statics";
-import { width } from '@mui/system';
-import Subpage1 from '@pages/Project/Subpage1';
-import Subpage2 from '@pages/Project/Subpage2';
 
 const drawerWidth = 280;
 

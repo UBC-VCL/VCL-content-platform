@@ -1,19 +1,7 @@
 import React from 'react'
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import { Project } from '@entities/Project';
-import { useAppSelector } from '@redux/hooks';
-import { selectProjects } from '@redux/slices/ProjectRedux';
-import ToggleButton from '@mui/material/ToggleButton'
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import ROUTES from '@statics/routes';
-import {
-    ProjectDefault,
-    ProjectJoin,
-    ProjectResources,
-    ProjectTeam,
-    ProjectContact
-} from './'
 import PROJECT_NAV from '@statics/projectNav'
 import ProjectNavbar from '@components/ProjectNavbar'
 import "./ProjectWrapper.css"

@@ -7,7 +7,6 @@ import img4 from '@statics/images/correlation/correlation4.png';
 import DefaultCard from './Cards/Default/DefaultCard';
 
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
-
 import { useState, useEffect, useRef } from 'react'
 import TestimonyCard from './Cards/Testimony(Photo)/TestimonyCard';
 import NoPhotoTest from './Cards/Testimony(No-Photo)/NoPhotoTest';
@@ -55,8 +54,18 @@ const dummyList: SlideShowOBJ[] = [
         , cardType: 'default'
     }
 ]
+import { SlideShowOBJ } from '../../pages/Project/types';
+import { NumberLocale } from 'yup/lib/locale';
 
-const ProjectGallery = () => {
+interface PropsOBJ {
+    itemArray: Array<SlideShowOBJ>;
+    displayNumber: number;
+    compTitle: string;
+}
+
+const ProjectGallery = (props:PropsOBJ) => {
+
+    const { itemArray, displayNumber, compTitle } = props;
 
     // This defines the index of which element is being displayed within the gallery at the moment
     const [galleryIndex, setGalleryIndex] = useState<number>(0);
@@ -72,15 +81,15 @@ const ProjectGallery = () => {
     }
 
     // This is the autoscrolling feature
-    // useEffect(() => {
-    //     resetTimeout()
-    //     timeoutRef.current = setTimeout(
-    //         () => setGalleryIndex((prev) => prev === dummyList.length - 1 ? 0 : prev + 1), 4000
-    //     )
-    //     return () => {
-    //         resetTimeout()
-    //     }
-    // }, [galleryIndex])
+    useEffect(() => {
+        resetTimeout()
+        timeoutRef.current = setTimeout(
+            () => setGalleryIndex((prev) => prev === itemArray.length - 1 ? 0 : prev + 1), 4000
+        )
+        return () => {
+            resetTimeout()
+        }
+    }, [galleryIndex])
 
 
     return (
@@ -94,16 +103,16 @@ const ProjectGallery = () => {
                     }
                     <div>
                         <h1 id='container-title-h1'>
-                            02
+                            {displayNumber}
                         </h1>
                         <h2 id='container-title-h2'>
-                            Gallery
+                            {compTitle}
                         </h2>
                     </div>
                 </div>
                 <div id='gallery-container'>
                     < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
-                        galleryIndex === 0 ? setGalleryIndex(dummyList.length - 1) : setGalleryIndex(galleryIndex - 1)
+                        galleryIndex === 0 ? setGalleryIndex(itemArray.length - 1) : setGalleryIndex(galleryIndex - 1)
                     }} />
                     <div className="gallery-box">
                         <div className='slideshowSlider' style={{ transform: `translate3d(${-galleryIndex * 100.5}%, 0, 0)` }}>
@@ -120,12 +129,12 @@ const ProjectGallery = () => {
                                         default:
                                             return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description} />;
                                     }
-                                })
+                                })=
                             }
                         </div>
                         <div className='slideshowDots'>
                             {
-                                dummyList.map((_, idx) => (
+                                itemArray.map((_, idx) => (
                                     <div
                                         key={idx}
                                         className={`slideshowDot${galleryIndex === idx ? " active" : ""}`}
@@ -138,7 +147,7 @@ const ProjectGallery = () => {
                         </div>
                     </div>
                     < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
-                        galleryIndex === dummyList.length - 1 ? setGalleryIndex(0) : setGalleryIndex(galleryIndex + 1)
+                        galleryIndex === itemArray.length - 1 ? setGalleryIndex(0) : setGalleryIndex(galleryIndex + 1)
                     }} />
                 </div>
             </div>

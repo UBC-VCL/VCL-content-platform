@@ -22,7 +22,7 @@ export const loginUser = async (
 ): Promise<LoginResponse> => {
   try {
     const res = await axios.post(
-      '/api/users/login',
+      'http://localhost:4000/api/users/login',
       {
         username,
         password,

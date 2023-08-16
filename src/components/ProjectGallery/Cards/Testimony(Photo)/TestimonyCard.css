@@ -35,6 +35,7 @@ p {
 
 .description-p {
     text-align: left !important;
+    font-size: medium;
 }
 
 .description-section {
@@ -43,11 +44,15 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-top: 3rem;
+}
+
+.identification-section {
+    margin-top: 1rem;
 }
 
 #name {
-    font-size: medium;
+    font-size: x-large;
     text-align: left;
     color: white;
 }

@@ -11,17 +11,17 @@ interface PropsOBJ {
 }
 
 
-const TestimonyCard = (props:PropsOBJ) => {
+const TestimonyCard = (props: PropsOBJ) => {
 
-    const {key, imgSrc, description, name, position} = props;
+    const { key, imgSrc, description, name, position } = props;
 
-    return(
+    return (
         <div className='testimony-box-content' key={key}>
             <div className='img-container'>
-                <img src={imgSrc} className={'profile-photo'}/>
+                <img src={imgSrc} className={'profile-photo'} />
             </div>
             <div className='info-container'>
-                <ImQuotesLeft className='quote-icon' size={40}/>
+                <ImQuotesLeft className='quote-icon' size={45} />
                 <div className='description-section'>
                     <p className='description-p'>
                         {description}

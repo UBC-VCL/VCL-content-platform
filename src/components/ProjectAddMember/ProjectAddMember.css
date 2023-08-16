@@ -1,0 +1,78 @@
+.add-viewing-div {
+    position: fixed;
+    width: 60vw;
+    height: 70vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
+    margin-left: 96%;
+    margin-top: 1%;
+}
+
+.close-icon:hover {
+    cursor: pointer;
+}
+
+.content-viewing-div {
+    width: full;
+    height: 90%;
+    display: block;
+}
+
+.inputs-div {
+    width: full;
+    height: 80%;
+    display: flex;
+    padding: 0rem 1.5rem;
+}
+
+.input-div {
+    width: 50%;
+    display: grid;
+    grid-template-rows: repeat(6, 30px);
+    grid-gap: 1.5rem;
+}
+
+.display-involvement {
+    width: 50%;
+    height: full;
+}
+
+.button-div {
+    width: full;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    width: 10%;
+    height: 40%;
+    background-color: blue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(7, 7, 155);
+    transition: background-color .25s;
+}
+
+.input {
+    width: 40%;
+    height: full;
+}

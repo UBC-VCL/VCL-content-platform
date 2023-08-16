@@ -167,7 +167,6 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
     ]
 
     const curr_project: any = projects.find(project => project.name === match.params.project_id)
-    console.log(curr_project)
 
     if (!curr_project) {
         return <div>Selected project does not exist</div>

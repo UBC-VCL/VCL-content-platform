@@ -9,13 +9,15 @@ interface Member {
     isCurrentMember?: boolean
 }
 
+interface Description {
+    first: string,
+    second: string,
+    emp: string,
+}
+
 export interface Project {
     name: string,
-    description?: {
-        first: string,
-        second: string,
-        emp: string,
-    },
+    description?: Description
     members?: Member[],
     isActive?: boolean,
     key?: string,
@@ -23,4 +25,8 @@ export interface Project {
     joinTeam?: {
         whatWeDo: string[]
     },
+    subpage?: {
+        name: string,
+        description: Description
+    }[]
 }

@@ -41,8 +41,6 @@ const TEXT = {
       TEAM_AND_ALUMNI: 'Team & Alumni',
       CONTACT: 'Contact',
       PROJECT_TIMELINE: 'Timeline',
-      SUBPAGE1: 'Subpage 1',
-      SUBPAGE2: 'Subpage 2'
   },
 
   PROJECT_NAMES: {

@@ -18,9 +18,6 @@ import {  ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam , ProjectTi
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import { Button } from "@mui/material";
 import { ROUTES } from "@statics";
-import { width } from '@mui/system';
-import Subpage1 from '@pages/Project/Subpage1';
-import Subpage2 from '@pages/Project/Subpage2';
 
 const drawerWidth = 280;
 
@@ -122,28 +119,28 @@ export default function Sidebar(props: any) {
 
 
                     {props.links.map((link: any, index: any) => (
-                        link.title == 'Subpage 1' || link.title == 'Subpage 2' ?
-                        props.currProject.name == 'Correlation' ? 
-                            <div style={{ marginTop: "-4%", marginBottom: "-2%" }}>
-                                <div style={{ marginLeft: "5%" }}>
-                                    <ListItem key='link.title'>
-                                        <ListItemButton component={Link} to={link.ref}>
-                                            <Typography color='#5B7E98' marginLeft='0px'>
-                                            {link.title}
-                                            </Typography>
-                                        </ListItemButton>
-                                    </ListItem>
-                                </div>
-                            </div> :
-                            <div/>
-                            :
+                        <>
                             <ListItem key={link.title}>
                                 <ListItemButton component={Link} to={link.ref}>
-                                    <Typography color='#5B7E98' marginLeft='0px'>
+                                    <Typography color = '#5B7E98' marginLeft='0px'>
                                         {link.title}
                                     </Typography>
                                 </ListItemButton>
-                            </ListItem> 
+                            </ListItem>
+                            {index == 0 && (
+                                <>
+                                {props.currProject.subpage?.map((page: any) => (
+                                    <ListItem key={page.name} >
+                                        <ListItemButton component={Link} to={`${page.name}`}>
+                                            <Typography color = '#5B7E98' marginLeft='20px'>
+                                                {page.name}
+                                            </Typography>
+                                        </ListItemButton>
+                                    </ListItem>
+                                ))}
+                                </>
+                            )}
+                        </>
                     ))}
 
 
@@ -171,8 +168,11 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/timeline`} render={() => <ProjectTimeline project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/subpage1`} render={() => <Subpage1 project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/subpage2`} render={() => <Subpage2 project={props.currProject} />} />
+                        {
+                            props.currProject.subpage?.map((page: any) => (
+                                <Route exact path={`${props.match.url}/${page.name}`} render={() => <ProjectDefault project={page} />} />
+                            ))
+                        }
 
                     </Switch>
                 </div>

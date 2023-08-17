@@ -131,7 +131,7 @@ export default function Sidebar(props: any) {
                                 <>
                                 {props.currProject.subpage?.map((page: any) => (
                                     <ListItem key={page.name} >
-                                        <ListItemButton component={Link} to={page.name}>
+                                        <ListItemButton component={Link} to={`${page.name}`}>
                                             <Typography color = '#5B7E98' marginLeft='20px'>
                                                 {page.name}
                                             </Typography>

@@ -59,41 +59,11 @@
     display: flex;
 }
 
-.box-content {
-    height: fit-content;
-    margin: auto;
-    background-color: #2A3749;
-    border-radius: 8px;
-    padding: 2rem;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #7A92B4;
-}
-
 .image-container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 920px;
-}
-
-.gallery-img {
-    width: 500px;
-    margin: auto;
-}
-
-.gallery-title {
-    font-size: large;
-    margin: 1rem;
-    text-align: center;
-    color: #7A92B4;
-    text-decoration: underline;
-}
-
-.gallery-description {
-    font-size: small;
-    text-align: center;
-    color: #7A92B4;
 }
 
 .slideshowDots {
@@ -115,112 +85,3 @@
 .slideshowDot.active {
     background-color: #8ea9d2;
 }
-
-/* #container {
-    background-color: #1B283A;
-    height: fit-content;
-    user-select: none;
-    text-align: center;
-}
-
-#container-titles {
-    padding: 1rem 0;
-    text-align: center;
-}
-
-#container-title-h1 {
-    font-size: large;
-    color: #8ea9d2;
-}
-
-#container-title-h2 {
-    margin: 0 0;
-    color: white;
-}
-
-#container-title-h1, #container-title-h2 {
-    text-align: center;
-}
-
-#gallery-container {
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem;
-    padding-top: 0;
-}
-
-.gallery-buttons {
-    cursor: pointer;
-    color: white;
-}
-
-#right-icon {
-    transform: rotate(180deg); 
-}
-
-.gallery-box{
-    width: 1000px;
-    height: fit-content;
-    overflow: hidden;
-    margin: 0 2rem;
-}
-
-.slideshowSlider {
-    transition: ease 1000ms;
-    display: flex;
-    justify-content: center; 
-}
-
-.box-content {
-    height: fit-content;
-    background-color: #2A3749;
-    border-radius: 8px;
-    padding: 2rem;
-    margin-right: 20px;
-    color: #7A92B4;
-}
-
-.image-container {
-    width: 920px;
-}
-
-.gallery-img {
-    width: 500px;
-    margin: auto;
-}
-
-.gallery-title {
-    font-size: large;
-    margin: 1rem;
-    text-align: center;
-    color: #7A92B4;
-    text-decoration: underline;
-}
-
-.gallery-description {
-    font-size: small;
-    text-align: center;
-    color: #7A92B4;
-}
-
-.slideshowDots {
-    text-align: center;
-}
-
-.slideshowDot {
-    display: inline-block;
-    height: 20px;
-    width:20px;
-    border-radius: 50%;
-
-    cursor: pointer;
-    margin: 15px 7px 0px;
-
-    background-color: #2A3749;
-}
-
-.slideshowDot.active {
-    background-color: #8ea9d2;
-} */

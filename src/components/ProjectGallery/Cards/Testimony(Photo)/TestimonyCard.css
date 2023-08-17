@@ -1,0 +1,65 @@
+.testimony-box-content {
+    height: fit-content;
+    margin: auto;
+    background-color: #2A3749;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #7A92B4;
+    max-height: 100%;
+    display: flex;
+    padding: 3rem 2rem;
+}
+
+.img-container {
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote-icon {
+    position: relative;
+    float: left;
+}
+
+.profile-photo {
+    max-width: 200px;
+    border-radius: 100px;
+}
+
+p {
+    width: 100%;
+}
+
+.description-p {
+    text-align: left !important;
+    font-size: medium;
+}
+
+.description-section {
+    width: 690px;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.identification-section {
+    margin-top: 1rem;
+}
+
+#name {
+    font-size: x-large;
+    text-align: left;
+    color: white;
+}
+
+
+#position {
+    font-size: small;
+    color: #BFD1EC;
+    text-align: left;
+}

@@ -1,6 +1,18 @@
 import './ProjectGallery.css'
+import img1 from '@statics/images/correlation/correlation1.png';
+
+import img2 from '@statics/images/correlation/correlation2.png';
+import img3 from '@statics/images/correlation/correlation3.png';
+import img4 from '@statics/images/correlation/correlation4.png';
+import DefaultCard from './Cards/Default/DefaultCard';
+
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { useState, useEffect, useRef } from 'react'
+import TestimonyCard from './Cards/Testimony(Photo)/TestimonyCard';
+import NoPhotoTest from './Cards/Testimony(No-Photo)/NoPhotoTest';
+
+
+
 import { SlideShowOBJ } from '../../pages/Project/types';
 import { NumberLocale } from 'yup/lib/locale';
 
@@ -37,7 +49,7 @@ const ProjectGallery = (props:PropsOBJ) => {
             resetTimeout()
         }
     }, [galleryIndex])
-    
+
 
     return (
         <>
@@ -67,16 +79,16 @@ const ProjectGallery = (props:PropsOBJ) => {
                                 /* 
                                     Theses displayed properties should also be from props
                                 */
-                                    itemArray.map((obj, index) => (
-
-                                    <div className='box-content' key={index}>
-                                        <div className='image-container'>
-                                            <img src={obj.img} alt='' className='gallery-img' />
-                                        </div>
-                                        <h1 className='gallery-title'>{obj.title}</h1>
-                                        <p className='gallery-description'>L{obj.description}</p>
-                                    </div>
-                                ))
+                                    itemArray.map((obj, index) => {
+                                    switch (obj.cardType) {
+                                        case 'testimony':
+                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description} name={obj.name!} position={obj.position!}/>;
+                                        case 'no-photo-test':
+                                            return <NoPhotoTest key={index} description={obj.description} name={obj.name!} position={obj.position!}/>
+                                        default:
+                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description} />;
+                                    }
+                                })
                             }
                         </div>
                         <div className='slideshowDots'>

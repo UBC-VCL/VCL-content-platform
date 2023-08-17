@@ -1,0 +1,29 @@
+.box-content {
+    height: fit-content;
+    margin: auto;
+    background-color: #2A3749;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #7A92B4;
+}
+
+.gallery-img {
+    width: 500px;
+    margin: auto;
+}
+
+.gallery-title {
+    font-size: large;
+    margin: 1rem;
+    text-align: center;
+    color: #7A92B4;
+    text-decoration: underline;
+}
+
+.gallery-description {
+    font-size: small;
+    text-align: center;
+    color: #7A92B4;
+}

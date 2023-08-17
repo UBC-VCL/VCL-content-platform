@@ -1,0 +1,46 @@
+.no-photo-testimony-box-content {
+    height: fit-content;
+    margin: auto;
+    background-color: #2A3749;
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #7A92B4;
+    max-height: 100%;
+    display: flex;
+    max-width: 984px;
+}
+
+.text {
+    width: 900px;
+    padding: 1.5rem;
+    padding-right: 5rem;
+    padding-bottom: 0;
+    margin-top: 1rem;
+}
+
+.quote-icon {
+    position: relative;
+    float: top;
+}
+
+.description-text {
+    width: 100%;
+}
+
+.identification {
+    position: relative;
+    float: right;
+    margin-top: 1rem;
+}
+
+.name {
+    font-size: x-large;
+    color: white;
+}
+
+.position{
+    font-size: small;
+}
+

@@ -14,10 +14,28 @@ import compModel from '../.././statics/images/JoinTeam/compModel.png';
 import browser from '../.././statics/images/JoinTeam/browser.png';
 import email from '../.././statics/images/JoinTeam/email.png';
 import ProjectGallery from '@components/ProjectGallery/ProjectGallery';
+import blankPPic from "../../components/ProjectGallery/media/blank-profile-picture.webp"
+import { SlideShowOBJ } from './types';
 
 interface ProjectProps {
     project : Project,
 }
+
+const dummyList: SlideShowOBJ[] = [
+    {
+        img: blankPPic,
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        cardType: 'testimony',
+        name: 'Sally',
+        position: 'Project Correlation, Researcher'
+    },
+    {
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+        cardType: 'no-photo-test',
+        name: 'Sally',
+        position: 'Project Correlation, Researcher'
+    }
+]
 
 
 const ProjectJoin: React.FC<ProjectProps> = (props) => {
@@ -120,7 +138,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         </div>
         
         </section> */}
-        <ProjectGallery /> 
+        <ProjectGallery displayNumber={2} compTitle={'Gallery'} itemArray={dummyList}/> 
         <section className='full-bleed6'>
         <div className='Application-Instructions'>
         <p style={{paddingTop: "7%", textAlign: "center", color:"#B2C9EC"}}>05</p>

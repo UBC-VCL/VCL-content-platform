@@ -8,13 +8,13 @@ interface ProjectProps {
     project : Project,
 }
 
-const ProjectTimeline: React.FC<ProjectProps> = (props) => {
+const ProjectPublications: React.FC<ProjectProps> = (props) => {
     return (
         <div className='project-subcontent-container'>
-            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_TIMELINE} /> 
-            Timeline page for {props.project.name};
+            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} /> 
+            Publication page for {props.project.name};
         </div>
     )
 };
 
-export default ProjectTimeline;
+export default ProjectPublications;

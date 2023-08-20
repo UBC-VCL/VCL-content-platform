@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+}
+h4 {
+    color: #535353;
+}
+
+.main-content {
+    margin-top: 5.3rem;
+}
+
+.project-header {
+    margin-top: 10rem;
+}
+
+.page-description {
+    margin: 2rem 0;
+}
+
+.page-nav {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.nav-item {
+    border-left: 1px rgba(0, 0, 0, 0.2) solid;
+} 
+
+.hover-item {
+    border-radius: 5px;
+    margin: 0 .5rem;
+    transition: background-color 1s ease;
+    padding: .5rem 0;
+}
+
+.hover-item:hover {
+    cursor: pointer;
+    background-color: #b6b5b5;
+}
+
+.page-nav .nav-item:first-child {
+    border-left: none; /* Remove border from the first item */
+}

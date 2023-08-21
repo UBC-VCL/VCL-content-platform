@@ -9,6 +9,12 @@ interface Member {
     isCurrentMember?: boolean
 }
 
+interface Publication {
+    name: string,
+    citation: string,
+    link: string
+}
+
 export interface Project {
     name: string,
     description?: {
@@ -23,4 +29,5 @@ export interface Project {
     joinTeam?: {
         whatWeDo: string[]
     },
+    publications?: Publication[],
 }

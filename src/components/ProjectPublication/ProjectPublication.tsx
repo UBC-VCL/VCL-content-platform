@@ -9,6 +9,7 @@ interface PublicationDetails {
 export const Publication: React.FC<PublicationDetails> = (props) => {
     return (
         <div className="person-card">
+            <p>This publication is {props.name}</p>
             {/* <div className="card__header">
                 <h1 className="card__title">{props.name}</h1>
                 <div className="card__header__icons">

@@ -73,6 +73,18 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     position: "Co-pilot",
                     isCurrentMember: true,
                 },
+            ],
+            publications: [
+                {
+                    name: "publication #1",
+                    citation: "abc",
+                    link: "xyz"
+                },
+                {
+                    name: "publication #2",
+                    citation: "abc",
+                    link: "xyz"
+                }
             ]
         },
         {

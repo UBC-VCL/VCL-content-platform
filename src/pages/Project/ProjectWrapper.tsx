@@ -81,16 +81,35 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     link: "https://jov.arvojournals.org/article.aspx?articleid=2141080"
                 },
                 {
-                    name: "publication #2",
-                    citation: "abc",
-                    link: "xyz"
+                    name: "The perception of correlation in scatterplots (2010)",
+                    citation: "Rensink RA, and Baldridge G (2010). The perception of correlation in scatterplots. Computer Graphics Forum, 29: 1203-1210.",
+                    link: "http://www2.psych.ubc.ca/~rensink/publications/abs.10.4.html"
+                },
+                {
+                    name: "On the Prospects for a Science of Visualization (2014)",
+                    citation: "Rensink RA (2014a). On the Prospects for a Science of Visualization.  In W. Huang (Ed.) Handbook of Human Centric Visualization: Theories, Methodologies, and Case Studies. New York: Springer.  pp. 147-175.",
+                    link: "http://www2.psych.ubc.ca/~rensink/publications/abs.14.1.html"
                 }
             ]
         },
         {
-            name: "NOVA"
+            name: "NOVA",
+            publications: [
+                {
+                    name: "Robust inattentional blindness (2005)",
+                    citation: "Rensink, R. A. (2005). Robust inattentional blindness. Journal of Vision, 5(8), 790: https://jov.arvojournals.org/article.aspx?articleid=2132583",
+                    link: "https://jov.arvojournals.org/article.aspx?articleid=2132583"
+                }
+            ]
         }, {
-            name: "Perceptual Modes"
+            name: "Perceptual Modes",
+            publications: [
+                {
+                    name: "Example",
+                    citation: "Example",
+                    link: ""
+                }
+            ]
         }, {
             name: "SHIVA",
             description: {
@@ -99,7 +118,14 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
 
                 second: "Work done in the UBC VCL has revealed the possibility that a person’s visual perceptual mode can be changed. The change is measured by the use of a visual search paradigm called visual search asymmetry. Thus far, it seems that our subjects are not willfully changing their mode of perception, but rather their perceptual mode changes because of specific external factors in their visual environment. Our subjects seem to be unaware of any perceptual mode change occurring, so it is likely a subconscious occurrence. \n\nThe SHIVA project is investigating factors which shift these visual perceptual modes. Some questions we ask are: What range of factors or external stimuli can affect these perceptual modes? To what degree are perceptual modes affected by these factors? Do some factors lose their effect on perceptual modes when certain other factors are present?",
                 emp: `The SHIVA project arose from an interest in how culture may have a significant effect on the mode of visual perception a person uses.`
-            }
+            },
+            publications: [
+                {
+                    name: "Asymmetries in visual search: An introduction (2001)",
+                    citation: "Wolfe, J. M. (2001). Asymmetries in visual search: An introduction. Perception & Psychophysics, 63(3), 381-389. doi:10.3758/BF03194406. https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf",
+                    link: "https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf"
+                }
+            ]
         }, {
             name: "Ideo",
             description: {
@@ -115,8 +141,27 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     "The Ideo Project is investigating implicit cognition and whether we can bypass explicit cognition through the use of different devices. If you are interested in getting involved in research and the process that goes behind such a study, this could be the project for you."
                 ]
             },
+            publications: [
+                {
+                    name: "Expression of nonconscious knowledge via ideomotor actions (2012)",
+                    citation: "NO CITATION PROVIDED",
+                    link: "https://www.sciencedirect.com/science/article/pii/S1053810012000402"
+                },
+                {
+                    name: "Adaptive control of ideomotor effect anticipations (2010)",
+                    citation: "NO CITATION PROVIDED",
+                    link: "https://www.sciencedirect.com/science/article/pii/S0001691810001800"
+                }
+            ]
         }, {
-            name: "Dormant"
+            name: "Dormant",
+            publications: [
+            ]
+        },
+        {
+            name: "NCIS",
+            publications: [
+            ]
         },
         {
             name: "Image Transitions",
@@ -168,6 +213,28 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     email: "jennyma2478@gmail.com",
                     isCurrentMember: true,
                 },
+            ],
+            publications: [
+                {
+                    name: "Visual search has no memory (1998)",
+                    citation: "Horowitz, T. S., & Wolfe, J. M. (1998). Visual search has no memory. Nature, 394(6693), 575-577. http://www.nature.com/nature/journal/v394/n6693/full/394575a0.html",
+                    link: "http://www.nature.com/nature/journal/v394/n6693/full/394575a0.html"
+                },
+                {
+                    name: "Effects of 2D geometric transformations on visual memory (2006)",
+                    citation: "Lam, H., Rensink, R. A., & Munzner, T. (2006, July). Effects of 2D geometric transformations on visual memory. In Proceedings of the 3rd symposium on Applied perception in graphics and visualization (pp. 119-126). ACM. http://dl.acm.org/citation.cfm?id=1140515 ",
+                    link: "http://dl.acm.org/citation.cfm?id=1140515"
+                },
+                {
+                    name: "Perceptual invariance of nonlinear focus+ context transformations (2004)",
+                    citation: "Lau, K., Rensink, R. A., & Munzner, T. (2004, August). Perceptual invariance of nonlinear focus+ context transformations. In Proceedings of the 1st Symposium on Applied perception in graphics and visualization (pp. 65-72). ACM. http://www2.psych.ubc.ca/~rensink/publications/download/agvp-LRT.pdf",
+                    link: "http://www2.psych.ubc.ca/~rensink/publications/download/agvp-LRT.pdf  "
+                },
+                {
+                    name: "The Invariance of Visual Search to Geometric Transformation (2004)",
+                    citation: "Rensink, R. (2004). The Invariance of Visual Search to Geometric Transformation. Journal of Vision, 4(8), 178. http://jov.arvojournals.org/article.aspx?articleid=2130823",
+                    link: "http://jov.arvojournals.org/article.aspx?articleid=2130823"
+                }
             ]
         }
     ]

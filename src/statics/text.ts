@@ -42,7 +42,7 @@ const TEXT = {
       CONTACT: 'Contact',
       PROJECT_PUBLICATIONS: 'Publications',
       SUBPAGE1: 'Subpage 1',
-      SUBPAGE2: 'Subpage 2'
+      SUBPAGE2: 'Subpage 2',
       PROJECT_TIMELINE: 'Timeline'
   },
 

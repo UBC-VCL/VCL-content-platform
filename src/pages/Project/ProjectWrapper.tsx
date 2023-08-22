@@ -76,9 +76,9 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
             ],
             publications: [
                 {
-                    name: "publication #1",
-                    citation: "abc",
-                    link: "xyz"
+                    name: "Invariance of Correlation Perception (2012)",
+                    citation: "Rensink RA (2012). Invariance of Correlation Perception. Journal of Vision, 2012;12(9):433. doi: 10.1167/12.9.433.",
+                    link: "https://jov.arvojournals.org/article.aspx?articleid=2141080"
                 },
                 {
                     name: "publication #2",

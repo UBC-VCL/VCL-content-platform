@@ -1,4 +1,6 @@
 import React from "react"
+import './ProjectPublication.css'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 interface PublicationDetails {
     name: string,
@@ -8,37 +10,11 @@ interface PublicationDetails {
 
 export const Publication: React.FC<PublicationDetails> = (props) => {
     return (
-        <div className="person-card">
-            <p>This publication is {props.name}</p>
-            {/* <div className="card__header">
-                <h1 className="card__title">{props.name}</h1>
-                <div className="card__header__icons">
-                {(() => {
-                        if (props.isCurrentMember) {
-                            return (
-                                <>
-                                <span id="alumni-tag">Alumni</span>
-                                </>
-                            )
-                        }
-                })()}
+        <div className="publication-card">
+            <a href={props.link} className="card-title" target="_blank" > {props.name} <OpenInNewIcon fontSize="2px"/> </a> 
+            <div className="publication-citation">
+                <p>{props.citation}</p>
             </div>
-        </div><h2 className="card__subtitle card__subtitle--involvement">{props.involvement}</h2><p className="card__text">{props.description}</p><div className="card__contact">
-                <div id="contact-container">
-                    <div className="contact-info-row">
-                        <EmailIcon className="icon icon--contact" />
-                        <a href={`mailto:${props.email}`} className="card__subtitle card__subtitle--contact">{props.email}</a>
-                    </div>
-                    <div className="contact-info-row">
-                        <PhoneIcon className="icon icon--contact" />
-                        <a href={`tel:${props.phone}`} className="card__subtitle card__subtitle--contact">{props.phone}</a>
-                    </div>
-                    <div className="contact-info-row">
-                        <LinkedInIcon className="icon icon--contact" />
-                        <a href={`${props.linkedIn}`} className="card__subtitle card__subtitle--contact">{props.linkedIn}</a>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }

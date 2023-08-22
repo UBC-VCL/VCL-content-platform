@@ -39,3 +39,12 @@ hr {
     margin-bottom: 15px;
     width: 100%;
 }
+
+.card-title {
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.publication-citation {
+    padding-bottom: 2%;
+}

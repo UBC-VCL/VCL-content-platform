@@ -32,13 +32,21 @@ h4 {
 .hover-item {
     border-radius: 5px;
     margin: 0 .5rem;
-    transition: background-color 1s ease;
+    transition: background-color 1s ease-in;
+    transition: color 0.1s ease-out;
     padding: .5rem 0;
+    user-select: none;
 }
 
 .hover-item:hover {
     cursor: pointer;
-    background-color: #b6b5b5;
+    background-color: rgb(28, 66, 109);
+    color: white;
+}
+
+.selected-item {
+    background-color: rgb(28, 66, 109);
+    color: white;
 }
 
 .page-nav .nav-item:first-child {

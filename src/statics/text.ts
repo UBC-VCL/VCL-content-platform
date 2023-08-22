@@ -43,6 +43,7 @@ const TEXT = {
       PROJECT_PUBLICATIONS: 'Publications',
       SUBPAGE1: 'Subpage 1',
       SUBPAGE2: 'Subpage 2'
+      PROJECT_TIMELINE: 'Timeline'
   },
 
   PROJECT_NAMES: {

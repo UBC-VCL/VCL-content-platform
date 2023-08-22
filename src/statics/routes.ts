@@ -19,6 +19,7 @@ const ROUTES = {
   PROJECT_PUBLICATIONS: '/publications',
   SUBPAGE1: '/subpage1',
   SUBPAGE2: '/subpage2'
+  PROJECT_TIMELINE: '/timeline',
 } as const;
 
 export default ROUTES;

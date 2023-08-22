@@ -14,14 +14,15 @@ interface Publication {
     citation: string,
     link: string
 }
+interface Description {
+    first: string,
+    second: string,
+    emp: string,
+}
 
 export interface Project {
     name: string,
-    description?: {
-        first: string,
-        second: string,
-        emp: string,
-    },
+    description?: Description
     members?: Member[],
     isActive?: boolean,
     key?: string,
@@ -30,4 +31,8 @@ export interface Project {
         whatWeDo: string[]
     },
     publications?: Publication[],
+    subpage?: {
+        name: string,
+        description: Description
+    }[]
 }

@@ -19,7 +19,7 @@ const People = () => {
         }
     }
 
-    const dummyList: Array<string> = ['Supervisors', 'Correlation', 'IDEO', 'IT', 'NOVA', 'Perceptiual Modes']
+    const dummyList: Array<string> = ['Supervisors', 'Correlation', 'IDEO', 'IT', 'NOVA', 'Perceptual Modes']
 
     const memberDummyList: Array<MemberOBJ> = [
         {
@@ -55,7 +55,7 @@ const People = () => {
         {
             name: { firstname: 'Jane', lastname: 'Doe' },
             project: 'Perceptual Modes',
-            position: 'Supervisor',
+            position: 'Supervisors',
             contact: { linkedIn: 'ryanyae', email: '123456@gmail.com' }
         }
     ]
@@ -114,7 +114,9 @@ const People = () => {
                 <div className='content-display'>
                     <div className='member-list'>
                         {
-                            memberDummyList.map((item, index) => {
+                            memberDummyList.filter((item) => {
+                                return( item.position.toLowerCase() === currentProject.toLowerCase() || item.project.toLowerCase() === currentProject.toLowerCase())
+                            }).map((item, index) => {
 
                                 return (
                                     <div key={index} className='member'>

@@ -52,3 +52,65 @@ h4 {
 .page-nav .nav-item:first-child {
     border-left: none; /* Remove border from the first item */
 }
+
+.member-list {
+    width: full;
+    padding: 1rem 0;
+}
+
+.member {
+    width: 50%;
+    height: 9rem;
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    color: black;
+    border: 1px rgba(0, 0, 0, 0.05) solid; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.image-container {
+    width: 20%;
+}
+
+.image {
+    width: 55%;
+    background-color: black;
+    border-radius: 100px;
+}
+
+.info-container {
+    width: 80%;
+}
+
+.name {
+    color: black;
+}
+
+h3 {
+    color: #A1A1A1;
+}
+
+.message {
+    font-size: small;
+    text-align: left;
+}
+
+.contact-container {
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 0.5rem;
+}
+
+.contact-item {
+    text-align: center;
+    color: black !important;
+    font-weight: normal;
+    border-left: 1px rgba(0, 0, 0, 0.2) solid;
+    padding: 0 1rem;
+}
+
+.contact-container, .contact-item:first-child {
+    border-left: none;
+}

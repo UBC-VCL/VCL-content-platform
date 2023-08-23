@@ -2,6 +2,11 @@ import react from 'react';
 import { useState, useEffect } from 'react'
 import './People.css'
 import img1 from '../../components/ProjectGallery/media/blank-profile-picture.webp'
+import axios from 'axios'
+import dotenv from 'dotenv';
+
+dotenv.config();
+const baseURL = process.env.REACT_APP_API_URL;
 
 const People = () => {
 
@@ -63,9 +68,18 @@ const People = () => {
     // This is for styles, will highlight the first select nav-item for the user
     useEffect(() => {
         document.getElementById(dummyList[0].toLowerCase())!.classList.add('selected-item')
+        getMembers()
     }, [])
 
     const [currentList, setList] = useState<Array<MemberOBJ>>([])
+
+    const getMembers = async () => {
+        axios.get(
+            // `${baseURL}/api/members`
+            "http://localhost:4000/api/members/allMembers").then((response) => [
+                console.log(response)
+            ])
+    }
 
     //TODO:
     //  you will dynamically render all the members for each of the respective projects when the

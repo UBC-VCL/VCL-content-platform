@@ -67,18 +67,18 @@ const People = () => {
 
     // This is for styles, will highlight the first select nav-item for the user
     useEffect(() => {
-        document.getElementById(dummyList[0].toLowerCase())!.classList.add('selected-item')
         getMembers()
+        document.getElementById(dummyList[0].toLowerCase())!.classList.add('selected-item')
     }, [])
 
     const [currentList, setList] = useState<Array<MemberOBJ>>([])
 
     const getMembers = async () => {
         axios.get(
-            // `${baseURL}/api/members`
-            "http://localhost:4000/api/members/allMembers").then((response) => [
-                console.log(response)
-            ])
+            `${baseURL}/api/members`
+            ).then((response) => 
+                setList(response.data.data)
+            )
     }
 
     //TODO:
@@ -128,7 +128,7 @@ const People = () => {
                 <div className='content-display'>
                     <div className='member-list'>
                         {
-                            memberDummyList.filter((item) => {
+                            currentList.filter((item) => {
                                 return( item.position.toLowerCase() === currentProject.toLowerCase() || item.project.toLowerCase() === currentProject.toLowerCase())
                             }).map((item, index) => {
 

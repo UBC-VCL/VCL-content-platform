@@ -4,6 +4,8 @@ import './People.css'
 import img1 from '../../components/ProjectGallery/media/blank-profile-picture.webp'
 import axios from 'axios'
 import dotenv from 'dotenv';
+import { AiFillLinkedin, AiFillPhone } from "react-icons/ai";
+import { MdEmail } from "react-icons/md";
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
@@ -11,21 +13,26 @@ const baseURL = process.env.REACT_APP_API_URL;
 const People = () => {
 
     interface MemberOBJ {
-        name: {
-            firstname: string,
-            lastname: string,
-        }
+        name: NameInfo,
         project: string,
         position: string,
-        contact: {
-            email?: string,
-            linkedIn?: string,
-            phoneNumber?: string
-        }
+        contact: ContactInfo
+    }
+
+    interface ContactInfo {
+        email?: string,
+        linkedIn?: string,
+        phoneNumber?: string
+    }
+
+    interface NameInfo {
+        firstname: string,
+        lastname: string,
     }
 
     const dummyList: Array<string> = ['Supervisors', 'Correlation', 'IDEO', 'IT', 'NOVA', 'Perceptual Modes']
 
+    // I am not sure if this something that should be kept but this an example of what the array would look like from the backend
     const memberDummyList: Array<MemberOBJ> = [
         {
             name: { firstname: 'John', lastname: 'Doe' },
@@ -65,29 +72,47 @@ const People = () => {
         }
     ]
 
+
+
+    // the page will be defaulted to bein on the first grid item
+    const [currentProject, setCProject] = useState<string>(dummyList[0])
+
+    const [currentList, setList] = useState<Array<MemberOBJ>>([])
+
+
     // This is for styles, will highlight the first select nav-item for the user
     useEffect(() => {
         getMembers()
         document.getElementById(dummyList[0].toLowerCase())!.classList.add('selected-item')
     }, [])
 
-    const [currentList, setList] = useState<Array<MemberOBJ>>([])
+    useEffect(() => {
+        console.log(currentList)
+    }, [currentList])
+
 
     const getMembers = async () => {
+
         axios.get(
-            `${baseURL}/api/members`
-            ).then((response) => 
-                setList(response.data.data)
-            )
+            // `${baseURL}/api/members`
+            "http://localhost:4000/api/members"
+        ).then((response) =>
+            setList(response.data.data)
+        ).catch((err) => {
+            console.log(err)
+        })
     }
 
-    //TODO:
-    //  you will dynamically render all the members for each of the respective projects when the
-    //  user is to swtich between projects.
-    //      - Make a http request everytime the desired project changes
-
-    // the page will be defaulted to bein on the first grid item
-    const [currentProject, setCProject] = useState<string>(dummyList[0])
+    const contactIcons = (key: string): JSX.Element => {
+        switch (key) {
+            case ('linkedIn'):
+                return <AiFillLinkedin size={20} className={"contact-icon"} />
+            case ('email'):
+                return <MdEmail size={20} className={"contact-icon"} />
+            default:
+                return <AiFillPhone size={20} className={"contact-icon"} />
+        }
+    }
 
     return (
         <>
@@ -129,9 +154,8 @@ const People = () => {
                     <div className='member-list'>
                         {
                             currentList.filter((item) => {
-                                return( item.position.toLowerCase() === currentProject.toLowerCase() || item.project.toLowerCase() === currentProject.toLowerCase())
+                                return (item.position.toLowerCase() === currentProject.toLowerCase() || item.project.toLowerCase() === currentProject.toLowerCase())
                             }).map((item, index) => {
-
                                 return (
                                     <div key={index} className='member'>
                                         <div className='image-container'>
@@ -154,10 +178,15 @@ const People = () => {
                                             <div className='contact-container'>
                                                 Contact:
                                                 {
-                                                    Object.values(item.contact).map((item2, index) => {
+                                                    Object.keys(item.contact).map((key: string, index: number) => {
+
                                                         return (
                                                             <h3 key={index} className='contact-item'>
-                                                                {item2}
+                                                                {
+                                                                    // This is a type assertion for TypeScript's strict nature
+                                                                }
+                                                                {contactIcons(key)}
+                                                                {item.contact[key as keyof ContactInfo]}
                                                             </h3>
                                                         )
                                                     })

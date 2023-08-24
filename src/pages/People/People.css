@@ -59,8 +59,8 @@ h4 {
 }
 
 .member {
-    width: 50%;
-    height: 9rem;
+    width: 55%;
+    height: 10rem;
     margin: auto;
     margin-top: 1rem;
     display: flex;
@@ -75,7 +75,7 @@ h4 {
 }
 
 .image {
-    width: 55%;
+    width: 75%;
     background-color: black;
     border-radius: 100px;
 }
@@ -113,4 +113,9 @@ h3 {
 
 .contact-container, .contact-item:first-child {
     border-left: none;
+}
+
+.contact-item {
+    display: flex;
+    justify-content: center;
 }

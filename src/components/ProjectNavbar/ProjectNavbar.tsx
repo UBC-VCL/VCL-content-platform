@@ -168,9 +168,6 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/publications`} render={() => <ProjectPublications project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/subpage1`} render={() => <Subpage1 project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/subpage2`} render={() => <Subpage2 project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/timeline`} render={() => <ProjectTimeline project={props.currProject} />} />
                         {
                             props.currProject.subpage?.map((page: any) => (
                                 <Route exact path={`${props.match.url}/${page.name}`} render={() => <ProjectDefault project={page} />} />

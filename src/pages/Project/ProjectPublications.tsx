@@ -20,7 +20,7 @@ interface Publication {
 
 const ProjectPublications: React.FC<ProjectProps> = (props) => {
     return (
-        props.project.publications.length > 0 ?
+            props.project.publications && props.project.publications.length > 0 ?
         <div className='project-subcontent-container'>
             <div className="project-publications">
                 <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
@@ -53,6 +53,7 @@ const ProjectPublications: React.FC<ProjectProps> = (props) => {
             </div>
         </div>
     )
+                    
 };
 
 export default ProjectPublications;

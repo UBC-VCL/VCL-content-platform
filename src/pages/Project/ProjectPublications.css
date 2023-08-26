@@ -22,7 +22,7 @@ body {
 
 .pub-header {
     font-weight: 700;
-    color: var(--fc-navyblue);
+    color: white;
     font-family: 'Source Sans Pro';
     font-size: 33.05px;
     line-height: 42px;
@@ -31,7 +31,34 @@ body {
     margin-top: 2em;
     flex-wrap: wrap;
     position: relative;
+    background-color: #1C426D;
+    padding: 2%;
 }
+
+.pub-title {
+    text-align: center;
+}
+
+.project-name {
+    width: 95%;
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: -5px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 18px;
+    color: var(--fc-darkest);
+    font-family: var(--ff-primary);
+    text-decoration: none;
+    font-weight: bold;
+    pointer-events: none;
+}
+
 
 hr {
     border-left: 10px solid #8ea9d2;

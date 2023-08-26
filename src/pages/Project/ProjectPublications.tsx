@@ -20,40 +20,44 @@ interface Publication {
 
 const ProjectPublications: React.FC<ProjectProps> = (props) => {
     return (
-            props.project.publications && props.project.publications.length > 0 ?
-        <div className='project-subcontent-container'>
-            <div className="project-publications">
-                <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
-                <div className="pub-header">
-                    <p>Publications</p>
-                </div>
-                <hr />
+        props.project.publications && props.project.publications.length > 0 ?
+            <div className='project-subcontent-container'>
+                <div className="project-publications">
+                    <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
+                    <div className="pub-header">
+                        <p className="pub-title">Publications</p>
+                    </div>
+                    <hr />
 
-                <div className='publications-list'>
-                    {props.project.publications.map(pub => (
-                        <Publication
-                            name={pub.name}
-                            citation={pub.citation}
-                            link={pub.link}
-                        />
-                    ))}
+                    <div className="project-name">
+                        <p>{props.project.name}</p>
+                    </div>
+
+                    <div className='publications-list'>
+                        {props.project.publications.map(pub => (
+                            <Publication
+                                name={pub.name}
+                                citation={pub.citation}
+                                link={pub.link}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
-        :
-        <div className='project-subcontent-container'>
-            <div className="project-publications">
-                <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
-                <div className="pub-header">
-                    <p>Publications</p>
-                </div>
-                <hr />
+            :
+            <div className='project-subcontent-container'>
+                <div className="project-publications">
+                    <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
+                    <div className="pub-header">
+                        <p className="pub-title">Publications</p>
+                    </div>
+                    <hr />
 
-                <p style={{marginTop:"1%"}}>{props.project.name} has no publications.</p>
+                    <p style={{ marginTop: "1%" }}>{props.project.name} has no publications.</p>
+                </div>
             </div>
-        </div>
     )
-                    
+
 };
 
 export default ProjectPublications;

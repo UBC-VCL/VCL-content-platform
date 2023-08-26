@@ -40,8 +40,7 @@ body {
 }
 
 .project-name {
-    width: 95%;
-    max-width: 850px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: -5px;
     padding: 5px 15px;

@@ -16,7 +16,8 @@ const People = () => {
         name: NameInfo,
         project: string,
         position: string,
-        contact: ContactInfo
+        contact: ContactInfo,
+        message? : string
     }
 
     interface ContactInfo {
@@ -173,7 +174,10 @@ const People = () => {
                                                 </h3>
                                             </div>
                                             <div className='message'>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                {
+                                                    item.message ? item.message : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+                                                }
                                             </div>
                                             <div className='contact-container'>
                                                 Contact:

@@ -6,6 +6,7 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { SearchFilter } from "@pages/Timeline/types";
+import { dateTuple } from '@pages/Timeline/types';
 
 import MobileAuthorsFilter from '@components/FilterDropdown/MobileAuthorsFilter';
 import MobileCategoriesFilter from '@components/FilterDropdown/MobileCategoriesFilter';
@@ -15,12 +16,14 @@ import MobileProjectsFilter from '@components/FilterDropdown/MobileProjectsFilte
 interface PropsOBJ {
   setFilter: (obj: SearchFilter) => void;
   filterBy: SearchFilter;
+  dateRange: [dateTuple, dateTuple];
+  setRange: (array:[dateTuple, dateTuple]) => void;
 }
 
 const MobileFilterDropdownContainer = (props: PropsOBJ) => {
 
   // Destrcuturing the props
-  const { setFilter, filterBy } = props;
+  const { setFilter, filterBy, dateRange, setRange } = props;
 
   const dummyDataForProject = ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'];
   const dummyDataForCategory = ['Website', 'Meeting', 'Workshop'];
@@ -56,7 +59,7 @@ const MobileFilterDropdownContainer = (props: PropsOBJ) => {
             <div className='mobile-filter-dropdown'>
               <MobileCategoriesFilter filterBy={filterBy} setFilter={setFilter} categorySelected={categorySelected} setCategorySelected={setCategorySelected} dummyData={dummyDataForCategory} /></div>
             <div className='mobile-filter-dropdown'>
-              <MobileDateFilter filterBy={filterBy} setFilter={setFilter} dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} /></div>
+              <MobileDateFilter filterBy={filterBy} dateRange={dateRange} setRange={setRange} setFilter={setFilter} dateSelected={dateSelected} setDateSelected={setDateSelected} dummyData={dummyDataForDate} /></div>
             <div className='mobile-filter-dropdown' style={{ marginBottom: '15px' }}>
               <MobileAuthorsFilter filterBy={filterBy} setFilter={setFilter} authorSelected={authorSelected} setAuthorSelected={setAuthorSelected} dummyData={dummyDataForAuthor} /></div>
 

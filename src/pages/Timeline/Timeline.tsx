@@ -12,6 +12,7 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
+import { SnapshotOBJ } from "./types";
 import dotenv from 'dotenv';
 
 
@@ -28,19 +29,7 @@ interface TimelineProps {
 */
 const Timeline: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
-  // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
-  interface SnapshotOBJ {
-    _id: string;
-    author: string;
-    title: string;
-    project: string;
-    date: Date;
-    categories: Array<string>;
-    descriptions: Array<string>;
-    hyperlinks: Array<string>;
-    contributors: Array<string>;
-    updatedTime: string;
-  }
+
 
   interface ProjectOBJ {
     _id: string;
@@ -78,6 +67,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   }
 
 
+
   const deleteCommit = async (_id: string) => {
     return axios.delete(`${baseURL}/api/snapshots/${_id}`, {
       headers: {
@@ -103,6 +93,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const [filterBy, setFilter] = useState<SearchFilter>(props.defaultFilter);
 
   const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
+
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -181,7 +172,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter) => {
     let listFilter: SnapshotOBJ[] = list;
 
-    const { keyword, ...restFilters } = filterOBJ;
+    const { keyword, date, ...restFilters } = filterOBJ;
 
     if (keyword && keyword !== "") {
       const lowercaseKeyword = keyword.toLowerCase();
@@ -192,6 +183,26 @@ const Timeline: React.FC<TimelineProps> = (props) => {
             : typeof value === 'string' && value.toLowerCase().includes(lowercaseKeyword)
         )
       );
+    }
+
+    if (date[0][1] != '') {
+      const initialDate = new Date(date[0][1])
+
+      // console.log(date[0][1])
+
+      listFilter = listFilter.filter((item: SnapshotOBJ) => {
+        const itemDate = new Date(item.date)
+        return itemDate >= initialDate
+      })
+    }
+
+    if (date[1][1] != '') {
+      const targetDate = new Date(date[1][1])
+
+      listFilter = listFilter.filter((item: SnapshotOBJ) => {
+        const itemDate = new Date(item.date)
+        return itemDate <= targetDate
+      })
     }
 
     Object.entries(restFilters).forEach(([key, value]) => {
@@ -206,16 +217,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         }
         if (key === "author") {
           listFilter = listFilter.filter(item => value.includes(item.author));
-        }
-      } else {
-        if (key === 'date') {
-          const currentDate = new Date();
-          if (value === "Last day")
-            listFilter = listFilter.filter(item => dateCalc(1, currentDate, new Date(item.date)));
-          if (value === "Last month")
-            listFilter = listFilter.filter(item => dateCalc(31, currentDate, new Date(item.date)));
-          if (value === "Last year")
-            listFilter = listFilter.filter(item => dateCalc(365, currentDate, new Date(item.date)));
         }
       }
     });

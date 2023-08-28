@@ -1,18 +1,32 @@
+interface Member {
+    name: string,
+    position: string,
+    education?: string,
+    description?: string,
+    email?: string,
+    phone?: string,
+    linkedIn?: string,
+    isCurrentMember?: boolean
+}
+
+interface Description {
+    first: string,
+    second: string,
+    emp: string,
+}
+
 export interface Project {
     name: string,
-    description?: {
-        first: string,
-        second: string,
-        emp: string,
-    },
-    members?: string[],
+    description?: Description
+    members?: Member[],
     isActive?: boolean,
     key?: string,
     qa?: {q:string, a: string}[],
     joinTeam?: {
-        whatWeDo: {
-            p1?:string;
-            p2?:string;
-        }
+        whatWeDo: string[]
     },
+    subpage?: {
+        name: string,
+        description: Description
+    }[]
 }

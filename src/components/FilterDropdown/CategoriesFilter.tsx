@@ -37,9 +37,9 @@ const CategoriesFilter = ({categorySelected, setCategorySelected, dummyData, set
 
     return (
         <FormControl sx={{ m: 1, display: 'inline' }}>
-            <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
+            {/* <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
                 {list.name}:
-            </div>
+            </div> */}
             <div style={{display: 'inline-block'}}>
                 <Select
                   labelId="demo-multiple-name-label"
@@ -51,10 +51,11 @@ const CategoriesFilter = ({categorySelected, setCategorySelected, dummyData, set
                   onChange={handleChange}
                   MenuProps={MenuProps}
                   renderValue={(selected) => {
-                    if (selected.length === dummyData.length) {
-                        return 'All';
-                      }
-                      return selected.join(', ');
+                    // if (selected.length === dummyData.length) {
+                    //     return 'All';
+                    //   }
+                    //   return selected.join(', ');
+                    return "Categories"
                     }}
                     sx={{ width: 120 }}
                   >

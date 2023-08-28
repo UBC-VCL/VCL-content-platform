@@ -1,8 +1,11 @@
 import {Timeline} from "./Timeline";
-const timeLineDefaultFilter = {
-    project: ['Correlation', 'NOVA', 'SHIVA', 'Ideo', 'Project'],
+
+import { SearchFilter } from "@pages/Timeline/types";
+
+const timeLineDefaultFilter: SearchFilter = {
+    project: ['Correlation', 'NOVA', 'SHIVA', 'IDEO', 'Project'],
       category: ['Website', 'Meeting', 'Workshop'],
-      date: "All",
+      date: [['initial', ''], ['target', '']],
       author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
       keyword: ""
   };

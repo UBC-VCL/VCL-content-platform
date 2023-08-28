@@ -1,10 +1,9 @@
 import * as React from 'react';
 import './ProjectNavbar.css';
-import {styled, useTheme} from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -13,13 +12,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import {Link} from "react-router-dom";
-import {Route, Switch} from "react-router";
-import {ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam} from "@pages/Project";
+import {  Link  } from "react-router-dom";
+import {  Route, Switch  } from "react-router";
+import {  ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam , ProjectTimeline } from "@pages/Project";
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
-import {Button} from "@mui/material";
-import {ROUTES} from "@statics";
-import { width } from '@mui/system';
+import { Button } from "@mui/material";
+import { ROUTES } from "@statics";
 
 const drawerWidth = 280;
 
@@ -43,7 +41,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 }));
 
 
-const DrawerHeader = styled('div')(({theme}) => ({
+const DrawerHeader = styled('div')(({  theme  }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 0),
@@ -66,18 +64,21 @@ export default function Sidebar(props: any) {
         setOpen(false);
     };
 
+
+
     return (
-        <Box sx={{display: 'flex'}}>
-            <CssBaseline/>
+        <Box sx={{  display: 'flex'  }}>
+            <CssBaseline  />
             <div className='menu-icon'>
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="start"
-                    sx={{...(open && {display: 'none'})}}
+                    sx={{ ...(open && { display: 'none' }) }}
                 >
-                    <MenuIcon sx={{width: "58px", height: "38px", color: "white"}}/>
+
+                    <MenuIcon sx={{ width: "58px", height: "38px" }} />
                 </IconButton>
             </div>
 
@@ -97,6 +98,7 @@ export default function Sidebar(props: any) {
                 open={open}
             >
                 <div className='DrawerHeader'>
+
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose} style={{marginTop:"25%", zIndex: "2"}}>
                         {theme.direction === 'ltr' ? <FirstPageTwoToneIcon/> : <ChevronRightIcon/>}
@@ -104,32 +106,52 @@ export default function Sidebar(props: any) {
                 </DrawerHeader>
                 </div>
                 <List>
-                    <Typography variant='subtitle2' marginLeft='20px' color = '#AEC7E3' style={{marginTop: "-10px"}}>
+                    <Typography variant='subtitle2' marginLeft='20px' color='#AEC7E3' style={{ marginTop: "-10px" }}>
                         Now Viewing
                     </Typography>
                     <ListItem>
-                        <Typography variant='h5' marginTop='15px' marginLeft='6px' marginBottom='10px' color = '#1C426D' fontWeight='bold'>
+                        <Typography variant='h5' marginTop='15px' marginLeft='6px' marginBottom='10px' color='#1C426D' fontWeight='bold'>
                             {props.currProject.name}
                         </Typography>
                     </ListItem>
-                    <Divider sx={{ borderBottomWidth: 1, marginBottom:'35px'}} color='#B2C9EC'/>
+                    <Divider sx={{ borderBottomWidth: 1, marginBottom:  '35px'  }} color='#B2C9EC'  />
+
+
 
                     {props.links.map((link: any, index: any) => (
-                        <ListItem key={link.title}>
-                            <ListItemButton component={Link} to={link.ref}>
-                                <Typography color = '#5B7E98' marginLeft='0px'>
-                                    {link.title}
-                                </Typography>
-                            </ListItemButton>
-                        </ListItem>
-
+                        <>
+                            <ListItem key={link.title}>
+                                <ListItemButton component={Link} to={link.ref}>
+                                    <Typography color = '#5B7E98' marginLeft='0px'>
+                                        {link.title}
+                                    </Typography>
+                                </ListItemButton>
+                            </ListItem>
+                            {index == 0 && (
+                                <>
+                                {props.currProject.subpage?.map((page: any) => (
+                                    <ListItem key={page.name} >
+                                        <ListItemButton component={Link} to={`${props.match.url}/${page.name}`}>
+                                            <Typography color = '#5B7E98' marginLeft='20px'>
+                                                {page.name}
+                                            </Typography>
+                                        </ListItemButton>
+                                    </ListItem>
+                                ))}
+                                </>
+                            )}
+                        </>
                     ))}
+
+
+
+
                     <Box textAlign='left' marginTop='50px' marginLeft='20px'>
                         <Button onClick={() => {
-                            window.location.pathname=ROUTES.PROJECT.BASE
-                        }} variant ='outlined' style={{textTransform: 'none'}}>
-                            <Typography color = '#60779A'>
-                                View Other Projects
+                            window.location.pathname = ROUTES.PROJECT.BASE
+                        }} variant='outlined' style={{ textTransform: 'none' }}>
+                            <Typography color='#60779A'>
+                            View Other Projects
                             </Typography>
                         </Button>
                     </Box>
@@ -141,10 +163,17 @@ export default function Sidebar(props: any) {
             <Main open={open}>
                 <div className={"content-container"}>
                     <Switch>
-                        <Route exact path={`${props.match.url}`} render={() => <ProjectDefault project={props.currProject}/>}/> 
-                        <Route exact path={`${props.match.url}/join`} render={() => <ProjectJoin project={props.currProject}/>}/>
-                        <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject}/>}/>
-                        <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject}/>}/>
+                        <Route exact path={`${props.match.url}`} render={() => <ProjectDefault project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/join`} render={() => <ProjectJoin project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/timeline`} render={() => <ProjectTimeline project={props.currProject} />} />
+                        {
+                            props.currProject.subpage?.map((page: any) => (
+                                <Route exact path={`${props.match.url}/${page.name}`} render={() => <ProjectDefault project={page} />} />
+                            ))
+                        }
+
                     </Switch>
                 </div>
             </Main>

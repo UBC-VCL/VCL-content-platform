@@ -15,7 +15,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
     const projectTimelineFilter: SearchFilter = {
         project: [],
         category: ['Website', 'Meeting', 'Workshop'],
-        date: "All",
+        date: [['initial', ''], ['target', '']],
         author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
         keyword: ""
     };

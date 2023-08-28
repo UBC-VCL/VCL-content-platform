@@ -13,10 +13,29 @@ import visualAttention from '../.././statics/images/JoinTeam/visualAttention.png
 import compModel from '../.././statics/images/JoinTeam/compModel.png';
 import browser from '../.././statics/images/JoinTeam/browser.png';
 import email from '../.././statics/images/JoinTeam/email.png';
+import ProjectGallery from '@components/ProjectGallery/ProjectGallery';
+import blankPPic from "../../components/ProjectGallery/media/blank-profile-picture.webp"
+import { SlideShowOBJ } from './types';
 
 interface ProjectProps {
     project : Project,
 }
+
+const dummyList: SlideShowOBJ[] = [
+    {
+        img: blankPPic,
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        cardType: 'testimony',
+        name: 'Sally',
+        position: 'Project Correlation, Researcher'
+    },
+    {
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+        cardType: 'no-photo-test',
+        name: 'Sally',
+        position: 'Project Correlation, Researcher'
+    }
+]
 
 
 const ProjectJoin: React.FC<ProjectProps> = (props) => {
@@ -50,9 +69,21 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         <div className='what-we-do'>
             <p style={{color: "#B2C9EC"}}>02</p>
             <h2>{TEXT.PROJECT_JOIN.WHAT_WE_DO.TITLE}</h2>
-            <p>{props.project.joinTeam?.whatWeDo.p1 ? props.project.joinTeam?.whatWeDo.p1 : TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_1}</p>
-            <VerticalSpacer height={30} />
-            <p>{props.project.joinTeam?.whatWeDo.p2 ? props.project.joinTeam?.whatWeDo.p2 : TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_2}</p>
+            {
+            props.project.joinTeam?.whatWeDo ? (
+                <div>
+                    {props.project.joinTeam?.whatWeDo.map(desc => (
+                        <p>{desc}</p>
+                    ))}
+                </div>
+            )
+            :
+            <div>
+                <p>{TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_1}</p>
+                <VerticalSpacer height={30} />
+                <p>{TEXT.PROJECT_JOIN.WHAT_WE_DO.DESCRIPTION_2}</p>
+            </div>
+            }
             {/* <img className='vector5' src="/join_the_team/what-we-do-vector.png" alt="vector5"/> */}
             {/* <img className='vector6' src="/join_the_team/what-we-do-vector1.png" alt="vector5"/> */}
             <div style={{paddingBottom: "8%"}}></div>
@@ -98,13 +129,16 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
             </div>
         </div>
         </section>
-        <section className='full-bleed5' style={{marginTop:"10%"}}>
+        {/* <section className='full-bleed5' style={{marginTop:"10%"}}>
         <div className='what-our-team-member-say'>
             <p style={{paddingTop: "7%"}}>04</p>
             <h2>{TEXT.PROJECT_JOIN.MEMBER_TESTIMONIALS.TITLE}</h2>
             <h1 style={{textAlign:"center", color:"white", paddingBottom:"20%"}}>Carousel placeholder</h1>
+            
         </div>
-        </section>
+        
+        </section> */}
+        <ProjectGallery displayNumber={4} compTitle={'Gallery'} itemArray={dummyList}/> 
         <section className='full-bleed6'>
         <div className='Application-Instructions'>
         <p style={{paddingTop: "7%", textAlign: "center", color:"#B2C9EC"}}>05</p>

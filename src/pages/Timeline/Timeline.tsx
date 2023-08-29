@@ -145,27 +145,55 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  The filter object may have properties of an empty string meaning that it should not be filter for
 
   //TODO: USE this react state variable  plus the hardcoded projects for the filter list
-  // const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
-  // const getProjectCommit = async () => {
-  //   await axios.get(`${baseURL}/api/projects`)
-  //     .then((response) => {
-  //       if (response.status != 200) {
-  //         throw new Error(response.data.message)
-  //       }
-  //       const projects: Array<ProjectOBJ> = response.data.data;
-  //       const filteredProjects =
-  //         projects
-  //           .filter((project) => {
-  //             return project.members.length != 0;
-  //           })
-  //           .map(project => project.name);
-  //       setProjectFilterList(filteredProjects);
-        
-  //     }).catch((err) => {
-  //       //do nothing
-  //     });
-  // };
-  console.log(projectFilterList); 
+  const [authorList, setAuthorList] = useState<string[]>([]);
+  const getAuthorList = async () => {
+    await axios.post(`${baseURL}/api/query`, {
+
+        "collection": "snapshot",
+        "conditions": [
+            {
+                          "$lookup": {
+                            "from": "users",
+                            "localField": "author",
+                            "foreignField": "_id",
+                            "as": "user"
+                          }
+                        },
+                        {
+                          "$unwind": "$user"
+                        },
+                        {
+                          "$lookup": {
+                            "from": "members",
+                            "localField": "user.member",
+                            "foreignField": "_id",
+                            "as": "member"
+                          }
+                        },
+                        {
+                          "$unwind": "$member"
+                        },
+                        {
+                          "$project": {
+                            "lastname": "$member.name.lastname",
+                            "firstname": "$member.name.firstname",
+                            "_id": 0
+                          }
+                        }
+        ]
+
+    })
+      .then((response) => {
+        if (response.status != 200) {
+          throw new Error(response.data.message)
+        }
+        const names: Array<{lastname: string, firstname: string}> = response.data.data;
+        setAuthorList(names.map(name => {return name.firstname + " " + name.lastname }));
+      }).catch((err) => {
+        //do nothing
+      });
+  };
+  console.log(authorList); 
 
 
 
@@ -253,6 +281,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // so once at the very start of the user entering the Timeline page
   useEffect(() => {
     objCommitHTTPS();
+    getAuthorList();
   }, []);
 
 

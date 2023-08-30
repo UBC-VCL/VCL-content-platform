@@ -29,5 +29,4 @@ export interface ProjectOBJ {
   name: string;
   description: string;
   isActive: boolean;
-
 }

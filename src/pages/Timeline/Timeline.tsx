@@ -12,7 +12,6 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
-import { SnapshotOBJ } from "./types";
 import dotenv from 'dotenv';
 
 

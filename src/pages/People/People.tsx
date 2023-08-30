@@ -76,7 +76,7 @@ const People = () => {
 
 
     // the page will be defaulted to bein on the first grid item
-    const [currentProject, setCProject] = useState<string>(dummyList[0])
+    const [currentProject, setCurrProject] = useState<string>(dummyList[0])
 
     const [currentList, setList] = useState<Array<MemberOBJ>>([])
 

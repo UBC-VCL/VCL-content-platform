@@ -3,7 +3,7 @@ import moment from "moment";
 import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
 import { Link } from 'react-router-dom';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
 import './TimelineCommitBlock.css';
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
@@ -51,9 +51,9 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
             {isLoggedIn ?
                 <div className="timeline-commit-header-icons">
-                    <BorderColorIcon style={{color: "rgb(188, 188, 188"}} /> 
+                    <BorderColorIcon className="edit-entry-icon" /> 
                     <div className="vl"></div>
-                    <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} onClick={onClickDelete}/>
+                    <DeleteIcon className="delete-entry-icon" onClick={onClickDelete} />
                 </div>
                 :
                 <br />
@@ -127,9 +127,9 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
             {isLoggedIn ?
                 <div className="timeline-commit-header-icons">
-                    <BorderColorIcon style={{color: "rgb(188, 188, 188"}} /> 
+                    <BorderColorIcon className="edit-entry-icon" /> 
                     <div className="vl"></div>
-                    <DeleteOutlineIcon style={{color: "rgb(188, 188, 188"}} onClick={onClickDelete}/>
+                    <DeleteIcon className="delete-entry-icon" onClick={onClickDelete} />
                 </div>
                 :
                 <br />

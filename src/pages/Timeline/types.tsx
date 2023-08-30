@@ -30,3 +30,4 @@ export interface ProjectOBJ {
   description: string;
   isActive: boolean;
 }
+export type dateTuple = ['initial' | 'target', string]

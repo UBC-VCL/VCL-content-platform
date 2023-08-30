@@ -10,7 +10,7 @@ import axios from 'axios'
 interface ProjectProps {
     project: Project,
 }
-
+const baseURL = process.env.REACT_APP_API_URL;
 const ProjectDefault: React.FC<ProjectProps> = (props) => {
 
 
@@ -25,32 +25,23 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
 
 
     // This defines the default filter settings that the Timeline filter will start off on
-    const projectTimelineFilter = {
-        project: dynamicProjects,
-        category: dynamicCategories,
-        date: "All",
-        author: dynamicAuthors,
+    const projectTimelineFilter: SearchFilter = {
+        project: [],
+        category: ['Website', 'Meeting', 'Workshop'],
+        date: [['initial', ''], ['target', '']],
+        author: ['Samanshiang Chiang', 'Michael Rotman', 'John Doe', 'Jane Doe'],
         keyword: ""
     };
 
     //TODO: USE this react state variable  plus the hardcoded projects for the filter list
     // const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
     const getProjectCommit = async () => {
-        await axios.get(`http://localhost:4000/api/snapshots`)
+        await axios.get(`${baseURL}/api/snapshots`)
             .then((response) => {
                 if (response.status != 200) {
                     throw new Error(response.data.message)
                 }
                 const projects: Array<SnapshotOBJ> = response.data.data;
-                // const filteredProjects =
-                //   projects
-                //     .filter((project) => {
-                //       return project.members.length != 0;
-                //     })
-                //     .map(project => project.name);
-
-                // setProjectFilterList(filteredProjects);
-
                 projects.map((item: SnapshotOBJ, index: number) => {
 
                     if (!dynamicProjects.includes(item.project))

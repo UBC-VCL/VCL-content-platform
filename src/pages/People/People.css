@@ -1,8 +1,9 @@
-h1 {
+.people-page-title {
     text-align: center;
 }
-h4 {
+.people-page-description {
     color: #535353;
+    margin: 2rem 0;
 }
 
 .main-content {
@@ -11,10 +12,6 @@ h4 {
 
 .project-header {
     margin-top: 10rem;
-}
-
-.page-description {
-    margin: 2rem 0;
 }
 
 .page-nav {
@@ -58,7 +55,7 @@ h4 {
     padding: 1rem 0;
 }
 
-.member {
+.people-lab-member {
     width: 55%;
     height: 10rem;
     margin: auto;
@@ -70,14 +67,10 @@ h4 {
     padding: 1rem 0;
 }
 
-.image-container {
+.icon-container {
     width: 20%;
-}
-
-.image {
-    width: 60%;
-    background-color: black;
-    border-radius: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 .info-container {
@@ -88,13 +81,14 @@ h4 {
     color: black;
 }
 
-h3 {
+.position {
     color: #A1A1A1;
 }
 
 .message {
     font-size: small;
     text-align: left;
+    padding: 5px 30px 5px 0px;
 }
 
 .contact-container {
@@ -109,6 +103,7 @@ h3 {
     font-weight: normal;
     border-left: 1px rgba(0, 0, 0, 0.2) solid;
     padding: 0 1rem;
+    font-size: small;
 }
 
 .contact-container, .contact-item:first-child {

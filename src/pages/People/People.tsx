@@ -6,6 +6,7 @@ import axios from 'axios'
 import dotenv from 'dotenv';
 import { AiFillLinkedin, AiFillPhone } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import { MdAccountCircle } from "react-icons/md";
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
@@ -17,7 +18,7 @@ const People = () => {
         project: string,
         position: string,
         contact: ContactInfo,
-        message? : string
+        message?: string
     }
 
     interface ContactInfo {
@@ -120,10 +121,10 @@ const People = () => {
             <div className='main-content'>
 
                 <div className='project-header'>
-                    <h1 className='page-title'>
+                    <h1 className='people-page-title'>
                         OUR TEAM
                     </h1>
-                    <h4 className='page-description'>
+                    <h4 className='people-page-description'>
                         Meet the members of our lab and their respective teams
                     </h4>
                 </div>
@@ -139,7 +140,7 @@ const People = () => {
                                     onClick={() => {
                                         // remove the 'selected-items' className before setting a new currentProject
                                         document.getElementById(currentProject.toLowerCase())!.classList.remove('selected-item')
-                                        setCProject(item)
+                                        setCurrProject(item)
                                         document.getElementById(item.toLowerCase())!.classList.add('selected-item')
                                     }}
                                 >
@@ -158,9 +159,12 @@ const People = () => {
                                 return (item.position.toLowerCase() === currentProject.toLowerCase() || item.project.toLowerCase() === currentProject.toLowerCase())
                             }).map((item, index) => {
                                 return (
-                                    <div key={index} className='member'>
-                                        <div className='image-container'>
-                                            <img className='image' src={img1}></img>
+                                    <div key={index} className='people-lab-member'>
+                                        <div className='icon-container'>
+                                            <MdAccountCircle
+                                                // className='icon'
+                                                size={125}
+                                                />
                                         </div>
                                         <div className='info-container'>
                                             <div className='name'>

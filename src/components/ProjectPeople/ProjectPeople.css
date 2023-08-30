@@ -6,8 +6,7 @@
 }
 
 .person-card {
-    width: 85%;
-    max-width: 850px;
+    width: 100%;
     margin: 2em auto;
     padding: 10px 15px;
     background-color: #ffffff;

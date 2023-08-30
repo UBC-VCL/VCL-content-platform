@@ -9,18 +9,25 @@ export interface SearchFilter  {
     keyword: string;
   }
 
-export type dateTuple = ['initial' | 'target', string]
 
-// the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
-export interface SnapshotOBJ {
+export   interface SnapshotOBJ {
   _id: string;
   author: string;
   title: string;
   project: string;
-  date: string;
+  date: Date;
   categories: Array<string>;
   descriptions: Array<string>;
   hyperlinks: Array<string>;
   contributors: Array<string>;
   updatedTime: string;
+}
+
+export interface ProjectOBJ {
+  _id: string;
+  members: string[];
+  name: string;
+  description: string;
+  isActive: boolean;
+
 }

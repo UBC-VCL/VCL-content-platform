@@ -1,6 +1,6 @@
 import React from "react";
 import './Timeline.css';
-import { SearchFilter } from "./types";
+import { SearchFilter, SnapshotOBJ, ProjectOBJ } from "./types";
 import TimelineSearchbar from '@components/TimelineSearchbar';
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
@@ -21,23 +21,34 @@ dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
 
 interface TimelineProps {
-  defaultFilter: SearchFilter
+  defaultFilter: SearchFilter;
+  dynamicProjects: Array<string>;
+  dynamicAuthors: Array<string>;
+  dynamicCategories: Array<string>;
 };
 
 /** 
 * Paste one or more documents here
 */
 const Timeline: React.FC<TimelineProps> = (props) => {
+
+  const {defaultFilter, dynamicProjects, dynamicAuthors, dynamicCategories} = props;
+
   const { access_token } = useAppSelector(selectAuth);
-
-
-  interface ProjectOBJ {
+  // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
+  interface SnapshotOBJ {
     _id: string;
-    members: string[];
-    name: string;
-    description: string;
-    isActive: boolean;
+    author: string;
+    title: string;
+    project: string;
+    date: Date;
+    categories: Array<string>;
+    descriptions: Array<string>;
+    hyperlinks: Array<string>;
+    contributors: Array<string>;
+    updatedTime: string;
   }
+
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   // An array of all timineline history that will be set by retrieveCommitOBJs()
@@ -88,12 +99,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       })
   };
 
+  useEffect(() => {
+    setFilter(defaultFilter)
+  }, [dynamicProjects, dynamicAuthors, dynamicCategories])
 
 
   const [filterBy, setFilter] = useState<SearchFilter>(props.defaultFilter);
 
   const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
-
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -124,13 +137,14 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           contributors: item.contributors,
           updatedTime: item.updatedTime
         }));
-        const  filteredProjects: string[] = response.data.data.map((item: SnapshotOBJ) => {
-          if(item.project.length != 0) {
-            return item.project;
-          }
-        });
+        // console.log(commitList.length)
+        // const filteredProjects: string[] = response.data.data.map((item: SnapshotOBJ) => {
+        //   if(item.project.length != 0) {
+        //     return item.project;
+        //   }
+        // });
+        // console.log(filteredProjects)
         setCommitArray([...commitList]);
-        setProjectFilterList(Array.from(new Set(filteredProjects)));
       }).catch(err => {
         setSuccess(false)
       });
@@ -145,55 +159,27 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   //  The filter object may have properties of an empty string meaning that it should not be filter for
 
   //TODO: USE this react state variable  plus the hardcoded projects for the filter list
-  const [authorList, setAuthorList] = useState<string[]>([]);
-  const getAuthorList = async () => {
-    await axios.post(`${baseURL}/api/query`, {
-
-        "collection": "snapshot",
-        "conditions": [
-            {
-                          "$lookup": {
-                            "from": "users",
-                            "localField": "author",
-                            "foreignField": "_id",
-                            "as": "user"
-                          }
-                        },
-                        {
-                          "$unwind": "$user"
-                        },
-                        {
-                          "$lookup": {
-                            "from": "members",
-                            "localField": "user.member",
-                            "foreignField": "_id",
-                            "as": "member"
-                          }
-                        },
-                        {
-                          "$unwind": "$member"
-                        },
-                        {
-                          "$project": {
-                            "lastname": "$member.name.lastname",
-                            "firstname": "$member.name.firstname",
-                            "_id": 0
-                          }
-                        }
-        ]
-
-    })
-      .then((response) => {
-        if (response.status != 200) {
-          throw new Error(response.data.message)
-        }
-        const names: Array<{lastname: string, firstname: string}> = response.data.data;
-        setAuthorList(names.map(name => {return name.firstname + " " + name.lastname }));
-      }).catch((err) => {
-        //do nothing
-      });
-  };
-  console.log(authorList); 
+  // const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
+  // const getProjectCommit = async () => {
+  //   await axios.get(`${baseURL}/api/projects`)
+  //     .then((response) => {
+  //       if (response.status != 200) {
+  //         throw new Error(response.data.message)
+  //       }
+  //       const projects: Array<ProjectOBJ> = response.data.data;
+  //       const filteredProjects =
+  //         projects
+  //           .filter((project) => {
+  //             return project.members.length != 0;
+  //           })
+  //           .map(project => project.name);
+  //       setProjectFilterList(filteredProjects);
+        
+  //     }).catch((err) => {
+  //       //do nothing
+  //     });
+  // };
+  console.log(projectFilterList); 
 
 
 
@@ -237,14 +223,18 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       if (typeof value !== 'string') {
         if (key === "project") {
           listFilter = listFilter.filter(item => value.includes(item.project));
+          console.log(listFilter.length)
         }
         if (key === "category") {
           listFilter = listFilter.filter(item =>
             item.categories.some(element => value.includes(element))
           );
+          console.log(listFilter.length)
         }
         if (key === "author") {
           listFilter = listFilter.filter(item => value.includes(item.author));
+          console.log(listFilter.length)
+
         }
       }
     });
@@ -281,7 +271,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // so once at the very start of the user entering the Timeline page
   useEffect(() => {
     objCommitHTTPS();
-    getAuthorList();
   }, []);
 
 
@@ -317,7 +306,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <p>{TEXT.TIMELINE_PAGE.SUBHEADER}</p>
       </div>
       <TimelineSearchbar setFilter={setFilter} filterBy={filterBy} />
-      <TimelineFilter setFilter={setFilter} filterBy={filterBy} />
+      <TimelineFilter setFilter={setFilter} filterBy={filterBy} dynamicProjects={dynamicProjects} dynamicAuthors={dynamicAuthors} dynamicCategories={dynamicCategories}/>
       <div className="timeline-main-body">
         <div className="timeline-container">
           {

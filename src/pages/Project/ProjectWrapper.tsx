@@ -82,7 +82,59 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
             ]
         },
         {
-            name: "NOVA"
+            name: "NOVA",
+            description: {
+                first: "The NOVA project studies the effects of Inattentional Blindness and cueing within a single paradigm. Inattentional Blindness is the phenomenon that occurs when something is plainly in the field of view but is not consciously percieved. This occurs the most when the viewer’s attention is focused intensely on something else in their field of view due to our limited capacity for attention being able to focus on a limited amount of things at the time. A famous example of this is the “Gorilla video” where the participants were asked to count the number of basketball tosses, and as a result they fail to see the person in a gorilla suit walk through the scene. Once the participant is informed about the gorilla, they are able to see it clearly the next time the video is watched. This means that Inattentional Blindness tasks can only be used once. The NOVA project, on the other hand, offers a robust way to test this phenomenon.",
+                second: "The NOVA project also focuses on Cueing. Cueing occurs when the viewer's attention is intentionally re-focused to another object without them realizing that this cue happened. For example, if the viewer sees an arrow pointing to an object, they will likely shift their attention to that object even if they did not consciously perceive the arrow.                Currently the NOVA project is looking at the differences in cueing effects when the viewers do not consciously perceive the cue versus when they do. Some of these conditions include more abstract symbols to test the boundaries of how much we know. The results from this project will hopefully help us understand more about the role of consciousness in visual perception.",
+                emp: "To do"
+            },
+            members: [
+                {
+                    name: "Isha Verma",
+                    position: "Project Leader",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Tsubasa Shima",
+                    position: "Research Assistant",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Francesca Schoettler",
+                    position: "Volunteer Research Assistant",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Brian Vu",
+                    position: "Volunteer Research Assistant/402 Student",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Tiffany Wu",
+                    position: "Research Assistant",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Ying Zeng",
+                    position: "Research Assistant",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Sam Sidhu",
+                    position: "co-pilot",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Sam Elley",
+                    position: "co-pilot",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Sarah Ibrahim",
+                    position: "402 Student",
+                    isCurrentMember: true,
+                },
+            ]
         }, {
             name: "Perceptual Modes"
         }, {
@@ -109,8 +161,6 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     "The Ideo Project is investigating implicit cognition and whether we can bypass explicit cognition through the use of different devices. If you are interested in getting involved in research and the process that goes behind such a study, this could be the project for you."
                 ]
             },
-        }, {
-            name: "Dormant"
         },
         {
             name: "Image Transitions",

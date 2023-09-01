@@ -97,3 +97,21 @@
     margin: 15px 0 10px 0;
     border: 1.5px solid rgb(226, 226, 226);
 }
+
+.delete-entry-icon {
+    color: rgb(188, 188, 188);
+}
+
+.delete-entry-icon:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.edit-entry-icon {
+    color: rgb(188, 188, 188);
+}
+
+.edit-entry-icon:hover {
+    color: var(--fc-navyblue);
+    cursor: pointer;
+}

@@ -4,14 +4,9 @@ body {
     width: 100%;
 }
 
-.content-container {
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-}
 
-.project-publications {
+
+.project-pub-list {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -39,10 +34,10 @@ body {
     text-align: center;
 }
 
-.project-name {
+.pub-project-name {
     width: 100%;
-    margin: 0 auto;
-    margin-bottom: -5px;
+    margin: 10px auto;
+    margin-top: 30px;
     padding: 5px 15px;
     border-radius: 5px;
     background-color: #FAFAFA;
@@ -59,18 +54,10 @@ body {
 }
 
 
-hr {
-    border-left: 10px solid #8ea9d2;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-}
 
 .card-title {
     padding-bottom: 1%;
     padding-top: 1%;
 }
 
-.publication-citation {
-    padding-bottom: 2%;
-}
+

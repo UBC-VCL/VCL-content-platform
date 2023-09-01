@@ -22,14 +22,13 @@ const ProjectPublications: React.FC<ProjectProps> = (props) => {
     return (
         props.project.publications && props.project.publications.length > 0 ?
             <div className='project-subcontent-container'>
-                <div className="project-publications">
+                <div className="project-pub-list">
                     <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
                     <div className="pub-header">
                         <p className="pub-title">Publications</p>
                     </div>
-                    <hr />
 
-                    <div className="project-name">
+                    <div className="pub-project-name">
                         <p>{props.project.name}</p>
                     </div>
 
@@ -46,7 +45,7 @@ const ProjectPublications: React.FC<ProjectProps> = (props) => {
             </div>
             :
             <div className='project-subcontent-container'>
-                <div className="project-publications">
+                <div className="project-pub-list">
                     <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.PROJECT_PUBLICATIONS} />
                     <div className="pub-header">
                         <p className="pub-title">Publications</p>

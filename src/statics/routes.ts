@@ -18,8 +18,7 @@ const ROUTES = {
   GET_INVOLVED: '/get_involved',
   PROJECT_PUBLICATIONS: '/publications',
   SUBPAGE1: '/subpage1',
-  SUBPAGE2: '/subpage2',
-  PROJECT_TIMELINE: '/timeline'
+  SUBPAGE2: '/subpage2'
 } as const;
 
 export default ROUTES;

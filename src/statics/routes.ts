@@ -17,6 +17,7 @@ const ROUTES = {
   RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
   PROJECT_TIMELINE: '/timeline',
+  PEOPLE: '/people'
 } as const;
 
 export default ROUTES;

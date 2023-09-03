@@ -11,6 +11,7 @@ import AddTimelineEntry from '@pages/Timeline/AddTimelineEntry/AddTimelineEntry'
 import GetInvolved from '@pages/GetInvolved/GetInvolved';
 import { useAppSelector } from '@redux/hooks';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import People from '@pages/People/People';
 
 const AppSwitch = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -27,7 +28,8 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
       <Route exact path={ROUTES.RESOURCES} component={Resources} />
-      <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
+      <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} /> 
+      <Route exact path={ROUTES.PEOPLE} component={People}/>
     </Switch>
   );
 }

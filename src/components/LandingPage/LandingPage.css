@@ -1,7 +1,7 @@
 #landing-page-container {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 60%;
 }
 
 #info-section {
@@ -109,5 +109,11 @@ a:hover {
     justify-content: center;
     overflow: hidden;
     height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  #landing-page-container {
+    width: 100%;
   }
 }

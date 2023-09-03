@@ -1,7 +1,6 @@
 import React from "react";
 import { TEXT } from "@statics";
 import "./LandingPage.css";
-import Card from "@components/Card";
 
 const LandingPage = () => {
   return (

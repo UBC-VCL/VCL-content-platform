@@ -17,8 +17,8 @@ const ROUTES = {
   RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
   PROJECT_PUBLICATIONS: '/publications',
-  SUBPAGE1: '/subpage1',
-  SUBPAGE2: '/subpage2'
+  PROJECT_TIMELINE: '/timeline',
+  PEOPLE: '/people'
 } as const;
 
 export default ROUTES;

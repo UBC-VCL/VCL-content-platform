@@ -49,7 +49,7 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
                         + Add Member
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     <Person
                         name="Kevin Peng"
                         involvement='Project Lead, Graduate Student, Coding Team Manager, Analytics Manager'
@@ -68,10 +68,10 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
                         linkedIn='linkedin.com'
                         isCurrentMember={false}
                     />
-                </div>
+                </div> */}
             </div>
-            <div className="team-header">Team Members</div>
-            <hr />
+            {/* <div className="team-header">Team Members</div>
+            <hr /> */}
             <div>
                 {props.project.members ?
                     (props.project.members.map(member => (

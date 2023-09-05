@@ -18,8 +18,6 @@ const Footer = () => {
             name: "Image Transitions"
         }, {
             name: "NCIS"
-        }, {
-            name: "Dormant"
         }]
 
     return (

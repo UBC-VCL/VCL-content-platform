@@ -96,8 +96,7 @@ const People = () => {
     const getMembers = async () => {
 
         axios.get(
-            // `${baseURL}/api/members`
-            "http://localhost:4000/api/members"
+            `${baseURL}/api/members`
         ).then((response) =>
             setList(response.data.data)
         ).catch((err) => {

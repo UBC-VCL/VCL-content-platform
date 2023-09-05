@@ -16,6 +16,9 @@ import email from '../.././statics/images/JoinTeam/email.png';
 import ProjectGallery from '@components/ProjectGallery/ProjectGallery';
 import blankPPic from "../../components/ProjectGallery/media/blank-profile-picture.webp"
 import { SlideShowOBJ } from './types';
+import dotenv from 'dotenv';
+
+const base_url = "http://localhost:3000"
 
 interface ProjectProps {
     project : Project,
@@ -153,8 +156,8 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                     <p style={{fontWeight: "800"}}>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.STEP1.TITLE}</p>
                     <p style={{marginBottom: "6%", paddingRight:"70px"}}>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.STEP1.TEXT}</p>
                     <div style={{marginLeft: "10%", backgroundColor: "#1C426D", marginRight:"60%"}}>
-                        <a href='#' style={{color:"white", textDecoration:"none"}}>
-                            Go
+                        <a href={base_url}  style={{color:"white", textDecoration:"none"}}>
+                            Home Page
                         </a>
                     </div>
                     <VerticalSpacer height={150} />
@@ -173,7 +176,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                         <li>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.STEP2.BULLET_POINTS.BULLET_3}</li>
                     </ul>
                     <div style={{marginLeft: "10%", backgroundColor: "#1C426D", marginRight:"60%", marginTop:"6%"}}>
-                        <a href='#' style={{color:"white", textDecoration:"none"}}>
+                        <a href="mailto:vclmanager@gmail.com" style={{color:"white", textDecoration:"none"}}>
                             Go
                         </a>
                     </div>

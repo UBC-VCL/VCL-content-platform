@@ -213,6 +213,18 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     isCurrentMember: true,
                 },
             ]
+        }, {
+            name: 'NCIS',
+            description: {
+                first: 'Nautical Crime Investigation Services Corp. (NCIS) is a startup based in Vancouver. NCIS develops AI and hardware maritime defence technologies to detect and deter criminal activities at sea.',
+                second: 'Through its research and development process, NCIS embraces collaboration and partnerships between academia, industry, NGOs and government entities. We welcome applications from motivated students who are looking to apply their academic knowledge to finding real world solutions to this century’s number one problem in the oceans.',
+                emp: 'Todo'
+            },
+            joinTeam: {
+                whatWeDo: [
+                    "We are currently recruiting for new members interested in joining this project. We have positions focusing on research, UX, and software development. If you feel that you would be a good fit, please take a look at the Get Involved section of our website for more information. Email us at vclmanager@gmail.com with your resume, a list of related academic courses you’ve taken, and a brief description of your interest in the project."
+                ]
+            },
         }
     ]
 

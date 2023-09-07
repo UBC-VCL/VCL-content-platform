@@ -1,8 +1,9 @@
 import React from 'react';
 import { CONSTANTS, TEXT } from '@statics';
 import './GetInvolvedSidebar.css';
-import sidebarIcon from '@statics/images/involved-sidebar-icon.png';
 import { useHistory } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ArrowIcon from '@mui/icons-material/FirstPage';
 
 interface propsOBJ {
     pRef: React.RefObject<HTMLElement>;
@@ -12,8 +13,7 @@ interface propsOBJ {
     volunteerRef: React.RefObject<HTMLElement>;
     directedStudiesRef: React.RefObject<HTMLElement>;
     raRef: React.RefObject<HTMLElement>;
-    tsRef: React.RefObject<HTMLElement>;
-    labManagerRef: React.RefObject<HTMLElement>;
+    ctRef: React.RefObject<HTMLElement>;
     customAutoScroll: (refOBJ: React.RefObject<HTMLElement>) => void;
     sidebarState: boolean;
     setbarState: (boolean: boolean) => void;
@@ -22,21 +22,29 @@ interface propsOBJ {
 const GetInvolvedSidebar = (props: propsOBJ) => {
     const history = useHistory();
 
-    const { pRef, labMemberRef, coPilotRef, dsCoPilotRef, volunteerRef, directedStudiesRef, raRef, tsRef, labManagerRef, customAutoScroll, sidebarState, setbarState } = props;
+    const { pRef, labMemberRef, coPilotRef, dsCoPilotRef, volunteerRef, directedStudiesRef, raRef, ctRef, customAutoScroll, sidebarState, setbarState } = props;
 
     return (
 
         <div id='get-involved-sidebar' className={`sidebar ${sidebarState ? "animationOn" : "animationOff"}`}>
             <div id="contentEncapsulate">
                 <div id='titleDiv'>
-                    <div id="sidebar-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => {
-                        setbarState(!sidebarState)
-                        setTimeout(function() {
-							document.getElementById('get-involved-sidebar')!.style.display = 'none'
-                            document.getElementById('info-icon')!.style.display = 'block'
-						}, 400)
-                    }
-                    } /></div>
+                <div className='sidebar-icon'>
+                    <IconButton
+                        color="inherit"
+                        style={{left:"100%", color: "gray"}}
+                        onClick={() => {
+                            setbarState(!sidebarState)
+                            setTimeout(function() {
+                                document.getElementById('get-involved-sidebar')!.style.display = 'none'
+                                document.getElementById('info-icon')!.style.display = 'block'
+                            }, 400)
+                        }
+                        }
+                    >
+                        <ArrowIcon/>
+                    </IconButton>
+                    </div>
                     <div id="now-viewing" className="text-component">Now Viewing</div>
                     <div id="get_involved_heading" className='text-component'> Get Involved</div>
                 </div>
@@ -50,8 +58,7 @@ const GetInvolvedSidebar = (props: propsOBJ) => {
                         <li id="volunteer" className='clickableOption'><a onClick={() => customAutoScroll(volunteerRef)}>Volunteer</a></li>
                         <li id="directed-studies" className='clickableOption'><a onClick={() => customAutoScroll(directedStudiesRef)}>Directed Studies</a></li>
                         <li id="research-assistant" className='clickableOption'><a onClick={() => customAutoScroll(raRef)}>Research Assistant</a></li>
-                        <li id="tech-support" className='clickableOption'><a href="#">Tech Support</a></li>
-                        <li id="lab-mana" className='clickableOption'><a href="#" >Lab Manager</a></li>
+                        <li id="coding-team" className='clickableOption'><a onClick={() => customAutoScroll(ctRef)}>Coding Team</a></li>
                     </ul>
                 </div>
 

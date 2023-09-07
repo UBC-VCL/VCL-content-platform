@@ -28,13 +28,12 @@
     width: fit-content;
     text-align: left;
     background-color: #FFFFFF;
-    margin-top: 3%;
+    margin-top: 5%;
     white-space: nowrap;
 
 }
 
 #sidebar-icon {
-    margin-left: 100%;
     width: 36px;
     height: 36px;
     box-sizing: border-box;
@@ -61,7 +60,7 @@
     font-size: 14.6897px;
     color: #AEC7E3;
 
-    margin-top: 33px;
+    margin-top: 30px;
 }
 
 ul {
@@ -83,7 +82,6 @@ ul {
 }
 
 #get_involved_heading {
-
     font-weight: 700;
     font-size: 30px;
     line-height: 38px;
@@ -155,13 +153,11 @@ ul {
 .animationOn {
     animation-name: slide-in;
     display:block;
-    animation-timing-function: linear;
-    animation-duration: 0.4s;
+    animation-duration: 0.3s;
 }
 
 .animationOff {
     animation-name: slide-out;
-    animation-timing-function: linear;
     animation-duration: 0.4s;
 }
 

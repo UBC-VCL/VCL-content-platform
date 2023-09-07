@@ -1,13 +1,14 @@
 import React from 'react';
 import './GetInvolved.css';
-import { TEXT } from '@statics';
+import { TEXT, ROUTES } from '@statics';
 import LabGoalsFooter from '@components/LabGoalsFooter';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react'
 import GetInvolvedSidebar from '@components/GetInvolvedSidebar';
 import { useState } from 'react'
-import sidebarIcon from '@statics/images/involved-sidebar-icon.png';
+import menuIcon from '@statics/images/menu-icon.png';
+
 
 
 interface GetInvolvedProps { }
@@ -23,8 +24,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 	const volunteerRef = useRef<HTMLElement>(null)
 	const directedStudiesRef = useRef<HTMLElement>(null)
 	const raRef = useRef<HTMLElement>(null)
-	const tsRef = useRef<HTMLElement>(null)
-	const labManagerRef = useRef<HTMLDivElement>(null)
+	const ctRef = useRef<HTMLElement>(null)
 
 	const customAutoScroll = (refOBJ: React.RefObject<HTMLElement>) => {
 		const navHeight = document.getElementById('nav')!.clientHeight
@@ -38,21 +38,21 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 
 	return (
 		<div className="Join">
-			<GetInvolvedSidebar pRef={pRef}
+			<GetInvolvedSidebar 
+				pRef={pRef}
 				labMemberRef={labMemberRef}
 				coPilotRef={coPilotRef}
 				dsCoPilotRef={dsCoPilotRef}
 				volunteerRef={volunteerRef}
 				directedStudiesRef={directedStudiesRef}
 				raRef={raRef}
-				tsRef={tsRef}
-				labManagerRef={labManagerRef}
+				ctRef={ctRef}
 				customAutoScroll={customAutoScroll}
 				sidebarState={sidebarState}
 				setbarState={setbarState}
 			/>
 			<div id='info-encapsulate'>
-				<div id="info-icon"><img src={sidebarIcon} alt="Sidebar Icon" width="20" height="20" onClick={() => {
+			<div id="info-icon"><img src={menuIcon} alt="Sidebar Icon" width="25" height="25" onClick={() => {
 					document.getElementById('get-involved-sidebar')!.style.display = 'block'
 					document.getElementById('info-icon')!.style.display = 'none'
 					setbarState(!sidebarState)
@@ -81,65 +81,12 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<br></br>
 							<ul style={{ color: "#5387a5" }}>
-								<li>
-									<a href="#co-pilot"
-										style={{ color: "#5387a5" }}
-									>
-										Co-Pilot
-									</a>
-								</li>
-								<li>
-									<a
-										href="#data-science"
-										style={{ color: "#5387a5" }}
-									>
-										Data Science Co-Pilot
-									</a>
-								</li>
-								<li>
-									<a
-										href="volunteer"
-										style={{ color: "#5387a5" }}
-									>
-										Volunteer
-									</a>
-								</li>
-								<li>
-									<a
-										href="directed-studies"
-										style={{ color: "#5387a5" }}
-									>
-										Directed Studies
-									</a>
-								</li>
-								<li>
-									<a
-										href="research-assistant"
-										style={{ color: "#5387a5" }}
-									>
-										Research Assistant
-									</a>
-								</li>
-								<li>
-									<Link
-										to="//viscoglab.psych.ubc.ca/tech-support/"
-										style={{ color: "#5387a5" }}
-										target="_blank"
-										rel="noreferrer"
-									>
-										Tech Support
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="//viscoglab.psych.ubc.ca/get-involved/lab-manager/"
-										style={{ color: "#5387a5" }}
-										target="_blank"
-										rel="noreferrer"
-									>
-										Lab Manager
-									</Link>
-								</li>
+								<li id="co-pilot" className='clickableOption'><a onClick={() => customAutoScroll(coPilotRef)}>Co-Pilot</a></li>
+								<li id="dscico-pilot" className='clickableOption'><a onClick={() => customAutoScroll(dsCoPilotRef)}>Data Science Co-Pilot</a></li>
+								<li id="volunteer" className='clickableOption'><a onClick={() => customAutoScroll(volunteerRef)}>Volunteer</a></li>
+								<li id="directed-studies" className='clickableOption'><a onClick={() => customAutoScroll(directedStudiesRef)}>Directed Studies</a></li>
+								<li id="research-assistant" className='clickableOption'><a onClick={() => customAutoScroll(raRef)}>Research Assistant</a></li>
+								<li id="coding-team" className='clickableOption'><a onClick={() => customAutoScroll(ctRef)}>Coding Team</a></li>
 							</ul>
 							<br></br>
 							<p>
@@ -173,13 +120,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</ul>
 							<br></br>
 							<p style={{ color: "#5387a5" }}>
-								<Link
-									to="//viscoglab.psych.ubc.ca/get-involved/vcl-co-pilots/"
-									style={{ color: "#5387a5" }}
-									target="_blank"
-								>
-									See Application Instructions Here
-								</Link>
+								{applicationInstructions("VCL Co-Pilots")}
 							</p>
 							<p>
 								Note: We are currently not looking for additional co-pilots, with the exception of the Data Science Co-Pilot position. If you are insterested in
@@ -203,14 +144,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</ul>
 							<br></br>
 							<p style={{ color: "#5387a5" }}>
-								<Link
-									to="//viscoglab.psych.ubc.ca/get-involved/data-science-co-pilot/"
-									style={{ color: "#5387a5" }}
-									target="_blank"
-									rel="noreferrer"
-								>
-									See Application Intructions Here
-								</Link>
+								{applicationInstructions("Data Science Co-Pilots")}
 							</p>
 						</section>
 						<div className='role-divider' />
@@ -229,19 +163,22 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<br></br>
 							<p>
-								A colunteer will be able to do everthing that a Co-Pilot can do, but will have priority in receiving training in research activities
+								A volunteer will be able to do everthing that a Co-Pilot can do, but will have priority in receiving training in research activities
 								because thehy are committing to their project leader a set amount of hours. A Volunteer must commit at leaast 9 hours a week to
 								agreed upon lab duties. A commitment of 9 hours a week is approximately the minimum amount of time needed to gain the skills that a
 								research lab would expect from a seasoned volunteer.
 							</p>
 							<p style={{ color: "#5387a5" }}>
-								<Link to="//viscoglab.psych.ubc.ca/get-involved/volunteeringdirected-studies/"
-									style={{ color: "#5387a5" }}
-									target="_blank"
-									rel="noreferrer"
-								>
-									See Application Intructions Here
-								</Link>
+								<details>
+									<summary> Details</summary>
+									<p className="app-steps">
+										Volunteers are lab members who have been 
+											<strong><a onClick={() => customAutoScroll(coPilotRef)}> Co-Pilots </a></strong>
+											or 
+											<strong><a onClick={() => customAutoScroll(directedStudiesRef)}> Directed Studies students </a></strong>
+										for a period of time and have then signed a Volunteer Contract making specific commitments to the lab.
+									</p>
+								</details>
 							</p>
 						</section>
 						<div className='role-divider' />
@@ -272,24 +209,35 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 								<li>End of the term, for you to make your case on what grade you deserve (as awkward as this sounds!) This is so that we can capture the truth, and write down
 									evidence when we send in the evaluation over to the instructor.</li>
 							</ol>
-							<br></br>
-							<p>
-								For COGS 402 Students...
-								<br></br>
-								Take a look at our COGS402 FAQ page!
-							</p>
-							<br></br>
+							<br/>
 							<p style={{ color: "#5387a5" }}>
-								<Link to="//viscoglab.psych.ubc.ca/get-involved/directed-studies/"
-									style={{ color: "#5387a5" }}
-									target="_blank"
-									rel="noreferrer"
-								>
-									See Application Intructions Here
-								</Link>
+								{applicationInstructions("VCL Co-Pilots")}
 							</p>
 							<p>
-								Please keep in mind that we typically prefer Directed Studies students to begin with a co-pilot position with our lab. However, exceptions can be made.
+								<i>Please keep in mind that we typically prefer Directed Studies students to begin with a co-pilot position with our lab. However, exceptions can be made.</i>
+							</p>
+							<p style={{ color: "#1C426D", marginTop: "30px"}}>
+								<details>
+									<summary><strong>COGS 402 FAQ!</strong></summary>
+									<ul>
+										<li><strong>Q:</strong> When should I apply to the VCL for my 402? </li>
+										<li><strong>A:</strong> It is recommended that you apply as a Co-Pilot a term before the start of your 402. That way, you are able to get acquainted with the lab environment and the ongoing research so that you can come up with your own research proposal. </li>
+										<br/>
+										<li><strong>Q:</strong> Who can I contact for more help/information about 402 at the VCL? </li>
+										<li><strong>A:</strong> If you would like more information on how the 402 is conducted at the VCL, please email the lab manager at vclmanager@gmail.com. For general 402 inquiries please contact the instructor or program advisor. </li>
+										<br/>
+										<li><strong>Q:</strong> Why is there a course this in the COGS program? / Why is this course required when I’m not planning on going into research? </li>
+										<li><strong>A:</strong>COGS 402 is designed to give students exposure to research before they graduate and provide them with the opportunity to learn invaluable skills outside of the classroom. </li>
+										<br/>
+										<li><strong>Q:</strong> Do I have to come up with my own project, or can I join one?</li>
+										<li><strong>A:</strong>Students are expected to propose their own extension or focus within an existing project at the VCL or to propose a novel project. </li>
+										<br/>
+										<li><strong>Q:</strong> Is it better to take 402 during the winter session or the summer?</li>
+										<li><strong>A:</strong>It’s all about personal preference, and there are advantages/disadvantages to both. However, it good to know that COGS 402 require 9 hours of lab per week so make sure your schedule can accommodate that. </li>
+
+									</ul>
+								
+								</details>
 							</p>
 
 						</section>
@@ -297,33 +245,52 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 						<section id="research-assistant" ref={raRef}>
 							<h2>Get Involved as a Research Assistant...</h2>
 							<p>
-								Volunteers take priority over Co-Pilots in being trained in research activities ad must dedicate a minimum of
-								<b>9 hours per week</b> to the lab. Volunteers must have signed a Volunteer Contract and submitted a letter of intent.
+								Research Assistants (RAs)…
+								<ul>
+									<li>Are members of the lab officially hired to carry out experiments</li>
+									<li>Take priority over Volunteers in using lab resources</li>
+									<li>Must dedicate a minimum of 9 hours per week to lab</li>
+									<li>Must be elected by senior RAs/Project Leaders and approved by Dr. Rensink</li>
+								</ul>
 							</p>
 							<br></br>
 							<p>
-								Volunteers are members who have been Co-Pilots or Directed Studies for a period of time and have then signed a Volunteer
-								Contract making specific commitments to the lab. Volunteers are expected to be more autonomous, take more initiative,
-								and commit more time to the lab than Co-Pilots. The contract lasts a minimum of 1 school term (3 months during the winter
-								session/2 months during the summer session) and a maximum of 2 school terms. After that, a Volunteer can either renew the
-								contract or go on to become an RA or Project Leader with recommendations from other lab memebers.
-							</p>
-							<br></br>
-							<p>
-								A volunteer will be able to do everything that a Co-Pilot can do, but will have priority in receiving training in research
-								activities because they are commiting to their project leader a set amount of hours. A Volunteer must commit at least 9
-								hours a week to agreed upon lab duties. A commitment of 9 hours a week is approcimately the minimum amount of time needed
-								to gain the skills that a research lab would expect from a seasoned volunteer.
+								An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in 
+								using the lab’s resources. An RA must commit at least 9 hours a week to agreed upon lab duties. Most Project Leaders
+								have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be 
+								approved by Dr. Rensink.
 							</p>
 							<p style={{ color: "#5387a5" }}>
-								<Link
-									to="//viscoglab.psych.ubc.ca/get-involved/student-awards/"
-									style={{ color: "#5387a5" }}
-									target="_blank"
-									rel="noreferrer"
-								>
-									See Application Instructions Here
-								</Link>
+								<details>
+									<summary> Details</summary>
+									<p className="app-steps">After a  
+										<strong><a onClick={() => customAutoScroll(volunteerRef)}> Volunteer </a></strong>
+									 has gained significant handle of the project in which they’re involved, they may be eligible to be an RA. An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in using the lab’s resources. An RA must commit at least 9 hours a week to agreed upon lab duties. Most Project Leaders have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be approved by Dr. Rensink.</p>
+								</details>
+							</p>
+						</section>
+
+						<div className='role-divider' />
+						<section id="coding-team" ref={ctRef}>
+							<h2>Get Involved in the Coding Team...</h2>
+							<p>
+								Coding team members…
+								<ul>
+									<li>Are volunteers that would like to develop their technical skills</li>
+									<li>Can be involved in specific branches of technological maintenance of the lab including (but not limited to)</li>
+									<ul>
+										<li>Website</li>
+										<li>Coding Workshops</li>
+										<li>Software</li>
+										<li>Data Analysis Measures</li>
+									</ul>
+								</ul>
+							</p>
+							<p style={{ color: "#5387a5" }}>
+								<details>
+									<summary>Application Instructions</summary>
+									<p className="app-steps">If you are interested in an opportunity where you can develop your tech skills while getting involved in a research setting please send an email to vclmanager@gmail.com with your resume/CV.</p>
+								</details>
 							</p>
 						</section>
 					</div>
@@ -333,6 +300,22 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 
 		</div>
 	);
+
+	function applicationInstructions(position: string) {
+		return <details className="app-instructions">
+			<summary> See Application Instructions Here </summary>
+			<ol className="app-steps">
+				<li>Take a look at our <a href={ROUTES.HOME} target="_blank" className="instruction-link"><strong>Orientation page</strong></a> to see if our lab philosophy matches yours and to get a rough idea on how our lab operates.</li>
+				<li>Browse through <a href={ROUTES.PROJECT.BASE} target="_blank" className="instruction-link"><strong>our projects</strong></a> and see if there are any projects you’d like to be a part of.</li>
+				<li>Send an e-mail to vclmanager@gmail.com with <em>{position}</em> in the subject line, and make sure to include the following information:</li>
+				<ul>
+					<li>Your resume/CV</li>
+					<li>A list of related courses you have taken so far</li>
+					<li>The research projects you’re interested in and why you’re interested in them</li> 
+				</ul>
+			</ol>
+		</details>
+	}
 };
 
 export default GetInvolved;

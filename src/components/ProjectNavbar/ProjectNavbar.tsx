@@ -78,7 +78,7 @@ export default function Sidebar(props: any) {
                     sx={{ ...(open && { display: 'none' }) }}
                 >
 
-                    <MenuIcon sx={{ width: "58px", height: "38px" }} />
+                    <MenuIcon sx={{ width: "58px", height: "38px", color: "white" }} />
                 </IconButton>
             </div>
 

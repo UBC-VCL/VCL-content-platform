@@ -42,6 +42,8 @@ const TEXT = {
     TEAM_AND_ALUMNI: "Team & Alumni",
     CONTACT: "Contact",
     PROJECT_TIMELINE: "Timeline",
+    PROJECT_PUBLICATIONS: 'Publications',
+    PEOPLE: 'People'
   },
 
   PROJECT_NAMES: {

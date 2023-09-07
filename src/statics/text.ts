@@ -23,18 +23,18 @@ const TEXT = {
   },
 
   PAGE_TITLES: {
-    NAVIGATE: "Navigate",
-    HOME: "Home",
-    TIMELINE: "Timeline",
-    PROJECTS: "Projects",
-    OVERVIEW: "Overview",
-    ABOUT: "About",
-    RESOURCES: "Resources",
-    GET_INVOLVED: "Get Involved",
-    PROJECT_TIMELINE: "Timeline",
-    PEOPLE: "People",
+    NAVIGATE: 'Navigate',
+    HOME: 'Home',
+    TIMELINE: 'Timeline',
+    PROJECTS: 'Projects',
+    OVERVIEW: 'Overview',
+    ABOUT: 'About',
+    RESOURCES: 'Resources',
+    GET_INVOLVED: 'Get Involved',
+    PROJECT_PUBLICATIONS: 'Publications',
+    PROJECT_TIMELINE: 'Timeline',
+    PEOPLE: 'People'
   },
-
   PROJECT_NAV: {
     PROJECT_DESCRIPTION: "Project Description",
     JOIN_OUR_TEAM: "Join Our Team",
@@ -42,6 +42,8 @@ const TEXT = {
     TEAM_AND_ALUMNI: "Team & Alumni",
     CONTACT: "Contact",
     PROJECT_TIMELINE: "Timeline",
+    PROJECT_PUBLICATIONS: 'Publications',
+    PEOPLE: 'People'
   },
 
   PROJECT_NAMES: {

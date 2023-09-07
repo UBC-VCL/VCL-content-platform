@@ -36,6 +36,22 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 		})
 	}
 
+	function applicationInstructions(position: string) {
+		return <details className="app-instructions">
+			<summary> See Application Instructions Here </summary>
+			<ol className="app-steps">
+				<li>Take a look at our <a href={ROUTES.HOME} target="_blank" className="instruction-link"><strong>Orientation page</strong></a> to see if our lab philosophy matches yours and to get a rough idea on how our lab operates.</li>
+				<li>Browse through <a href={ROUTES.PROJECT.BASE} target="_blank" className="instruction-link"><strong>our projects</strong></a> and see if there are any projects you’d like to be a part of.</li>
+				<li>Send an e-mail to vclmanager@gmail.com with <em>{position}</em> in the subject line, and make sure to include the following information:</li>
+				<ul>
+					<li>Your resume/CV</li>
+					<li>A list of related courses you have taken so far</li>
+					<li>The research projects you’re interested in and why you’re interested in them</li> 
+				</ul>
+			</ol>
+		</details>
+	}
+
 	return (
 		<div className="Join">
 			<GetInvolvedSidebar 
@@ -300,22 +316,6 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 
 		</div>
 	);
-
-	function applicationInstructions(position: string) {
-		return <details className="app-instructions">
-			<summary> See Application Instructions Here </summary>
-			<ol className="app-steps">
-				<li>Take a look at our <a href={ROUTES.HOME} target="_blank" className="instruction-link"><strong>Orientation page</strong></a> to see if our lab philosophy matches yours and to get a rough idea on how our lab operates.</li>
-				<li>Browse through <a href={ROUTES.PROJECT.BASE} target="_blank" className="instruction-link"><strong>our projects</strong></a> and see if there are any projects you’d like to be a part of.</li>
-				<li>Send an e-mail to vclmanager@gmail.com with <em>{position}</em> in the subject line, and make sure to include the following information:</li>
-				<ul>
-					<li>Your resume/CV</li>
-					<li>A list of related courses you have taken so far</li>
-					<li>The research projects you’re interested in and why you’re interested in them</li> 
-				</ul>
-			</ol>
-		</details>
-	}
 };
 
 export default GetInvolved;

@@ -61,8 +61,7 @@ const GetInvolvedSidebar = (props: propsOBJ) => {
                         <li id="coding-team" className='clickableOption'><a onClick={() => customAutoScroll(ctRef)}>Coding Team</a></li>
                     </ul>
                 </div>
-
-                <div className="text-component" id="application-instructions"><a href="#">Application Instructions</a></div>
+                
                 <div id="view-prj-btn" onClick={() => history.push("/projects")}>View Projects</div>
             </div>
         </div>

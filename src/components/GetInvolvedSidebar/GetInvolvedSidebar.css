@@ -118,18 +118,13 @@ ul {
     margin-left: 23px;
 }
 
-
-#application-instructions {
-    margin-top: 25px;
-}
-
 #view-prj-btn {
     font-weight: 600;
     font-size: 14.5px;
     line-height: 18px;
     letter-spacing: 0.025em;
 
-    margin-top: 60%;
+    margin-top: 40%;
     margin-bottom: 10%;
     margin-left: 18%;
 

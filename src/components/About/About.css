@@ -1,8 +1,9 @@
 .About {
   background-color: #fafafa;
-  max-width: 100%;
   width: 100%;
-  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   color: #000000;
   font-family: "Source Sans Pro", sans-serif;
   padding-bottom: -2000px;
@@ -16,7 +17,7 @@
   max-width: 100%;
 }
 
-.title-underline {
+.about-title-underline {
   position: absolute;
   width: 10%;
   height: 3px;
@@ -53,8 +54,12 @@ body {
 
 .main-body {
   text-align: left;
-  width: min(80%, 1000px);
-  margin: 30px auto 48px;
+  width: 60%;
+  margin-top: 2%;
+}
+
+.about-description {
+  text-align: justify;
 }
 
 .About .main-body ul {
@@ -78,16 +83,17 @@ body {
   top: 2px;
 }
 
+.values-container,
+.responsibilities-container {
+  margin: 5% 0;
+}
+
 .responsibilities-header {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .responsibilities-subheader {
-  margin-bottom: 10px;
-}
-
-section {
-  margin: 2em 0;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -145,6 +151,15 @@ h3 {
   margin-top: 0;
 }
 
+.gain-card-container {
+  margin: 5% 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .contact {
   width: 80%;
   margin: 48px auto;
@@ -188,7 +203,7 @@ h3 {
 
 @media (max-width: 1023px) {
   .About .header {
-    margin-top: 35%;
+    margin-top: 10%;
     padding-top: 10%;
   }
 
@@ -213,5 +228,9 @@ h3 {
 @media (max-width: 767px) {
   .contact {
     grid-template-columns: 1fr;
+  }
+
+  .about-description {
+    text-align: left;
   }
 }

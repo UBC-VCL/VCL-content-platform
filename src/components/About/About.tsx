@@ -14,17 +14,13 @@ const About: React.FC<AboutProps> = (props) => {
     <div className="About">
       <div className="header">
         <p className="header-text">About the Visual Cognition Lab</p>
-        <div className="title-underline"></div>
+        <div className="about-title-underline"></div>
       </div>
       <div className="main-body">
-        <section>
-          <p>{TEXT.ABOUT_PAGE.MAIN.DESCRIPTION.P1}</p>
-          <div className="mission-img-container">
-            <div className="mission-img-placeholder-one"></div>
-            <div className="mission-img-placeholder-two"></div>
-          </div>
-        </section>
-        <section>
+        <p className="about-description">
+          {TEXT.ABOUT_PAGE.MAIN.DESCRIPTION.P1}
+        </p>
+        <section className="values-container">
           <h2>{TEXT.ABOUT_PAGE.MAIN.VALUES.HEADER}</h2>
           <ul className="value-list">
             <li>{TEXT.ABOUT_PAGE.MAIN.VALUES.VALUE_1}</li>
@@ -32,7 +28,7 @@ const About: React.FC<AboutProps> = (props) => {
             <li>{TEXT.ABOUT_PAGE.MAIN.VALUES.VALUE_3}</li>
           </ul>
         </section>
-        <section>
+        <section className="responsibilities-container">
           <h2 className="responsibilities-header">
             {TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.HEADER}
           </h2>
@@ -40,16 +36,16 @@ const About: React.FC<AboutProps> = (props) => {
             {TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.SUBHEADER}
           </p>
           <ul className="responsibility-list">
-            <li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
-            <li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
-            <li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
-            <li>{TEXT.ABOUT_PAGE.BP_PLACEHOLDER}</li>
+            <li>{TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.R1}</li>
+            <li>{TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.R2}</li>
+            <li>{TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.R3}</li>
+            <li>{TEXT.ABOUT_PAGE.MAIN.RESPONSIBILITIES.R4}</li>
           </ul>
         </section>
       </div>
       <section className="gain-section">
         <h2>{TEXT.ABOUT_PAGE.GAIN_SECTION.HEADER}</h2>
-        <div className="card-container">
+        <div className="gain-card-container">
           <Card
             title={TEXT.ABOUT_PAGE.GAIN_SECTION.RESEARCH_EXP.HEADER}
             desc={TEXT.ABOUT_PAGE.GAIN_SECTION.RESEARCH_EXP.DESCRIPTION}
@@ -108,15 +104,6 @@ const About: React.FC<AboutProps> = (props) => {
             </li>
             <li>
               <strong>Dr. Rensink:</strong> {TEXT.LAB_INFO.DRRENSINK_CONTACT}
-            </li>
-            <li>
-              <strong>Daniel (Admin):</strong>
-            </li>
-            <li>
-              <strong>Sara (Admin):</strong>
-            </li>
-            <li>
-              <strong>Sogol (Admin):</strong>
             </li>
           </ul>
           <p>

@@ -17,8 +17,8 @@ import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
 import './Navbar.css';
-import {ReactComponent as SearchIcon} from '@statics/images/search-icon.svg';
-import VCLIcon from '@statics/images/new-vcl-icon.png';
+import { ReactComponent as SearchIcon } from '@statics/images/search-icon.svg';
+import VCLIcon from '@statics/images/vcl-logo-2023.png';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MobileMenu from '@components/MobileNavbar';
 
@@ -37,7 +37,7 @@ const Navbar: React.FC<{}> = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
-  
+
   const handleOpenLoginModal = () => {
     dispatch(
       appActions.openModal({
@@ -58,11 +58,14 @@ const Navbar: React.FC<{}> = () => {
     // todo
   };
 
-  const [projectAnchorEl, setProjectAnchorEl] = React.useState<null | HTMLElement>(null);
-  const projectOpen = Boolean(projectAnchorEl)
+  const [projectAnchorEl, setProjectAnchorEl] =
+    React.useState<null | HTMLElement>(null);
+  const projectOpen = Boolean(projectAnchorEl);
 
   // change text color of button to blue when clicked
-  const handleProjectMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleProjectMenuClick = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     setProjectAnchorEl(event.currentTarget);
   };
 
@@ -70,12 +73,10 @@ const Navbar: React.FC<{}> = () => {
     setProjectAnchorEl(null);
   };
 
-  window.addEventListener('handlePageChange', (event) => {
+  window.addEventListener('handlePageChange', (event) => {});
 
-  });
+  //projects = useAppSelector(selectProjects)
 
-//projects = useAppSelector(selectProjects)
- 
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
     let active = REF === location.pathname ? 'active' : '';
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
@@ -83,75 +84,84 @@ const Navbar: React.FC<{}> = () => {
     }
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
-        return (
-              <React.Fragment key={REF}>
-                <button className={`nav-link link-style ${active}`}
-                id='basic-button'
-                onClick={handleProjectMenuClick}
-                >{TEXT.PAGE_TITLES.PROJECTS}</button>
-                <Menu
-                    className="dropdown-menu"
-                    id="basic-menu" 
-                    anchorEl={projectAnchorEl}
-                    open={projectOpen}
-                    onClose={handleProjectMenuClose}
-                    MenuListProps={{
-                        'aria-labelledby' : 'basic-button'
-                    }}
-                >
-                    <MenuItem onClick={handleProjectMenuClose}>
-                                <GenericLink className="all-projects-text" name="All Projects" to={`${ROUTES.PROJECT.BASE}`}/>
-                                <hr className="all-projects-underline" />
-                    </MenuItem>
-                    {
-                        CONSTANTS.PROJECTS.map((project, i) => { 
-                          console.log(location.pathname.split('/')[2], project.name)
-                            return (
-                                <MenuItem 
-                                key={i}
-                                onClick={handleProjectMenuClose}>
-                                    <GenericLink
-                                        className={`nav-link project-name ${location.pathname.split('/')[2] === project.name ? 'active' : ''}`}
-                                        name={project.name}
-                                        to={`${ROUTES.PROJECT.BASE}/${project.name}`}
-                                    />
-                                </MenuItem>
-                            )
-                        })
-                    }
-                </Menu>
-              </React.Fragment>
-            )
+      return (
+        <React.Fragment key={REF}>
+          <button
+            className={`nav-link link-style ${active}`}
+            id="basic-button"
+            onClick={handleProjectMenuClick}
+          >
+            {TEXT.PAGE_TITLES.PROJECTS}
+          </button>
+          <Menu
+            className="dropdown-menu"
+            id="basic-menu"
+            anchorEl={projectAnchorEl}
+            open={projectOpen}
+            onClose={handleProjectMenuClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <MenuItem onClick={handleProjectMenuClose}>
+              <GenericLink
+                className="all-projects-text"
+                name="All Projects"
+                to={`${ROUTES.PROJECT.BASE}`}
+              />
+              <hr className="all-projects-underline" />
+            </MenuItem>
+            {CONSTANTS.PROJECTS.map((project, i) => {
+              console.log(location.pathname.split('/')[2], project.name);
+              return (
+                <MenuItem key={i} onClick={handleProjectMenuClose}>
+                  <GenericLink
+                    className={`nav-link project-name ${
+                      location.pathname.split('/')[2] === project.name
+                        ? 'active'
+                        : ''
+                    }`}
+                    name={project.name}
+                    to={`${ROUTES.PROJECT.BASE}/${project.name}`}
+                  />
+                </MenuItem>
+              );
+            })}
+          </Menu>
+        </React.Fragment>
+      );
     } else {
-        return (
-            <GenericLink 
-                key={REF} 
-                name={TITLE} 
-                to={REF} 
-                className={`nav-link ${active}`}
-            />
-            )
-    };
+      return (
+        <GenericLink
+          key={REF}
+          name={TITLE}
+          to={REF}
+          className={`nav-link ${active}`}
+        />
+      );
+    }
   });
 
   return (
-    <div className="nav" id='nav'>
+    <div className="nav" id="nav">
       <div className="navbar-menu">
         <Toolbar className="nav-toolbar">
           <div className="logo-container">
             <a href={ROUTES.HOME}>
-              <img src={VCLIcon} alt="VCL logo" className="vcl-logo"/>
+              <img src={VCLIcon} alt="VCL logo" className="vcl-logo" />
             </a>
-            <a href={ROUTES.HOME} className="vcl-title-link">{TEXT.COMMON.LAB_TITLE_ONLY}</a>
+            <a href={ROUTES.HOME} className="vcl-title-link">
+              {TEXT.COMMON.LAB_TITLE_ONLY}
+            </a>
           </div>
-          <div className="nav-right">           
+          <div className="nav-right">
             <span className="nav-rendered-links">{renderedLinks}</span>
             <div className="nav-icon-container">
               <IconButton onClick={handleSearchBtnClick}>
-                <SearchIcon/>
+                <SearchIcon />
               </IconButton>
               <IconButton onClick={handleMenuClick}>
-                <AccountCircleIcon/>
+                <AccountCircleIcon />
               </IconButton>
             </div>
           </div>
@@ -162,7 +172,8 @@ const Navbar: React.FC<{}> = () => {
             onClose={handleMenuClose}
             MenuListProps={{
               'aria-labelledby': 'menu-button',
-            }}>
+            }}
+          >
             {isLoggedIn ? (
               <MenuItem onClick={handleLogout}>{TEXT.COMMON.LOGOUT}</MenuItem>
             ) : (
@@ -173,7 +184,7 @@ const Navbar: React.FC<{}> = () => {
           </Menu>
         </Toolbar>
       </div>
-        <MobileMenu/>
+      <MobileMenu />
     </div>
   );
 };

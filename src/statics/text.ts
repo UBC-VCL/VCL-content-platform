@@ -35,26 +35,23 @@ const TEXT = {
     PROJECT_TIMELINE: 'Timeline',
     PEOPLE: 'People'
   },
-
   PROJECT_NAV: {
-      PROJECT_DESCRIPTION: 'Project Description',
-      JOIN_OUR_TEAM: 'Join Our Team',
-      RESOURCES: 'Resources',
-      TEAM_AND_ALUMNI: 'Team & Alumni',
-      CONTACT: 'Contact',
-      PROJECT_PUBLICATIONS: 'Publications',
-      SUBPAGE1: 'Subpage 1',
-      SUBPAGE2: 'Subpage 2',
+    PROJECT_DESCRIPTION: "Project Description",
+    JOIN_OUR_TEAM: "Join Our Team",
+    RESOURCES: "Resources",
+    TEAM_AND_ALUMNI: "Team & Alumni",
+    CONTACT: "Contact",
+    PROJECT_TIMELINE: "Timeline",
   },
 
   PROJECT_NAMES: {
-    CORRELATION: 'Correlation',
-    IDEO: 'Ideo',
-    IMG_TRANSITIONS: 'Image Transitions',
-    NOVA: 'NOVA',
-    SHIVA: 'SHIVA',
-    NCIS: 'NCIS',
-},
+    CORRELATION: "Correlation",
+    IDEO: "Ideo",
+    IMG_TRANSITIONS: "Image Transitions",
+    NOVA: "NOVA",
+    SHIVA: "SHIVA",
+    NCIS: "NCIS",
+  },
 
   ALERTS: {
     AUTH_SUCCESS: "Authentication successful.",
@@ -97,6 +94,9 @@ const TEXT = {
       LAB_GOALS:
         "Our mission is to provide opportunities to learn about scientific research in a positive working environment that encourages open lines of communication, group cohesion, and most of all, respect for everyone. We strive towards personal and professional excellence in pursuit of scientific knowledge. Instead of perfection, we value constant evolution towards improvement, both on an individual and a lab-wide basis – and in doing so, we aim to become a role model for other labs by setting the standards of a professional research laboratory.",
     },
+    CURRENT_PROJECTS: {
+      TITLE: "Current Projects",
+    },
   },
 
   TIMELINE_PAGE: {
@@ -118,7 +118,13 @@ const TEXT = {
       RESPONSIBILITIES: {
         HEADER: "Our Responsibilities",
         SUBHEADER:
-          "As a member of the Visual Cognition Lab, you are responsible for...",
+          "As a member of the lab, you will be asked to think critically, show initiative in research, and actively participate in the lab. You should respond to your project leader's directives - they are also responsible for supporting you in your role. Your personal responsibilities include:",
+
+        R1: "Develop a deep understanding of your project and tasks",
+        R2: "Collect high-quality data",
+        R3: "Treat everyone with respect and help others in the lab whenever needed",
+        R4: "Keep yourself informed about lab-related issues",
+        R5: "Attend lab meetings whenever possible",
       },
       VALUES: {
         HEADER: "Our Core Values",
@@ -134,7 +140,7 @@ const TEXT = {
       DIRECTED_STUDIES: {
         HEADER: "Directed Studies",
         DESCRIPTION:
-          "Description of how the lab can help COGS students with this project",
+          "Take ownership of your own project. Typically for COGS 402, but we welcome other forms of directed studies too",
       },
       RESEARCH_EXP: {
         HEADER: "Research Experience",
@@ -148,7 +154,7 @@ const TEXT = {
       GLOBAL_RESEARCH: {
         HEADER: "Global Research",
         DESCRIPTION:
-          "Description of how the lab can help COGS students with this project",
+          "Collaborate with other cutting-edge labs researching visual cognition",
       },
     },
   },

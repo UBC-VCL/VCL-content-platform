@@ -4,10 +4,35 @@ import './Home.css';
 import { TEXT } from '@statics';
 import About from '../../components/About';
 import ProjectLogos from '@statics/images/project-logos.png';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom'
 
 interface HomeProps {}
+interface HistoryStateOBJ {
+  sourcePage:string;
+}
+interface HistoryOBJ {
+  pathname: string;
+  search: string;
+  hash: string;
+  state?: HistoryStateOBJ;
+  key: string;
+}
 
 const Home: React.FC<HomeProps> = (props) => {
+
+  const location = useLocation<HistoryStateOBJ>();
+  // const referrer = document.referrer
+  // console.log(referrer)
+
+  useEffect(() => {
+    if (location.state) {
+      if (location.state.sourcePage === 'project-join-home-redirect-from-goButton') {
+        document.getElementById("home-about-values-div")!.scrollIntoView({behavior: 'smooth', block:'start'})        
+      }
+    }
+  }, [])
+
   return (
     <div className="Home">
       <LandingPage />

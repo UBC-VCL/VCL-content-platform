@@ -17,7 +17,7 @@ import ProjectGallery from '@components/ProjectGallery/ProjectGallery';
 import blankPPic from "../../components/ProjectGallery/media/blank-profile-picture.webp"
 import { SlideShowOBJ } from './types';
 import ROUTES from "../../statics/routes"
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 interface ProjectProps {
     project: Project,
@@ -61,7 +61,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                         <p className='co-pilot-description'>{TEXT.PROJECT_JOIN.HOME_SECTION.RESEARCH_BACKGROUND}</p>
                         <div className='btn-application-instructions'
                             onClick={() => {
-                                document.getElementById('application-instructions-div')?.scrollIntoView({ behavior: 'smooth'})
+                                document.getElementById('application-instructions-div')?.scrollIntoView({ behavior: 'smooth' })
                             }}>
                             <a href="#" style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "#ffffff", textDecoration: "none" }}>
                                 <p >{TEXT.PROJECT_JOIN.HOME_SECTION.APPPLICATION_INSTRUCTION}</p>
@@ -164,11 +164,11 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                             <div
                                 onClick={() => {
                                     // used to redirect the user and also send information with that redirect to the desired URL
-                                    history.push(ROUTES.HOME, {sourcePage: 'project-join-home-redirect-from-goButton'})
+                                    history.push(ROUTES.HOME, { sourcePage: 'project-join-home-redirect-from-goButton' })
                                 }}
-                                style={{ marginLeft: "10%", backgroundColor: "#1C426D", marginRight: "60%", cursor:'pointer' }}>
+                                style={{ marginLeft: "10%", backgroundColor: "#1C426D", marginRight: "60%", cursor: 'pointer' }}>
                                 <a style={{ color: "white", textDecoration: "none", userSelect: 'none' }}>
-                                    Go
+                                    Home Page
                                 </a>
                             </div>
                             <VerticalSpacer height={150} />
@@ -186,8 +186,14 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                                 <li>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.STEP2.BULLET_POINTS.BULLET_2}</li>
                                 <li>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.STEP2.BULLET_POINTS.BULLET_3}</li>
                             </ul>
-                            <div style={{ marginLeft: "10%", backgroundColor: "#1C426D", marginRight: "60%", marginTop: "6%" }}>
-                                <a href='#' style={{ color: "white", textDecoration: "none" }}>
+                            <div
+                                style={{ marginLeft: "10%", backgroundColor: "#1C426D", marginRight: "60%", marginTop: "6%", cursor: "pointer" }}
+                                onClick={() => {
+                                    window.location.href = `mailto:${TEXT.LAB_INFO.EMAIL}`
+                                }}
+                            >
+                                <a style={{ color: "white", textDecoration: "none", userSelect: 'none', width: "100%", height: "100%" }}
+                                >
                                     Go
                                 </a>
                             </div>

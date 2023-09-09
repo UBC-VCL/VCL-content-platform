@@ -16,13 +16,16 @@ interface HistoryStateOBJ {
 
 const Home: React.FC<HomeProps> = (props) => {
 
+  // Allows access to different object properties for the URL
+  //  - Can access location.state.sourcePage inorder to access information regarding if sent via a {useHistory}.push(..., sourcePage:...) method
   const location = useLocation<HistoryStateOBJ>();
-  // const referrer = document.referrer
-  // console.log(referrer)
 
   useEffect(() => {
     if (location.state) {
+
+      // If the user were to be redirected to this URL using a {useHistory}.push(..., sourcePage:...) and it satisfies the condition than execute autoScroll function
       if (location.state.sourcePage === 'project-join-home-redirect-from-goButton') {
+        // autoscrolling if prior conditions are met
         document.getElementById("home-about-values-div")!.scrollIntoView({behavior: 'smooth', block:'start'})        
       }
     }

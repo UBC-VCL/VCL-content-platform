@@ -42,6 +42,7 @@ const dummyList: SlideShowOBJ[] = [
 
 const ProjectJoin: React.FC<ProjectProps> = (props) => {
 
+    // Built in react-router-dom hook that allows access to the user's browser history
     const history = useHistory()
 
     return (
@@ -162,9 +163,8 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                             <p style={{ marginBottom: "6%", paddingRight: "70px" }}>{TEXT.PROJECT_JOIN.APPLICATION_INSTRUCTIONS.STEP1.TEXT}</p>
                             <div
                                 onClick={() => {
+                                    // used to redirect the user and also send information with that redirect to the desired URL
                                     history.push(ROUTES.HOME, {sourcePage: 'project-join-home-redirect-from-goButton'})
-                                    // window.location.href = ROUTES.HOME
-                                    // document.getElementById('home-about-values-div')?.scrollIntoView({ behavior: 'smooth' })
                                 }}
                                 style={{ marginLeft: "10%", backgroundColor: "#1C426D", marginRight: "60%", cursor:'pointer' }}>
                                 <a style={{ color: "white", textDecoration: "none", userSelect: 'none' }}>

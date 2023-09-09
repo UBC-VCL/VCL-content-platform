@@ -8,15 +8,10 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 
 interface HomeProps {}
+
+// this is the structure of a state OBJ
 interface HistoryStateOBJ {
   sourcePage:string;
-}
-interface HistoryOBJ {
-  pathname: string;
-  search: string;
-  hash: string;
-  state?: HistoryStateOBJ;
-  key: string;
 }
 
 const Home: React.FC<HomeProps> = (props) => {

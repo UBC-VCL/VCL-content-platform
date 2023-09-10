@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = (props) => {
         <p className="header-text">About the Visual Cognition Lab</p>
         <div className="about-title-underline"></div>
       </div>
-      <div className="main-body">
+      <div id="home-about-values-div"  className="main-body">
         <p className="about-description">
           {TEXT.ABOUT_PAGE.MAIN.DESCRIPTION.P1}
         </p>

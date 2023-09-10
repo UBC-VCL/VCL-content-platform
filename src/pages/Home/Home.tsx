@@ -4,10 +4,33 @@ import './Home.css';
 import { TEXT } from '@statics';
 import About from '../../components/About';
 import ProjectLogos from '@statics/images/project-logos.png';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom'
 
 interface HomeProps {}
 
+// this is the structure of a state OBJ
+interface HistoryStateOBJ {
+  sourcePage:string;
+}
+
 const Home: React.FC<HomeProps> = (props) => {
+
+  // Allows access to different object properties for the URL
+  //  - Can access location.state.sourcePage inorder to access information regarding if sent via a {useHistory}.push(..., sourcePage:...) method
+  const location = useLocation<HistoryStateOBJ>();
+
+  useEffect(() => {
+    if (location.state) {
+
+      // If the user were to be redirected to this URL using a {useHistory}.push(..., sourcePage:...) and it satisfies the condition than execute autoScroll function
+      if (location.state.sourcePage === 'project-join-home-redirect-from-goButton') {
+        // autoscrolling if prior conditions are met
+        document.getElementById("home-about-values-div")!.scrollIntoView({behavior: 'smooth', block:'start'})        
+      }
+    }
+  }, [])
+
   return (
     <div className="Home">
       <LandingPage />

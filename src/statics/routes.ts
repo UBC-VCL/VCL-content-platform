@@ -1,9 +1,9 @@
-const ROUTES = {
+require('dotenv').config();
+
+const IS_WIP = process.env.REACT_APP_WIP;
+
+const baseRoutes = {
   HOME: '/',
-  TIMELINE: '/timeline',
-  TIMELINE_CREATE: '/timeline/create',
-  TIMELINE_EDIT: '/timeline/:timeline_id/edit',
-  TIMELINE_ADD: '/timeline/add',
   PROJECT: {
     PATH: '/projects/:project_id/',
     BASE: '/projects',
@@ -14,11 +14,24 @@ const ROUTES = {
   TEAM: '/team',
   CONTACT: '/contact',
   ABOUT: '/about',
-  RESOURCES: '/resources',
   GET_INVOLVED: '/get_involved',
   PROJECT_PUBLICATIONS: '/publications',
-  PROJECT_TIMELINE: '/timeline',
-  PEOPLE: '/people'
+  PEOPLE: '/people',
 } as const;
+
+const timelineRoutes = {
+  RESOURCES: '/resources',
+  TIMELINE: '/timeline',
+  TIMELINE_CREATE: '/timeline/create',
+  TIMELINE_EDIT: '/timeline/:timeline_id/edit',
+  TIMELINE_ADD: '/timeline/add',
+  PROJECT_TIMELINE: '/timeline',
+} as const;
+
+const ROUTES = {
+  ...baseRoutes,
+  ...(!IS_WIP? timelineRoutes : {}), // Include timeline routes conditionally
+} as const;
+
 
 export default ROUTES;

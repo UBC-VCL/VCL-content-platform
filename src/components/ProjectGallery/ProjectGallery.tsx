@@ -18,7 +18,7 @@ import { NumberLocale } from 'yup/lib/locale';
 
 interface PropsOBJ {
     itemArray: Array<SlideShowOBJ>;
-    displayNumber: number;
+    displayNumber: string;
     compTitle: string;
 }
 
@@ -82,11 +82,11 @@ const ProjectGallery = (props:PropsOBJ) => {
                                     itemArray.map((obj, index) => {
                                     switch (obj.cardType) {
                                         case 'testimony':
-                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description} name={obj.name!} position={obj.position!}/>;
+                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description!} name={obj.name!} position={obj.position!}/>;
                                         case 'no-photo-test':
-                                            return <NoPhotoTest key={index} description={obj.description} name={obj.name!} position={obj.position!}/>
+                                            return <NoPhotoTest key={index} description={obj.description!} name={obj.name!} position={obj.position!}/>
                                         default:
-                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description} />;
+                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description!} />;
                                     }
                                 })
                             }

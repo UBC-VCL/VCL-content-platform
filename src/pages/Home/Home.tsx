@@ -6,6 +6,8 @@ import About from '../../components/About';
 import ProjectLogos from '@statics/images/project-logos.png';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
+import ProjectGallery from '../../components/ProjectGallery';
+import {SlideShowOBJ} from '../Project/types'
 
 interface HomeProps {}
 
@@ -13,6 +15,13 @@ interface HomeProps {}
 interface HistoryStateOBJ {
   sourcePage:string;
 }
+
+const HOME_GALLERY_ARRAY:SlideShowOBJ[] = [
+  {
+    cardType: 'no-text-card',
+    
+  }
+]
 
 const Home: React.FC<HomeProps> = (props) => {
 
@@ -55,6 +64,7 @@ const Home: React.FC<HomeProps> = (props) => {
           <img className="project-logos-img" src={ProjectLogos}></img>
         </div>
       </div>
+      <ProjectGallery compTitle='' displayNumber={''} itemArray={HOME_GALLERY_ARRAY}/>
       <About />
     </div>
   );

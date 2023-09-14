@@ -147,7 +147,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         </div>
         
         </section> */}
-            <ProjectGallery displayNumber={4} compTitle={'Testimony'} itemArray={dummyList} />
+            <ProjectGallery displayNumber={'4'} compTitle={'Testimony'} itemArray={dummyList} />
             <section id='application-instructions-div' className='full-bleed6'>
                 <div className='Application-Instructions'>
                     <p style={{ paddingTop: "7%", textAlign: "center", color: "#B2C9EC" }}>05</p>

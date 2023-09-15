@@ -120,7 +120,7 @@ export default function Sidebar(props: any) {
 
                     {props.links.map((link: any, index: any) => (
                         <>
-                            {(link.title == "Team & Alumni" && props.currProject.name == 'NCIS') ? (<></>) : 
+                            {((link.title == "Join Our Team" || link.title == "Timeline") && props.currProject.name == 'NCIS') ? (<></>) : 
                             (
                             <ListItem key={link.title}>
                                 <ListItemButton component={Link} to={link.ref}>

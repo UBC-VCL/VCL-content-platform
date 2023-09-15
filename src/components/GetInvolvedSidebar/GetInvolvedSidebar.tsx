@@ -32,7 +32,7 @@ const GetInvolvedSidebar = (props: propsOBJ) => {
                 <div className='sidebar-icon'>
                     <IconButton
                         color="inherit"
-                        style={{left:"100%", color: "gray"}}
+                        style={{left:"100%", color: "gray", marginTop: "20px"}}
                         onClick={() => {
                             setbarState(!sidebarState)
                             setTimeout(function() {

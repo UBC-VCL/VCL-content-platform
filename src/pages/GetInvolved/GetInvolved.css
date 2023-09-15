@@ -128,12 +128,15 @@ html {
 
 .app-steps {
     color: var(--fc-navyblue);
-
 }
 
 .instruction-link {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.instruct-summary {
     cursor: pointer;
 }
 

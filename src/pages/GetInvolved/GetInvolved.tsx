@@ -38,7 +38,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 
 	function applicationInstructions(position: string) {
 		return <details className="app-instructions">
-			<summary> See Application Instructions Here </summary>
+			<summary className="instruct-summary"> See Application Instructions Here </summary>
 			<ol className="app-steps">
 				<li>Take a look at our <a href={ROUTES.HOME} target="_blank" className="instruction-link"><strong>Orientation page</strong></a> to see if our lab philosophy matches yours and to get a rough idea on how our lab operates.</li>
 				<li>Browse through <a href={ROUTES.PROJECT.BASE} target="_blank" className="instruction-link"><strong>our projects</strong></a> and see if there are any projects you’d like to be a part of.</li>
@@ -186,7 +186,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<p style={{ color: "#5387a5" }}>
 								<details>
-									<summary> Details</summary>
+									<summary className="instruct-summary"> Details</summary>
 									<p className="app-steps">
 										Volunteers are lab members who have been 
 											<strong><a onClick={() => customAutoScroll(coPilotRef)}> Co-Pilots </a></strong>
@@ -234,7 +234,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<p style={{ color: "#1C426D", marginTop: "30px"}}>
 								<details>
-									<summary><strong>COGS 402 FAQ!</strong></summary>
+									<summary className="instruct-summary"><strong>COGS 402 FAQ!</strong></summary>
 									<ul>
 										<li><strong>Q:</strong> When should I apply to the VCL for my 402? </li>
 										<li><strong>A:</strong> It is recommended that you apply as a Co-Pilot a term before the start of your 402. That way, you are able to get acquainted with the lab environment and the ongoing research so that you can come up with your own research proposal. </li>
@@ -278,7 +278,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<p style={{ color: "#5387a5" }}>
 								<details>
-									<summary> Details</summary>
+									<summary className="instruct-summary"> Details</summary>
 									<p className="app-steps">After a  
 										<strong><a onClick={() => customAutoScroll(volunteerRef)}> Volunteer </a></strong>
 									 has gained significant handle of the project in which they’re involved, they may be eligible to be an RA. An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in using the lab’s resources. An RA must commit at least 9 hours a week to agreed upon lab duties. Most Project Leaders have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be approved by Dr. Rensink.</p>
@@ -304,7 +304,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<p style={{ color: "#5387a5" }}>
 								<details>
-									<summary>Application Instructions</summary>
+									<summary className="instruct-summary">Application Instructions</summary>
 									<p className="app-steps">If you are interested in an opportunity where you can develop your tech skills while getting involved in a research setting please send an email to vclmanager@gmail.com with your resume/CV.</p>
 								</details>
 							</p>

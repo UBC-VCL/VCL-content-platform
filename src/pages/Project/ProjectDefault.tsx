@@ -110,7 +110,8 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                 />
             </div>
             <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
-
+            {props.project.name !== 'NCIS' && (
+                <>
             <ProjectGallery displayNumber={2} compTitle={'Gallery'} itemArray={dummyList}/>
 
             <VerticalSpacer height={20} />
@@ -150,6 +151,8 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                         </>
                 }
             </div>
+            </>
+            )}
 
         </div>
     )

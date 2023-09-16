@@ -249,7 +249,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
+              filterList(commitsArray, filterBy) : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
           }
         </div>
       </div>

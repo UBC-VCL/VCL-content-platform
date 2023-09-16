@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Project } from '@entities/Project'
 import ProjectBreadcrumbs from '@components/ProjectBreadcrumbs'
-import { TEXT } from '@statics'
+import { TEXT, ROUTES } from '@statics'
 import "./ProjectJoin.css";
 import VerticalSpacer from '@components/VerticalSpacer/VerticalSpacer';
 
@@ -16,8 +16,7 @@ import email from '../.././statics/images/JoinTeam/email.png';
 import ProjectGallery from '@components/ProjectGallery/ProjectGallery';
 import blankPPic from "../../components/ProjectGallery/media/blank-profile-picture.webp"
 import { SlideShowOBJ } from './types';
-import ROUTES from "../../statics/routes"
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 interface ProjectProps {
     project: Project,
@@ -47,27 +46,24 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
 
     return (
         <div className='join-our-team-homepage'>
-            <div className='project-breadcrumbs'>
-                <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.JOIN_OUR_TEAM} />
+        <div className='project-breadcrumbs'>
+            <ProjectBreadcrumbs project_name={props.project.name} page_name={TEXT.PROJECT_NAV.JOIN_OUR_TEAM}/> 
+        </div>
+        <section className='full-bleed'>
+        <div className='intro-to-join-our-team'>
+            <div className='left-side'>
+                <p style={{fontStyle:"normal", color:"#8EA9D2"}}>01</p>
+                <h1>{TEXT.PROJECT_JOIN.HOME_SECTION.TITLE}</h1>
+                <hr className='line-below-joining-team'></hr>
+                <h4>{TEXT.PROJECT_JOIN.HOME_SECTION.INTEREST}</h4>
+                <p className='co-pilot-description'>{TEXT.PROJECT_JOIN.HOME_SECTION.COPILOT_DESCRIPTION}</p>
+                <p className='co-pilot-description'>{TEXT.PROJECT_JOIN.HOME_SECTION.RESEARCH_BACKGROUND}</p>
+                <div className='btn-application-instructions'>
+                <a href={ROUTES.GET_INVOLVED} style={{display: "flex", justifyContent: "center", alignItems: "center", color: "#ffffff", textDecoration:"none"}}>
+                    <p >{TEXT.PROJECT_JOIN.HOME_SECTION.APPPLICATION_INSTRUCTION}</p>
+                    </a>
+                </div>
             </div>
-            <section className='full-bleed'>
-                <div className='intro-to-join-our-team'>
-                    <div className='left-side'>
-                        <p style={{ fontStyle: "normal", color: "#8EA9D2" }}>01</p>
-                        <h1>{TEXT.PROJECT_JOIN.HOME_SECTION.TITLE}</h1>
-                        <hr className='line-below-joining-team'></hr>
-                        <h4>{TEXT.PROJECT_JOIN.HOME_SECTION.INTEREST}</h4>
-                        <p className='co-pilot-description'>{TEXT.PROJECT_JOIN.HOME_SECTION.COPILOT_DESCRIPTION}</p>
-                        <p className='co-pilot-description'>{TEXT.PROJECT_JOIN.HOME_SECTION.RESEARCH_BACKGROUND}</p>
-                        <div className='btn-application-instructions'
-                            onClick={() => {
-                                document.getElementById('application-instructions-div')?.scrollIntoView({ behavior: 'smooth' })
-                            }}>
-                            <a href="#" style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "#ffffff", textDecoration: "none" }}>
-                                <p >{TEXT.PROJECT_JOIN.HOME_SECTION.APPPLICATION_INSTRUCTION}</p>
-                            </a>
-                        </div>
-                    </div>
                     {/* <div className='divider'></div> */}
                     <div className='right-side'>
                         <img className='research-img' src={research} alt="research" />

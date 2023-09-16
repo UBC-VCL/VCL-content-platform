@@ -122,14 +122,11 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                     textColor='mediumBlue'
                 />
 
-                {/* currently hardcoded qa, todo fetch from backend (need to update project model to achieve this) */}
-                <p style={{ "color": COLORS.darkBlue }} className='text'><i>To rigorously compare visualizations we need measures for how well they enable a viewer to understand the structure of the underlying data – which is why we measure the accuracy and perception with which viewers perceive correlation.</i></p>
-
                 {
                     project.qa ? project.qa.map(item => {
                         return (
                             <>
-                                <VerticalSpacer height={20} />
+                                <VerticalSpacer height={10} />
                                 <h3 style={{ "color": COLORS.darkBlue }}>{item.q}</h3>
                                 <p style={{ "color": COLORS.darkBlue }}>{item.a}</p>
                             </>

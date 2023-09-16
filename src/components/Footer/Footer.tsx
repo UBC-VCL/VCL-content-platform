@@ -42,11 +42,12 @@ const Footer = () => {
                         <div className="footer-column-navigate">
                             <h3 className="footer-heading"> {TEXT.PAGE_TITLES.NAVIGATE}</h3>
                             {NAV.map(({TITLE, REF}) => {
-                                return (
-                                    <li className="footer-project-list" key={REF}>
-                                        <GenericLink name={TITLE} to={REF}/>
-                                    </li>
-                                )
+                                // return (
+                                //     <li className="footer-project-list" key={REF}>
+                                //         <GenericLink name={TITLE} to={REF}/>
+                                //     </li>
+                                // )
+                                console.log(NAV)
                             })}
                         </div>
                         <div className="footer-column-projects">

@@ -13,12 +13,11 @@ import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
 import { SnapshotOBJ } from "./types";
-import dotenv from 'dotenv';
 
+require('dotenv').config();
 
-
-dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
+// const IS_WIP = process.env.REACT_APP_WIP;
 
 interface TimelineProps {
   defaultFilter: SearchFilter

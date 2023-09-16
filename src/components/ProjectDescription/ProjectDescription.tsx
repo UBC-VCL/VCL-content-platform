@@ -11,9 +11,10 @@ const ProjectDescription = ({paragraphOne, paragraphTwo, emphasizedStatement}: {
                     {paragraphTwo}
                 </div>
             </div>
-            <div className="emphasized-statement">
+            {emphasizedStatement &&
+           (<div className="emphasized-statement">
                 {emphasizedStatement}
-            </div>
+            </div>)}
         </div>
     )
 }

@@ -12,7 +12,7 @@ interface Member {
 interface Description {
     first: string,
     second: string,
-    emp: string,
+    emp?: string,
 }
 
 export interface Project {

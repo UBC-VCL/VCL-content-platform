@@ -1,6 +1,6 @@
  import './ProjectDescription.css'
 
-const ProjectDescription = ({paragraphOne, paragraphTwo, emphasizedStatement}: {paragraphOne: string, paragraphTwo: string, emphasizedStatement: string}) => {
+const ProjectDescription = ({paragraphOne, paragraphTwo, emphasizedStatement}: {paragraphOne: string, paragraphTwo: string, emphasizedStatement?: string}) => {
     return (
         <div className="project-description-container">
             <div className='description-paragraph-container'>
@@ -11,9 +11,10 @@ const ProjectDescription = ({paragraphOne, paragraphTwo, emphasizedStatement}: {
                     {paragraphTwo}
                 </div>
             </div>
-            <div className="emphasized-statement">
+            {emphasizedStatement &&
+           (<div className="emphasized-statement">
                 {emphasizedStatement}
-            </div>
+            </div>)}
         </div>
     )
 }

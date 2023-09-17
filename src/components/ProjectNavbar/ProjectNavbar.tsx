@@ -120,13 +120,15 @@ export default function Sidebar(props: any) {
 
                     {props.links.map((link: any, index: any) => (
                         <>
+                            {((link.title == "Join Our Team" || link.title == "Timeline") && props.currProject.name == 'NCIS') ? (<></>) : 
+                            (
                             <ListItem key={link.title}>
                                 <ListItemButton component={Link} to={link.ref}>
                                     <Typography color = '#5B7E98' marginLeft='0px'>
                                         {link.title}
                                     </Typography>
                                 </ListItemButton>
-                            </ListItem>
+                            </ListItem>)}
                             {index == 0 && (
                                 <>
                                 {props.currProject.subpage?.map((page: any) => (

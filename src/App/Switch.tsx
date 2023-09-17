@@ -36,6 +36,7 @@ const AppSwitch = () => {
             path={ROUTES.TIMELINE_EDIT}
             component={EditTimelineEntry}
           />
+          <Route exact path={ROUTES.RESOURCES} component={Resources} />
         </>
       )}
       {isLoggedIn && (
@@ -43,7 +44,6 @@ const AppSwitch = () => {
       )}
       <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
-      <Route exact path={ROUTES.RESOURCES} component={Resources} />
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
     </Switch>

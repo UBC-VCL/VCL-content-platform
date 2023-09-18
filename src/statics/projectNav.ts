@@ -1,8 +1,7 @@
 import ROUTES from "./routes";
 import TEXT from "./text";
 require('dotenv').config();
-
-const IS_WIP = process.env.REACT_APP_WIP;
+const IS_WIP = process.env.REACT_APP_WIP === 'true';
 
 const PROJECT_NAV = [
 	{

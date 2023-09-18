@@ -3,7 +3,7 @@ import TEXT from "./text";
 
 require('dotenv').config();
 
-const IS_WIP = process.env.REACT_APP_WIP;
+const IS_WIP = process.env.REACT_APP_WIP === 'true';
 
 const baseNav = [
 	{

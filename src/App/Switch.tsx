@@ -12,11 +12,9 @@ import GetInvolved from "@pages/GetInvolved/GetInvolved";
 import { useAppSelector } from "@redux/hooks";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import People from "@pages/People/People";
-import dotenv from "dotenv";
+require('dotenv').config();
 
-dotenv.config();
-
-const IS_WIP = process.env.REACT_APP_WIP;
+const IS_WIP = process.env.REACT_APP_WIP === 'true';
 
 const AppSwitch = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -46,6 +44,7 @@ const AppSwitch = () => {
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
+      
     </Switch>
   );
 };

@@ -77,13 +77,13 @@ const ProjectGallery = (props:PropsOBJ) => {
                                     itemArray.map((obj, index) => {
                                     switch (obj.cardType) {
                                         case 'testimony':
-                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description!} name={obj.name!} position={obj.position!} darkMode={darkMode}/>;
+                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description!} name={obj.name!} position={obj.position!} />;
                                         case 'no-text':
                                             return <NoTextCard key={index} imgSrc={obj.img!} darkMode={darkMode}/>
                                         case 'no-photo-test':
-                                            return <NoPhotoTest key={index} description={obj.description!} name={obj.name!} position={obj.position!} darkMode={darkMode}/>
+                                            return <NoPhotoTest key={index} description={obj.description!} name={obj.name!} position={obj.position!} />
                                         default:
-                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description!} darkMode={darkMode}/>;
+                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description!} />;
                                     }
                                 })
                             }

@@ -111,7 +111,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
             </div>
             <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
 
-            <ProjectGallery displayNumber={'2'} compTitle={'Gallery'} itemArray={dummyList}/>
+            <ProjectGallery displayNumber={'2'} compTitle={'Gallery'} itemArray={dummyList} darkMode={true}/>
 
             <VerticalSpacer height={20} />
 

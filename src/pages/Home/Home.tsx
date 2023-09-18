@@ -61,7 +61,7 @@ const Home: React.FC<HomeProps> = (props) => {
                 <div className="project-logo">
                   <img
                     className="project-logos-img"
-                    src="/logos/correlation.png"
+                    src={`/logos/${name}.png`}
                   ></img>
                   <p className="logo-name">{name}</p>
                 </div>

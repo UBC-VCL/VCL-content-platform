@@ -29,7 +29,6 @@ const AppSwitch = () => {
       {IS_WIP && (
         <>
           <Route exact path={ROUTES.TIMELINE} component={DefaultTimeline} />
-          <Route exact path={ROUTES.RESOURCES} component={Resources} />
           <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry} />
           <Route exact path={ROUTES.TIMELINE_EDIT} component={EditTimelineEntry} />
         </>

@@ -23,7 +23,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MobileMenu from "@components/MobileNavbar";
 require("dotenv").config();
 
-const IS_WIP = process.env.REACT_APP_WIP;
+const IS_WIP = process.env.REACT_APP_ === 'developement';
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();
@@ -160,7 +160,7 @@ const Navbar: React.FC<{}> = () => {
           <div className="nav-right">
             <span className="nav-rendered-links">{renderedLinks}</span>
             <div className="nav-icon-container">
-              {!IS_WIP && (
+              {IS_WIP && (
                 <IconButton onClick={handleSearchBtnClick}>
                   <SearchIcon />
                 </IconButton>

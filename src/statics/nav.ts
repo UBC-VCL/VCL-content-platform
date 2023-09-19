@@ -3,7 +3,7 @@ import TEXT from "./text";
 
 require('dotenv').config();
 
-const IS_WIP = process.env.REACT_APP_WIP === 'true';
+const IS_WIP = process.env.REACT_APP_WIP === 'developement';
 
 const baseNav = [
 	{
@@ -22,18 +22,18 @@ const baseNav = [
 	  TITLE: TEXT.PAGE_TITLES.GET_INVOLVED,
 	  REF: ROUTES.GET_INVOLVED
 	},
-	...(!IS_WIP
+	...(IS_WIP
 	  ? [
 		  {
 			TITLE: TEXT.PAGE_TITLES.TIMELINE,
 			REF: ROUTES.TIMELINE
-		  },
-		  {
-			TITLE: TEXT.PAGE_TITLES.RESOURCES,
-			REF: ROUTES.RESOURCES
 		  }
 		]
-	  : [])
+	  : []),
+	  {
+		TITLE: TEXT.PAGE_TITLES.RESOURCES,
+		REF: ROUTES.RESOURCES
+	  }
   ];
   
   const NAV = baseNav;

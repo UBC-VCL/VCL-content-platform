@@ -1,20 +1,19 @@
 import React from "react";
-import './Timeline.css';
+import "./Timeline.css";
 import { SearchFilter, SnapshotOBJ, ProjectOBJ } from "./types";
-import TimelineSearchbar from '@components/TimelineSearchbar';
+import TimelineSearchbar from "@components/TimelineSearchbar";
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
-import { TEXT } from '@statics';
-import { useState, useEffect } from 'react'
-import axios from 'axios';
-import { useAppSelector } from '@redux/hooks';
-import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
-import { selectAuth } from '@redux/slices/AuthRedux';
-import ConfirmationDailog from '@components/ConfirmationWindow';
-import Alert from '@mui/material/Alert';
-import dotenv from 'dotenv';
-
-
+import { TEXT, CONSTANTS } from "@statics";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useAppSelector } from "@redux/hooks";
+import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
+import { selectAuth } from "@redux/slices/AuthRedux";
+import ConfirmationDailog from "@components/ConfirmationWindow";
+import Alert from "@mui/material/Alert";
+import dotenv from "dotenv";
+import { isTemplateExpression } from "typescript";
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
@@ -24,14 +23,14 @@ interface TimelineProps {
   dynamicProjects: Array<string>;
   dynamicAuthors: Array<string>;
   dynamicCategories: Array<string>;
-};
+}
 
-/** 
-* Paste one or more documents here
-*/
+/**
+ * Paste one or more documents here
+ */
 const Timeline: React.FC<TimelineProps> = (props) => {
-
-  const {defaultFilter, dynamicProjects, dynamicAuthors, dynamicCategories} = props;
+  const { defaultFilter, dynamicProjects, dynamicAuthors, dynamicCategories } =
+    props;
 
   const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
@@ -56,8 +55,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   // If the reuqest for the list of timelines is successful then success = true,
   //  else success = false with "success" defaulted to true
-  const [success, setSuccess] = useState<boolean>(true)
-
+  const [success, setSuccess] = useState<boolean>(true);
 
   // This state variable indicate whether the pop up dialog window opens or not when a timeline(snapshot) is deleted
   // If user click the delete icon on the top right of each timeline box, then openDialog = true,
@@ -71,41 +69,43 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
   const handleClose = () => {
     setOpenDialog(false);
-  }
+  };
   const handleClickOpen = () => {
     setOpenDialog(true);
-  }
-
-
+  };
 
   const deleteCommit = async (_id: string) => {
-    return axios.delete(`${baseURL}/api/snapshots/${_id}`, {
-      headers: {
-        authorization: access_token
-      }
-    })
+    return axios
+      .delete(`${baseURL}/api/snapshots/${_id}`, {
+        headers: {
+          authorization: access_token,
+        },
+      })
       .then((response) => {
         if (response.status != 200) {
           throw new Error("did not delete it successfully");
         }
-        let i = commitsArray.findIndex((snapshot: SnapshotOBJ) => { return snapshot._id == _id });
+        let i = commitsArray.findIndex((snapshot: SnapshotOBJ) => {
+          return snapshot._id == _id;
+        });
         const tempArray = commitsArray.slice();
         tempArray.splice(i, 1);
         setCommitArray(tempArray);
         return Promise.resolve(true);
-      }).catch((err) => {
-        return Promise.reject();
       })
+      .catch((err) => {
+        return Promise.reject();
+      });
   };
 
   useEffect(() => {
-    setFilter(defaultFilter)
-  }, [dynamicProjects, dynamicAuthors, dynamicCategories])
-
+    setFilter(defaultFilter);
+  }, [dynamicProjects, dynamicAuthors, dynamicCategories]);
 
   const [filterBy, setFilter] = useState<SearchFilter>(props.defaultFilter);
 
   const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
+
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -120,9 +120,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       title: "..." {string}
       } 
     */
-    await axios.get(`${baseURL}/api/snapshots`)
-      .then(response => {
-
+    await axios
+      .get(`${baseURL}/api/snapshots`)
+      .then((response) => {
         // list for the commitsArray useState
         var commitList = response.data.data.map((item: SnapshotOBJ) => ({
           _id: item._id,
@@ -134,7 +134,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           descriptions: item.descriptions,
           hyperlinks: item.hyperlinks,
           contributors: item.contributors,
-          updatedTime: item.updatedTime
+          updatedTime: item.updatedTime,
         }));
         // console.log(commitList.length)
         // const filteredProjects: string[] = response.data.data.map((item: SnapshotOBJ) => {
@@ -144,19 +144,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         // });
         // console.log(filteredProjects)
         setCommitArray([...commitList]);
-      }).catch(err => {
-        setSuccess(false)
+      })
+      .catch((err) => {
+        setSuccess(false);
       });
-  }
-
-  // will return a boolean whether or not the difference betweent the two dates is less or equal to the "target" provided
-  const dateCalc = (target: number, currentDate: Date, targetDate: Date) => {
-    return (Math.abs(Math.ceil((currentDate.getTime() - targetDate.getTime()) / (1000 * 3600 * 24))) <= target)
-  }
-
-  console.log(projectFilterList); 
-
-
+  };
 
   const filterList = (list: SnapshotOBJ[], filterOBJ: SearchFilter) => {
     let listFilter: SnapshotOBJ[] = list;
@@ -166,81 +158,94 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     if (keyword && keyword !== "") {
       const lowercaseKeyword = keyword.toLowerCase();
       listFilter = listFilter.filter((item: SnapshotOBJ) =>
-        Object.values(item).some(value =>
+        Object.values(item).some((value) =>
           Array.isArray(value)
-            ? value.some(element => element.toLowerCase().includes(lowercaseKeyword))
-            : typeof value === 'string' && value.toLowerCase().includes(lowercaseKeyword)
+            ? value.some((element) =>
+                element.toLowerCase().includes(lowercaseKeyword)
+              )
+            : typeof value === "string" &&
+              value.toLowerCase().includes(lowercaseKeyword)
         )
       );
     }
 
-    if (date[0][1] != '') {
-      const initialDate = new Date(date[0][1])
+    if (date[0][1] != "") {
+      const initialDate = new Date(date[0][1]);
 
       // console.log(date[0][1])
 
       listFilter = listFilter.filter((item: SnapshotOBJ) => {
-        const itemDate = new Date(item.date)
-        return itemDate >= initialDate
-      })
+        const itemDate = new Date(item.date);
+        return itemDate >= initialDate;
+      });
     }
 
-    if (date[1][1] != '') {
-      const targetDate = new Date(date[1][1])
+    if (date[1][1] != "") {
+      const targetDate = new Date(date[1][1]);
 
       listFilter = listFilter.filter((item: SnapshotOBJ) => {
-        const itemDate = new Date(item.date)
-        return itemDate <= targetDate
-      })
+        const itemDate = new Date(item.date);
+        return itemDate <= targetDate;
+      });
     }
 
     Object.entries(restFilters).forEach(([key, value]) => {
-      if (typeof value !== 'string') {
+      if (typeof value !== "string") {
         if (key === "project") {
-          listFilter = listFilter.filter(item => value.includes(item.project));
-          console.log(listFilter.length)
+          listFilter = listFilter.filter((item) =>
+            value.includes(item.project)
+          );
         }
         if (key === "category") {
-          listFilter = listFilter.filter(item =>
-            item.categories.some(element => value.includes(element))
+          listFilter = listFilter.filter((item) =>
+            item.categories.some((element) => value.includes(element))
           );
-          console.log(listFilter.length)
         }
         if (key === "author") {
-          listFilter = listFilter.filter(item => value.includes(item.author));
-          console.log(listFilter.length)
-
+          listFilter = listFilter.filter((item) => value.includes(item.author));
         }
       }
     });
 
     return (
       <ul>
-        {listFilter.map((commit: SnapshotOBJ, i) => (
-          <li key={i}>
-            <span className={"timeline-container-span-" + prjs[i]}></span>
-            <TimelineCommitBlock
-              author={commit.author}
-              title={commit.title}
-              project={commit.project}
-              date={commit.date}
-              descriptions={commit.descriptions}
-              contributors={commit.contributors}
-              hyperlinks={commit.hyperlinks}
-              updatedTime={commit.updatedTime}
-              categories={commit.categories}
-              isLoggedIn={isLoggedIn}
-              onClickDelete={() => {
-                setIdToDelete(commit._id);
-                handleClickOpen();
-              }}
-            />
-          </li>
-        ))}
+        {listFilter.map((commit: SnapshotOBJ, i) => {
+
+          let prj:string;
+
+          console.log(
+            CONSTANTS.PROJECTS.some(
+              (item) => item.name.toLowerCase() == commit.project.toLowerCase()
+            )
+              ? prj=commit.project.toLowerCase()
+              : prj="others"
+          );
+
+          return (
+            <li key={i}>
+              <span className={"timeline-container-span-" + prj}></span>
+              <TimelineCommitBlock
+                author={commit.author}
+                title={commit.title}
+                project={commit.project}
+                date={commit.date}
+                descriptions={commit.descriptions}
+                contributors={commit.contributors}
+                hyperlinks={commit.hyperlinks}
+                updatedTime={commit.updatedTime}
+                categories={commit.categories}
+                isLoggedIn={isLoggedIn}
+                onClickDelete={() => {
+                  setIdToDelete(commit._id);
+                  handleClickOpen();
+                }}
+              />
+            </li>
+          );
+        })}
       </ul>
     );
-  }
-
+  };
 
   // The functions within the useEffect will only be called when the user mounts on to the page
   // so once at the very start of the user entering the Timeline page
@@ -248,49 +253,59 @@ const Timeline: React.FC<TimelineProps> = (props) => {
     objCommitHTTPS();
   }, []);
 
-
-  let prjs: any[] = []
+  let prjs: any[] = [];
 
   // hardcode className to display corresponding colors
-  commitsArray.forEach((commit: SnapshotOBJ) => {
-    let prj = 'others';
-    switch (commit.project.toLowerCase()) {
-      case 'correlation':
-        prj = 'correlation'
-        break;
-      case 'nova':
-        prj = 'nova'
-        break;
-      case 'ideo':
-        prj = 'ideo';
-        break;
-      default:
-        break;
-    }
-    prjs.push(prj);
-  })
+  // commitsArray.forEach((commit: SnapshotOBJ) => {
+  //   let prj = 'others';
+  //   switch (commit.project.toLowerCase()) {
+  //     case 'correlation':
+  //       prj = 'correlation'
+  //       break;
+  //     case 'nova':
+  //       prj = 'nova'
+  //       break;
+  //     case 'ideo':
+  //       prj = 'ideo';
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   prjs.push(prj);
+  // })
 
   return (
     <div className="timeline">
       <div className="timeline-header">
-        <h1>
-          {TEXT.TIMELINE_PAGE.TITLE}
-        </h1>
+        <h1>{TEXT.TIMELINE_PAGE.TITLE}</h1>
       </div>
-      <div className='timeline-sub-header'>
+      <div className="timeline-sub-header">
         <p>{TEXT.TIMELINE_PAGE.SUBHEADER}</p>
       </div>
       <TimelineSearchbar setFilter={setFilter} filterBy={filterBy} />
-      <TimelineFilter setFilter={setFilter} filterBy={filterBy} dynamicProjects={dynamicProjects} dynamicAuthors={dynamicAuthors} dynamicCategories={dynamicCategories}/>
+      <TimelineFilter
+        setFilter={setFilter}
+        filterBy={filterBy}
+        dynamicProjects={dynamicProjects}
+        dynamicAuthors={dynamicAuthors}
+        dynamicCategories={dynamicCategories}
+      />
       <div className="timeline-main-body">
         <div className="timeline-container">
-          {
-            success ?
-              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
-          }
+          {success ? (
+            filterList(commitsArray, filterBy)
+          ) : (
+            <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
+          )}
         </div>
       </div>
-      <ConfirmationDailog open={openDialog} onClose={handleClose} deleteSnapshot={() => { return deleteCommit(idToDelete) }} />
+      <ConfirmationDailog
+        open={openDialog}
+        onClose={handleClose}
+        deleteSnapshot={() => {
+          return deleteCommit(idToDelete);
+        }}
+      />
     </div>
   );
 };

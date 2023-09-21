@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const IS_WIP = process.env.REACT_APP_WIP === 'developement';
+const IS_WIP = process.env.REACT_APP_WIP === 'development';
 
 const baseRoutes = {
   HOME: '/',

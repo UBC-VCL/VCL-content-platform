@@ -23,7 +23,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MobileMenu from "@components/MobileNavbar";
 require("dotenv").config();
 
-const IS_WIP = process.env.REACT_APP_ === 'developement';
+const IS_WIP = process.env.REACT_APP_WIP === 'development';
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();

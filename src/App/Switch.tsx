@@ -14,7 +14,7 @@ import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import People from "@pages/People/People";
 require("dotenv").config();
 
-const IS_WIP = process.env.REACT_APP_WIP == "developement";
+const IS_WIP = process.env.REACT_APP_WIP == "development";
 
 const AppSwitch = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);

@@ -1,5 +1,9 @@
 @import '../../index.css';
 
+.project-subcontent-container {
+    background-color: #FAFAFA;
+}
+
 body {
     width: 100%;
 }

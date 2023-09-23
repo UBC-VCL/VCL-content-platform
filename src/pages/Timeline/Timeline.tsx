@@ -17,7 +17,6 @@ import { SnapshotOBJ } from "./types";
 require('dotenv').config();
 
 const baseURL = process.env.REACT_APP_API_URL;
-// const IS_WIP = process.env.REACT_APP_WIP;
 
 interface TimelineProps {
   defaultFilter: SearchFilter

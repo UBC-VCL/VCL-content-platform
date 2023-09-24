@@ -27,8 +27,6 @@ const DefaultTimeline: React.FC<void> = () => {
         }
         const projects: Array<SnapshotOBJ> = response.data.data;
 
-        console.log(projects)
-
         const dummyProjects: Array<string> = [];
         const dummyCategories: Array<string> = [];
         const dummyAuthors: Array<string> = [];

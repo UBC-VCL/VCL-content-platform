@@ -12,9 +12,6 @@ import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import { selectAuth } from "@redux/slices/AuthRedux";
 import ConfirmationDailog from "@components/ConfirmationWindow";
 import Alert from "@mui/material/Alert";
-import dotenv from "dotenv";
-import { isTemplateExpression } from "typescript";
-import ConfirmationDailog from '@components/ConfirmationWindow';
 
 require('dotenv').config();
 

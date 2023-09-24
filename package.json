@@ -38,7 +38,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",

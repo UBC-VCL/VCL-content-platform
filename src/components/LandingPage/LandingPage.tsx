@@ -1,7 +1,7 @@
 import React from "react";
 import { TEXT } from "@statics";
+import VCLIcon from "@statics/images/vcl-logo-2023.png";
 import "./LandingPage.css";
-import Card from "@components/Card";
 
 const LandingPage = () => {
   return (
@@ -24,7 +24,8 @@ const LandingPage = () => {
         </div>
       </div>
       <div id="landing-page-img-container">
-        <div id="landing-page-img-placeholder"></div>
+        <img src={VCLIcon} className="landing-page-logo"></img>
+        {/* <div id="landing-page-img-placeholder"></div> */}
       </div>
     </div>
   );

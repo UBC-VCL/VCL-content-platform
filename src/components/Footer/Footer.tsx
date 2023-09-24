@@ -18,8 +18,6 @@ const Footer = () => {
             name: "Image Transitions"
         }, {
             name: "NCIS"
-        }, {
-            name: "Dormant"
         }]
 
     return (
@@ -46,9 +44,10 @@ const Footer = () => {
                             {NAV.map(({TITLE, REF}) => {
                                 return (
                                     <li className="footer-project-list" key={REF}>
-                                        <GenericLink name={TITLE} to={REF}/>
+                                        <GenericLink name={TITLE} to={REF!}/>
                                     </li>
                                 )
+                                console.log(NAV)
                             })}
                         </div>
                         <div className="footer-column-projects">

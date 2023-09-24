@@ -14,8 +14,10 @@ import ConfirmationDailog from "@components/ConfirmationWindow";
 import Alert from "@mui/material/Alert";
 import dotenv from "dotenv";
 import { isTemplateExpression } from "typescript";
+import ConfirmationDailog from '@components/ConfirmationWindow';
 
-dotenv.config();
+require('dotenv').config();
+
 const baseURL = process.env.REACT_APP_API_URL;
 
 interface TimelineProps {
@@ -292,11 +294,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       />
       <div className="timeline-main-body">
         <div className="timeline-container">
-          {success ? (
-            filterList(commitsArray, filterBy)
-          ) : (
-            <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
-          )}
+          {
+            success ?
+              filterList(commitsArray, filterBy) : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
+          }
         </div>
       </div>
       <ConfirmationDailog

@@ -14,7 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import {  Link  } from "react-router-dom";
 import {  Route, Switch  } from "react-router";
-import {  ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam , ProjectTimeline } from "@pages/Project";
+import {  ProjectDefault, ProjectJoin, ProjectResources, ProjectTeam , ProjectPublications } from "@pages/Project";
 import FirstPageTwoToneIcon from '@mui/icons-material/FirstPageTwoTone';
 import { Button } from "@mui/material";
 import { ROUTES } from "@statics";
@@ -78,7 +78,7 @@ export default function Sidebar(props: any) {
                     sx={{ ...(open && { display: 'none' }) }}
                 >
 
-                    <MenuIcon sx={{ width: "58px", height: "38px" }} />
+                    <MenuIcon sx={{ width: "58px", height: "38px", color: "white" }} />
                 </IconButton>
             </div>
 
@@ -120,13 +120,15 @@ export default function Sidebar(props: any) {
 
                     {props.links.map((link: any, index: any) => (
                         <>
+                            {((link.title == "Join Our Team" || link.title == "Timeline") && props.currProject.name == 'NCIS') ? (<></>) : 
+                            (
                             <ListItem key={link.title}>
                                 <ListItemButton component={Link} to={link.ref}>
                                     <Typography color = '#5B7E98' marginLeft='0px'>
                                         {link.title}
                                     </Typography>
                                 </ListItemButton>
-                            </ListItem>
+                            </ListItem>)}
                             {index == 0 && (
                                 <>
                                 {props.currProject.subpage?.map((page: any) => (
@@ -167,7 +169,7 @@ export default function Sidebar(props: any) {
                         <Route exact path={`${props.match.url}/join`} render={() => <ProjectJoin project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/resources`} render={() => <ProjectResources project={props.currProject} />} />
                         <Route exact path={`${props.match.url}/team`} render={() => <ProjectTeam project={props.currProject} />} />
-                        <Route exact path={`${props.match.url}/timeline`} render={() => <ProjectTimeline project={props.currProject} />} />
+                        <Route exact path={`${props.match.url}/publications`} render={() => <ProjectPublications project={props.currProject} />} />
                         {
                             props.currProject.subpage?.map((page: any) => (
                                 <Route exact path={`${props.match.url}/${page.name}`} render={() => <ProjectDefault project={page} />} />

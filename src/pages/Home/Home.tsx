@@ -1,21 +1,46 @@
 import React from "react";
-import Card from "@components/Card";
 import LandingPage from "@components/LandingPage";
 import "./Home.css";
-import { TEXT } from "@statics";
-import MissionStatement from "@components/LabGoalsFooter";
+import { TEXT, ROUTES, CONSTANTS } from "@statics";
 import About from "../../components/About";
+
+import { useEffect } from "react";
+import { useLocation, useHistory } from "react-router-dom";
 
 interface HomeProps {}
 
+// this is the structure of a state OBJ
+interface HistoryStateOBJ {
+  sourcePage: string;
+}
+
 const Home: React.FC<HomeProps> = (props) => {
+  // Allows access to different object properties for the URL
+  //  - Can access location.state.sourcePage inorder to access information regarding if sent via a {useHistory}.push(..., sourcePage:...) method
+  const location = useLocation<HistoryStateOBJ>();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (location.state) {
+      // If the user were to be redirected to this URL using a {useHistory}.push(..., sourcePage:...) and it satisfies the condition than execute autoScroll function
+      if (
+        location.state.sourcePage === "project-join-home-redirect-from-goButton"
+      ) {
+        // autoscrolling if prior conditions are met
+        document
+          .getElementById("home-about-values-div")!
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, []);
+
   return (
     <div className="Home">
       <LandingPage />
       <div className="mission-statement-container">
         <div className="mission-statement-title">
           <p>{TEXT.LANDING_PAGE.MISSION_STATEMENT.TITLE}</p>
-          <div className="title-underline"></div>
+          <div className="mission-title-underline"></div>
         </div>
         <div className="mission-statement-text">
           <p className="mission-statement">
@@ -23,28 +48,26 @@ const Home: React.FC<HomeProps> = (props) => {
           </p>
         </div>
       </div>
-      <div className="mission-img-container">
-        <div className="mission-img-placeholder-one"></div>
-        <div className="mission-img-placeholder-two"></div>
-      </div>
-      <div className="card-section">
-        <div className="card-container">
-          <Card
-            title="Card Title"
-            desc="Description of how the lab can help COGS students with this project"
-          />
-          <Card
-            title="Card Title"
-            desc="Description of how the lab can help COGS students with this project"
-          />
-          <Card
-            title="Card Title"
-            desc="Description of how the lab can help COGS students with this project"
-          />
-          <Card
-            title="Card Title"
-            desc="Description of how the lab can help COGS students with this project"
-          />
+      <div className="projects-container">
+        <div className="projects-title">
+          <p>{TEXT.LANDING_PAGE.CURRENT_PROJECTS.TITLE}</p>
+          <div className="projects-title-underline"></div>
+        </div>
+        <div className="project-logos-container">
+          {CONSTANTS.PROJECTS.map((project) => {
+            const name = project.name;
+            return (
+              <a href={`${ROUTES.PROJECT.BASE}/${name}`}>
+                <div className="project-logo">
+                  <img
+                    className="project-logos-img"
+                    src={`/logos/${name}.png`}
+                  ></img>
+                  <p className="logo-name">{name}</p>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
       <About />

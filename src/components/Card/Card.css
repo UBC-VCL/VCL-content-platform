@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 
 .card {
-  width: min(200px, 15%);
+  width: min(200px, 20%);
   padding: 20px;
   box-shadow: 4px 6px 13px -1px rgba(225, 225, 225, 0.25);
   border-radius: 2px;

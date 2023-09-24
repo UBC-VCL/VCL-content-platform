@@ -18,7 +18,7 @@ const TimelineEntry = () => {
     const handleSubmit = (values: any) => {
         const {author, title, contributors} = values;
         if (project.length > 0 && categories.length > 0) {
-            window.location.pathname = ROUTES.TIMELINE;
+            window.location.pathname = ROUTES.TIMELINE!;
         }
     }
 

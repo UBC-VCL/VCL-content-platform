@@ -20,8 +20,6 @@ const ProjectsMultiSelect = ({project, setProject}: {
         }, {
             name: "Image Transitions"
         }, {
-            name: "Dormant"
-        }, {
             name: "NCIS"
         }]
 

@@ -26,7 +26,7 @@ const NoPhotoTest = (props: PropsOBJ) => {
                     </div>
                     <div className='identification'>
                         <div className='name-div'>
-                            <p className='name'>
+                            <p className='no-photo-testimony-name'>
                                 {name}
                             </p>
                         </div>

@@ -1,0 +1,63 @@
+@import '../../index.css';
+
+body {
+    width: 100%;
+}
+
+
+
+.project-pub-list {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    /* top: -50vh; */
+}
+
+.pub-header {
+    font-weight: 700;
+    color: white;
+    font-family: 'Source Sans Pro';
+    font-size: 33.05px;
+    line-height: 42px;
+    display: flex;
+    align-items: left;
+    margin-top: 2em;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: #1C426D;
+    padding: 2%;
+}
+
+.pub-title {
+    text-align: center;
+}
+
+.pub-project-name {
+    width: 100%;
+    margin: 10px auto;
+    margin-top: 30px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 18px;
+    color: var(--fc-darkest);
+    font-family: var(--ff-primary);
+    text-decoration: none;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+
+
+.card-title {
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+

@@ -8,6 +8,9 @@ import "./ProjectTeam.css";
 import "./Project.css";
 import { useState } from 'react'
 
+import { useAppSelector } from '@redux/hooks';
+import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+
 interface ProjectProps {
     project: Project,
 }
@@ -29,6 +32,8 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
     // - Toggled by a single button className='add-mem-button-div'
     const [viewState, setViewState] = useState<boolean>(false)
 
+    const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
     return (
         <div className='project-subcontent-container'>
 
@@ -44,34 +49,18 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
                     </p>
                 </div>
                 <hr />
+
+                {isLoggedIn ?
                 <div className='add-mem-button-div' onClick={() => setViewState(!viewState)}>
                     <div>
                         + Add Member
                     </div>
                 </div>
-                {/* <div>
-                    <Person
-                        name="Kevin Peng"
-                        involvement='Project Lead, Graduate Student, Coding Team Manager, Analytics Manager'
-                        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?'
-                        email='mellio10@psych.ubc.ca'
-                        phone='604 000 0000'
-                        linkedIn='linkedin.com'
-                        isCurrentMember={true}
-                    />
-                    <Person
-                        name="Maddison Eliot"
-                        involvement='Project Lead, Graduate Student, Coding Team Manager, Analytics Manager'
-                        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?'
-                        email='mellio10@psych.ubc.ca'
-                        phone='604 000 0000'
-                        linkedIn='linkedin.com'
-                        isCurrentMember={false}
-                    />
-                </div> */}
+                :
+                <div></div>}
+                
+
             </div>
-            {/* <div className="team-header">Team Members</div>
-            <hr /> */}
             <div>
                 {props.project.members ?
                     (props.project.members.map(member => (

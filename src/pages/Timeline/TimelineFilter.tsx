@@ -74,7 +74,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
         <div className='filter-dropdown-mobile'><MobileFilterDropdownContainer setFilter={setFilter} filterBy={filterBy} setRange={setRange} dateRange={dateRange} /></div>
 
       ) : (
-        <div style={{ display: 'inline-block' }}>
+        <div className="main-body-filter">
           <div className='filter-dropdown'>
             <ProjectsFilter filterBy={filterBy} setFilter={setFilter} projectSelected={projectSelected} setProjectSelected={setProjectSelected} dummyData={dummyDataForProject} />
             <span className='filter-divider'></span>
@@ -94,7 +94,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
                     backgroundColor: "#1E5487",
                     color: "white",
                     width: 150,
-                    height: 50,
+                    height: 52,
                     textTransform: 'none',
                     marginLeft: '10px',
                     fontSize: 16,

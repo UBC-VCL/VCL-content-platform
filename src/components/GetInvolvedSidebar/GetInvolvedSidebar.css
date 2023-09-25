@@ -34,7 +34,6 @@
 }
 
 #sidebar-icon {
-    margin-left: 100%;
     width: 36px;
     height: 36px;
     box-sizing: border-box;
@@ -61,7 +60,7 @@
     font-size: 14.6897px;
     color: #AEC7E3;
 
-    margin-top: 33px;
+    margin-top: 30px;
 }
 
 ul {
@@ -83,7 +82,6 @@ ul {
 }
 
 #get_involved_heading {
-
     font-weight: 700;
     font-size: 30px;
     line-height: 38px;
@@ -120,18 +118,13 @@ ul {
     margin-left: 23px;
 }
 
-
-#application-instructions {
-    margin-top: 25px;
-}
-
 #view-prj-btn {
     font-weight: 600;
     font-size: 14.5px;
     line-height: 18px;
     letter-spacing: 0.025em;
 
-    margin-top: 60%;
+    margin-top: 40%;
     margin-bottom: 10%;
     margin-left: 18%;
 
@@ -155,13 +148,11 @@ ul {
 .animationOn {
     animation-name: slide-in;
     display:block;
-    animation-timing-function: linear;
-    animation-duration: 0.4s;
+    animation-duration: 0.3s;
 }
 
 .animationOff {
     animation-name: slide-out;
-    animation-timing-function: linear;
     animation-duration: 0.4s;
 }
 

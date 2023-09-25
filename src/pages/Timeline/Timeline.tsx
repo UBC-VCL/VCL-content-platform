@@ -13,11 +13,9 @@ import { selectAuth } from '@redux/slices/AuthRedux';
 import ConfirmationDailog from '@components/ConfirmationWindow';
 import Alert from '@mui/material/Alert';
 import { SnapshotOBJ } from "./types";
-import dotenv from 'dotenv';
 
+require('dotenv').config();
 
-
-dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
 
 interface TimelineProps {
@@ -250,7 +248,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray, filterBy) : <p className="errorString">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</p>
+              filterList(commitsArray, filterBy) : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
           }
         </div>
       </div>

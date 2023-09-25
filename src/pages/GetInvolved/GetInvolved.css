@@ -22,9 +22,8 @@ html {
 }
 
 #info-icon {
-    margin-top: 6%;
-    margin-left: 2rem;
-    transform: rotate(180deg);
+    margin-top: 9%;
+    margin-left: 4rem;
     position: absolute;
     left: 0;
     float: left;
@@ -121,6 +120,24 @@ html {
     background-position: center;
     left: -32px;
     top: 2px;
+}
+
+.Join summary {
+    margin-bottom: 15px;
+}
+
+.app-steps {
+    color: var(--fc-navyblue);
+}
+
+.instruction-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.instruct-summary {
+    cursor: pointer;
 }
 
 @media (max-width: 1023px) {

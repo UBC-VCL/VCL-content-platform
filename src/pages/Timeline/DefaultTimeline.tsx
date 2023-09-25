@@ -16,7 +16,6 @@ const DefaultTimeline: React.FC<void> = () => {
     // getAuthorList();
   }, []);
 
-  //TODO: USE this react state variable  plus the hardcoded projects for the filter list
   // const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
   const getProjectCommit = async () => {
     await axios

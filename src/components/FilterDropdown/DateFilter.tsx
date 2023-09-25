@@ -38,13 +38,16 @@ const DateFilter = ({ dateRange, setRange, setFilter, filterBy }: {
                     label="Date"
                     MenuProps={MenuProps}
                     renderValue={() => "Date"}
-                    displayEmpty 
+                    displayEmpty
                     sx={{ width: 120 }}
                     open={isVisible}
                     onOpen={() => setVisible(true)}
                     onClose={() => setVisible(false)}
                 >
-                    <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} isVisible={isVisible} setVisible={setVisible}/>
+                    <div>
+                        <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} isVisible={isVisible} setVisible={setVisible} />
+
+                    </div>
                 </Select>
         </FormControl>
     )

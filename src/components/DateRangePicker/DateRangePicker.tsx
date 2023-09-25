@@ -46,19 +46,19 @@ const DateRangePicker = (props: PropsOBJ) => {
 
     return (
         <div className='date-range-div'>
-            <div className='input-div'>
-                <input type='date' id='initial-date-input' className='date-input' ref={initialDate}
+            <div className='date-range-input-div'>
+                <input type='date' id='initial-date-input' className='date-range-input' ref={initialDate}
                 />
-                <div className='range-divider'>
-                    <div className='range-divider-line'></div>
-                    <p className='range-divider-text'>
+                <div className='date-range-divider'>
+                    <div className='date-range-divider-line'></div>
+                    <p className='date-range-divider-text'>
                         to
                     </p>
-                    <div className='range-divider-line'></div>
+                    <div className='date-range-divider-line'></div>
                 </div>
-                <input type='date' id='target-date-input' className='date-input' ref={targetDate} required />
-                <div className='button-div'>
-                    <div className='submit-button'
+                <input type='date' id='target-date-range-input' className='date-range-input' ref={targetDate} required />
+                <div className='date-range-button-div'>
+                    <div className='date-range-submit-button'
                         onClick={() => {
                             handleChange()
                             if (setVisible && isVisible) {
@@ -67,9 +67,7 @@ const DateRangePicker = (props: PropsOBJ) => {
                             }
                         }}
                     >
-                        <p>
-                            Submit
-                        </p>
+                        Submit
                     </div>
                 </div>
             </div>

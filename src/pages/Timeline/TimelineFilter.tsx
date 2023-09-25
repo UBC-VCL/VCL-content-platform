@@ -32,7 +32,6 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
   const dummyDataForProject = dynamicProjects;
   const dummyDataForCategory = dynamicCategories;
-  const dummyDataForDate = ['All', 'Last day', 'Last month', 'Last year'];
   const dummyDataForAuthor = dynamicAuthors;
 
 

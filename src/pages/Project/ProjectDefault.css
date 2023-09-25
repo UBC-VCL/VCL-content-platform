@@ -38,8 +38,8 @@ h1, h2, h3, p {
 
 .top-cog-container {
     position: absolute;
-    margin-left: -260px;
-    margin-top: -120px;
+    /* margin-left: -260px;
+    margin-top: -120px; */
 }
 
 .top-left-cog {
@@ -49,8 +49,8 @@ h1, h2, h3, p {
 
 .bottom-cog-container {
     position: absolute;
-    left: 77em;
-    top: 300px; 
+    left: 20vw;
+    top: 30vw; 
 }
 
 .bottom-right-cog {

@@ -1,11 +1,11 @@
 .testimony-box-content {
+    width: 52vw;
     height: fit-content;
     margin: auto;
     background-color: #2A3749;
     border-radius: 8px;
-    padding: 2rem;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 3vw;
+    margin-left: 3vw;
     color: #7A92B4;
     max-height: 100%;
     display: flex;
@@ -25,7 +25,7 @@
 }
 
 .profile-photo {
-    max-width: 200px;
+    width: 12vw;
     border-radius: 100px;
 }
 
@@ -39,7 +39,7 @@ p {
 }
 
 .description-section {
-    width: 690px;
+    width: 30vw;
     font-size: small;
     display: flex;
     justify-content: center;

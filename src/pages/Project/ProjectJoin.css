@@ -211,8 +211,6 @@
     align-content: center;
 }
 
-
-
 .full-bleed6{
     box-shadow: 0vmax 9vmax 0vmax 0vmax #FBFBFB;
     clip-path: inset(0,-100vmax);

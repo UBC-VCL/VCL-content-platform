@@ -67,7 +67,7 @@ const ProjectGallery = (props:PropsOBJ) => {
                     < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === 0 ? setGalleryIndex(itemArray.length - 1) : setGalleryIndex(galleryIndex - 1)
                     }} 
-                    style={{color: darkMode ? "" : 'black'}}/>
+                    style={{color: darkMode ? "" : 'rgb(42,55,73)'}}/>
                     <div className="gallery-box" >
                         <div className='slideshowSlider'style={{ transform: `translate3d(${-galleryIndex * 100.5}%, 0, 0)`,  }}>
                             {
@@ -107,7 +107,7 @@ const ProjectGallery = (props:PropsOBJ) => {
                     < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === itemArray.length - 1 ? setGalleryIndex(0) : setGalleryIndex(galleryIndex + 1)
                     }} 
-                    style={{color: darkMode ? "" : 'black'}}/>
+                    style={{color: darkMode ? "" : 'rgb(42,55,73)'}}/>
                 </div>
             </div>
         </>

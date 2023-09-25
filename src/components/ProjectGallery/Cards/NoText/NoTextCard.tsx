@@ -12,7 +12,7 @@ const NoTextCard = (props:PropOBJ) => {
     const {key, imgSrc, darkMode} = props;
 
     return (
-        <div className='box-content' key={key} style={{backgroundColor: darkMode ? "" : "grey"}}>
+        <div className='no-card-box-content' key={key} style={{backgroundColor: darkMode ? "" : "rgb(42,55,73)"}}>
             <img src={imgSrc} className='gallery-noText-img' />
         </div>
     )

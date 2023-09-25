@@ -1,7 +1,7 @@
-.box-content {
+.no-card-box-content {
     height: fit-content;
     margin: auto;
-    background-color: #2A3749;
+    /* background-color: #2A3749; */
     border-radius: 8px;
     padding: 2rem;
     margin-right: 20px;

@@ -187,8 +187,8 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
         }, {
             name: "Ideo",
             description: {
-                first: "What is the Ouija board? The Ouija board is used as a divination technique to find answers to questions. This is done by putting your hands on the planchette, asking the board a question, then letting the planchette move to the letters/words on the board.",
-                second: "This can be explained by ideomotor effects. In this study we compare the differences between conscious and unconscious knowledge. Using the ouija board as a medium, we investigate whether the unconscious mind knows more than the conscious mind. By asking questions to participants and measuring accuracies across experimental modes, a deeper understanding of unconscious knowledge can be achieved.",
+                first: "What is the Ouija board? The Ouija board is used as a divination technique to find answers to questions. This is done by putting your hands on the planchette, asking the board a question, then letting the planchette move to the letters/words on the board. This can be explained by ideomotor effects. In this study we compare the differences between conscious and unconscious knowledge.",
+                second: " Using the ouija board as a medium, we investigate whether the unconscious mind knows more than the conscious mind. By asking questions to participants and measuring accuracies across experimental modes, a deeper understanding of unconscious knowledge can be achieved.",
                 emp: "Who is really behind the movements of the planchette? Can this phenomenon be explained by psychology?"
             },
             qa: [{
@@ -196,20 +196,54 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
             }],
             joinTeam: {
                 whatWeDo: [
-                    "The Ideo Project is investigating implicit cognition and whether we can bypass explicit cognition through the use of different devices. If you are interested in getting involved in research and the process that goes behind such a study, this could be the project for you."
+                    "The project's primary objective is to replicate the findings originally obtained by Gauchou et al. in their 2012 study. Additionally, we aim to explore the impact of introducing new sets of questions and implementing certain modifications to the experiment's design. Our research team is composed of dedicated research assistants, volunteers, and co-pilots, all working collaboratively to execute this investigation effectively. To facilitate coordination and progress tracking, we have scheduled weekly meetings where we discuss the developments and outcomes of the ongoing week.",
+                    "The study itself entails running participants through HSP in exchange for course credits, followed by meticulous data collection and comprehensive analysis of the gathered results. Each experimental session typically lasts between 45 to 60 minutes and is conducted in a face-to-face setting. Our analysis encompasses a diverse array of variables, categorized into various types, which will be distributed among team members over the course of the term for thorough examination and interpretation."
                 ]
             },
             publications: [
                 {
                     name: "Expression of nonconscious knowledge via ideomotor actions (2012)",
-                    citation: "NO CITATION PROVIDED",
+                    citation: "Gauchou, H. L., Rensink, R. A., & Fels, S. (2012). Expression of nonconscious knowledge via ideomotor actions. Consciousness and Cognition, 21(2), 976-982. https://doi.org/10.1016/j.concog.2012.01.016",
                     link: "https://www.sciencedirect.com/science/article/pii/S1053810012000402"
                 },
                 {
                     name: "Adaptive control of ideomotor effect anticipations (2010)",
-                    citation: "NO CITATION PROVIDED",
+                    citation: "Pfister, R., Kiesel, A., & Melcher, T. (2010). Adaptive control of ideomotor effect anticipations. Acta Psychologica, 135(3), 316-322. https://doi.org/10.1016/j.actpsy.2010.08.006",
                     link: "https://www.sciencedirect.com/science/article/pii/S0001691810001800"
-                }
+                },
+            ], 
+            members: [
+                {
+                    name: "Janavi Nainani",
+                    position: "Research Assistant (Team Lead)",
+                    isCurrentMember: true,
+                    
+                },
+                {
+                    name: "Parisa Zaini",
+                    position: "Research Assistant (Co-lead)",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Jayden Pun",
+                    position: "Volunteer",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Nandika Kumar",
+                    position: "Volunteer",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Astrid Tam",
+                    position: "Co-pilot",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Yebin Cho",
+                    position: "Co-pilot",
+                    isCurrentMember: true,
+                },
             ]
         }, {
             name: "Dormant",

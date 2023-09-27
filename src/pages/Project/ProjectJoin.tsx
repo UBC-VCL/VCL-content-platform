@@ -78,7 +78,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                         props.project.joinTeam?.whatWeDo ? (
                             <div>
                                 {props.project.joinTeam?.whatWeDo.map(desc => (
-                                    <p>{desc}</p>
+                                    <p className="what-we-do-desc">{desc}</p>
                                 ))}
                             </div>
                         )

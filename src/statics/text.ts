@@ -53,6 +53,7 @@ const TEXT = {
     NOVA: "NOVA",
     SHIVA: "SHIVA",
     NCIS: "NCIS",
+    CODING_TEAM: "Coding Team"
   },
 
   ALERTS: {

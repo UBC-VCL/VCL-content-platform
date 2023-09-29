@@ -10,7 +10,7 @@ import { MdAccountCircle } from "react-icons/md";
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
-const IS_WIP = process.env.REACT_WIP === "development";
+const IS_WIP = process.env.REACT_APP_WIP === "development";
 
 const People = () => {
   interface MemberOBJ {

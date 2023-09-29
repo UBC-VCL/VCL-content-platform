@@ -6,7 +6,7 @@ import "./ProjectPeople.css";
 import dotenv from "dotenv";
 
 dotenv.config();
-const IS_WIP = process.env.REACT_WIP === "development";
+const IS_WIP = process.env.REACT_APP_WIP === "development";
 
 interface PersonDetails {
   name: string;

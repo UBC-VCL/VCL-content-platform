@@ -115,7 +115,6 @@ const Navbar: React.FC<{}> = () => {
               <hr className="all-projects-underline" />
             </MenuItem>
             {CONSTANTS.PROJECTS.map((project, i) => {
-              console.log(location.pathname.split("/")[2], project.name);
               return (
                 <MenuItem key={i} onClick={handleProjectMenuClose}>
                   <GenericLink

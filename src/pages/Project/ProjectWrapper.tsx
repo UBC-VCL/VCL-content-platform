@@ -5,6 +5,17 @@ import ROUTES from '@statics/routes';
 import PROJECT_NAV from '@statics/projectNav'
 import ProjectNavbar from '@components/ProjectNavbar'
 import "./ProjectWrapper.css"
+import correlationGallery1 from "@statics/images/correlation/correlation1.png";
+import correlationGallery2 from "@statics/images/correlation/correlation3.png";
+import correlationMainStream1 from "@statics/images/correlation/correlation2.png";
+import correlationSequence1 from "@statics/images/correlation/correlation4.png";
+import nova1 from "@statics/images/nova/novaImage1.png";
+import nova2 from "@statics/images/nova/novaImage2.png";
+import nova3 from "@statics/images/nova/novaImage3.png";
+import shiva1 from "@statics/images/shiva/shiva1.png";
+import shiva2 from "@statics/images/shiva/shiva2.png";
+import ideo1 from "@statics/images/ideo/ideo1.png";
+import ideo2 from "@statics/images/ideo/ideo2.png";
 
 interface MatchParams {
     project_id: string;
@@ -78,7 +89,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Rensink RA (2014a). On the Prospects for a Science of Visualization.  In W. Huang (Ed.) Handbook of Human Centric Visualization: Theories, Methodologies, and Case Studies. New York: Springer.  pp. 147-175.",
                     link: "http://www2.psych.ubc.ca/~rensink/publications/abs.14.1.html"
                 }
-             ],
+            ],
             subpage: [
                 {
                     name: "Mainstream Correlation",
@@ -86,7 +97,16 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                         first: "We are studying how manipulating different visual attributes within the scatterplots affect the way we perceive the information shown in the scatterplot, and whether we are able to see Weber and Fechner’s law hold true. We are currently manipulating the dots within the scatterplot (the effect of size, shape, colour, opacity etc.), before moving onto manipulating the dot cloud (number of dots, scale, location etc.), and finally manipulating the frame of the scatter plot with different border thickness, location of axes and so on. ",
                         second: "We are currently manipulating the dots within the scatterplot (the effect of size, shape, colour, opacity etc.), before moving onto manipulating the dot cloud (number of dots, scale, location etc.), and finally manipulating the frame of the scatter plot with different border thickness, location of axes and so on. Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables.",
                         emp: "To Do Please Add"
-                    }
+                    },
+                    galleryList: [
+                        {
+                            img: correlationMainStream1,
+                            title: "Figure 1.1",
+                            description:
+                            "Two ring plots where the y-value is represented by the ring size. High correlation (top) and low correlation (bottom)",
+                            cardType: "default",
+                        },
+                    ]
                 },
                 {
                     name: "Sequence Correlation",
@@ -94,9 +114,34 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                         first: "The Correlation Sequencing team is investigating the Perception of Correlation in scatter plots when shown only for a brief moment of time. We show participants to plots with a similar correlation level and try to reduce the difference between the correlation until we find the Just Noticeable Difference (JND for short). Traditionally, determining correlation in scatterplots has been a slow high-level cognitive process, like interpreting pictorial representations. However, there is evidence that scatterplot perception follows Weber’s law [https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law] which is usually associated with quick perceptual processes –  a linear relationship for discrimination and a logarithmic curve for estimation.",
                         second: "This project has been focused on replicating and expanding upon these foundational findings by running our experiments on a variety of graph designs. The “Sequencing” name came from the first condition we ran where the Scatterplots would be shown in a sequence, also known as the “Timing” condition. The two independent variables were the Base Correlation of the scatter plots (the intensity of the stimulus) and the duration the first scatter plot was shown for. The first graph was shown for only a brief moment of time to make sure it is being perceived by a visual process, which would be fast.",
                         emp: "To Do Please Add"
-                    }
+                    },
+                    galleryList: [
+                        {
+                            img: correlationSequence1,
+                            title: "Figure 1.1",
+                            description:
+                            "The instruction screen for the side-by-side sequencing experiment.",
+                            cardType: "default",
+                        },
+                    ]
                 }
-            ]
+            ],
+            galleryList: [
+                {
+                    img: correlationGallery1,
+                    title: "Figure 1.1",
+                    description:
+                        "Two side-by-side scatter plots. The scatterplot on the left shows a high correlation while the one on the right shows a low correlation. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. We use classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision. Performance in this aspect is regular and well described by Weber and Fechner laws regardless of visual variable choice used to represent the data.",
+                    cardType: "default",
+                },
+                {
+                    img: correlationGallery2,
+                    title: "Figure 1.2",
+                    description:
+                        "Scatterplot image descriptions: scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
+                    cardType: "default",
+                },
+            ],
         },
         {
             name: "NOVA",
@@ -106,7 +151,44 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Rensink, R. A. (2005). Robust inattentional blindness. Journal of Vision, 5(8), 790: https://jov.arvojournals.org/article.aspx?articleid=2132583",
                     link: "https://jov.arvojournals.org/article.aspx?articleid=2132583"
                 }
-        ],
+            ],
+            galleryList: [
+                {
+                    img: nova1,
+                    title: "Figure 1.1",
+                    description:
+                        "The Money Business Illusion, colloquially referred to as the “gorilla video”, demonstrates multiple instances of the inattentional blindness phenomenon taking place. As described, participants are told to count how many times the basketball is passed between two groups of individuals (3 with black shirts, and 3 with white shirts). Video: https://www.youtube.com/watch?v=IGQmdoK_ZfY&ab_channel=DanielSimons",
+                    cardType: "default",
+                },
+                {
+                    img: nova2,
+                    title: "Figure 1.2",
+                    description:
+                        "The first, and most well-known instance is participants’ failure to notice the presence of a man in a gorilla suit walking across the screen, due to their attention being focused on the people passing the basketball to each other. ",
+                    cardType: "default",
+                },
+                {
+                    img: nova3,
+                    title: "Figure 1.3",
+                    description:
+                        "The second instance of inattentional blindness in the video is the participants’ failure to notice the colour of the curtain in the background changing partway through. The third example of this phenomenon is the participants’ failure to notice that one of the featured people (wearing a black shirt) leaves the scene entirely.",
+                    cardType: "default",
+                },
+                // {
+                //     img: correlationGallery1,
+                //     title: "Figure 1.4",
+                //     description:
+                //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                //     cardType: "default",
+                // },
+                // {
+                //     img: correlationGallery1,
+                //     title: "Figure 1.5",
+                //     description:
+                //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                //     cardType: "default",
+                // },
+            ],
             description: {
                 first: "The NOVA project studies the effects of Inattentional Blindness and cueing within a single paradigm. Inattentional Blindness is the phenomenon that occurs when something is plainly in the field of view but is not consciously percieved. This occurs the most when the viewer’s attention is focused intensely on something else in their field of view due to our limited capacity for attention being able to focus on a limited amount of things at the time. A famous example of this is the “Gorilla video” where the participants were asked to count the number of basketball tosses, and as a result they fail to see the person in a gorilla suit walk through the scene. Once the participant is informed about the gorilla, they are able to see it clearly the next time the video is watched. This means that Inattentional Blindness tasks can only be used once. The NOVA project, on the other hand, offers a robust way to test this phenomenon.",
                 second: "The NOVA project also focuses on Cueing. Cueing occurs when the viewer's attention is intentionally re-focused to another object without them realizing that this cue happened. For example, if the viewer sees an arrow pointing to an object, they will likely shift their attention to that object even if they did not consciously perceive the arrow.                Currently the NOVA project is looking at the differences in cueing effects when the viewers do not consciously perceive the cue versus when they do. Some of these conditions include more abstract symbols to test the boundaries of how much we know. The results from this project will hopefully help us understand more about the role of consciousness in visual perception.",
@@ -159,16 +241,18 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     isCurrentMember: true,
                 }
             ]
-        }, {
-            name: "Perceptual Modes",
-            publications: [
-                {
-                    name: "Example",
-                    citation: "Example",
-                    link: ""
-                }
-            ]
-        }, {
+        }, 
+        // {
+        //     name: "Perceptual Modes",
+        //     publications: [
+        //         {
+        //             name: "Example",
+        //             citation: "Example",
+        //             link: ""
+        //         }
+        //     ]
+        // }, 
+        {
             name: "SHIVA",
             description: {
                 first:
@@ -177,6 +261,20 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 second: "Work done in the UBC VCL has revealed the possibility that a person’s visual perceptual mode can be changed. The change is measured by the use of a visual search paradigm called visual search asymmetry. Thus far, it seems that our subjects are not willfully changing their mode of perception, but rather their perceptual mode changes because of specific external factors in their visual environment. Our subjects seem to be unaware of any perceptual mode change occurring, so it is likely a subconscious occurrence. \n\nThe SHIVA project is investigating factors which shift these visual perceptual modes. Some questions we ask are: What range of factors or external stimuli can affect these perceptual modes? To what degree are perceptual modes affected by these factors? Do some factors lose their effect on perceptual modes when certain other factors are present?",
                 emp: `The SHIVA project arose from an interest in how culture may have a significant effect on the mode of visual perception a person uses.`
             },
+            galleryList: [
+                {
+                    img: shiva1,
+                    title: "Figure 1.1",
+                    description:"Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    cardType: "default",
+                },
+                {
+                    img: shiva2,
+                    title: "Figure 1.2",
+                    description:"Example of a short line target amongst long line distractors (left) and a long line target amongst short line stimuli (right). ",
+                    cardType: "default",
+                },
+            ],
             publications: [
                 {
                     name: "Asymmetries in visual search: An introduction (2001)",
@@ -184,7 +282,8 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     link: "https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf"
                 }
             ]
-        }, {
+        }, 
+        {
             name: "Ideo",
             description: {
                 first: "What is the Ouija board? The Ouija board is used as a divination technique to find answers to questions. This is done by putting your hands on the planchette, asking the board a question, then letting the planchette move to the letters/words on the board. This can be explained by ideomotor effects. In this study we compare the differences between conscious and unconscious knowledge.",
@@ -211,13 +310,13 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Pfister, R., Kiesel, A., & Melcher, T. (2010). Adaptive control of ideomotor effect anticipations. Acta Psychologica, 135(3), 316-322. https://doi.org/10.1016/j.actpsy.2010.08.006",
                     link: "https://www.sciencedirect.com/science/article/pii/S0001691810001800"
                 },
-            ], 
+            ],
             members: [
                 {
                     name: "Janavi Nainani",
                     position: "Research Assistant (Team Lead)",
                     isCurrentMember: true,
-                    
+
                 },
                 {
                     name: "Parisa Zaini",
@@ -243,6 +342,20 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     name: "Yebin Cho",
                     position: "Co-pilot",
                     isCurrentMember: true,
+                },
+            ],
+            galleryList: [
+                {
+                    img: ideo1,
+                    title: "Figure 1.1",
+                    description:"Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    cardType: "default",
+                },
+                {
+                    img: ideo2,
+                    title: "Figure 1.2",
+                    description:"Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    cardType: "default",
                 },
             ]
         }, {

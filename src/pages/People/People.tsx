@@ -98,16 +98,13 @@ const People = () => {
       .classList.add("selected-item");
   }, []);
 
-  useEffect(() => {
-    console.log(currentList);
-  }, [currentList]);
-
   const getMembers = async () => {
     axios
       .get(`${baseURL}/api/members`)
       .then((response) => setList(response.data.data))
       .catch((err) => {
-        console.log(err);
+        // do nothing with the error
+        // console.log(err);
       });
   };
 

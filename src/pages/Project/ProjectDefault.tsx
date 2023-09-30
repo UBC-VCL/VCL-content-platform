@@ -112,7 +112,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
           <ProjectGallery
             displayNumber={2}
             compTitle={"Gallery"}
-            itemArray={dummyList}
+            itemArray={project.galleryList ? project.galleryList : dummyList}
           />
 
           <VerticalSpacer height={20} />

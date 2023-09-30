@@ -12,11 +12,6 @@ import TopLeftCog from "@statics/images/ProjectDescriptionPage/TopLeftCog.png";
 import BottomRightCog from "@statics/images/ProjectDescriptionPage/BottomRightCog.png";
 import GalleryCog from "@statics/images/ProjectDescriptionPage/GalleryCog.png";
 import ProjectGallery from "@components/ProjectGallery";
-import {
-  callGetProjectByNameAPI,
-  ProjectResponse,
-} from "@services/adapters/projectAdapter";
-import { useLocation } from "react-router-dom";
 import { SlideShowOBJ } from "./types";
 import img1 from "@statics/images/correlation/correlation1.png";
 import img3 from "@statics/images/correlation/correlation3.png";
@@ -31,6 +26,7 @@ interface ProjectProps {
 }
 
 const ProjectDefault: React.FC<ProjectProps> = (props) => {
+
   const dummyList: SlideShowOBJ[] = [
     {
       img: img3,

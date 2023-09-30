@@ -157,12 +157,17 @@ export default function Sidebar(props: any) {
                                     {props.currProject.subpage?.map((page: any) => (
                                         <ListItem key={page.name}
                                         >
+                                            {
+                                                // This is a hacky way to get the url to work with the subpages
+                                                // because sometimes the URL will have a trailing slash and sometimes it won't
+                                            }
                                             <ListItemButton
                                                 component={Link}
+
                                                 to={
-                                                    props.match.url[props.match.url.length-1] === '/' ? 
-                                                    `${props.match.url.substring(0, props.match.url.length - 1)}/${page.name}` 
-                                                    : `${props.match.url}/${page.name}`
+                                                    props.match.url[props.match.url.length - 1] === '/' ?
+                                                        `${props.match.url.substring(0, props.match.url.length - 1)}/${page.name}`
+                                                        : `${props.match.url}/${page.name}`
                                                 }
                                             >
                                                 <Typography color="#5B7E98" marginLeft="20px">

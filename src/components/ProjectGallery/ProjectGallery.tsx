@@ -1,20 +1,11 @@
 import './ProjectGallery.css'
-import img1 from '@statics/images/correlation/correlation1.png';
-
-import img2 from '@statics/images/correlation/correlation2.png';
-import img3 from '@statics/images/correlation/correlation3.png';
-import img4 from '@statics/images/correlation/correlation4.png';
 import DefaultCard from './Cards/Default/DefaultCard';
 
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { useState, useEffect, useRef } from 'react'
 import TestimonyCard from './Cards/Testimony(Photo)/TestimonyCard';
 import NoPhotoTest from './Cards/Testimony(No-Photo)/NoPhotoTest';
-
-
-
 import { SlideShowOBJ } from '../../pages/Project/types';
-import { NumberLocale } from 'yup/lib/locale';
 
 interface PropsOBJ {
     itemArray: Array<SlideShowOBJ>;
@@ -39,8 +30,13 @@ const ProjectGallery = (props: PropsOBJ) => {
         }
     }
 
+    useEffect(() => {
+        setGalleryIndex(0);
+    }, [itemArray])
+
     // This is the autoscrolling feature
     useEffect(() => {
+        
         if (itemArray.length > 1) {
             resetTimeout()
             timeoutRef.current = setTimeout(
@@ -50,7 +46,7 @@ const ProjectGallery = (props: PropsOBJ) => {
                 resetTimeout()
             }
         }
-    }, [galleryIndex])
+    }, [galleryIndex, itemArray])
 
 
     return (
@@ -72,7 +68,7 @@ const ProjectGallery = (props: PropsOBJ) => {
                     </div>
                 </div>
                 <div id='gallery-container'>
-                    {((itemArray.length > 1) && < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
+                    {(itemArray.length > 1 && < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === 0 ? setGalleryIndex(itemArray.length - 1) : setGalleryIndex(galleryIndex - 1)
                     }} />)}
                     <div className="gallery-box">
@@ -93,7 +89,7 @@ const ProjectGallery = (props: PropsOBJ) => {
                                 })
                             }
                         </div>
-                        {(itemArray.length > 1) && <div className='slideshowDots'>
+                        {itemArray.length > 1 && <div className='slideshowDots'>
                             {
                                 itemArray.map((_, idx) => (
                                     <div
@@ -107,7 +103,7 @@ const ProjectGallery = (props: PropsOBJ) => {
                             }
                         </div>}
                     </div>
-                    {(itemArray.length > 1) && < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
+                    {itemArray.length > 1 && < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === itemArray.length - 1 ? setGalleryIndex(0) : setGalleryIndex(galleryIndex + 1)
                     }} />}
                 </div>

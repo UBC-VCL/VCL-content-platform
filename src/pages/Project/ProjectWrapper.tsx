@@ -9,6 +9,10 @@ import correlationGallery1 from "@statics/images/correlation/correlation1.png";
 import correlationGallery2 from "@statics/images/correlation/correlation3.png";
 import correlationMainStream1 from "@statics/images/correlation/correlation2.png";
 import correlationSequence1 from "@statics/images/correlation/correlation4.png";
+import correlationSequence2 from "@statics/images/correlation/correlationSequence1.png";
+import correlationSequence3 from "@statics/images/correlation/correlationSequence2.png";
+import correlationSequence4 from "@statics/images/correlation/correlationSequence3.png";
+import correlationSequence5 from "@statics/images/correlation/correlationSequence4.png";
 import nova1 from "@statics/images/nova/novaImage1.png";
 import nova2 from "@statics/images/nova/novaImage2.png";
 import nova3 from "@statics/images/nova/novaImage3.png";
@@ -120,9 +124,36 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                             img: correlationSequence1,
                             title: "Figure 1.1",
                             description:
-                            "The instruction screen for the side-by-side sequencing experiment.",
+                            "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
+                            cardType: "default",
+                        },{
+                            img: correlationSequence2,
+                            title: "Figure 1.2",
+                            description:
+                            "The results from the original Rensink RA, and Baldridge G (2010) paper. Weber’s Law is showcased on the graph on the left while the confidence rating for each display timing is on the right.",
+                            cardType: "default",
+                        },{
+                            img: correlationSequence3,
+                            title: "Figure 1.3",
+                            description:
+                            "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
                             cardType: "default",
                         },
+                        {
+                            img: correlationSequence4,
+                            title: "Figure 1.4",
+                            description:
+                            "A scatter plot and strip plot used to compare correlation between the two graphs.",
+                            cardType: "default",
+                        },
+                        {
+                            img: correlationSequence5,
+                            title: "Figure 1.5",
+                            description:
+                            "The precision graph from the side-by-side experiment showcasing Weber's Law being followed. The JND precision is proportional to the intensity of the stimulus (correlation)",
+                            cardType: "default",
+                        },
+
                     ]
                 }
             ],
@@ -265,13 +296,13 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 {
                     img: shiva1,
                     title: "Figure 1.1",
-                    description:"Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    description:"",
                     cardType: "default",
                 },
                 {
                     img: shiva2,
                     title: "Figure 1.2",
-                    description:"Example of a short line target amongst long line distractors (left) and a long line target amongst short line stimuli (right). ",
+                    description:"",
                     cardType: "default",
                 },
             ],

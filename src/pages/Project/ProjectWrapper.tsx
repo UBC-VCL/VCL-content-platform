@@ -312,7 +312,30 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Wolfe, J. M. (2001). Asymmetries in visual search: An introduction. Perception & Psychophysics, 63(3), 381-389. doi:10.3758/BF03194406. https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf",
                     link: "https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf"
                 }
+            ],members: [
+                {
+                    name: "Sogol Ghattan",
+                    position: "Project Leader",
+                    education: "",
+                    email: "",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Stephen Li",
+                    position: "Volunteer",
+                    education: "",
+                    email: "",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Danny Yu",
+                    position: "Volunteer",
+                    education: "",
+                    email: "",
+                    isCurrentMember: true,
+                },
             ]
+
         }, 
         {
             name: "Ideo",

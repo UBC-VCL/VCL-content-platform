@@ -19,7 +19,6 @@
   font-size: 4vw;
   font-style: normal;
   letter-spacing: 0.035em;
-  line-height: 56px;
   display: flex;
   text-align: left;
 }
@@ -86,7 +85,7 @@ a:hover {
     margin: auto;
     justify-content: center;
     max-width: 70%;
-    margin-top: 45%;
+    margin-top: 12vh;
   }
 
   #title {
@@ -115,5 +114,14 @@ a:hover {
 @media (max-width: 768px) {
   #landing-page-container {
     width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  #info-section {
+    margin-top: 20vh;
+  }
+  #title {
+    font-size: 9vw;
   }
 }

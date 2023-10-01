@@ -273,6 +273,20 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     position: "402 Student",
                     isCurrentMember: true,
                 }
+            ],
+            qa: [
+                {
+                    q: "What is Inattentional Blindness?",
+                    a: "Inattentional Blindness is the failure to see the presence of an item when it is not attended (Rensink, R. A., 2005). This means that even when something is within a person’s field of view, they don’t perceive it because their attention is not directed at it.",
+                },
+                {
+                    q: "How do you study Inattentional Blindness",
+                    a: "Most previous research on inattentional blindness used methodologies that were not robust. A famous example of this is the `Gorilla video` where the participants are told to count the number of basketball tosses, and as a result they fail to see the gorilla walk through in plain sight. Once they are informed about the gorilla, they are able to see it clearly the next time the video is watched, so the video can only be used once to demonstrate inattentional blindness. However, The NOVA project's paradigm offers a way to robustly test this phenomenon. We have two important aspects in our paradigm, one being our technique, in which the apperance of a briefly-presented test stimulus appeared the moment observers attended to somewhere else. With this, participants are repeatedly shown the experiment, but still can only allocate little attention to the cue when it appears. The other aspect is cueing. Cueing occurs when the viewers attention is intentionally re-focused to another object without them realizing that this cue happened. A directional cue can direct attention after a few milliseconds from its appearance (Gibson & Bryant, 2005). When cues are reported unseen, it suggested that participants never experienced them at all.",
+                },
+                {
+                    q: "What responsibilities can I expect in the team?",
+                    a: "As a co-pilot, you will be trained to collect data by running participants throught the experiment while on Zoom meetings and scheduling time slots on UBC’s Human Subject Pool website. As a volunteer research assistant, you will be expected to take on more responsibilities in the form of data analysis and condition creation, which involve learning technical skills in Visual Studio Code and Photoshop.                     ",
+                },
             ]
         },
         // {
@@ -314,7 +328,8 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Wolfe, J. M. (2001). Asymmetries in visual search: An introduction. Perception & Psychophysics, 63(3), 381-389. doi:10.3758/BF03194406. https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf",
                     link: "https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf"
                 }
-            ], members: [
+            ],
+            members: [
                 {
                     name: "Sogol Ghattan",
                     position: "Project Leader",
@@ -350,8 +365,6 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     cardType: 'no-photo-test'
                 },
             ]
-
-
         },
         {
             name: "Ideo",
@@ -360,9 +373,15 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 second: " Using the ouija board as a medium, we investigate whether the unconscious mind knows more than the conscious mind. By asking questions to participants and measuring accuracies across experimental modes, a deeper understanding of unconscious knowledge can be achieved.",
                 emp: "Who is really behind the movements of the planchette? Can this phenomenon be explained by psychology?"
             },
-            qa: [{
-                q: "What is implicit cognition?", a: "Implicit cognition can be described as cognition that is beyond our conscious control. It can include a variety of different types of cognition: learning, memory, social, emotion, and many more. Given the unconscious nature of this area of study, there are no “direct” ways of studying implicit cognition. The Ideo project uses ideomotor effects to explore the inner-workings of implicit cognition. Ideomotor effects are actions that are not perceived as intentional, but seem to emerge with no identifiable source; often associated with a sense of involuntariness. They are unconscious movements that happen in response to knowledge or information that you may have come across in the past. A few applications of this ideomotor effect are the ouija board and the hand-held pendulum, which Gachou et al. (2012) and Olson et al. (2017) have explored. This project is currently conducting a study to explore implicit cognition and ideomotor effects: Ouija. The goal of this project is to test if a device based on the use of ideomotor effects can bypass explicit cognition and access implicit cognition."
-            }],
+            qa: [
+                {
+                    q: "What is implicit cognition?", a: "Implicit cognition can be described as cognition that is beyond our conscious control. It can include a variety of different types of cognition: learning, memory, social, emotion, and many more. Given the unconscious nature of this area of study, there are no “direct” ways of studying implicit cognition. The Ideo project uses ideomotor effects to explore the inner-workings of implicit cognition. Ideomotor effects are actions that are not perceived as intentional, but seem to emerge with no identifiable source; often associated with a sense of involuntariness. They are unconscious movements that happen in response to knowledge or information that you may have come across in the past. A few applications of this ideomotor effect are the ouija board and the hand-held pendulum, which Gachou et al. (2012) and Olson et al. (2017) have explored. This project is currently conducting a study to explore implicit cognition and ideomotor effects: Ouija. The goal of this project is to test if a device based on the use of ideomotor effects can bypass explicit cognition and access implicit cognition."
+                },
+                {
+                    q: "What are Ideomotor effects?",
+                    a: "Ideomotor effects are actions that are not perceived as intentional, but seem to emerge with no identifiable source; often associated with a sense of involuntariness. They are unconscious movements that happen in response to knowledge or information that you may have come across in the past. A few applications of this ideomotor effect are the ouija board and the hand-held pendulum, which Gachou et al. (2012) and Olson et al. (2017) have explored. This project is currently conducting a study to explore implicit cognition and ideomotor effects: Ouija. The goal of this project is to test if a device based on the use of ideomotor effects can bypass explicit cognition and access implicit cognition."
+                },
+            ],
             joinTeam: {
                 whatWeDo: [
                     "The project's primary objective is to replicate the findings originally obtained by Gauchou et al. in their 2012 study. Additionally, we aim to explore the impact of introducing new sets of questions and implementing certain modifications to the experiment's design. Our research team is composed of dedicated research assistants, volunteers, and co-pilots, all working collaboratively to execute this investigation effectively. To facilitate coordination and progress tracking, we have scheduled weekly meetings where we discuss the developments and outcomes of the ongoing week.",
@@ -435,14 +454,10 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     description: "VCL is an open door for those who wants to learn. From statistical analysis to running experiments, VCL is a great place to start a hands on experience in a lab. There is still much to be explored about our unconscious knowledge and it's a privilege to be able to study it with amazing people.",
                     cardType: 'no-photo-test'
                 }
-            ]
+            ],
+
         }, {
             name: "Dormant",
-            publications: [
-            ]
-        },
-        {
-            name: "NCIS",
             publications: [
             ]
         },
@@ -525,18 +540,19 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     title: "Figure 1.1",
                     description: "",
                     cardType: "default",
-                },{
+                }, {
                     img: it2,
                     title: "Figure 1.2",
                     description: "",
                     cardType: "default",
                 },
             ]
-        }, {
+        },
+        {
             name: 'NCIS',
             description: {
                 first: 'Nautical Crime Investigation Services Corp. (NCIS) is a startup based in Vancouver. NCIS develops AI and hardware maritime defence technologies to detect and deter criminal activities at sea.',
-                second: '',
+                second: 'Through its research and development process, NCIS embraces collaboration and partnerships between academia, industry, NGOs and government entities. We welcome applications from motivated students who are looking to apply their academic knowledge to finding real world solutions to this century’s number one problem in the oceans.',
             },
             joinTeam: {
                 whatWeDo: [

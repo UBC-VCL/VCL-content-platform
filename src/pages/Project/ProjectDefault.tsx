@@ -115,7 +115,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
 
           <VerticalSpacer height={20} />
 
-          (<div className='qa-container'>
+          <div className='qa-container'>
             <TitleCard
               number='03'
               title='Q&A'
@@ -146,7 +146,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                   <p style={{ "color": COLORS.darkBlue }}>Our working theory for these results is based on participants using the information entropy of the visualization to make their judgements. Currently we’re studying how different gamma levels impact the perception of correlation in black and white luminance strip plots, and evaluating the effects of mixed populations in scatter plots.</p>
                 </>
             }
-          </div>)
+          </div>
         </>
       )}
     </div>

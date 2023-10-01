@@ -38,6 +38,32 @@ const dummyList: SlideShowOBJ[] = [
     }
 ]
 
+const novaList: SlideShowOBJ[] = [
+    {
+
+        description: "I joined NOVA midway through my fourth year, and by that point, it was easy to feel like I was playing catch up with gaining research experience. Fortunately for me, my first term as a Co-Pilot showed me just how irrational those worries were with how seamlessly my training went and how rewarding the process of learning new skills was. My teammates were welcoming and my project leader was patient and communicative with me throughout the training process. By the time the next term had come around, I felt so at home that I’ve continued working here for another full year.",
+        cardType: 'testimony',
+        name: 'Tsubasa',
+        position: 'Project Lead'
+    },
+]
+
+const shivaList: SlideShowOBJ[] = [
+    {
+        img: blankPPic,
+        description: "When I entered the team as a first-year, I had limited knowledge about the research process, how it is conducted and what it means to be a responsible researcher. I joined the lab in hopes of getting exposure to research environments and being able to apply theories learned in class to the real world. Not only did SHIVA satisfy my interests, but it encouraged me to think critically about the research that I am producing. I learned new applications in R, discussed ideas with other researchers, and developed a better understanding of research. I highly recommend anyone to apply and not be apprehensive by a lack of experience",
+        cardType: 'testimony',
+        name: 'Danny',
+
+    },
+    {
+        img: blankPPic,
+        description: "I joined the SHIVA team because I was looking for a topic that I would be interested in for my COGS 402. My experience has been extremely positive, the work environment is productive and friendly. Mistakes can happen, but they’re resolved kindly and effectively. I have learned a lot about the research process, from running participants to detailed data analysis with R, as well as soft skills such as communicating effectively.",
+        cardType: 'testimony',
+        name: 'Stephen',
+    },
+]
+
 
 const ProjectJoin: React.FC<ProjectProps> = (props) => {
 
@@ -116,6 +142,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                     </div>
                 </div>
             </section>
+            {props.project.name !== 'SHIVA' && props.project.name !== 'NOVA'&&(
             <section className='full-bleed4'>
                 <div className='past-positions-and-projects' style={{ paddingBottom: "2%", paddingTop: "3%" }}>
                     <p style={{ paddingTop: "3%" }}>03</p>
@@ -134,6 +161,42 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                     </div>
                 </div>
             </section>
+            )}
+            {props.project.name == 'SHIVA' &&(
+                <section className='full-bleed4'>
+                    <div className='past-positions-and-projects' style={{ paddingBottom: "2%", paddingTop: "3%" }}>
+                        <p style={{ paddingTop: "3%" }}>03</p>
+                        <h2>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.TITLE}</h2>
+                        <div className='project-join-card'>
+                            <h5>{'Condition 54 No-Pretask'}</h5>
+                            <p>{'This condition was created to continue the experiment through an online environment but without the usual Navon pretask. ' +
+                                'Participants from both Japan and Canada partook in the investigation. Through the experiment, ' +
+                                'it was revealed that there were little differences between the average reaction times in Japanese and Canadian participants. ' +
+                                'However, participants found it more difficult to find long-line stimuli amongst short-line distractors than to locate short lines amongst long as the number of distractors increased. '}</p>
+                        </div>
+                    </div>
+                </section>
+            )}
+            {props.project.name == 'NOVA' &&(
+                <section className='full-bleed4'>
+                    <div className='past-positions-and-projects' style={{ paddingBottom: "2%", paddingTop: "3%" }}>
+                        <p style={{ paddingTop: "3%" }}>03</p>
+                        <h2>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.TITLE}</h2>
+                        <div className='project-join-card'>
+                            <h5>{'Cueing Using Colour and Isoluminescence: Differences in Blindness Rates and Cueing Effects Between Seen and Unseen Cues'}</h5>
+                            <p>{'Author: Ankita Guha Patra'}</p>
+                            <p>{'Sponsoring Research Assistant Tiffany Wu'}</p>
+                            <p>{'Supervisor: Dr. Ronald Rensink'}</p>
+                        </div>
+                        <div className='project-join-card'>
+                            <h5>{'Does Consciousness Matter? Noticeable Edits on Overlearned Cues and the Effect on Blindness Rates and Cueing Effects Between Seen and Unseen Cues'}</h5>
+                            <p>{'Author: Isha Verma'}</p>
+                            <p>{'Sponsoring Research Assistant: Ying Zeng'}</p>
+                            <p>{'Supervisor: Dr. Ronald Rensink'}</p>
+                        </div>
+                    </div>
+                </section>
+            )}
             {/* <section className='full-bleed5' style={{marginTop:"10%"}}>
         <div className='what-our-team-member-say'>
             <p style={{paddingTop: "7%"}}>04</p>
@@ -143,7 +206,15 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         </div>
         
         </section> */}
+            {props.project.name == 'SHIVA' && (
+                <ProjectGallery displayNumber={4} compTitle={'Testimony'} itemArray={shivaList} />
+            )}
+            {props.project.name == 'NOVA' && (
+                <ProjectGallery displayNumber={4} compTitle={'Testimony'} itemArray={novaList} />
+            )}
+            {props.project.name !== 'SHIVA' && props.project.name !=='NOVA'&&(
             <ProjectGallery displayNumber={4} compTitle={'Testimony'} itemArray={dummyList} />
+                )}
             <section id='application-instructions-div' className='full-bleed6'>
                 <div className='Application-Instructions'>
                     <p style={{ paddingTop: "7%", textAlign: "center", color: "#B2C9EC" }}>05</p>

@@ -110,7 +110,26 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
             description: {
                 first: "The NOVA project studies the effects of Inattentional Blindness and cueing within a single paradigm. Inattentional Blindness is the phenomenon that occurs when something is plainly in the field of view but is not consciously percieved. This occurs the most when the viewer’s attention is focused intensely on something else in their field of view due to our limited capacity for attention being able to focus on a limited amount of things at the time. A famous example of this is the “Gorilla video” where the participants were asked to count the number of basketball tosses, and as a result they fail to see the person in a gorilla suit walk through the scene. Once the participant is informed about the gorilla, they are able to see it clearly the next time the video is watched. This means that Inattentional Blindness tasks can only be used once. The NOVA project, on the other hand, offers a robust way to test this phenomenon.",
                 second: "The NOVA project also focuses on Cueing. Cueing occurs when the viewer's attention is intentionally re-focused to another object without them realizing that this cue happened. For example, if the viewer sees an arrow pointing to an object, they will likely shift their attention to that object even if they did not consciously perceive the arrow.                Currently the NOVA project is looking at the differences in cueing effects when the viewers do not consciously perceive the cue versus when they do. Some of these conditions include more abstract symbols to test the boundaries of how much we know. The results from this project will hopefully help us understand more about the role of consciousness in visual perception.",
-                emp: "To do"
+                emp: "Inattentional Blindness is the phenomenon that occurs when something is plainly in the field of view but is not consciously perceived. The NOVA project offers a robust way to test this phenomenon."
+            },
+
+            qa: [{
+                q: "What is Inattentional Blindness?", a: "Inattentional Blindness is the failure to see the presence of an item when it is not attended (Rensink, R. A., 2005). This means that even when something is within a person’s field of view, they don’t perceive it because their attention is not directed at it."
+            },{
+                q: "How do you study Inattentional Blindness?", a: "Most previous research on inattentional blindness used methodologies that were not robust. A famous example of this is the \"Gorilla video\" where the participants are told to count the number of basketball tosses, and as a result they fail to see the gorilla walk through in plain sight. Once they are informed about the gorilla, they are able to see it clearly the next time the video is watched, so the video can only be used once to demonstrate inattentional blindness. \nHowever, The NOVA project's paradigm offers a way to robustly test this phenomenon. We have two important aspects in our paradigm, one being our technique, in which the apperance of a briefly-presented test stimulus appeared the moment observers attended to somewhere else. With this, participants are repeatedly shown the experiment, but still can only allocate little attention to the cue when it appears. The other aspect is cueing. Cueing occurs when the viewers attention is intentionally re-focused to another object without them realizing that this cue happened. A directional cue can direct attention after a few milliseconds from its appearance (Gibson & Bryant, 2005). When cues are reported unseen, it suggested that participants never experienced them at all."
+            },{
+                q: "What responsibilities can I expect in the team?", a: "As a co-pilot, you will be trained to collect data by running participants throught the experiment while on Zoom meetings and scheduling time slots on UBC’s Human Subject Pool website. As a volunteer research assistant, you will be expected to take on more responsibilities in the form of data analysis and condition creation, which involve learning technical skills in Visual Studio Code and Photoshop."
+            }
+            ],
+
+            joinTeam: {
+                whatWeDo: ["The NOVA team follows a weekly routine for collecting, analyzing and reporting about data. \n" +
+                "Every member of the team, from the project leader to the co-pilots, is trained expected to learn how to schedule meetings with participants through UBC’s Human Subject Pool website. \n" +
+                "Through HSP, meetings are scheduled with participants to run them through the experimental process for an hour, answering any questions or troubleshooting technical issues along the way. \n" +
+                "Once a week’s worth of data is collected, volunteers and research assistants analyze the data through Python on Microsoft Visual Studio Code. \n" +
+                "The analysis results are then reported to the principal investor and recorded in a shared document. Based on whether the analysis yields noteworthy results, the team may continue to run the current conditions or create a novel condition with a visual stimulus graphic. \n"
+                ]
+
             },
             members: [
                 {
@@ -157,6 +176,11 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     name: "Sarah Ibrahim",
                     position: "402 Student",
                     isCurrentMember: true,
+                },
+                {
+                    name: "Jeremy Ng",
+                    position: "Co-Pilot",
+                    isCurrentMember: true,
                 }
             ]
         }, {
@@ -177,6 +201,31 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 second: "Work done in the UBC VCL has revealed the possibility that a person’s visual perceptual mode can be changed. The change is measured by the use of a visual search paradigm called visual search asymmetry. Thus far, it seems that our subjects are not willfully changing their mode of perception, but rather their perceptual mode changes because of specific external factors in their visual environment. Our subjects seem to be unaware of any perceptual mode change occurring, so it is likely a subconscious occurrence. \n\nThe SHIVA project is investigating factors which shift these visual perceptual modes. Some questions we ask are: What range of factors or external stimuli can affect these perceptual modes? To what degree are perceptual modes affected by these factors? Do some factors lose their effect on perceptual modes when certain other factors are present?",
                 emp: `The SHIVA project arose from an interest in how culture may have a significant effect on the mode of visual perception a person uses.`
             },
+            qa: [{
+                q: "What is Visual Search Asymmetry?", a: "“In visual search tasks, observers look for a target stimulus among distractor stimuli. A visual search asymmetry is said to occur when a search for stimulus A among stimulus B produces different results from a search for B among A.” (Wolfe, 2001, p. 381)\n" +
+                    "Depending on what stimulus A is and what stimulus B is, you may consistently see either symmetry or asymmetry in visual search. For instance, studies show that searching for a target Q among distractor O’s is easier than searching for an O among Q’s. Significantly slower search times in one task suggests that the task is a greater challenge for the visual system. For example, take a look at the search task below. In the box on the left, try to find the target circle among distractor bisected circles. Now go the box on the right and try to find the target bisected circle among distractor circles.  It’s fairly intuitive that one task is easier than the other. When this happens, visual search asymmetry is occurring. If a search for stimulus A among stimulus B does not produce different results from a search for B among A, then visual search is considered symmetric."
+
+            }],
+            joinTeam: {
+                whatWeDo: ["In SHIVA, we examine factors that can shift a person’s perceptual modes. In other words, we are interested in factors that can affect how a person makes sense of their visual environment. We’re particularly interested in a person’s visual environment as well as their cultural background. To examine these factors, the participant’s visual environment is varied before and during visual search tasks. Afterwards, we collect and examine their cultural information (for more details, please check out our Q&A!). In our older tests, performing various pre-tasks before the main visual search task has seen various degrees of success in changing a person’s perceptual mode. More recently however, we have been examining how the transition to an online test environment may shift a person’s perceptual modes. "]
+            },
+            members: [
+                {
+                    name:"Sogol Ghattan",
+                    position:"",
+                    isCurrentMember: true,
+                },
+                {
+                    name:"Stephen Li",
+                    position:"",
+                    isCurrentMember: true,
+                },
+                {
+                    name:"Danny Yu",
+                    position:"",
+                    isCurrentMember: true,
+                }
+                ],
             publications: [
                 {
                     name: "Asymmetries in visual search: An introduction (2001)",

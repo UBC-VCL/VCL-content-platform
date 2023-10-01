@@ -18,6 +18,12 @@ import { SlideShowOBJ } from './types';
 import img1 from '@statics/images/correlation/correlation1.png';
 import img3 from '@statics/images/correlation/correlation3.png';
 import img4 from '@statics/images/correlation/correlation4.png';
+import nova1 from '@statics/images/nova/nova2.png'
+import nova2 from '@statics/images/nova/nova3.png'
+import nova3 from '@statics/images/nova/nova4.png'
+import shiva1 from '@statics/images/shiva/shiva1.png'
+import shiva2 from '@statics/images/shiva/shiva2.png'
+
 
 interface ProjectProps {
     project: Project,
@@ -74,6 +80,43 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
         }
     ]
 
+    const novaFigures: SlideShowOBJ[] = [
+        {
+            img: nova1,
+            title: 'Figure 1',
+            description: "Image 1: As described, participants are told to count how many times the basketball is passed between two groups of individuals (3 with black shirts, and 3 with white shirts). \n"
+            , cardType: 'default'
+        },
+        {
+            img: nova2,
+            title: 'Figure 2',
+            description: "Image 2: The first, and most well-known instance is participants’ failure to notice the presence of a man in a gorilla suit walking across the screen, due to their attention being focused on the people passing the basketball to each other. \n"
+            , cardType: 'default'
+        },
+        {
+            img: nova3,
+            title: 'Figure 3',
+            description: "Image 3: The second instance of inattentional blindness in the video is the participants’ failure to notice the colour of the curtain in the background changing partway through. \n" +
+                "The third example of this phenomenon is the participants’ failure to notice that one of the featured people (wearing a black shirt) leaves the scene entirely. \n"
+            , cardType: 'default'
+        },
+    ]
+
+    const shivaFigures: SlideShowOBJ[] = [
+        {
+            img: shiva1,
+            title: 'Figure 1',
+            description: "Example of a circle target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right). \n"
+            , cardType: 'default'
+        },
+        {
+            img: shiva2,
+            title: 'Figure 2',
+            description: "Example of a short line target amongst long line distractors (left) and a long line target amongst short line stimuli (right). \n"
+            , cardType: 'default'
+        },
+    ]
+
     const fillerDescrip = [
         'The Correlation project studies the visual perception of correlation in data visualizations. A data visualization is a graphical representation of a data set. For instance, scatter plots are a common choice of visualization for data with two variables. In a scatter plot, data is translated into a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable.',
         'Correlation in a scatter-plot corresponds to the degree to which the points form a straight line. Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables.',
@@ -110,10 +153,22 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
                 />
             </div>
             <img src={GalleryCog} className="gallery-cog" alt="a design elemnt depicting a set of cogs" />
-            {props.project.name !== 'NCIS' && (
-                <>
-            <ProjectGallery displayNumber={2} compTitle={'Gallery'} itemArray={dummyList}/>
+            {props.project.name == 'NOVA' &&(
 
+            <ProjectGallery displayNumber={2} compTitle={"figures"} itemArray={novaFigures}/>
+
+            )}
+            {props.project.name == 'SHIVA' &&(
+
+                <ProjectGallery displayNumber={2} compTitle={"figures"} itemArray={shivaFigures}/>
+
+            )}
+
+            {props.project.name !== 'NCIS'&&(
+                <>
+            {props.project.name !== 'NOVA' && props.project.name !== 'SHIVA' &&(
+            <ProjectGallery displayNumber={2} compTitle={'Gallery'} itemArray={dummyList}/>
+                )}
             <VerticalSpacer height={20} />
 
             <div className='qa-container'>

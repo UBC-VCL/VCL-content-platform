@@ -66,7 +66,9 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
                     (props.project.members.map(member => (
                         <Person
                             name={member.name}
-                            involvement={member.position + ', ' + member.education}
+                            involvement={member.position 
+                                // + ', ' + member.education
+                            }
                             description={member.description ? member.description : ''}
                             email={member.email ? member.email : 'not available'}
                             phone={member.phone ? member.phone : 'not available'}

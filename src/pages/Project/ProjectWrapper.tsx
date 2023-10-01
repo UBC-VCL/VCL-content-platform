@@ -5,6 +5,23 @@ import ROUTES from '@statics/routes';
 import PROJECT_NAV from '@statics/projectNav'
 import ProjectNavbar from '@components/ProjectNavbar'
 import "./ProjectWrapper.css"
+import correlationGallery1 from "@statics/images/correlation/correlation1.png";
+import correlationGallery2 from "@statics/images/correlation/correlation3.png";
+import correlationMainStream1 from "@statics/images/correlation/correlation2.png";
+import correlationSequence1 from "@statics/images/correlation/correlation4.png";
+import correlationSequence2 from "@statics/images/correlation/correlationSequence1.png";
+import correlationSequence3 from "@statics/images/correlation/correlationSequence2.png";
+import correlationSequence4 from "@statics/images/correlation/correlationSequence3.png";
+import correlationSequence5 from "@statics/images/correlation/correlationSequence4.png";
+import nova1 from "@statics/images/nova/novaImage1.png";
+import nova2 from "@statics/images/nova/novaImage2.png";
+import nova3 from "@statics/images/nova/novaImage3.png";
+import shiva1 from "@statics/images/shiva/shiva1.png";
+import shiva2 from "@statics/images/shiva/shiva2.png";
+import ideo1 from "@statics/images/ideo/ideo1.png";
+import ideo2 from "@statics/images/ideo/ideo2.png";
+import it1 from "@statics/images/it/it1.png";
+import it2 from "@statics/images/it/it2.png";
 
 interface MatchParams {
     project_id: string;
@@ -78,7 +95,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Rensink RA (2014a). On the Prospects for a Science of Visualization.  In W. Huang (Ed.) Handbook of Human Centric Visualization: Theories, Methodologies, and Case Studies. New York: Springer.  pp. 147-175.",
                     link: "http://www2.psych.ubc.ca/~rensink/publications/abs.14.1.html"
                 }
-             ],
+            ],
             subpage: [
                 {
                     name: "Mainstream Correlation",
@@ -86,7 +103,16 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                         first: "We are studying how manipulating different visual attributes within the scatterplots affect the way we perceive the information shown in the scatterplot, and whether we are able to see Weber and Fechner’s law hold true. We are currently manipulating the dots within the scatterplot (the effect of size, shape, colour, opacity etc.), before moving onto manipulating the dot cloud (number of dots, scale, location etc.), and finally manipulating the frame of the scatter plot with different border thickness, location of axes and so on. ",
                         second: "We are currently manipulating the dots within the scatterplot (the effect of size, shape, colour, opacity etc.), before moving onto manipulating the dot cloud (number of dots, scale, location etc.), and finally manipulating the frame of the scatter plot with different border thickness, location of axes and so on. Scatter plots represent the variability in a data set with a single visual variable, position, but there are others (ie: size, color, texture, and brightness) which could be used instead. For example, consider the two ring strip-plots below. They represent the same data-set as the scatter plots above, but they use ring-size rather than y-position to represent variability in one of the variables.",
                         emp: "To Do Please Add"
-                    }
+                    },
+                    galleryList: [
+                        {
+                            img: correlationMainStream1,
+                            title: "Figure 1.1",
+                            description:
+                                "Two ring plots where the y-value is represented by the ring size. High correlation (top) and low correlation (bottom)",
+                            cardType: "default",
+                        },
+                    ]
                 },
                 {
                     name: "Sequence Correlation",
@@ -94,9 +120,61 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                         first: "The Correlation Sequencing team is investigating the Perception of Correlation in scatter plots when shown only for a brief moment of time. We show participants to plots with a similar correlation level and try to reduce the difference between the correlation until we find the Just Noticeable Difference (JND for short). Traditionally, determining correlation in scatterplots has been a slow high-level cognitive process, like interpreting pictorial representations. However, there is evidence that scatterplot perception follows Weber’s law [https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law] which is usually associated with quick perceptual processes –  a linear relationship for discrimination and a logarithmic curve for estimation.",
                         second: "This project has been focused on replicating and expanding upon these foundational findings by running our experiments on a variety of graph designs. The “Sequencing” name came from the first condition we ran where the Scatterplots would be shown in a sequence, also known as the “Timing” condition. The two independent variables were the Base Correlation of the scatter plots (the intensity of the stimulus) and the duration the first scatter plot was shown for. The first graph was shown for only a brief moment of time to make sure it is being perceived by a visual process, which would be fast.",
                         emp: "To Do Please Add"
-                    }
+                    },
+                    galleryList: [
+                        {
+                            img: correlationSequence1,
+                            title: "Figure 1.1",
+                            description:
+                                "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
+                            cardType: "default",
+                        }, {
+                            img: correlationSequence2,
+                            title: "Figure 1.2",
+                            description:
+                                "The results from the original Rensink RA, and Baldridge G (2010) paper. Weber’s Law is showcased on the graph on the left while the confidence rating for each display timing is on the right.",
+                            cardType: "default",
+                        }, {
+                            img: correlationSequence3,
+                            title: "Figure 1.3",
+                            description:
+                                "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
+                            cardType: "default",
+                        },
+                        {
+                            img: correlationSequence4,
+                            title: "Figure 1.4",
+                            description:
+                                "A scatter plot and strip plot used to compare correlation between the two graphs.",
+                            cardType: "default",
+                        },
+                        {
+                            img: correlationSequence5,
+                            title: "Figure 1.5",
+                            description:
+                                "The precision graph from the side-by-side experiment showcasing Weber's Law being followed. The JND precision is proportional to the intensity of the stimulus (correlation)",
+                            cardType: "default",
+                        },
+
+                    ]
                 }
-            ]
+            ],
+            galleryList: [
+                {
+                    img: correlationGallery1,
+                    title: "Figure 1.1",
+                    description:
+                        "Two side-by-side scatter plots. The scatterplot on the left shows a high correlation while the one on the right shows a low correlation. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. We use classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision. Performance in this aspect is regular and well described by Weber and Fechner laws regardless of visual variable choice used to represent the data.",
+                    cardType: "default",
+                },
+                {
+                    img: correlationGallery2,
+                    title: "Figure 1.2",
+                    description:
+                        "Scatterplot image descriptions: scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
+                    cardType: "default",
+                },
+            ],
         },
         {
             name: "NOVA",
@@ -106,7 +184,44 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Rensink, R. A. (2005). Robust inattentional blindness. Journal of Vision, 5(8), 790: https://jov.arvojournals.org/article.aspx?articleid=2132583",
                     link: "https://jov.arvojournals.org/article.aspx?articleid=2132583"
                 }
-        ],
+            ],
+            galleryList: [
+                {
+                    img: nova1,
+                    title: "Figure 1.1",
+                    description:
+                        "The Money Business Illusion, colloquially referred to as the “gorilla video”, demonstrates multiple instances of the inattentional blindness phenomenon taking place. As described, participants are told to count how many times the basketball is passed between two groups of individuals (3 with black shirts, and 3 with white shirts). Video: https://www.youtube.com/watch?v=IGQmdoK_ZfY&ab_channel=DanielSimons",
+                    cardType: "default",
+                },
+                {
+                    img: nova2,
+                    title: "Figure 1.2",
+                    description:
+                        "The first, and most well-known instance is participants’ failure to notice the presence of a man in a gorilla suit walking across the screen, due to their attention being focused on the people passing the basketball to each other. ",
+                    cardType: "default",
+                },
+                {
+                    img: nova3,
+                    title: "Figure 1.3",
+                    description:
+                        "The second instance of inattentional blindness in the video is the participants’ failure to notice the colour of the curtain in the background changing partway through. The third example of this phenomenon is the participants’ failure to notice that one of the featured people (wearing a black shirt) leaves the scene entirely.",
+                    cardType: "default",
+                },
+                // {
+                //     img: correlationGallery1,
+                //     title: "Figure 1.4",
+                //     description:
+                //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                //     cardType: "default",
+                // },
+                // {
+                //     img: correlationGallery1,
+                //     title: "Figure 1.5",
+                //     description:
+                //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                //     cardType: "default",
+                // },
+            ],
             description: {
                 first: "The NOVA project studies the effects of Inattentional Blindness and cueing within a single paradigm. Inattentional Blindness is the phenomenon that occurs when something is plainly in the field of view but is not consciously percieved. This occurs the most when the viewer’s attention is focused intensely on something else in their field of view due to our limited capacity for attention being able to focus on a limited amount of things at the time. A famous example of this is the “Gorilla video” where the participants were asked to count the number of basketball tosses, and as a result they fail to see the person in a gorilla suit walk through the scene. Once the participant is informed about the gorilla, they are able to see it clearly the next time the video is watched. This means that Inattentional Blindness tasks can only be used once. The NOVA project, on the other hand, offers a robust way to test this phenomenon.",
                 second: "The NOVA project also focuses on Cueing. Cueing occurs when the viewer's attention is intentionally re-focused to another object without them realizing that this cue happened. For example, if the viewer sees an arrow pointing to an object, they will likely shift their attention to that object even if they did not consciously perceive the arrow.                Currently the NOVA project is looking at the differences in cueing effects when the viewers do not consciously perceive the cue versus when they do. Some of these conditions include more abstract symbols to test the boundaries of how much we know. The results from this project will hopefully help us understand more about the role of consciousness in visual perception.",
@@ -158,17 +273,33 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     position: "402 Student",
                     isCurrentMember: true,
                 }
-            ]
-        }, {
-            name: "Perceptual Modes",
-            publications: [
+            ],
+            qa: [
                 {
-                    name: "Example",
-                    citation: "Example",
-                    link: ""
-                }
+                    q: "What is Inattentional Blindness?",
+                    a: "Inattentional Blindness is the failure to see the presence of an item when it is not attended (Rensink, R. A., 2005). This means that even when something is within a person’s field of view, they don’t perceive it because their attention is not directed at it.",
+                },
+                {
+                    q: "How do you study Inattentional Blindness",
+                    a: "Most previous research on inattentional blindness used methodologies that were not robust. A famous example of this is the `Gorilla video` where the participants are told to count the number of basketball tosses, and as a result they fail to see the gorilla walk through in plain sight. Once they are informed about the gorilla, they are able to see it clearly the next time the video is watched, so the video can only be used once to demonstrate inattentional blindness. However, The NOVA project's paradigm offers a way to robustly test this phenomenon. We have two important aspects in our paradigm, one being our technique, in which the apperance of a briefly-presented test stimulus appeared the moment observers attended to somewhere else. With this, participants are repeatedly shown the experiment, but still can only allocate little attention to the cue when it appears. The other aspect is cueing. Cueing occurs when the viewers attention is intentionally re-focused to another object without them realizing that this cue happened. A directional cue can direct attention after a few milliseconds from its appearance (Gibson & Bryant, 2005). When cues are reported unseen, it suggested that participants never experienced them at all.",
+                },
+                {
+                    q: "What responsibilities can I expect in the team?",
+                    a: "As a co-pilot, you will be trained to collect data by running participants throught the experiment while on Zoom meetings and scheduling time slots on UBC’s Human Subject Pool website. As a volunteer research assistant, you will be expected to take on more responsibilities in the form of data analysis and condition creation, which involve learning technical skills in Visual Studio Code and Photoshop.                     ",
+                },
             ]
-        }, {
+        },
+        // {
+        //     name: "Perceptual Modes",
+        //     publications: [
+        //         {
+        //             name: "Example",
+        //             citation: "Example",
+        //             link: ""
+        //         }
+        //     ]
+        // }, 
+        {
             name: "SHIVA",
             description: {
                 first:
@@ -177,23 +308,80 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 second: "Work done in the UBC VCL has revealed the possibility that a person’s visual perceptual mode can be changed. The change is measured by the use of a visual search paradigm called visual search asymmetry. Thus far, it seems that our subjects are not willfully changing their mode of perception, but rather their perceptual mode changes because of specific external factors in their visual environment. Our subjects seem to be unaware of any perceptual mode change occurring, so it is likely a subconscious occurrence. \n\nThe SHIVA project is investigating factors which shift these visual perceptual modes. Some questions we ask are: What range of factors or external stimuli can affect these perceptual modes? To what degree are perceptual modes affected by these factors? Do some factors lose their effect on perceptual modes when certain other factors are present?",
                 emp: `The SHIVA project arose from an interest in how culture may have a significant effect on the mode of visual perception a person uses.`
             },
+            galleryList: [
+                {
+                    img: shiva1,
+                    title: "Figure 1.1",
+                    description: "Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right). ",
+                    cardType: "default",
+                },
+                {
+                    img: shiva2,
+                    title: "Figure 1.2",
+                    description: "Example of a short line target amongst long line distractors (left) and a long line target amongst short line stimuli (right).",
+                    cardType: "default",
+                },
+            ],
             publications: [
                 {
                     name: "Asymmetries in visual search: An introduction (2001)",
                     citation: "Wolfe, J. M. (2001). Asymmetries in visual search: An introduction. Perception & Psychophysics, 63(3), 381-389. doi:10.3758/BF03194406. https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf",
                     link: "https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf"
                 }
+            ],
+            members: [
+                {
+                    name: "Sogol Ghattan",
+                    position: "Project Leader",
+                    education: "",
+                    email: "",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Stephen Li",
+                    position: "Volunteer",
+                    education: "",
+                    email: "",
+                    isCurrentMember: true,
+                },
+                {
+                    name: "Danny Yu",
+                    position: "Volunteer",
+                    education: "",
+                    email: "",
+                    isCurrentMember: true,
+                },
+            ],
+            testimonials: [
+                {
+                    name: "Danny",
+                    position: "Volunteer",
+                    description: "When I entered the team as a first-year, I had limited knowledge about the research process, how it is conducted and what it means to be a responsible researcher. I joined the lab in hopes of getting exposure to research environments and being able to apply theories learned in class to the real world. Not only did SHIVA satisfy my interests, but it encouraged me to think critically about the research that I am producing. I learned new applications in R, discussed ideas with other researchers, and developed a better understanding of research. I highly recommend anyone to apply and not be apprehensive by a lack of experience",
+                    cardType: 'no-photo-test'
+                }, {
+                    name: "Stephen",
+                    position: "Volunteer",
+                    description: "I joined the SHIVA team because I was looking for a topic that I would be interested in for my COGS 402. My experience has been extremely positive, the work environment is productive and friendly. Mistakes can happen, but they’re resolved kindly and effectively. I have learned a lot about the research process, from running participants to detailed data analysis with R, as well as soft skills such as communicating effectively.",
+                    cardType: 'no-photo-test'
+                },
             ]
-        }, {
+        },
+        {
             name: "Ideo",
             description: {
                 first: "What is the Ouija board? The Ouija board is used as a divination technique to find answers to questions. This is done by putting your hands on the planchette, asking the board a question, then letting the planchette move to the letters/words on the board. This can be explained by ideomotor effects. In this study we compare the differences between conscious and unconscious knowledge.",
                 second: " Using the ouija board as a medium, we investigate whether the unconscious mind knows more than the conscious mind. By asking questions to participants and measuring accuracies across experimental modes, a deeper understanding of unconscious knowledge can be achieved.",
                 emp: "Who is really behind the movements of the planchette? Can this phenomenon be explained by psychology?"
             },
-            qa: [{
-                q: "What is implicit cognition?", a: "Implicit cognition can be described as cognition that is beyond our conscious control. It can include a variety of different types of cognition: learning, memory, social, emotion, and many more. Given the unconscious nature of this area of study, there are no “direct” ways of studying implicit cognition. The Ideo project uses ideomotor effects to explore the inner-workings of implicit cognition. Ideomotor effects are actions that are not perceived as intentional, but seem to emerge with no identifiable source; often associated with a sense of involuntariness. They are unconscious movements that happen in response to knowledge or information that you may have come across in the past. A few applications of this ideomotor effect are the ouija board and the hand-held pendulum, which Gachou et al. (2012) and Olson et al. (2017) have explored. This project is currently conducting a study to explore implicit cognition and ideomotor effects: Ouija. The goal of this project is to test if a device based on the use of ideomotor effects can bypass explicit cognition and access implicit cognition."
-            }],
+            qa: [
+                {
+                    q: "What is implicit cognition?", a: "Implicit cognition can be described as cognition that is beyond our conscious control. It can include a variety of different types of cognition: learning, memory, social, emotion, and many more. Given the unconscious nature of this area of study, there are no “direct” ways of studying implicit cognition. The Ideo project uses ideomotor effects to explore the inner-workings of implicit cognition. Ideomotor effects are actions that are not perceived as intentional, but seem to emerge with no identifiable source; often associated with a sense of involuntariness. They are unconscious movements that happen in response to knowledge or information that you may have come across in the past. A few applications of this ideomotor effect are the ouija board and the hand-held pendulum, which Gachou et al. (2012) and Olson et al. (2017) have explored. This project is currently conducting a study to explore implicit cognition and ideomotor effects: Ouija. The goal of this project is to test if a device based on the use of ideomotor effects can bypass explicit cognition and access implicit cognition."
+                },
+                {
+                    q: "What are Ideomotor effects?",
+                    a: "Ideomotor effects are actions that are not perceived as intentional, but seem to emerge with no identifiable source; often associated with a sense of involuntariness. They are unconscious movements that happen in response to knowledge or information that you may have come across in the past. A few applications of this ideomotor effect are the ouija board and the hand-held pendulum, which Gachou et al. (2012) and Olson et al. (2017) have explored. This project is currently conducting a study to explore implicit cognition and ideomotor effects: Ouija. The goal of this project is to test if a device based on the use of ideomotor effects can bypass explicit cognition and access implicit cognition."
+                },
+            ],
             joinTeam: {
                 whatWeDo: [
                     "The project's primary objective is to replicate the findings originally obtained by Gauchou et al. in their 2012 study. Additionally, we aim to explore the impact of introducing new sets of questions and implementing certain modifications to the experiment's design. Our research team is composed of dedicated research assistants, volunteers, and co-pilots, all working collaboratively to execute this investigation effectively. To facilitate coordination and progress tracking, we have scheduled weekly meetings where we discuss the developments and outcomes of the ongoing week.",
@@ -211,13 +399,13 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Pfister, R., Kiesel, A., & Melcher, T. (2010). Adaptive control of ideomotor effect anticipations. Acta Psychologica, 135(3), 316-322. https://doi.org/10.1016/j.actpsy.2010.08.006",
                     link: "https://www.sciencedirect.com/science/article/pii/S0001691810001800"
                 },
-            ], 
+            ],
             members: [
                 {
                     name: "Janavi Nainani",
                     position: "Research Assistant (Team Lead)",
                     isCurrentMember: true,
-                    
+
                 },
                 {
                     name: "Parisa Zaini",
@@ -244,14 +432,32 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     position: "Co-pilot",
                     isCurrentMember: true,
                 },
-            ]
+            ],
+            galleryList: [
+                {
+                    img: ideo1,
+                    title: "Figure 1.1",
+                    description: "Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    cardType: "default",
+                },
+                {
+                    img: ideo2,
+                    title: "Figure 1.2",
+                    description: "Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    cardType: "default",
+                },
+            ],
+            testimonials: [
+                {
+                    name: "John Doe",
+                    position: "Volunteer",
+                    description: "VCL is an open door for those who wants to learn. From statistical analysis to running experiments, VCL is a great place to start a hands on experience in a lab. There is still much to be explored about our unconscious knowledge and it's a privilege to be able to study it with amazing people.",
+                    cardType: 'no-photo-test'
+                }
+            ],
+
         }, {
             name: "Dormant",
-            publications: [
-            ]
-        },
-        {
-            name: "NCIS",
             publications: [
             ]
         },
@@ -327,12 +533,26 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Rensink, R. (2004). The Invariance of Visual Search to Geometric Transformation. Journal of Vision, 4(8), 178. http://jov.arvojournals.org/article.aspx?articleid=2130823",
                     link: "http://jov.arvojournals.org/article.aspx?articleid=2130823"
                 }
+            ],
+            galleryList: [
+                {
+                    img: it1,
+                    title: "Figure 1.1",
+                    description: "",
+                    cardType: "default",
+                }, {
+                    img: it2,
+                    title: "Figure 1.2",
+                    description: "",
+                    cardType: "default",
+                },
             ]
-        }, {
+        },
+        {
             name: 'NCIS',
             description: {
                 first: 'Nautical Crime Investigation Services Corp. (NCIS) is a startup based in Vancouver. NCIS develops AI and hardware maritime defence technologies to detect and deter criminal activities at sea.',
-                second: '',
+                second: 'Through its research and development process, NCIS embraces collaboration and partnerships between academia, industry, NGOs and government entities. We welcome applications from motivated students who are looking to apply their academic knowledge to finding real world solutions to this century’s number one problem in the oceans.',
             },
             joinTeam: {
                 whatWeDo: [

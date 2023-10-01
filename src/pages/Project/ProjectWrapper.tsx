@@ -20,6 +20,8 @@ import shiva1 from "@statics/images/shiva/shiva1.png";
 import shiva2 from "@statics/images/shiva/shiva2.png";
 import ideo1 from "@statics/images/ideo/ideo1.png";
 import ideo2 from "@statics/images/ideo/ideo2.png";
+import it1 from "@statics/images/it/it1.png";
+import it2 from "@statics/images/it/it2.png";
 
 interface MatchParams {
     project_id: string;
@@ -107,7 +109,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                             img: correlationMainStream1,
                             title: "Figure 1.1",
                             description:
-                            "Two ring plots where the y-value is represented by the ring size. High correlation (top) and low correlation (bottom)",
+                                "Two ring plots where the y-value is represented by the ring size. High correlation (top) and low correlation (bottom)",
                             cardType: "default",
                         },
                     ]
@@ -124,33 +126,33 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                             img: correlationSequence1,
                             title: "Figure 1.1",
                             description:
-                            "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
+                                "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
                             cardType: "default",
-                        },{
+                        }, {
                             img: correlationSequence2,
                             title: "Figure 1.2",
                             description:
-                            "The results from the original Rensink RA, and Baldridge G (2010) paper. Weber’s Law is showcased on the graph on the left while the confidence rating for each display timing is on the right.",
+                                "The results from the original Rensink RA, and Baldridge G (2010) paper. Weber’s Law is showcased on the graph on the left while the confidence rating for each display timing is on the right.",
                             cardType: "default",
-                        },{
+                        }, {
                             img: correlationSequence3,
                             title: "Figure 1.3",
                             description:
-                            "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
+                                "Side-by-side sequencing experiment design showcasing the graph sequence. First the two side-by-side scatter plots are shown for 100/ 400/ 1600 ms, followed by a mask shown for 200 ms, followed by the blank screen that is shown indefinitely where the participant makes the decision.",
                             cardType: "default",
                         },
                         {
                             img: correlationSequence4,
                             title: "Figure 1.4",
                             description:
-                            "A scatter plot and strip plot used to compare correlation between the two graphs.",
+                                "A scatter plot and strip plot used to compare correlation between the two graphs.",
                             cardType: "default",
                         },
                         {
                             img: correlationSequence5,
                             title: "Figure 1.5",
                             description:
-                            "The precision graph from the side-by-side experiment showcasing Weber's Law being followed. The JND precision is proportional to the intensity of the stimulus (correlation)",
+                                "The precision graph from the side-by-side experiment showcasing Weber's Law being followed. The JND precision is proportional to the intensity of the stimulus (correlation)",
                             cardType: "default",
                         },
 
@@ -272,7 +274,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     isCurrentMember: true,
                 }
             ]
-        }, 
+        },
         // {
         //     name: "Perceptual Modes",
         //     publications: [
@@ -296,13 +298,13 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 {
                     img: shiva1,
                     title: "Figure 1.1",
-                    description:"",
+                    description: "Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right). ",
                     cardType: "default",
                 },
                 {
                     img: shiva2,
                     title: "Figure 1.2",
-                    description:"",
+                    description: "Example of a short line target amongst long line distractors (left) and a long line target amongst short line stimuli (right).",
                     cardType: "default",
                 },
             ],
@@ -312,7 +314,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Wolfe, J. M. (2001). Asymmetries in visual search: An introduction. Perception & Psychophysics, 63(3), 381-389. doi:10.3758/BF03194406. https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf",
                     link: "https://search.bwh.harvard.edu/new/pubs/IntrotoSearchAsym.pdf"
                 }
-            ],members: [
+            ], members: [
                 {
                     name: "Sogol Ghattan",
                     position: "Project Leader",
@@ -334,9 +336,23 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     email: "",
                     isCurrentMember: true,
                 },
+            ],
+            testimonials: [
+                {
+                    name: "Danny",
+                    position: "Volunteer",
+                    description: "When I entered the team as a first-year, I had limited knowledge about the research process, how it is conducted and what it means to be a responsible researcher. I joined the lab in hopes of getting exposure to research environments and being able to apply theories learned in class to the real world. Not only did SHIVA satisfy my interests, but it encouraged me to think critically about the research that I am producing. I learned new applications in R, discussed ideas with other researchers, and developed a better understanding of research. I highly recommend anyone to apply and not be apprehensive by a lack of experience",
+                    cardType: 'no-photo-test'
+                }, {
+                    name: "Stephen",
+                    position: "Volunteer",
+                    description: "I joined the SHIVA team because I was looking for a topic that I would be interested in for my COGS 402. My experience has been extremely positive, the work environment is productive and friendly. Mistakes can happen, but they’re resolved kindly and effectively. I have learned a lot about the research process, from running participants to detailed data analysis with R, as well as soft skills such as communicating effectively.",
+                    cardType: 'no-photo-test'
+                },
             ]
 
-        }, 
+
+        },
         {
             name: "Ideo",
             description: {
@@ -402,15 +418,23 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                 {
                     img: ideo1,
                     title: "Figure 1.1",
-                    description:"Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    description: "Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
                     cardType: "default",
                 },
                 {
                     img: ideo2,
                     title: "Figure 1.2",
-                    description:"Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
+                    description: "Example of a cirlce target amongst bisected circle distractors (left) and a bisected circle target amongst circle distractors (right).",
                     cardType: "default",
                 },
+            ],
+            testimonials: [
+                {
+                    name: "John Doe",
+                    position: "Volunteer",
+                    description: "VCL is an open door for those who wants to learn. From statistical analysis to running experiments, VCL is a great place to start a hands on experience in a lab. There is still much to be explored about our unconscious knowledge and it's a privilege to be able to study it with amazing people.",
+                    cardType: 'no-photo-test'
+                }
             ]
         }, {
             name: "Dormant",
@@ -494,6 +518,19 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
                     citation: "Rensink, R. (2004). The Invariance of Visual Search to Geometric Transformation. Journal of Vision, 4(8), 178. http://jov.arvojournals.org/article.aspx?articleid=2130823",
                     link: "http://jov.arvojournals.org/article.aspx?articleid=2130823"
                 }
+            ],
+            galleryList: [
+                {
+                    img: it1,
+                    title: "Figure 1.1",
+                    description: "",
+                    cardType: "default",
+                },{
+                    img: it2,
+                    title: "Figure 1.2",
+                    description: "",
+                    cardType: "default",
+                },
             ]
         }, {
             name: 'NCIS',

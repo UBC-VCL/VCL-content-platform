@@ -35,4 +35,6 @@ export interface Project {
     publications?: Publication[],
     subpage?:Project[],
     galleryList?: SlideShowOBJ[],
+    testimonials?: SlideShowOBJ[]
+    
 }

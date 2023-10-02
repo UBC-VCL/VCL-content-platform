@@ -64,6 +64,11 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           isCurrentMember: true,
         },
         {
+          name: "Ford Atwater",
+          position: "Project Leader",
+          isCurrentMember: false,
+        },
+        {
           name: "Rishika Aggarwal",
           position: "Project Secondary",
           isCurrentMember: true,
@@ -88,11 +93,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           position: "Co-pilot",
           isCurrentMember: true,
         },
-        {
-          name: "Ford Atwater ",
-          position: "Co-pilot",
-          isCurrentMember: false,
-        },
+        
         {
           name: "Nicolas Navarre",
           position: "Co-pilot",
@@ -324,6 +325,19 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           a: "As a co-pilot, you will be trained to collect data by running participants throught the experiment while on Zoom meetings and scheduling time slots on UBC’s Human Subject Pool website. As a volunteer research assistant, you will be expected to take on more responsibilities in the form of data analysis and condition creation, which involve learning technical skills in Visual Studio Code and Photoshop.                     ",
         },
       ],
+      testimonials: [
+        {
+          cardType:"no-photo-test",
+          description:"I joined NOVA midway through my fourth year, and by that point, it was easy to feel like I was playing catch up with gaining research experience. Fortunately for me, my first term as a Co-Pilot showed me just how irrational those worries were with how seamlessly my training went and how rewarding the process of learning new skills was. My teammates were welcoming and my project leader was patient and communicative with me throughout the training process. By the time the next term had come around, I felt so at home that I’ve continued working here for another full year.",
+          name:"Tsubasa",
+        },
+      ],
+      joinTeam: {
+        whatWeDo: ["The NOVA team follows a weekly routine for collecting, analyzing and reporting about data. Every member of the team, from the project leader to the co-pilots, is trained expected to learn how to schedule meetings with participants through UBC’s Human Subject Pool website. Through HSP, meetings are scheduled with participants to run them through the experimental process for an hour, answering any questions or troubleshooting technical issues along the way. Once a week’s worth of data is collected, volunteers and research assistants analyze the data through Python on Microsoft Visual Studio Code. The analysis results are then reported to the principal investor and recorded in a shared document. Based on whether the analysis yields noteworthy results, the team may continue to run the current conditions or create a novel condition with a visual stimulus graphic."]
+
+      }
+      
+
     },
     // {
     //     name: "Perceptual Modes",

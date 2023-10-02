@@ -12,7 +12,6 @@ interface PersonDetails {
   name: string;
   involvement: string;
   description: string;
-  blurb: string;
   email: string;
   phone: string;
   linkedIn: string;

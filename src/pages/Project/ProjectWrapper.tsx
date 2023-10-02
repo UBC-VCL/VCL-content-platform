@@ -209,6 +209,32 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           cardType: "default",
         },
       ],
+      testimonials: [
+        {
+          name:'Jose Navarro',
+          position: 'Team Lead',
+          description: 'Being a member of the correlation team has provided me great experience not only as a developer and researcher, but also as a team member and team leader.',
+          cardType: 'no-photo-test'
+        },
+        {
+          name:'Dusty Fox',
+          position: 'Co-pilot',
+          description: 'Working at the lab on the correlation project has been a really educational experience! I`ve learned so much about how labs operate in practice and being able to actively participate in research has been exciting.',
+          cardType: 'no-photo-test'
+        },
+        {
+          name:'Aaron Wong',
+          position: 'Co-pilot',
+          description: 'Being on the correlation team is a very welcoming and enlightening experience. Everyone on the team is extremely friendly and patient and I would highly recommend anyone who wants to start their journey into research to start here.',
+          cardType: 'no-photo-test'
+        },
+        {
+          name:'Richard Mao',
+          position: 'Co-pilot',
+          description: 'During my time on the team, I have gained valuable insights and experience into the world of research. It has helped me a lot in my pursuit of both academic and career endeavors.',
+          cardType: 'no-photo-test'
+        },
+      ]
     },
     {
       name: "NOVA",

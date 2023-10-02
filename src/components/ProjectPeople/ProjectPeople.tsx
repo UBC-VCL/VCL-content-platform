@@ -44,7 +44,7 @@ export const Person: React.FC<PersonDetails> = (props) => {
       {IS_WIP && (
         <div className="card__contact">
           <div id="contact-container">
-            <div className="contact-info-row">
+            {/* <div className="contact-info-row">
               <EmailIcon className="icon icon--contact" />
               <a
                 href={`mailto:${props.email}`}
@@ -52,8 +52,8 @@ export const Person: React.FC<PersonDetails> = (props) => {
               >
                 {props.email}
               </a>
-            </div>
-            <div className="contact-info-row">
+            </div> */}
+            {/* <div className="contact-info-row">
               <PhoneIcon className="icon icon--contact" />
               <a
                 href={`tel:${props.phone}`}
@@ -70,7 +70,7 @@ export const Person: React.FC<PersonDetails> = (props) => {
               >
                 {props.linkedIn}
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

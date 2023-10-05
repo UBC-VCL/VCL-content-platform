@@ -7,7 +7,7 @@
 #info-section {
   display: flex;
   flex-direction: column;
-  max-width: 40%;
+  width: 50%;
   flex: 1;
   margin-top: 13%;
   margin-right: 3%;
@@ -60,18 +60,13 @@ a:hover {
 #landing-page-img-container {
   margin-top: 13%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  overflow: hidden;
-  max-width: 50%;
+  align-items: center;
 }
 
-#landing-page-img-placeholder {
-  background: #c4c4c4;
-  padding: 10px;
-  width: 491px;
-  height: 296px;
-  flex: 1;
+.landing-page-logo {
+  width: 300px;
+  height: 300px;
 }
 
 @media (max-width: 1023px) {
@@ -103,16 +98,17 @@ a:hover {
   }
 
   #landing-page-img-container {
-    margin: auto;
-    margin-top: 50px;
-    justify-content: center;
-    overflow: hidden;
-    height: 150px;
+    height: 0;
+    visibility: hidden;
   }
 }
 
 @media (max-width: 768px) {
   #landing-page-container {
+    width: 100%;
+  }
+
+  #info-section {
     width: 100%;
   }
 }

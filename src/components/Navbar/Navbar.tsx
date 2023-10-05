@@ -1,5 +1,5 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useLocation } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -8,19 +8,22 @@ import {
   Menu,
   MenuItem,
   Button,
-} from '@mui/material';
-import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
-import { useHandleLogout } from '@services/authService';
-import { useAppDispatch, useAppSelector } from '@redux/hooks';
-import { appActions } from '@redux/slices/AppRedux';
-import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
-import { selectProjects } from '@redux/slices/ProjectRedux';
-import GenericLink from '@components/generics/Link';
-import './Navbar.css';
-import { ReactComponent as SearchIcon } from '@statics/images/search-icon.svg';
-import VCLIcon from '@statics/images/vcl-logo-2023.png';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import MobileMenu from '@components/MobileNavbar';
+} from "@mui/material";
+import { NAV, TEXT, CONSTANTS, ROUTES } from "@statics";
+import { useHandleLogout } from "@services/authService";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { appActions } from "@redux/slices/AppRedux";
+import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
+import { selectProjects } from "@redux/slices/ProjectRedux";
+import GenericLink from "@components/generics/Link";
+import "./Navbar.css";
+import { ReactComponent as SearchIcon } from "@statics/images/search-icon.svg";
+import VCLIcon from "@statics/images/vcl-logo-2023.png";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MobileMenu from "@components/MobileNavbar";
+require("dotenv").config();
+
+const IS_WIP = process.env.REACT_APP_WIP === 'development';
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();
@@ -73,14 +76,14 @@ const Navbar: React.FC<{}> = () => {
     setProjectAnchorEl(null);
   };
 
-  window.addEventListener('handlePageChange', (event) => {});
+  window.addEventListener("handlePageChange", (event) => {});
 
   //projects = useAppSelector(selectProjects)
 
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
-    let active = REF === location.pathname ? 'active' : '';
+    let active = REF === location.pathname ? "active" : "";
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
-      active = location.pathname.includes(REF) ? 'active' : '';
+      active = location.pathname.includes(REF) ? "active" : "";
     }
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
@@ -100,7 +103,7 @@ const Navbar: React.FC<{}> = () => {
             open={projectOpen}
             onClose={handleProjectMenuClose}
             MenuListProps={{
-              'aria-labelledby': 'basic-button',
+              "aria-labelledby": "basic-button",
             }}
           >
             <MenuItem onClick={handleProjectMenuClose}>
@@ -112,14 +115,13 @@ const Navbar: React.FC<{}> = () => {
               <hr className="all-projects-underline" />
             </MenuItem>
             {CONSTANTS.PROJECTS.map((project, i) => {
-              console.log(location.pathname.split('/')[2], project.name);
               return (
                 <MenuItem key={i} onClick={handleProjectMenuClose}>
                   <GenericLink
                     className={`nav-link project-name ${
-                      location.pathname.split('/')[2] === project.name
-                        ? 'active'
-                        : ''
+                      location.pathname.split("/")[2] === project.name
+                        ? "active"
+                        : ""
                     }`}
                     name={project.name}
                     to={`${ROUTES.PROJECT.BASE}/${project.name}`}
@@ -135,7 +137,7 @@ const Navbar: React.FC<{}> = () => {
         <GenericLink
           key={REF}
           name={TITLE}
-          to={REF}
+          to={REF!}
           className={`nav-link ${active}`}
         />
       );
@@ -157,9 +159,11 @@ const Navbar: React.FC<{}> = () => {
           <div className="nav-right">
             <span className="nav-rendered-links">{renderedLinks}</span>
             <div className="nav-icon-container">
-              <IconButton onClick={handleSearchBtnClick}>
-                <SearchIcon />
-              </IconButton>
+              {IS_WIP && (
+                <IconButton onClick={handleSearchBtnClick}>
+                  <SearchIcon />
+                </IconButton>
+              )}
               <IconButton onClick={handleMenuClick}>
                 <AccountCircleIcon />
               </IconButton>
@@ -171,7 +175,7 @@ const Navbar: React.FC<{}> = () => {
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
             MenuListProps={{
-              'aria-labelledby': 'menu-button',
+              "aria-labelledby": "menu-button",
             }}
           >
             {isLoggedIn ? (

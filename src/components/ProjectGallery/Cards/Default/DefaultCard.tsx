@@ -18,7 +18,7 @@ const DefaultCard = (props: PropsOBJ) => {
                 <img src={imgSrc} alt='' className='gallery-img' />
             </div>
             <h1 className='gallery-title'>{title}</h1>
-            <p className='gallery-description'>L{description}</p>
+            <p className='gallery-description'>{description}</p>
         </div>
     )
 }

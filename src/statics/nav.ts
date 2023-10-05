@@ -1,7 +1,11 @@
 import ROUTES from "./routes";
 import TEXT from "./text";
 
-const NAV = [
+require('dotenv').config();
+
+const IS_WIP = process.env.REACT_APP_WIP === 'development';
+
+const baseNav = [
 	{
 		TITLE: TEXT.PAGE_TITLES.HOME,
 		REF: ROUTES.HOME
@@ -18,14 +22,21 @@ const NAV = [
 		TITLE: TEXT.PAGE_TITLES.GET_INVOLVED,
 		REF: ROUTES.GET_INVOLVED
 	},
-	{
-		TITLE: TEXT.PAGE_TITLES.TIMELINE,
-		REF: ROUTES.TIMELINE
-	},
-	{
-		TITLE: TEXT.PAGE_TITLES.RESOURCES,
-		REF: ROUTES.RESOURCES
-	}
+	...(IS_WIP
+		? [
+			{
+				TITLE: TEXT.PAGE_TITLES.TIMELINE,
+				REF: ROUTES.TIMELINE
+			},
+			{
+				TITLE: TEXT.PAGE_TITLES.RESOURCES,
+				REF: ROUTES.RESOURCES
+			},
+		]
+		: []),
+	
 ];
+
+const NAV = baseNav;
 
 export default NAV;

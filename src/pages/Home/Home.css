@@ -84,9 +84,35 @@
   background-color: #77b0f3;
 }
 
+.project-logos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.project-logos-container > a {
+  text-decoration: none;
+  color: black;
+}
+
+.project-logo {
+  transition: all 0.2s ease-in-out;
+}
+
+.project-logo:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .project-logos-img {
-  width: 50%;
-  height: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.logo-name {
+  text-align: center;
+  font-weight: bold;
 }
 
 @media (max-width: 1023px) {
@@ -118,6 +144,17 @@
   .projects-img-container {
     width: 100%;
     flex-direction: column;
+  }
+
+  .project-logos-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
   }
 
   .mission-statement {

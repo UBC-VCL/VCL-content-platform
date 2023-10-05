@@ -6,6 +6,7 @@ import { useHandleGetAllProjects } from "@services/projectService";
 import Switch from "./Switch";
 import Modals from "./Modals";
 import Footer from "@components/Footer";
+import ScrollToTop from "./ScrollToTop";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Switch />
         <Modals />

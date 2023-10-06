@@ -10,6 +10,7 @@ import { MdAccountCircle } from "react-icons/md";
 import Alert from "@mui/material/Alert";
 import TEXT from '@statics/text';
 import { TailSpin } from 'react-loading-icons'
+import { CircularProgress} from '@mui/material';
 
 
 
@@ -121,7 +122,7 @@ const People = () => {
           <div className="member-list">
             {
                 svgView ?
-                <TailSpin stroke="#000000" speed={0.75}></TailSpin> : (
+                <CircularProgress></CircularProgress> : (
                     resSuccess ? 
             (
               currentList.filter((item) => {return (item.position.toLowerCase() === currentProject.toLowerCase() ||item.project.toLowerCase() === currentProject.toLowerCase());
@@ -164,7 +165,7 @@ const People = () => {
                   })
               ) 
             : (
-                <Alert severity="warning" className="people-page-prompt-string">
+                <Alert severity="info" className="people-page-prompt-string">
                   {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}
                 </Alert>
               )

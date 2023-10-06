@@ -1,3 +1,5 @@
+import { SlideShowOBJ } from "@pages/Project/types";
+
 interface Member {
     name: string,
     position: string,
@@ -31,8 +33,8 @@ export interface Project {
         whatWeDo: string[]
     },
     publications?: Publication[],
-    subpage?: {
-        name: string,
-        description: Description
-    }[]
+    subpage?:Project[],
+    galleryList?: SlideShowOBJ[],
+    testimonials?: SlideShowOBJ[]
+    
 }

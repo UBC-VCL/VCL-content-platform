@@ -7,25 +7,22 @@ import dotenv from "dotenv";
 import { AiFillLinkedin, AiFillPhone } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { MdAccountCircle } from "react-icons/md";
+import Alert from "@mui/material/Alert";
+import TEXT from '@statics/text';
+import { TailSpin } from 'react-loading-icons'
+
+
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
 const IS_WIP = process.env.REACT_APP_WIP === "development";
 
 const People = () => {
-
   interface MemberOBJ {
     name: NameInfo;
     project: string;
     position: string;
-    contact: ContactInfo;
     blurb?: string;
-  }
-
-  interface ContactInfo {
-    email?: string;
-    linkedIn?: string;
-    phoneNumber?: string;
   }
 
   interface NameInfo {
@@ -42,82 +39,45 @@ const People = () => {
     "Perceptual Modes",
   ];
 
-  // I am not sure if this something that should be kept but this an example of what the array would look like from the backend
-  const memberDummyList: Array<MemberOBJ> = [
-    {
-      name: { firstname: "John", lastname: "Doe" },
-      project: "Correlation",
-      position: "Something1",
-      contact: {
-        linkedIn: "ryanyae",
-        email: "123456@gmail.com",
-        phoneNumber: "(123)-456-7890",
-      },
-    },
-    {
-      name: { firstname: "Jane", lastname: "Doe" },
-      project: "IDEO",
-      position: "Something2",
-      contact: { linkedIn: "ryanyae", email: "123456@gmail.com" },
-    },
-    {
-      name: { firstname: "JKoe", lastname: "Doe" },
-      project: "IT",
-      position: "Something3",
-      contact: { linkedIn: "ryanyae", email: "123456@gmail.com" },
-    },
-    {
-      name: { firstname: "Jane", lastname: "Doe" },
-      project: "NOVA",
-      position: "Something4",
-      contact: { linkedIn: "ryanyae", email: "123456@gmail.com" },
-    },
-    {
-      name: { firstname: "Jane", lastname: "Doe" },
-      project: "Perceptual Modes",
-      position: "Something5",
-      contact: { linkedIn: "ryanyae", email: "123456@gmail.com" },
-    },
-    {
-      name: { firstname: "Jane", lastname: "Doe" },
-      project: "Perceptual Modes",
-      position: "Supervisors",
-      contact: { linkedIn: "ryanyae", email: "123456@gmail.com" },
-    },
-  ];
-
   // the page will be defaulted to bein on the first grid item
   const [currentProject, setCurrProject] = useState<string>(dummyList[0]);
 
   const [currentList, setList] = useState<Array<MemberOBJ>>([]);
 
+  const [resSuccess, setSuccess] = useState<boolean>(false);
+
+  const [svgView, setSvgView] = useState<boolean>(true);
+
   // This is for styles, will highlight the first select nav-item for the user
   useEffect(() => {
+    loadingTimer(2000)
     getMembers();
     document
       .getElementById(dummyList[0].toLowerCase())!
       .classList.add("selected-item");
   }, []);
 
+
+  // timer in milliseconds, sets how long the loading icon should be shown.
+  // for now it is hardcoded timer because the calls that we make on this page is very fast so
+  //    setting the state of svgView in the API call will only show the icon for not even 1 second.
+  const loadingTimer = (timer:number) => {
+    setTimeout(() => {
+        setSvgView(false);
+      }, timer);
+  }
+
   const getMembers = async () => {
     axios
       .get(`${baseURL}/api/members`)
-      .then((response) => setList(response.data.data))
+      .then((response) => {
+        setList(response.data.data);
+        setSuccess(true);
+      })
       .catch((err) => {
         // do nothing with the error
         // console.log(err);
       });
-  };
-
-  const contactIcons = (key: string): JSX.Element => {
-    switch (key) {
-      case "linkedIn":
-        return <AiFillLinkedin size={20} className={"contact-icon"} />;
-      case "email":
-        return <MdEmail size={20} className={"contact-icon"} />;
-      default:
-        return <AiFillPhone size={20} className={"contact-icon"} />;
-    }
   };
 
   return (
@@ -159,41 +119,63 @@ const People = () => {
         </div>
         <div className="content-display">
           <div className="member-list">
-            {currentList
-              .filter((item) => {
-                return (
-                  item.position.toLowerCase() ===
-                    currentProject.toLowerCase() ||
-                  item.project.toLowerCase() === currentProject.toLowerCase()
-                );
-              })
-              .map((item, index) => {
-                return (
-                  <div key={index} className="people-lab-member">
-                    <div className="icon-container">
-                      <MdAccountCircle
-                        // className='icon'
-                        size={125}
-                      />
-                    </div>
-                    <div className="info-container">
-                      <div className="name">
-                        <h2>
-                          {item.name.firstname + " " + item.name.lastname}
-                        </h2>
+            {
+                svgView ?
+                <TailSpin stroke="#000000" speed={0.75}></TailSpin> : (
+                    resSuccess ? 
+            (
+              currentList.filter((item) => {return (item.position.toLowerCase() === currentProject.toLowerCase() ||item.project.toLowerCase() === currentProject.toLowerCase());
+              }).length > 0 ? (
+                currentList
+                  .filter((item) => {
+                    return (
+                      item.position.toLowerCase() ===
+                        currentProject.toLowerCase() ||
+                      item.project.toLowerCase() ===
+                        currentProject.toLowerCase()
+                    );
+                  })
+                  .map((item, index) => {
+                    return (
+                      <div key={index} className="people-lab-member">
+                        <div className="icon-container">
+                          <MdAccountCircle
+                            // className='icon'
+                            size={125}
+                          />
+                        </div>
+                        <div className="info-container">
+                          <div className="name">
+                            <h2>
+                              {item.name.firstname + " " + item.name.lastname}
+                            </h2>
+                          </div>
+                          <div className="position">
+                            <h3>{item.position}</h3>
+                          </div>
+                          <div className="message">
+                            {item.blurb
+                              ? item.blurb
+                              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+                          </div>
+                        </div>
                       </div>
-                      <div className="position">
-                        <h3>{item.position}</h3>
-                      </div>
-                      <div className="message">
-                        {item.blurb
-                          ? item.blurb
-                          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                    );
+                  })
+              ) 
+            : (
+                <Alert severity="warning" className="people-page-prompt-string">
+                  {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}
+                </Alert>
+              )
+            ) 
+            : (
+              <Alert severity="error" className="people-page-prompt-string">
+                    {TEXT.PEOPLE_PAGE.RESPONSE_ERROR}
+              </Alert>
+            )
+                )
+            }
           </div>
         </div>
       </div>

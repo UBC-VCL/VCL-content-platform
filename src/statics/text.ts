@@ -218,7 +218,10 @@ const TEXT = {
         },
       },
     },
-  },
+  },PEOPLE_PAGE: {
+    EMPTY_DISPLAY_LIST: "Oops! No Members Found, Try Another Section!",
+    RESPONSE_ERROR: "Something Went Wrong! Check Your Connection!"
+  }
 } as const;
 
 export default TEXT;

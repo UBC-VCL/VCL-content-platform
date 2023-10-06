@@ -9,7 +9,6 @@ import { MdEmail } from "react-icons/md";
 import { MdAccountCircle } from "react-icons/md";
 import Alert from "@mui/material/Alert";
 import TEXT from '@statics/text';
-import { TailSpin } from 'react-loading-icons'
 import { CircularProgress} from '@mui/material';
 
 

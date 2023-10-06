@@ -17,7 +17,7 @@ const People = () => {
         name: NameInfo,
         project: string,
         position: string,
-        contact: ContactInfo,
+        contact?: ContactInfo,
         message?: string
     }
 
@@ -88,31 +88,22 @@ const People = () => {
         document.getElementById(dummyList[0].toLowerCase())!.classList.add('selected-item')
     }, [])
 
-    useEffect(() => {
-        console.log(currentList)
-    }, [currentList])
+    // useEffect(() => {
+    //     console.log(currentList)
+    // }, [currentList])
 
 
     const getMembers = async () => {
 
         axios.get(
             `${baseURL}/api/members`
-        ).then((response) =>
-            setList(response.data.data)
+        ).then((response) =>{
+                setList(response.data.data);
+                console.log(response.data)
+        }
         ).catch((err) => {
             console.log(err)
         })
-    }
-
-    const contactIcons = (key: string): JSX.Element => {
-        switch (key) {
-            case ('linkedIn'):
-                return <AiFillLinkedin size={20} className={"contact-icon"} />
-            case ('email'):
-                return <MdEmail size={20} className={"contact-icon"} />
-            default:
-                return <AiFillPhone size={20} className={"contact-icon"} />
-        }
     }
 
     return (
@@ -182,7 +173,7 @@ const People = () => {
 
                                                 }
                                             </div>
-                                            <div className='contact-container'>
+                                            {/* <div className='contact-container'>
                                                 Contact:
                                                 {
                                                     Object.keys(item.contact).map((key: string, index: number) => {
@@ -198,7 +189,7 @@ const People = () => {
                                                         )
                                                     })
                                                 }
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 )

@@ -61,10 +61,10 @@ const DateRangePicker = (props: PropsOBJ) => {
                     <div className='date-range-submit-button'
                         onClick={() => {
                             handleChange()
-                            if (setVisible && isVisible) {
-                                setVisible(false)
-                                console.log(isVisible)
-                            }
+                            // if (setVisible && isVisible) {
+                            //     setVisible(false)
+                            // }
+                            setVisible(false)
                         }}
                     >
                         Submit

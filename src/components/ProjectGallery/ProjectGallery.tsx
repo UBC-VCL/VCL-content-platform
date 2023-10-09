@@ -97,7 +97,6 @@ const ProjectGallery = (props:PropsOBJ) => {
                                         onClick={() => {
                                             setGalleryIndex(idx)
                                         }}
-                                        // style={{backgroundColor: darkMode ? "" : 'grey'}}
                                         >
                                     </div>
                                 ))

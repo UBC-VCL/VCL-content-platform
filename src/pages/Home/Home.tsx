@@ -3,14 +3,11 @@ import React from 'react';
 import LandingPage from '@components/LandingPage';
 import './Home.css';
 import About from '../../components/About';
-import ProjectLogos from '@statics/images/project-logos.png';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom'
 import ProjectGallery from '../../components/ProjectGallery';
 import {SlideShowOBJ} from '../Project/types';
-import img1 from '@statics/images/correlation/correlation1.png'
-import img2 from '@statics/images/correlation/correlation2.png'
-import img3 from '@statics/images/correlation/correlation3.png'
+import img1 from '@statics/images/HomeGallery/VCLGRAPHICS-1.png';
+import img2 from '@statics/images/HomeGallery/VCLGRAPHICS-2.png';
 import { TEXT, ROUTES, CONSTANTS } from "@statics";
 import { useLocation, useHistory } from "react-router-dom";
 
@@ -25,15 +22,10 @@ const HOME_GALLERY_ARRAY:SlideShowOBJ[] = [
   {
     cardType: 'no-text',
     img: img1,
-  },
-  {
+  },{
     cardType: 'no-text',
     img: img2,
   },
-  {
-    cardType: 'no-text',
-    img: img3,
-  }
 ]
 
 const Home: React.FC<HomeProps> = (props) => {

@@ -28,6 +28,8 @@ const MenuProps = {
   },
 };
 
+const baseURL = process.env.REACT_APP_API_URL;
+
 const EditTextInput = ({timeline, setTimeline}: Props) => {
   const [contributors, setContributors] = React.useState<string[]>([]);
   const [isValid, setIsValid] = useState({author: true, title: true});
@@ -38,7 +40,7 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
   async function fetchData() {
     try { await axios({
       method: "get",
-      url: "http://localhost:4000/api/members",
+      url: `${baseURL}/api/members`,
       headers: {
         authorization: access_token
       }

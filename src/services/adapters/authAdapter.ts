@@ -16,13 +16,14 @@ interface LoginResponse extends BaseResponse {
   };
 }
 
+
 export const loginUser = async (
   username: string,
   password: string
 ): Promise<LoginResponse> => {
   try {
     const res = await axios.post(
-      'http://localhost:4000/api/users/login',
+      `${baseURL}/api/users/login`,
       {
         username,
         password,

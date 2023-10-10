@@ -13,7 +13,6 @@ const DefaultTimeline: React.FC<void> = () => {
 
   useEffect(() => {
     getProjectCommit();
-    // getAuthorList();
   }, []);
 
   // const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
@@ -51,67 +50,6 @@ const DefaultTimeline: React.FC<void> = () => {
         //do nothing
       });
   };
-
-  //make a seperate api call to get human readable author name
-  // const getAuthorList = async () => {
-  //   await axios
-  //     .post(`${baseURL}/api/query`, {
-  //       collection: "snapshot",
-  //       conditions: [
-  //         {
-  //           $lookup: {
-  //             from: "users",
-  //             localField: "author",
-  //             foreignField: "_id",
-  //             as: "user",
-  //           },
-  //         },
-  //         {
-  //           $unwind: "$user",
-  //         },
-  //         {
-  //           $lookup: {
-  //             from: "members",
-  //             localField: "user.member",
-  //             foreignField: "_id",
-  //             as: "member",
-  //           },
-  //         },
-  //         {
-  //           $unwind: "$member",
-  //         },
-  //         {
-  //           $project: {
-  //             lastname: "$member.name.lastname",
-  //             firstname: "$member.name.firstname",
-  //             _id: 0,
-  //           },
-  //         },
-  //       ],
-  //     })
-  //     .then((response) => {
-  //       if (response.status != 200) {
-  //         throw new Error(response.data.message);
-  //       }
-  //       const names: Array<{ lastname: string; firstname: string }> =
-  //         response.data.data;
-  //       setDAuthors(
-  //         names
-  //           .map((name) => {
-  //             return name.firstname + " " + name.lastname;
-  //           })
-  //           .concat([
-  //             "Samanshiang Chiang",
-  //             "Michael Rotman",
-  //             "John Doe",
-  //             "Jane Doe",
-  //           ])
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       //do nothing
-  //     });
-  // };
 
   // This defines the default filter settings that the Timeline filter will start off on
   const timeLineDefaultFilter: SearchFilter = {

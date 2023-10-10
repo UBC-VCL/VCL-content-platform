@@ -135,13 +135,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           contributors: item.contributors,
           updatedTime: item.updatedTime,
         }));
-        // console.log(commitList.length)
-        // const filteredProjects: string[] = response.data.data.map((item: SnapshotOBJ) => {
-        //   if(item.project.length != 0) {
-        //     return item.project;
-        //   }
-        // });
-        // console.log(filteredProjects)
         setCommitArray([...commitList]);
       })
       .catch((err) => {

@@ -16,7 +16,7 @@ interface PropsOBJ {
     darkMode: boolean;
 }
 
-const ProjectGallery = (props: PropsOBJ) => {
+const ProjectGallery = (props:PropsOBJ) => {
 
     const { itemArray, displayNumber, compTitle, darkMode } = props;
 
@@ -33,23 +33,16 @@ const ProjectGallery = (props: PropsOBJ) => {
         }
     }
 
-    useEffect(() => {
-        setGalleryIndex(0);
-    }, [itemArray])
-
     // This is the autoscrolling feature
     useEffect(() => {
-        
-        if (itemArray.length > 1) {
+        resetTimeout()
+        timeoutRef.current = setTimeout(
+            () => setGalleryIndex((prev) => prev === itemArray.length - 1 ? 0 : prev + 1), 4000
+        )
+        return () => {
             resetTimeout()
-            timeoutRef.current = setTimeout(
-                () => setGalleryIndex((prev) => prev === itemArray.length - 1 ? 0 : prev + 1), 4000
-            )
-            return () => {
-                resetTimeout()
-            }
         }
-    }, [galleryIndex, itemArray])
+    }, [galleryIndex])
 
 
     return (
@@ -81,7 +74,7 @@ const ProjectGallery = (props: PropsOBJ) => {
                                 /* 
                                     Theses displayed properties should also be from props
                                 */
-                                itemArray.map((obj, index) => {
+                                    itemArray.map((obj, index) => {
                                     switch (obj.cardType) {
                                         case 'testimony':
                                             return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description!} name={obj.name!} position={obj.position!} />;
@@ -95,7 +88,7 @@ const ProjectGallery = (props: PropsOBJ) => {
                                 })
                             }
                         </div>
-                        {itemArray.length > 1 && <div className='slideshowDots'>
+                        <div className='slideshowDots'>
                             {
                                 itemArray.map((_, idx) => (
                                     <div
@@ -108,9 +101,9 @@ const ProjectGallery = (props: PropsOBJ) => {
                                     </div>
                                 ))
                             }
-                        </div>}
+                        </div>
                     </div>
-                    {itemArray.length > 1 && < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
+                    < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === itemArray.length - 1 ? setGalleryIndex(0) : setGalleryIndex(galleryIndex + 1)
                     }} 
                     style={{color: darkMode ? "" : 'rgb(42,55,73)'}}/>

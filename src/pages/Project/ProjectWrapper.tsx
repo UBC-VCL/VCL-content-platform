@@ -234,6 +234,16 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           description: 'During my time on the team, I have gained valuable insights and experience into the world of research. It has helped me a lot in my pursuit of both academic and career endeavors.',
           cardType: 'no-photo-test'
         },
+      ],
+      pastProjects: [
+        {
+          title: "VCL Web Framework\n",
+          description: "The online framework the Visual Cognition Lab uses to run their experiments was originally started by the correlation team and is meant to be a general use platform for all teams in the lab. We use a JavaScript library called jsPsych which facilitates experiment design and data collection. Currently, we continuously implement new experiments into the framework and update it with more quality of life features.",
+        },
+        {
+          title: "Past Correlation Experiments\n",
+          description: "Every term, we complete new experiment implementations and data collection. We have completed over 10 different Correlation-related experiments from the original default condition and design, to showing the scatterplots one after the other, and using different symbols, colors and display settings.",
+        },
       ]
     },
     {
@@ -361,8 +371,23 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
       joinTeam: {
         whatWeDo: ["The NOVA team follows a weekly routine for collecting, analyzing and reporting about data. Every member of the team, from the project leader to the co-pilots, is trained expected to learn how to schedule meetings with participants through UBC’s Human Subject Pool website. Through HSP, meetings are scheduled with participants to run them through the experimental process for an hour, answering any questions or troubleshooting technical issues along the way. Once a week’s worth of data is collected, volunteers and research assistants analyze the data through Python on Microsoft Visual Studio Code. The analysis results are then reported to the principal investor and recorded in a shared document. Based on whether the analysis yields noteworthy results, the team may continue to run the current conditions or create a novel condition with a visual stimulus graphic."]
 
-      }
-      
+      },
+      pastProjects: [
+        {
+          title: "Cueing Using Colour and Isoluminescence: Differences in Blindness Rates and Cueing Effects Between Seen and Unseen Cues",
+          description:
+              'Author: Ankita Guha Patra' +
+              "Sponsoring Research Assistant Tiffany Wu\n" +
+              "Supervisor: Dr. Ronald Rensink\n"
+
+        },
+        {
+          title: "Does Consciousness Matter? Noticeable Edits on Overlearned Cues and the Effect on Blindness Rates and Cueing Effects Between Seen and Unseen Cues",
+          description: "Author: Isha Verma\n" +
+              "Spondoring Research Assistant: Ying Zeng\n" +
+              "Supervisor: Dr. Ronald Rensink\n"
+        },
+      ]
 
     },
     // {
@@ -447,6 +472,12 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           cardType: "no-photo-test",
         },
       ],
+      pastProjects: [
+        {
+          title: "Condition 54 No-Pretask\n",
+          description: "This condition was created to continue the experiment through an online environment but without the usual Navon pretask. Participants from both Japan and Canada partook in the investigation. Through the experiment, it was revealed that there were little differences between the average reaction times in Japanese and Canadian participants. However, participants found it more difficult to find long-line stimuli amongst short-line distractors than to locate short lines amongst long as the number of distractors increased. \n",
+        },
+      ]
     },
     {
       name: "Ideo",
@@ -542,6 +573,16 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           description:
             "VCL is an open door for those who wants to learn. From statistical analysis to running experiments, VCL is a great place to start a hands on experience in a lab. There is still much to be explored about our unconscious knowledge and it's a privilege to be able to study it with amazing people.",
           cardType: "no-photo-test",
+        },
+      ],
+      pastProjects: [
+        {
+          title: "Project 1: Exploring the Influence of Fine Motor Warm-Up Activities on Ideomotor Movement:",
+          description: "This research project was part of COGS 402 utilized the Swan Protocol and was conducted online during the COVID-19 pandemic. The Swan technique, developed by Bob Burns, serves as a tool to tap into unconscious knowledge by communicating with the hand, potentially eliciting unconscious movements that appear as though the hand possesses its own cognition. It's important to note that this concept is distinct from hypnosis, as hypnosis is not a component of our methodology.",
+        },
+        {
+          title: "Project 2:",
+          description: "Examining the Impact of Transliminality on Ideomotor Effects in Relation to Implicit Cognition: This research project was part of COGS 402 and utilized the Ouija method. The Hypothesis of this project was that \"Participants scoring higher on transliminality will exhibit greater accuracy during the Ouija phase compared to participants with lower scores.\" Transliminality reflects individual differences in the threshold at which unconscious processes or external stimuli enter into consciousness.",
         },
       ],
     },

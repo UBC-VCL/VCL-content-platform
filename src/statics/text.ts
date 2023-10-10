@@ -182,7 +182,7 @@ const TEXT = {
       TITLE: "You might like this if you like...",
     },
     PAST_POSITIONS_AND_PROJECTS: {
-      TITLE: "Past Positions and Projects",
+      TITLE: "Past Projects",
       VCL_WEB_APP: {
         TITLE: "VCL Web-App",
         DESCRIPTION:

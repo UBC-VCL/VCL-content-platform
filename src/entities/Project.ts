@@ -32,6 +32,10 @@ export interface Project {
     joinTeam?: {
         whatWeDo: string[]
     },
+    pastProjects?: {
+        title: string,
+        description: string
+    }[]
     publications?: Publication[],
     subpage?:Project[],
     galleryList?: SlideShowOBJ[],

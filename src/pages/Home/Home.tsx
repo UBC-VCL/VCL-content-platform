@@ -1,10 +1,14 @@
-import React from "react";
-import LandingPage from "@components/LandingPage";
-import "./Home.css";
-import { TEXT, ROUTES, CONSTANTS } from "@statics";
-import About from "../../components/About";
 
-import { useEffect } from "react";
+import React from 'react';
+import LandingPage from '@components/LandingPage';
+import './Home.css';
+import About from '../../components/About';
+import { useEffect } from 'react';
+import ProjectGallery from '../../components/ProjectGallery';
+import {SlideShowOBJ} from '../Project/types';
+import img1 from '@statics/images/HomeGallery/VCLGRAPHICS-1.png';
+import img2 from '@statics/images/HomeGallery/VCLGRAPHICS-2.png';
+import { TEXT, ROUTES, CONSTANTS } from "@statics";
 import { useLocation, useHistory } from "react-router-dom";
 
 interface HomeProps {}
@@ -13,6 +17,16 @@ interface HomeProps {}
 interface HistoryStateOBJ {
   sourcePage: string;
 }
+
+const HOME_GALLERY_ARRAY:SlideShowOBJ[] = [
+  {
+    cardType: 'no-text',
+    img: img1,
+  },{
+    cardType: 'no-text',
+    img: img2,
+  },
+]
 
 const Home: React.FC<HomeProps> = (props) => {
   // Allows access to different object properties for the URL
@@ -70,6 +84,7 @@ const Home: React.FC<HomeProps> = (props) => {
           })}
         </div>
       </div>
+      <ProjectGallery compTitle='' displayNumber={''} itemArray={HOME_GALLERY_ARRAY} darkMode={false}/>
       <About />
     </div>
   );

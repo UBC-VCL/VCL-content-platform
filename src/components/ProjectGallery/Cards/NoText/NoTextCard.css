@@ -1,0 +1,16 @@
+.no-card-box-content {
+    height: fit-content;
+    margin: auto;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-right: 20px;
+    margin-left: 20px;
+    color: #7A92B4;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.gallery-noText-img {
+    width: 800px;
+    margin: auto;
+}

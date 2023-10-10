@@ -116,9 +116,6 @@
 }
 
 @media (max-width: 1023px) {
-  .Home {
-      margin-top: 0px;
-  }
   .mission-statement-container {
     width: 80%;
     margin: 10% auto;
@@ -138,9 +135,6 @@
 }
 
 @media (max-width: 767px) {
-  .Home {
-    margin-top: 1px;
-}
   .projects-img-container {
     width: 100%;
     flex-direction: column;

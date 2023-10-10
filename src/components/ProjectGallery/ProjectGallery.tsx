@@ -5,17 +5,20 @@ import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { useState, useEffect, useRef } from 'react'
 import TestimonyCard from './Cards/Testimony(Photo)/TestimonyCard';
 import NoPhotoTest from './Cards/Testimony(No-Photo)/NoPhotoTest';
+import NoTextCard from './Cards/NoText/NoTextCard';
+
 import { SlideShowOBJ } from '../../pages/Project/types';
 
 interface PropsOBJ {
     itemArray: Array<SlideShowOBJ>;
-    displayNumber: number;
+    displayNumber: string;
     compTitle: string;
+    darkMode: boolean;
 }
 
-const ProjectGallery = (props: PropsOBJ) => {
+const ProjectGallery = (props:PropsOBJ) => {
 
-    const { itemArray, displayNumber, compTitle } = props;
+    const { itemArray, displayNumber, compTitle, darkMode } = props;
 
     // This defines the index of which element is being displayed within the gallery at the moment
     const [galleryIndex, setGalleryIndex] = useState<number>(0);
@@ -30,28 +33,21 @@ const ProjectGallery = (props: PropsOBJ) => {
         }
     }
 
-    useEffect(() => {
-        setGalleryIndex(0);
-    }, [itemArray])
-
     // This is the autoscrolling feature
     useEffect(() => {
-        
-        if (itemArray.length > 1) {
+        resetTimeout()
+        timeoutRef.current = setTimeout(
+            () => setGalleryIndex((prev) => prev === itemArray.length - 1 ? 0 : prev + 1), 4000
+        )
+        return () => {
             resetTimeout()
-            timeoutRef.current = setTimeout(
-                () => setGalleryIndex((prev) => prev === itemArray.length - 1 ? 0 : prev + 1), 4000
-            )
-            return () => {
-                resetTimeout()
-            }
         }
-    }, [galleryIndex, itemArray])
+    }, [galleryIndex])
 
 
     return (
         <>
-            <div id='container'>
+            <div id='container' style={{backgroundColor: darkMode ? "" : 'white'}}>
                 <div id='container-titles'>
                     {
                         /* 
@@ -67,29 +63,32 @@ const ProjectGallery = (props: PropsOBJ) => {
                         </h2>
                     </div>
                 </div>
-                <div id='gallery-container'>
-                    {(itemArray.length > 1 && < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
+                <div id='gallery-container' >
+                    < BsArrowLeftCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === 0 ? setGalleryIndex(itemArray.length - 1) : setGalleryIndex(galleryIndex - 1)
-                    }} />)}
-                    <div className="gallery-box">
-                        <div className='slideshowSlider' style={{ transform: `translate3d(${-galleryIndex * 100.5}%, 0, 0)` }}>
+                    }} 
+                    style={{color: darkMode ? "" : 'rgb(42,55,73)'}}/>
+                    <div className="gallery-box" >
+                        <div className='slideshowSlider'style={{ transform: `translate3d(${-galleryIndex * 100.5}%, 0, 0)`,  }}>
                             {
                                 /* 
                                     Theses displayed properties should also be from props
                                 */
-                                itemArray.map((obj, index) => {
+                                    itemArray.map((obj, index) => {
                                     switch (obj.cardType) {
                                         case 'testimony':
-                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description} name={obj.name!} position={obj.position!} />;
+                                            return <TestimonyCard key={index} imgSrc={obj.img!} description={obj.description!} name={obj.name!} position={obj.position!} />;
+                                        case 'no-text':
+                                            return <NoTextCard key={index} imgSrc={obj.img!} darkMode={darkMode}/>
                                         case 'no-photo-test':
-                                            return <NoPhotoTest key={index} description={obj.description} name={obj.name!} position={obj.position!} />
+                                            return <NoPhotoTest key={index} description={obj.description!} name={obj.name!} position={obj.position!} />
                                         default:
-                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description} />;
+                                            return <DefaultCard key={index} imgSrc={obj.img!} title={obj.title!} description={obj.description!} />;
                                     }
                                 })
                             }
                         </div>
-                        {itemArray.length > 1 && <div className='slideshowDots'>
+                        <div className='slideshowDots'>
                             {
                                 itemArray.map((_, idx) => (
                                     <div
@@ -97,15 +96,17 @@ const ProjectGallery = (props: PropsOBJ) => {
                                         className={`slideshowDot${galleryIndex === idx ? " active" : ""}`}
                                         onClick={() => {
                                             setGalleryIndex(idx)
-                                        }}>
+                                        }}
+                                        >
                                     </div>
                                 ))
                             }
-                        </div>}
+                        </div>
                     </div>
-                    {itemArray.length > 1 && < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
+                    < BsArrowRightCircle className='gallery-buttons' color='white' size={"2.5rem"} onClick={() => {
                         galleryIndex === itemArray.length - 1 ? setGalleryIndex(0) : setGalleryIndex(galleryIndex + 1)
-                    }} />}
+                    }} 
+                    style={{color: darkMode ? "" : 'rgb(42,55,73)'}}/>
                 </div>
             </div>
         </>

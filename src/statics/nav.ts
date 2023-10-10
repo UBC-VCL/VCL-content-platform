@@ -27,13 +27,14 @@ const baseNav = [
 			{
 				TITLE: TEXT.PAGE_TITLES.TIMELINE,
 				REF: ROUTES.TIMELINE
-			}
+			},
+			{
+				TITLE: TEXT.PAGE_TITLES.RESOURCES,
+				REF: ROUTES.RESOURCES
+			},
 		]
 		: []),
-	{
-		TITLE: TEXT.PAGE_TITLES.RESOURCES,
-		REF: ROUTES.RESOURCES
-	},
+	
 ];
 
 const NAV = baseNav;

@@ -1,116 +1,117 @@
 .people-page-title {
-    text-align: center;
+  text-align: center;
 }
 .people-page-description {
-    color: #535353;
-    margin: 2rem 0;
+  color: #535353;
+  margin: 2rem 0;
 }
 
 .main-content {
-    margin-top: 5.3rem;
+  margin-top: 5.3rem;
 }
 
 .project-header {
-    margin-top: 10rem;
+  margin-top: 10rem;
 }
 
 .page-nav {
-    width: 70%;
-    margin: auto;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 70%;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .nav-item {
-    border-left: 1px rgba(0, 0, 0, 0.2) solid;
-} 
+  border-left: 1px rgba(0, 0, 0, 0.2) solid;
+}
 
 .hover-item {
-    border-radius: 5px;
-    margin: 0 .5rem;
-    transition: background-color 1s ease-in;
-    transition: color 0.1s ease-out;
-    padding: .5rem 0;
-    user-select: none;
+  border-radius: 5px;
+  margin: 0 0.5rem;
+  transition: background-color 1s ease-in;
+  transition: color 0.1s ease-out;
+  padding: 0.5rem 0;
+  user-select: none;
 }
 
 .hover-item:hover {
-    cursor: pointer;
-    background-color: rgb(28, 66, 109);
-    color: white;
+  cursor: pointer;
+  background-color: rgb(28, 66, 109);
+  color: white;
 }
 
 .selected-item {
-    background-color: rgb(28, 66, 109);
-    color: white;
+  background-color: rgb(28, 66, 109);
+  color: white;
 }
 
 .page-nav .nav-item:first-child {
-    border-left: none; /* Remove border from the first item */
+  border-left: none; /* Remove border from the first item */
 }
 
 .member-list {
-    width: full;
-    padding: 1rem 0;
+  width: full;
+  padding: 1rem 0;
 }
 
 .people-lab-member {
-    width: 55%;
-    height: 10rem;
-    margin: auto;
-    margin-top: 1rem;
-    display: flex;
-    color: black;
-    border: 1px rgba(0, 0, 0, 0.05) solid; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+  width: 55%;
+  min-height: 10rem;
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  color: black;
+  border: 1px rgba(0, 0, 0, 0.05) solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
 }
 
 .icon-container {
-    width: 20%;
-    display: flex;
-    justify-content: center;
+  width: 20%;
+  display: flex;
+  justify-content: center;
 }
 
 .info-container {
-    width: 80%;
+  width: 80%;
 }
 
 .name {
-    color: black;
+  color: black;
 }
 
 .position {
-    color: #A1A1A1;
+  color: #a1a1a1;
 }
 
 .message {
-    font-size: small;
-    text-align: left;
-    padding: 5px 30px 5px 0px;
+  font-size: small;
+  text-align: left;
+  padding: 5px 30px 5px 0px;
 }
 
 .contact-container {
-    display: flex;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 0.5rem;
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 0.5rem;
 }
 
 .contact-item {
-    text-align: center;
-    color: black !important;
-    font-weight: normal;
-    border-left: 1px rgba(0, 0, 0, 0.2) solid;
-    padding: 0 1rem;
-    font-size: small;
+  text-align: center;
+  color: black !important;
+  font-weight: normal;
+  border-left: 1px rgba(0, 0, 0, 0.2) solid;
+  padding: 0 1rem;
+  font-size: small;
 }
 
-.contact-container, .contact-item:first-child {
-    border-left: none;
+.contact-container,
+.contact-item:first-child {
+  border-left: none;
 }
 
 .contact-item {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }

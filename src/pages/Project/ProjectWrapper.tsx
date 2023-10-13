@@ -483,7 +483,12 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           title: "Condition 54 No-Pretask\n",
           description: "This condition was created to continue the experiment through an online environment but without the usual Navon pretask. Participants from both Japan and Canada partook in the investigation. Through the experiment, it was revealed that there were little differences between the average reaction times in Japanese and Canadian participants. However, participants found it more difficult to find long-line stimuli amongst short-line distractors than to locate short lines amongst long as the number of distractors increased. \n",
         },
-      ]
+      ],
+      joinTeam: {
+        whatWeDo:[
+          'In SHIVA, we examine factors that can shift a person’s perceptual modes. In other words, we are interested in factors that can affect how a person makes sense of their visual environment. We’re particularly interested in a person’s visual environment as well as their cultural background. To examine these factors, the participant’s visual environment is varied before and during visual search tasks. Afterwards, we collect and examine their cultural information (for more details, please check out our Q&A!). In our older tests, performing various pre-tasks before the main visual search task has seen various degrees of success in changing a person’s perceptual mode. More recently however, we have been examining how the transition to an online test environment may shift a person’s perceptual modes.'
+        ]
+      }
     },
     {
       name: "Ideo",

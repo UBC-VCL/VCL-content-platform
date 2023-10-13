@@ -244,7 +244,13 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           title: "Past Correlation Experiments\n",
           description: "Every term, we complete new experiment implementations and data collection. We have completed over 10 different Correlation-related experiments from the original default condition and design, to showing the scatterplots one after the other, and using different symbols, colors and display settings.",
         },
-      ]
+      ],
+      joinTeam: {
+        whatWeDo:[
+          'The Correlation project studies the visual perception of correlation in data visualizations. Data visualization is a graphical representation of a data set. Scatterplots are a simple and common example of visualizing data with two variables. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. ',
+          'Currently we are working on two projects to determine the perception of correlation. The Mainstream Correlation Team studies how manipulating different visual attributes within the scatterplots affect the way we perceive the information shown in the scatterplot, and whether we are able to see Weber and Fechner’s law hold true. The Sequencing Correlation Team studies how different timings for the display duration of the scatterplots or other graphs and symbols used to represent correlation impact its perception. And if Weber\'s law still holds in these conditions where the graphs are shown for only a brief moment of time.'
+        ]
+      }
     },
     {
       name: "NOVA",
@@ -376,7 +382,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
         {
           title: "Cueing Using Colour and Isoluminescence: Differences in Blindness Rates and Cueing Effects Between Seen and Unseen Cues",
           description:
-              'Author: Ankita Guha Patra' +
+              'Author: Ankita Guha Patra\n' +
               "Sponsoring Research Assistant Tiffany Wu\n" +
               "Supervisor: Dr. Ronald Rensink\n"
 
@@ -384,7 +390,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
         {
           title: "Does Consciousness Matter? Noticeable Edits on Overlearned Cues and the Effect on Blindness Rates and Cueing Effects Between Seen and Unseen Cues",
           description: "Author: Isha Verma\n" +
-              "Spondoring Research Assistant: Ying Zeng\n" +
+              "Sponsoring Research Assistant: Ying Zeng\n" +
               "Supervisor: Dr. Ronald Rensink\n"
         },
       ]

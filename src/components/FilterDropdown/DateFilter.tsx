@@ -27,25 +27,28 @@ const DateFilter = ({ dateRange, setRange, setFilter, filterBy }: {
 
     return (
         <FormControl sx={{ m: 1, display: 'inline' }} >
-            {/* <div style={{ display: 'inline-block', color: '#7e7e7e', marginRight: '10px' }}>
-                {list.name}:
-            </div> */}
-                <Select
-                    labelId="demo-simple-select-autowidth-label"
-                    id="demo-simple-select-autowidth"
-                    variant="standard"
-                    disableUnderline
-                    label="Date"
-                    MenuProps={MenuProps}
-                    renderValue={() => "Date"}
-                    displayEmpty 
-                    sx={{ width: 120 }}
-                    open={isVisible}
-                    onOpen={() => setVisible(true)}
-                    onClose={() => setVisible(false)}
-                >
-                    <DateRangePicker dateRange={dateRange} setDateRange={setRange} filterBy={filterBy} setFilter={setFilter} isVisible={isVisible} setVisible={setVisible}/>
-                </Select>
+            <Select
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth"
+                variant="standard"
+                disableUnderline
+                label="Date"
+                MenuProps={MenuProps}
+                renderValue={() => "Date"}
+                displayEmpty
+                sx={{ width: 120 }}
+                open={isVisible}
+                onOpen={() => setVisible(true)}
+                onClose={() => setVisible(false)}
+            >
+                <DateRangePicker
+                    dateRange={dateRange}
+                    setDateRange={setRange}
+                    filterBy={filterBy}
+                    setFilter={setFilter}
+                    isVisible={isVisible}
+                    setVisible={setVisible} />
+            </Select>
         </FormControl>
     )
 }

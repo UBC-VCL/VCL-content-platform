@@ -247,8 +247,8 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
       ],
       joinTeam: {
         whatWeDo:[
-          'The Correlation project studies the visual perception of correlation in data visualizations. Data visualization is a graphical representation of a data set. Scatterplots are a simple and common example of visualizing data with two variables. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. ',
-          'Currently we are working on two projects to determine the perception of correlation. The Mainstream Correlation Team studies how manipulating different visual attributes within the scatterplots affect the way we perceive the information shown in the scatterplot, and whether we are able to see Weber and Fechner’s law hold true. The Sequencing Correlation Team studies how different timings for the display duration of the scatterplots or other graphs and symbols used to represent correlation impact its perception. And if Weber\'s law still holds in these conditions where the graphs are shown for only a brief moment of time.'
+        'The Correlation project studies the visual perception of correlation in data visualizations. Data visualization is a graphical representation of a data set. Scatterplots are a simple and common example of visualizing data with two variables. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. ',
+        'Currently we are working on two projects to determine the perception of correlation. The Mainstream Correlation Team studies how manipulating different visual attributes within the scatterplots affect the way we perceive the information shown in the scatterplot, and whether we are able to see Weber and Fechner’s law hold true. The Sequencing Correlation Team studies how different timings for the display duration of the scatterplots or other graphs and symbols used to represent correlation impact its perception. And if Weber\'s law still holds in these conditions where the graphs are shown for only a brief moment of time.'
         ]
       }
     },
@@ -486,7 +486,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
       ],
       joinTeam: {
         whatWeDo:[
-          'In SHIVA, we examine factors that can shift a person’s perceptual modes. In other words, we are interested in factors that can affect how a person makes sense of their visual environment. We’re particularly interested in a person’s visual environment as well as their cultural background. To examine these factors, the participant’s visual environment is varied before and during visual search tasks. Afterwards, we collect and examine their cultural information (for more details, please check out our Q&A!). In our older tests, performing various pre-tasks before the main visual search task has seen various degrees of success in changing a person’s perceptual mode. More recently however, we have been examining how the transition to an online test environment may shift a person’s perceptual modes.'
+        'In SHIVA, we examine factors that can shift a person’s perceptual modes. In other words, we are interested in factors that can affect how a person makes sense of their visual environment. We’re particularly interested in a person’s visual environment as well as their cultural background. To examine these factors, the participant’s visual environment is varied before and during visual search tasks. Afterwards, we collect and examine their cultural information (for more details, please check out our Q&A!). In our older tests, performing various pre-tasks before the main visual search task has seen various degrees of success in changing a person’s perceptual mode. More recently however, we have been examining how the transition to an online test environment may shift a person’s perceptual modes.'
         ]
       }
     },
@@ -704,6 +704,9 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           cardType: "default",
         },
       ],
+      joinTeam: {
+        whatWeDo:[]
+      }
     },
     {
       name: "NCIS",

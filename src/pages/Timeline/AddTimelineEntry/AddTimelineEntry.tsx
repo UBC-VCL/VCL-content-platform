@@ -23,6 +23,7 @@ interface TimelineInfo {
   contributors: string,
 }
 
+const baseURL = process.env.REACT_APP_API_URL;
 const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
   const { access_token } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
@@ -48,7 +49,7 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
     }
     await axios({
       method: "POST",
-      url: "http://localhost:4000/api/snapshots",
+      url: `${baseURL}/api/snapshots`,
       data: snapshot,
       headers: {
         authorization: access_token

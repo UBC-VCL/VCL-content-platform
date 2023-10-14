@@ -152,12 +152,12 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
                     <p style={{ paddingTop: "3%" }}>03</p>
                     <h2>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.TITLE}</h2>
                     {props.project.pastProjects?.map(items =>
-                    <p style={{paddingTop: "2%",paddingBottom: "1%"}}>
                         <p className='project-join-card'>
+                            <p style={{paddingTop: "2%",paddingBottom: "3%", paddingRight: "3%", paddingLeft: "3%"}}>
                           <h5>{items.title}</h5>
                           <p>{items.description}</p>
+                            </p>
                        </p>
-                    </p>
                         )}
                 </div>
             </section>

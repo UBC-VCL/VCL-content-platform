@@ -108,7 +108,7 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
       {props.project.name !== "NCIS" && (
         <>
           <ProjectGallery
-            displayNumber={2}
+            displayNumber={"2"}
             compTitle={"Gallery"}
             itemArray={project.galleryList ? project.galleryList : dummyList}
           />

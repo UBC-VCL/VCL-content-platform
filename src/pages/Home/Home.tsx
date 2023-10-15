@@ -6,6 +6,11 @@ import About from "../../components/About";
 
 import { useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
+import ProjectGallery from "@components/ProjectGallery/ProjectGallery";
+import {SlideShowOBJ} from '@pages/Project/types';
+
+import img1 from '@statics/images/correlation/correlation1.png';
+import img2 from '@statics/images/correlation/correlation2.png';
 
 interface HomeProps {}
 
@@ -14,11 +19,56 @@ interface HistoryStateOBJ {
   sourcePage: string;
 }
 
+
+
 const Home: React.FC<HomeProps> = (props) => {
   // Allows access to different object properties for the URL
   //  - Can access location.state.sourcePage inorder to access information regarding if sent via a {useHistory}.push(..., sourcePage:...) method
   const location = useLocation<HistoryStateOBJ>();
   const history = useHistory();
+
+  const dummyArray:SlideShowOBJ[] = [
+    {
+      img: img1,
+      description:"",
+      cardType:'default',      
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    },
+    {
+      img: img2,
+      description:"",
+      cardType:'default',
+    }
+  ]
 
   useEffect(() => {
     if (location.state) {
@@ -48,6 +98,7 @@ const Home: React.FC<HomeProps> = (props) => {
           </p>
         </div>
       </div>
+      <ProjectGallery itemArray={dummyArray} displayNumber={""} compTitle={"Gallery"}></ProjectGallery>
       <div className="projects-container">
         <div className="projects-title">
           <p>{TEXT.LANDING_PAGE.CURRENT_PROJECTS.TITLE}</p>

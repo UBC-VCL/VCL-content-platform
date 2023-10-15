@@ -176,7 +176,7 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
         
         </section> */}
       <ProjectGallery
-        displayNumber={4}
+        displayNumber={"4"}
         compTitle={"Testimony"}
         itemArray={
           props.project.testimonials ? props.project.testimonials : dummyList

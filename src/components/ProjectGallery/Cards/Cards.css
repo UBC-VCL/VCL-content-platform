@@ -1,0 +1,33 @@
+.default-card-box-content {
+    margin: auto;
+    background-color: #2A3749;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: #7A92B4;
+    width: 900px;
+}
+
+.default-image-container {
+    width: 100%;
+}
+
+.gallery-img {
+    width: 100%;
+    margin: auto;
+}
+
+.gallery-title {
+    font-size: large;
+    margin: 1rem;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}
+
+.gallery-description {
+    font-size: small;
+    text-align: center;
+    color: white;
+}

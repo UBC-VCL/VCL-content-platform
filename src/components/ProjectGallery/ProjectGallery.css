@@ -3,6 +3,7 @@
     height: fit-content;
     user-select: none;
     text-align: center;
+    width: 100%;
 }
 
 #container-titles {

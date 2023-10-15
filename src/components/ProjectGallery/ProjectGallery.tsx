@@ -1,11 +1,8 @@
 import './ProjectGallery.css'
-import DefaultCard from './Cards/Default/DefaultCard';
-
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { useState, useEffect, useRef } from 'react'
-import TestimonyCard from './Cards/Testimony(Photo)/TestimonyCard';
-import NoPhotoTest from './Cards/Testimony(No-Photo)/NoPhotoTest';
 import { SlideShowOBJ } from '../../pages/Project/types';
+import  { DefaultCard, NoPhotoTest, TestimonyCard } from './Cards/Cards';
 
 interface PropsOBJ {
     itemArray: Array<SlideShowOBJ>;

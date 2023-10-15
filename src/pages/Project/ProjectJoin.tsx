@@ -147,25 +147,20 @@ const ProjectJoin: React.FC<ProjectProps> = (props) => {
       </section>
 
       {/* TODO: Make past projects dynamic */}
-      {/* <section className='full-bleed4'>
+       <section className='full-bleed4'>
                 <div className='past-positions-and-projects' style={{ paddingBottom: "2%", paddingTop: "3%" }}>
                     <p style={{ paddingTop: "3%" }}>03</p>
                     <h2>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.TITLE}</h2>
-                    <div className='project-join-card'>
-                        <h5>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.VCL_WEB_APP.TITLE}</h5>
-                        <p>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.VCL_WEB_APP.DESCRIPTION}</p>
-                    </div>
-                    <div className='project-join-card'>
-                        <h5>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.PROJECT1.TITLE}</h5>
-                        <p>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.PROJECT1.DESCRIPTION}</p>
-                    </div>
-                    <div className='project-join-card'>
-                        <h5>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.PROJECT2.TITLE}</h5>
-                        <p>{TEXT.PROJECT_JOIN.PAST_POSITIONS_AND_PROJECTS.PROJECT2.DESCRIPTION}</p>
-                    </div>
+                    {props.project.pastProjects?.map(items =>
+                        <p className='project-join-card'>
+                            <p style={{paddingTop: "2%",paddingBottom: "3%", paddingRight: "3%", paddingLeft: "3%"}}>
+                          <h5>{items.title}</h5>
+                          <p>{items.description}</p>
+                            </p>
+                       </p>
+                        )}
                 </div>
-            </section> */}
-
+            </section>
       {/* <section className='full-bleed5' style={{marginTop:"10%"}}>
         <div className='what-our-team-member-say'>
             <p style={{paddingTop: "7%"}}>04</p>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { ImQuotesLeft } from "react-icons/im";
 import './Cards.css';
 
@@ -12,11 +12,17 @@ interface PropsOBJ1 {
 const DefaultCard = (props: PropsOBJ1) => {
 
     const {key, imgSrc, title, description} = props;
+    const GALLERY_WINDOW_WIDTH = window.innerWidth *0.9;
+
+    useEffect(() => {
+    }, []);
 
     return (
-        <div className='default-card-box-content' key={key}>
+        <div className='default-card-box-content' key={key} 
+        // style={{width: `${500}px`}}
+        >
             <div className='default-image-container'>
-                <img src={imgSrc} alt='' className='gallery-img' />
+                <img src={imgSrc} alt='' className='default-gallery-img' style={{width: `${GALLERY_WINDOW_WIDTH*0.95}px`}}/>
             </div>
             <h1 className='gallery-title'>{title}</h1>
             <p className='gallery-description'>{description}</p>

@@ -30,28 +30,8 @@ const Home: React.FC<HomeProps> = (props) => {
   const dummyArray:SlideShowOBJ[] = [
     {
       img: img1,
-      description:"",
-      cardType:'default',      
-    },
-    {
-      img: img2,
-      description:"",
-      cardType:'default',
-    },
-    {
-      img: img2,
-      description:"",
-      cardType:'default',
-    },
-    {
-      img: img2,
-      description:"",
-      cardType:'default',
-    },
-    {
-      img: img2,
-      description:"",
-      cardType:'default',
+      description: "",
+      cardType: "default",   
     },
     {
       img: img2,
@@ -84,6 +64,8 @@ const Home: React.FC<HomeProps> = (props) => {
     }
   }, []);
 
+  
+
   return (
     <div className="Home">
       <LandingPage />
@@ -98,7 +80,7 @@ const Home: React.FC<HomeProps> = (props) => {
           </p>
         </div>
       </div>
-      <ProjectGallery itemArray={dummyArray} displayNumber={""} compTitle={"Gallery"}></ProjectGallery>
+      <ProjectGallery itemArray={dummyArray} displayNumber={"2"} compTitle={"Gallery"}></ProjectGallery>
       <div className="projects-container">
         <div className="projects-title">
           <p>{TEXT.LANDING_PAGE.CURRENT_PROJECTS.TITLE}</p>

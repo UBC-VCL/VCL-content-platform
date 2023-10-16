@@ -1,22 +1,24 @@
 .default-card-box-content {
     margin: auto;
-    background-color: #2A3749;
+    
     border-radius: 8px;
-    padding: 2rem;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
     color: #7A92B4;
-    width: 900px;
+    height: fit-content;
+    background-color: #2A3749;
+    padding: 1rem 1rem;
 }
 
-.default-image-container {
-    width: 100%;
-}
+/* .default-image-container {
+    width: 90%;
+    margin-top: 1.5rem;
+} */
 
-.gallery-img {
+/* .default-gallery-img {
     width: 100%;
     margin: auto;
-}
+} */
 
 .gallery-title {
     font-size: large;

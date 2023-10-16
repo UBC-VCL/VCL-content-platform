@@ -219,7 +219,7 @@ const TEXT = {
       },
     },
   },PEOPLE_PAGE: {
-    EMPTY_DISPLAY_LIST: "Oops! No Members Found, Try Another Section!",
+    EMPTY_DISPLAY_LIST: "No Members Found Here, Try Another Section!",
     RESPONSE_ERROR: "Something Went Wrong! Check Your Connection!"
   }
 } as const;

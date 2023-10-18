@@ -34,7 +34,8 @@ const People = () => {
     "IDEO",
     "IT",
     "NOVA",
-    "Perceptual Modes",
+    "SHIVA",
+    "Coding Team"
   ];
 
   // the page will be defaulted to bein on the first grid item
@@ -59,7 +60,7 @@ const People = () => {
   // for now it is hardcoded timer because the calls that we make on this page is very fast so
   //    setting the state of svgView in the API call will only show the icon for not even 1 second.
   const loadingTimer = (timer: number) => {
-    setTimeout(() => {
+  setTimeout(() => {
       setSvgView(false);
     }, timer);
   };

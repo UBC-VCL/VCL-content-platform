@@ -40,8 +40,14 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
       // dummy projects
       name: "Correlation",
       description: {
-        first:
-          "The Correlation project studies the visual perception of correlation[https://en.wikipedia.org/wiki/Pearson_correlation_coefficient] in data visualizations. Data visualization is a graphical representation of a data set. Scatterplots are a simple and common example of visualizing data with two variables. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. We use a classic methods from psychophysics [https://en.wikipedia.org/wiki/Psychophysics] to derive our measures – discrimination tasks using the staircase method to measure precision. Performance in this aspect is regular and well described by Weber and Fechner laws regardless of visual variable choice used to represent the data.",
+        first: 
+        <span> 
+          The Correlation project studies the visual perception of
+          <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" style={{color: "white"}} target="_blank"> correlation</a>   
+          &nbsp;in data visualizations. Data visualization is a graphical representation of a data set. Scatterplots are a simple and common example of visualizing data with two variables. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. We use a classic methods from&nbsp; 
+          <a href="https://en.wikipedia.org/wiki/Psychophysics" style={{color: "white"}} target="_blank">psychophysics </a> 
+          to derive our measures – discrimination tasks using the staircase method to measure precision. Performance in this aspect is regular and well described by Weber and Fechner laws regardless of visual variable choice used to represent the data. 
+        </span>,
         second:
           "Currently we are working on two projects to determine the perception of correlation. The Mainstream Correlation Team studies how manipulating different visual attributes within the scatterplots affect the way we perceive the information shown in the scatterplot, and whether we are able to see Weber and Fechner’s law hold true. The Sequencing Correlation Team studies how different timings for the display duration of the scatterplots or other graphs and symbols used to represent correlation impact its perception. And if Weber's law still holds in these conditions where the graphs are shown for only a brief moment of time.",
         emp: "The Perception of Correlation has been thought to be done through a slow top-down process, however, there is evidence that suggests it is actually done through a fast bottom-up process--a visual process. The Correlation Team focuses on researching and gathering more evidence to support this “new science of visual perception",

@@ -65,4 +65,14 @@ h1, h2, h3, p {
     margin-top: 5%;
 }
 
+.left-quotation-marks {
+    margin-top: -165px;
+    margin-left: -3%;
+}
+
+.right-quotation-marks {
+    margin-top: 70px;
+    margin-left: 100%;
+}
+
 

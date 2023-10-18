@@ -10,6 +10,8 @@ import VerticalSpacer from "@components/VerticalSpacer/VerticalSpacer";
 import COLORS from "@statics/colors";
 import TopLeftCog from "@statics/images/ProjectDescriptionPage/TopLeftCog.png";
 import BottomRightCog from "@statics/images/ProjectDescriptionPage/BottomRightCog.png";
+import LeftQuotationMark from  "@statics/images/ProjectDescriptionPage/left-quotation-marks.png"
+import RightQuotationMark from "@statics/images/ProjectDescriptionPage/right-quotation-marks.png"
 import GalleryCog from "@statics/images/ProjectDescriptionPage/GalleryCog.png";
 import ProjectGallery from "@components/ProjectGallery";
 import { SlideShowOBJ } from "./types";
@@ -99,6 +101,14 @@ const ProjectDefault: React.FC<ProjectProps> = (props) => {
             project.description ? project.description.emp : fillerDescrip[2]
           }
         />
+
+      {props.project.description.emp ?
+        <>
+         <img src={LeftQuotationMark} className="left-quotation-marks" alt="a set of quotation marks to the left of an emphasized sentence" />
+         <img src={RightQuotationMark} className="right-quotation-marks" alt="a set of quotation marks to the left of an emphasized sentence" />
+        </>
+         : <p/>
+      }
       </div>
       <img
         src={GalleryCog}

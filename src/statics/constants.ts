@@ -20,6 +20,9 @@ const constants = {
       }, {
         name: "Image Transitions",
         color: "#848484"
+      }, {
+        name: "Coding Team",
+        color: "#fece25"
       }
   ],
   MODALS: {

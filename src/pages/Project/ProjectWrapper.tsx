@@ -722,6 +722,20 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
         ],
       },
     },
+    {
+      name: "Coding Team",
+      description: {
+        first:
+          "Hi there! We are the coding team of the VCL!",
+        second:
+          "We work on developing the VCL website and maintaining the VCL experiment framework.",
+      },
+      joinTeam: {
+        whatWeDo: [
+          "We are currently recruiting for new members interested in joining this project. We have positions focusing on research, UX, and software development. If you feel that you would be a good fit, please take a look at the Get Involved section of our website for more information. Email us at vclmanager@gmail.com with your resume, a list of related academic courses you’ve taken, and a brief description of your interest in the project.",
+        ],
+      },
+    },
   ];
 
   const curr_project: any = projects.find(

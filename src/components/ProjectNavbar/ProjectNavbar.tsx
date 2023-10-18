@@ -140,8 +140,9 @@ export default function Sidebar(props: any) {
 
                     {props.links.map((link: any, index: any) => (
                         <>
-                            {(link.title == "Join Our Team" || link.title == "Timeline") &&
-                                props.currProject.name == "NCIS" ? (
+                            {
+                            (link.title == "Join Our Team" || link.title == "Timeline") && props.currProject.name == "NCIS" ||
+                            link.title == "Publications" && props.currProject.name == "Coding Team" ? (
                                 <></>
                             ) : (
                                 <ListItem key={link.title}>

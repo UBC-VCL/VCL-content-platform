@@ -6,6 +6,7 @@ const baseRoutes = {
   HOME: '/',
   PROJECT: {
     PATH: '/projects/:project_id/',
+    PATH2: '/projectsV2/:project_id/',
     BASE: '/projects',
     OVERVIEW: '/projects/overview',
   },

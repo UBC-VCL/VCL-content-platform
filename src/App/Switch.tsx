@@ -4,6 +4,7 @@ import ROUTES from "@statics/routes";
 import { DefaultTimeline } from "@pages/Timeline";
 import Home from "@pages/Home";
 import { ProjectWrapper, ProjectOverview } from "@pages/Project";
+import ProjectV2Wrapper from "@pages/ProjectV2/ProjectV2Wrapper";
 import Resources from "@pages/Resources";
 import TimelineEntry from "@pages/Timeline/TimelineEntry";
 import EditTimelineEntry from "@pages/Timeline/EditTimelineEntry/EditTimelineEntry";
@@ -26,6 +27,7 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
       <Route exact path={ROUTES.RESOURCES} component={Resources} />
+      <Route exact path={ROUTES.PROJECT.PATH2} component={ProjectV2Wrapper}/>
       {IS_WIP && (
         <>
           <Route exact path={ROUTES.TIMELINE} component={DefaultTimeline} />

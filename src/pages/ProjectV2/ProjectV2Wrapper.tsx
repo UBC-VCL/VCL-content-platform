@@ -1,28 +1,36 @@
-import ProjectDefault from "@pages/Project/ProjectDefault";
-import { BrowserRouter, Route, RouteComponentProps } from "react-router-dom";
 
+import ProjectV2Default from "@pages/ProjectV2/Pages/ProjectV2Default";
+import { RouteComponentProps, Switch, Route } from "react-router-dom";
+import ProjectV2Join from "./Pages/ProjectV2Join";
+import './ProjectV2Wrapper.css'
 
 interface MatchParams {
     project_id: string;
-  }
-interface ProjectProps extends RouteComponentProps<MatchParams> {}
+}
+interface ProjectProps extends RouteComponentProps<MatchParams> { }
 
-const ProjectV2Wrapper = (props:ProjectProps) => {
+const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
-    console.log(props);
-
-    // FIgure out how you would want to handle passing in information to different subpages
+    console.log(match.params.project_id);
 
     return (
-        <div>
+        <div className="project-content-container" style={{ margin: '6rem', height: 'fit-content' }}>
             <div id="table-contents">
 
             </div>
-            <BrowserRouter>
-                <Route path={`/${props.match.url}`} 
-                    // render={() => <ProjectDefault />}
-                />
-            </BrowserRouter>
+            <div className='project-router-'>
+                <Switch>
+                    <Route exact path={`${match.url}`}
+                        component={ProjectV2Default}
+                    />
+                    <Route exact path={`${match.url}/join`}
+                        component={ProjectV2Join}
+                    />
+                    <Route exact path={`${match.url}/team`} />
+                    <Route exact path={`${match.url}/resources`} />
+                    <Route exact path={`${match.url}/publications`} />
+                </Switch>
+            </div>
         </div>
     );
 }

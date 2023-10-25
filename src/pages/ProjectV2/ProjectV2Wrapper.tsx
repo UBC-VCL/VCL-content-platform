@@ -1,5 +1,8 @@
 import ProjectV2Default from "@pages/ProjectV2/Pages/ProjectV2Default";
-import { RouteComponentProps, Switch, Route, BrowserRouter } from "react-router-dom";
+import ProjectV2Publications from "./Pages/ProjectV2Publications";
+import ProjectV2Resources from "./Pages/ProjectV2Resources";
+import ProjectV2Team from './Pages/ProjectV2Team'
+import { RouteComponentProps, Route, BrowserRouter } from "react-router-dom";
 import ProjectV2Join from "./Pages/ProjectV2Join";
 import './ProjectV2Wrapper.css'
 
@@ -10,31 +13,45 @@ interface ProjectProps extends RouteComponentProps<MatchParams> { }
 
 const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
-    const currentProjectURL = match.url!;
+    const currentProjectURL = match.url;
+
+    console.log(`/projectsV2/${match.params.project_id}/join`);
 
     return (
         <div className="project-content-container" style={{ margin: '10rem' }}>
             <div id="table-contents"
-                onClick={() => {
-                    console.log(currentProjectURL)
-                    console.log(`${currentProjectURL}/join`)
-                }}
             >
-                <a href={`${currentProjectURL}/join`}> here</a>
+                <div className="single-table-content">
+                    <a className="project-content-container-href" href={`${currentProjectURL}`}>Home</a>
+                </div>
+                <div className="single-table-content">
+                    <a className="project-content-container-href" href={`${currentProjectURL}/join`}>Join</a>
+                </div>
+                <div className="single-table-content">
+                    <a className="project-content-container-href" href={`${currentProjectURL}/team`}>Team</a>
+                </div>
+                <div className="single-table-content">
+                    <a className="project-content-container-href" href={`${currentProjectURL}/resources`}>Resources</a>
+                </div>
+                <div className="single-table-content">
+                    <a className="project-content-container-href" href={`${currentProjectURL}/publications`}>Publications</a>
+                </div>
 
             </div>
             <div className='project-router-div'>
                 <BrowserRouter>
-
-                    <Route exact path={`${currentProjectURL}/join`}
-                        component={ProjectV2Join}
-                    />
-                    <Route exact path={`${currentProjectURL}/home`}
+                    <Route exact path={`${currentProjectURL}`}
                         component={ProjectV2Default}
                     />
-                    <Route exact path={`${currentProjectURL}/team`} />
-                    <Route exact path={`${currentProjectURL}/resources`} />
-                    <Route exact path={`${currentProjectURL}/publications`} />
+                    <Route exact path={`/projectsV2/${match.params.project_id}/join`}
+                        component={ProjectV2Join}
+                    />
+                    <Route exact path={`${currentProjectURL}/team`} 
+                    component={ProjectV2Team}/>
+                    <Route exact path={`${currentProjectURL}/resources`}
+                    component={ProjectV2Resources} />
+                    <Route exact path={`${currentProjectURL}/publications`}
+                    component={ProjectV2Publications} />
                 </BrowserRouter>
             </div>
         </div>

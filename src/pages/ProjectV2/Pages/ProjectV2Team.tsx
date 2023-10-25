@@ -1,9 +1,8 @@
 const ProjectV2Team = () => {  
 
-
     return(
         <div style={{margin:'10rem'}}>
-            <h1>ProjectV2Team</h1>
+            <h1>team</h1>
         </div>
     )
 };

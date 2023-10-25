@@ -1,6 +1,4 @@
-const ProjectV2Join = () => {  
-
-    console.log('hi from ProjectV2Join')
+const ProjectV2Join = () => {
 
     return(
         <div style={{margin:'10rem'}}>

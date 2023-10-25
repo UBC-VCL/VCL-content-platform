@@ -13,6 +13,8 @@ interface ProjectProps extends RouteComponentProps<MatchParams> { }
 
 const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
+    // string that is initialized at the very first mount of the site.
+    // will be used to determine the current project url
     const currentProjectURL = match.url;
 
     console.log(`/projectsV2/${match.params.project_id}/join`);
@@ -39,10 +41,18 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
             </div>
             <div className='project-router-div'>
+                {
+                    //Browser router is better than Switch because it allows for nested routes
+                    // and allows for site navigation without refreshing the page
+                }
                 <BrowserRouter>
                     <Route exact path={`${currentProjectURL}`}
                         component={ProjectV2Default}
                     />
+                    {
+                        // I wonder if its better to do ${currentProjectURL}/resources 
+                        // or /projectsV2/${match.params.project_id}/join as the redirecting URL
+                    }
                     <Route exact path={`/projectsV2/${match.params.project_id}/join`}
                         component={ProjectV2Join}
                     />

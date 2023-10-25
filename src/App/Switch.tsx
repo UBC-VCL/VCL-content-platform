@@ -22,7 +22,7 @@ const AppSwitch = () => {
   return (
     <Switch>
       <Route exact path={ROUTES.HOME} component={Home} />
-      <Route exact path={ROUTES.PROJECT.BASE} component={ProjectOverview} />
+      <Route exact path={ROUTES.PROJECT.BASE2} component={ProjectOverview} />
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />

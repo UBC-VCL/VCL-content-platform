@@ -1,6 +1,5 @@
-
 import ProjectV2Default from "@pages/ProjectV2/Pages/ProjectV2Default";
-import { RouteComponentProps, Switch, Route } from "react-router-dom";
+import { RouteComponentProps, Switch, Route, BrowserRouter } from "react-router-dom";
 import ProjectV2Join from "./Pages/ProjectV2Join";
 import './ProjectV2Wrapper.css'
 
@@ -11,25 +10,32 @@ interface ProjectProps extends RouteComponentProps<MatchParams> { }
 
 const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
-    console.log(match.params.project_id);
+    const currentProjectURL = match.url!;
 
     return (
-        <div className="project-content-container" style={{ margin: '6rem', height: 'fit-content' }}>
-            <div id="table-contents">
+        <div className="project-content-container" style={{ margin: '10rem' }}>
+            <div id="table-contents"
+                onClick={() => {
+                    console.log(currentProjectURL)
+                    console.log(`${currentProjectURL}/join`)
+                }}
+            >
+                <a href={`${currentProjectURL}/join`}> here</a>
 
             </div>
-            <div className='project-router-'>
-                <Switch>
-                    <Route exact path={`${match.url}`}
-                        component={ProjectV2Default}
-                    />
-                    <Route exact path={`${match.url}/join`}
+            <div className='project-router-div'>
+                <BrowserRouter>
+
+                    <Route exact path={`${currentProjectURL}/join`}
                         component={ProjectV2Join}
                     />
-                    <Route exact path={`${match.url}/team`} />
-                    <Route exact path={`${match.url}/resources`} />
-                    <Route exact path={`${match.url}/publications`} />
-                </Switch>
+                    <Route exact path={`${currentProjectURL}/home`}
+                        component={ProjectV2Default}
+                    />
+                    <Route exact path={`${currentProjectURL}/team`} />
+                    <Route exact path={`${currentProjectURL}/resources`} />
+                    <Route exact path={`${currentProjectURL}/publications`} />
+                </BrowserRouter>
             </div>
         </div>
     );

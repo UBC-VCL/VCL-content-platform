@@ -531,13 +531,8 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
       ],
       members: [
         {
-          name: "Janavi Nainani",
-          position: "Research Assistant (Team Lead)",
-          isCurrentMember: true,
-        },
-        {
           name: "Parisa Zaini",
-          position: "Research Assistant (Co-lead)",
+          position: "Project Lead",
           isCurrentMember: true,
         },
         {
@@ -552,7 +547,7 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
         },
         {
           name: "Astrid Tam",
-          position: "Co-pilot",
+          position: "Volunteer",
           isCurrentMember: true,
         },
         {
@@ -560,6 +555,11 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           position: "Co-pilot",
           isCurrentMember: true,
         },
+        {
+          name: 'Amira Dakkak',
+          position: 'Position',
+          isCurrentMember: true,
+        }
       ],
       galleryList: [
         {

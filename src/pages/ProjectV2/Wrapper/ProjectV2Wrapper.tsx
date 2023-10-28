@@ -9,10 +9,6 @@ interface ProjectProps extends RouteComponentProps<MatchParams> { }
 
 const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
-    // string that is initialized at the very first mount of the site.
-    // will be used to determine the current project url
-    const currentProjectURL = match.url;
-
     return (
         <div className="project-content-container" style={{ margin: '10rem' }}>
             <div id="table-contents"

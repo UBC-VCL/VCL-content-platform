@@ -1,7 +1,7 @@
 const ProjectV2Default = () => {
 
     return (
-        <div style={{ margin: '6rem' }}>
+        <div style={{margin:'10rem'}}>
             <h1>home</h1>
         </div>
     )

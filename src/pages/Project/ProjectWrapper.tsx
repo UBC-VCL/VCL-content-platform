@@ -536,6 +536,16 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           isCurrentMember: true,
         },
         {
+          name: "Yebin Cho",
+          position: "Co-pilot",
+          isCurrentMember: true,
+        },
+        {
+          name: 'Amira Dakkak',
+          position: 'Co-Pilot',
+          isCurrentMember: true,
+        },
+        {
           name: "Jayden Pun",
           position: "Volunteer",
           isCurrentMember: true,
@@ -550,16 +560,6 @@ const ProjectWrapper: React.FC<ProjectProps> = ({ match }) => {
           position: "Volunteer",
           isCurrentMember: true,
         },
-        {
-          name: "Yebin Cho",
-          position: "Co-pilot",
-          isCurrentMember: true,
-        },
-        {
-          name: 'Amira Dakkak',
-          position: 'Position',
-          isCurrentMember: true,
-        }
       ],
       galleryList: [
         {

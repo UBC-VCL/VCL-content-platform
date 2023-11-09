@@ -11,8 +11,7 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
     return (
         <div className="project-content-container" style={{ margin: '10rem' }}>
-            <div id="table-contents"
-            >
+            <div id="table-contents">
                 <div className="single-table-content">
                     <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/`}>Home</a>
                 </div>
@@ -28,7 +27,6 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
                 <div className="single-table-content">
                     <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/publications`}>Publications</a>
                 </div>
-
             </div>
             <div className='project-router-div'>
                 

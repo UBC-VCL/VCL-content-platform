@@ -29,13 +29,13 @@ const People = () => {
   }
 
   const dummyList: Array<string> = [
-    "Supervisors",
+    "Management",
+    "Coding Team",
     "Correlation",
     "IDEO",
     "IT",
     "NOVA",
     "SHIVA",
-    "Coding Team"
   ];
 
   // the page will be defaulted to bein on the first grid item
@@ -121,20 +121,29 @@ const People = () => {
               <CircularProgress></CircularProgress>
             ) : resSuccess ? (
               currentList.filter((item) => {
-                return (
-                  item.position.toLowerCase() ===
-                    currentProject.toLowerCase() ||
-                  item.project.toLowerCase() === currentProject.toLowerCase()
-                );
+                if (currentProject == "Management") {
+                  return item.project === "" || item.project === null;
+                } else {
+                  return (
+                      item.position.toLowerCase() ===
+                      currentProject.toLowerCase() ||
+                      item.project.toLowerCase() === currentProject.toLowerCase()
+                  );
+                }
               }).length > 0 ? (
                 currentList
                   .filter((item) => {
-                    return (
-                      item.position.toLowerCase() ===
-                        currentProject.toLowerCase() ||
-                      item.project.toLowerCase() ===
-                        currentProject.toLowerCase()
-                    );
+                    if (currentProject == "Management") {
+                      return item.project === "" || item.project === null;
+                    }
+                    else {
+                      return (
+                          item.position.toLowerCase() ===
+                          currentProject.toLowerCase() ||
+                          item.project.toLowerCase() ===
+                          currentProject.toLowerCase()
+                      );
+                    }
                   })
                   .map((item, index) => {
                     return (

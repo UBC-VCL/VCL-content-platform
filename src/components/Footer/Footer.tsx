@@ -6,20 +6,19 @@ import constants from "@statics/constants";
 
 const Footer = () => {
     const projects = [{
-        name: "Correlation"
-    },
-        {
-            name: "NOVA"
+            name: "Coding Team"
         }, {
-            name: "SHIVA"
+        name: "Correlation"
         }, {
             name: "Ideo"
         }, {
             name: "Image Transitions"
-        }, {
+        },{
             name: "NCIS"
         }, {
-            name: "Coding Team"
+            name: "NOVA"
+        }, {
+            name: "SHIVA"
         }]
 
     return (

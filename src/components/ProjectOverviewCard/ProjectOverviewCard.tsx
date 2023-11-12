@@ -15,4 +15,4 @@ const ProjectOverviewCard = ({project}: any) => {
     )
 }
 
-export default ProjectOverviewCard
+export default ProjectOverviewCard;

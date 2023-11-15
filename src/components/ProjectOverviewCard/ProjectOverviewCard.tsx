@@ -4,7 +4,8 @@ import "./ProjectOverviewCard.css";
 const ProjectOverviewCard = ({project}: any) => {
 
     const navigateToProject = (projectName: String) => {
-        window.location.pathname = `${ROUTES.PROJECT.BASE}/${projectName}`
+        window.location.pathname = `${ROUTES.PROJECT.BASE2}/${projectName}`
+
     }
     return (
             <div>
@@ -14,4 +15,4 @@ const ProjectOverviewCard = ({project}: any) => {
     )
 }
 
-export default ProjectOverviewCard
+export default ProjectOverviewCard;

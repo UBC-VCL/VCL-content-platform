@@ -10,6 +10,7 @@ import './MobileNavbar.css';
 import { ReactComponent as SearchIcon } from '@statics/images/search-icon.svg';
 import VCLIcon from '@statics/images/vcl-logo-2023.png';
 import { slide as MobileMenu } from 'react-burger-menu';
+import  NAV from '@statics/nav';
 
 const MobileNavbar = () => {
   const { logout } = useHandleLogout();
@@ -62,21 +63,15 @@ const MobileNavbar = () => {
             </IconButton>
           </div>
           <MobileMenu>
-            <a className="menu-item" href="/">
-              {TEXT.PAGE_TITLES.HOME}
-            </a>
-            <a className="menu-item" href="/timeline">
-              {TEXT.PAGE_TITLES.TIMELINE}
-            </a>
-            <a className="menu-item" href="/projects">
-              {TEXT.PAGE_TITLES.PROJECTS}
-            </a>
-            <a className="menu-item" href="/resources">
-              {TEXT.PAGE_TITLES.RESOURCES}
-            </a>
-            <a className="menu-item" href="/join">
-              {TEXT.PAGE_TITLES.GET_INVOLVED}
-            </a>
+          {
+              NAV.map((item, index) => {
+                return (<a className='menu-item' href={`${item.REF}`} key={index}>
+                  {
+                    item.TITLE
+                  }
+                </a>)
+              })
+            }
           </MobileMenu>
           <div className="account-icon-wrapper">
             <IconButton onClick={handleMenuClick}>

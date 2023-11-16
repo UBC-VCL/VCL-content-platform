@@ -116,3 +116,17 @@
 .bm-item:hover {
   color: blue;
 }
+
+.mobile-menu-container {
+  height: fit-content;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.menu-item {
+  margin: 1rem 0;
+  font-size: large;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}

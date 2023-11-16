@@ -88,8 +88,8 @@ const People = () => {
           </h4>
         </div>
         {/*
-                    The items within the grid should be done dynamically, it should have inline styling for the number of items, instead of it being inside the css 
-                     - An issue that comes with this is the that the nav bar width will become too wide and some titles will not fit within each grid component 
+                    The items within the grid should be done dynamically, it should have inline styling for the number of items, instead of it being inside the css
+                     - An issue that comes with this is the that the nav bar width will become too wide and some titles will not fit within each grid component
                 */}
         <div className="page-nav">
           {dummyList.map((item: string, index: number) => {
@@ -121,29 +121,29 @@ const People = () => {
               <CircularProgress></CircularProgress>
             ) : resSuccess ? (
               currentList.filter((item) => {
-       //         if (currentProject == "Management") {
-    //              return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
-      //          } else {
+                if (currentProject == "Management") {
+                  return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
+                } else {
                   return (
                       item.position.toLowerCase() ===
                       currentProject.toLowerCase() ||
                       item.project.toLowerCase() === currentProject.toLowerCase()
                   );
-      //          }
+                }
               }).length > 0 ? (
                 currentList
                   .filter((item) => {
-       //             if (currentProject == "Management") {
-//                      return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
-       //             }
-      //              else {
+                    if (currentProject == "Management") {
+                      return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
+                    }
+                    else {
                       return (
                           item.position.toLowerCase() ===
                           currentProject.toLowerCase() ||
                           item.project.toLowerCase() ===
                           currentProject.toLowerCase()
                       );
-       //             }
+                    }
                   })
                   .map((item, index) => {
                     return (

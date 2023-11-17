@@ -1,11 +1,8 @@
-import react from "react";
+
 import { useState, useEffect } from "react";
 import "./People.css";
-import img1 from "../../components/ProjectGallery/media/blank-profile-picture.webp";
 import axios from "axios";
 import dotenv from "dotenv";
-import { AiFillLinkedin, AiFillPhone } from "react-icons/ai";
-import { MdEmail } from "react-icons/md";
 import { MdAccountCircle } from "react-icons/md";
 import Alert from "@mui/material/Alert";
 import TEXT from "@statics/text";
@@ -121,29 +118,24 @@ const People = () => {
               <CircularProgress></CircularProgress>
             ) : resSuccess ? (
               currentList.filter((item) => {
-                if (currentProject == "Management") {
-                  return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
-                } else {
-                  return (
-                      item.position.toLowerCase() ===
-                      currentProject.toLowerCase() ||
-                      item.project.toLowerCase() === currentProject.toLowerCase()
-                  );
-                }
-              }).length > 0 ? (
-                currentList
-                  .filter((item) => {
-                    if (currentProject == "Management") {
-                      return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
-                    }
-                    else {
-                      return (
-                          item.position.toLowerCase() ===
-                          currentProject.toLowerCase() ||
-                          item.project.toLowerCase() ===
-                          currentProject.toLowerCase()
+                  if (currentProject == "Management") {
+                    return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
+                  } else {
+                    return (
+                     item.position == currentProject || item.project == currentProject
+                    );
+                  }
+                }).length > 0 ? (
+                  currentList
+                    .filter((item) => {
+                      if (currentProject == "Management") {
+                        return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
+                      }
+                      else {
+                        return (
+                        item.position == currentProject ||
+                        item.project == currentProject
                       );
-                    }
                   })
                   .map((item, index) => {
                     return (

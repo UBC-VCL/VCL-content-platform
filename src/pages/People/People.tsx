@@ -119,7 +119,7 @@ const People = () => {
             ) : resSuccess ? (
               currentList.filter((item) => {
                   if (currentProject == "Management") {
-                    return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
+                    return item.position === 'Lab Manager' || item.position === 'Lab Leader' || item.position === 'Assistant Lab Manager and Workshop Coordinator' || item.position === 'Workshop Coordinator';
                   } else {
                     return (
                      item.position == currentProject || item.project == currentProject
@@ -129,14 +129,14 @@ const People = () => {
                   currentList
                     .filter((item) => {
                       if (currentProject == "Management") {
-                        return item.position === 'Lab Manager' || 'Lab Leader' || 'Assistant Lab Manager and Workshop Coordinator' || 'Workshop Coordinator';
+                        return item.position === 'Lab Manager' || item.position === 'Lab Leader' || item.position === 'Assistant Lab Manager and Workshop Coordinator' || item.position === 'Workshop Coordinator';
                       }
                       else {
                         return (
-                        item.position == currentProject ||
-                        item.project == currentProject
-                      );
-                  })
+                            item.position == currentProject ||
+                            item.project == currentProject
+                        );
+                      }})
                   .map((item, index) => {
                     return (
                       <div key={index} className="people-lab-member">

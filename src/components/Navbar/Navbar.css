@@ -23,9 +23,9 @@
 	margin-top: 1.25%;
 }
 
-.dropdown-menu:hover {
+/* .dropdown-menu:hover {
 	max-width: 19%;
-}
+} */
 
 [role=menu] {
 	padding: 20px 35px 35px 35px !important;

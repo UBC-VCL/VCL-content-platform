@@ -119,7 +119,7 @@ const People = () => {
             ) : resSuccess ? (
               currentList.filter((item) => {
                   if (currentProject == "Management") {
-                    return item.position === 'Lab Manager' || item.position === 'Lab Leader' || item.position === 'Assistant Lab Manager and Workshop Coordinator' || item.position === 'Workshop Coordinator';
+                    return item.position.toLowerCase() == 'Lab Manager'.toLowerCase() || item.position.toLowerCase() == 'Lab Leader'.toLowerCase() || item.position.toLowerCase() == 'Assistant Lab Manager and Workshop Coordinator'.toLowerCase() || item.position.toLowerCase() == 'Workshop Coordinator'.toLowerCase();
                   } else {
                     return (
                      item.position == currentProject || item.project == currentProject
@@ -129,7 +129,7 @@ const People = () => {
                   currentList
                     .filter((item) => {
                       if (currentProject == "Management") {
-                        return item.position === 'Lab Manager' || item.position === 'Lab Leader' || item.position === 'Assistant Lab Manager and Workshop Coordinator' || item.position === 'Workshop Coordinator';
+                        return item.position.toLowerCase() == 'Lab Manager'.toLowerCase() || item.position.toLowerCase() == 'Lab Leader'.toLowerCase() || item.position.toLowerCase() == 'Assistant Lab Manager and Workshop Coordinator'.toLowerCase() || item.position.toLowerCase() == 'Workshop Coordinator'.toLowerCase();
                       }
                       else {
                         return (

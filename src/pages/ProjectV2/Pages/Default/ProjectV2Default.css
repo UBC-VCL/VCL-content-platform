@@ -1,0 +1,97 @@
+.projectV2-default-content-container {
+    width: 100vw;
+    text-align: left;
+}
+
+.project-default-hero-section {
+    background-color: #2A3D5A;
+
+}
+
+/* .project-default-main-title,
+.project-default-number-title,
+.project-default-title-underline {
+    padding: 0 2rem;
+} */
+
+.project-default-content-section {
+    padding: 3rem 2rem;
+}
+
+.project-default-description {
+    font-size: large;
+}
+
+.project-default-number-title {
+    color: #8EA9D2;
+
+    font-weight: 700;
+    line-height: 45.12px;
+    letter-spacing: 0.74px;
+}
+
+.project-default-main-title {
+    color: white;
+}
+
+.project-default-title-underline {
+    margin-top: 1rem;
+    height: 1px;
+    width: 20%;
+    border-top: 4px solid #8EA9D2;
+    margin-bottom: 2rem;
+}
+
+.project-default-hero-description {
+    color: #92AED8;
+}
+
+#project-default-hero-description-1 {
+    margin-bottom: 1rem;
+}
+
+.project-default-QA-question {
+    color: #60779A;
+    font-weight: 700;
+    line-height: 23.17px;
+    letter-spacing: 0.126px;
+
+    margin-bottom: 1rem;
+}
+
+.project-default-QA-answer {
+    color: #60779A;
+    font-weight: 400;
+    line-height: 23.17px;
+    letter-spacing: 0.081px;
+}
+
+.project-default-back-to-top {
+    display: block;
+}
+
+
+.project-default-back-to-top {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+
+/* THIS IS ONLY FOR DESKTOPS */
+/* .project-default-back-to-top:hover, .project-default-back-to-top-arrow {
+    scale: 1.2;
+    transition: all 1.5s;
+}  */
+
+.project-default-back-to-top-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-default-back-to-top-title {
+    font-size: medium;
+}

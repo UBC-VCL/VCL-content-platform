@@ -1,5 +1,9 @@
 import "./ProjectV2Default.css";
+import {useState} from 'react';
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
+import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
+import PROJECT_TEXT, { PROJECT } from '@statics/projectsV2';
+import { useHistory } from 'react-router-dom';
 
 interface PropOBJ {
   project_id: string;
@@ -7,6 +11,15 @@ interface PropOBJ {
 
 const ProjectV2Default = (props: PropOBJ) => {
   const { project_id } = props;
+  const history = useHistory();
+
+
+  const currentProject:PROJECT | undefined = PROJECT_TEXT.find((element) => element.project_title.toLowerCase() == project_id.toLowerCase());
+  
+  // error handling for projects that do not exist
+  if (currentProject == undefined) {
+    history.push("/404");
+  }
 
   return (
     <div className="projectV2-default-content-container">
@@ -37,10 +50,24 @@ const ProjectV2Default = (props: PropOBJ) => {
             risus vel gravida. In hac habitasse platea dictumst. Proin bibendum
             purus vel quam tincidunt, eu auctor justo dapibus.
           </div>
-          <div className="project-dexcription-emphasis-div">
-            {
+          <div className="project-description-emphasis-div">
+            <RiDoubleQuotesL
+              color={"white"}
+              className="project-dexcription-emphasis-quotes"
+              id="project-dexcription-emphasis-quotes-left"
+              size={45}
+            />
+            <div className="project-emphasis-text-div">
+              {
               // TODO
-            }
+              }
+            </div>
+            <RiDoubleQuotesR
+              color={"white"}
+              className="project-dexcription-emphasis-quotes"
+              id="project-dexcription-emphasis-quotes-right"
+              size={45}
+            />
           </div>
         </div>
         <div className="project-default-gallery-slider">
@@ -87,9 +114,7 @@ const ProjectV2Default = (props: PropOBJ) => {
       </div>
       <div className="project-default-back-to-top">
         <div className="project-default-back-to-top-arrow">
-          <MdKeyboardDoubleArrowUp
-            size={45}
-          />
+          <MdKeyboardDoubleArrowUp size={45} />
         </div>
         <h1 className="project-default-back-to-top-title">Back to Top</h1>
       </div>

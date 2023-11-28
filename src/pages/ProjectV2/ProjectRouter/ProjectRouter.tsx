@@ -47,6 +47,7 @@ const ProjectRouter = (props: PropsOBJ) => {
         path={`/projectsV2/${project_id}/publications`}
         component={ProjectV2Publications}
       />
+      
     </BrowserRouter>
   );
 };

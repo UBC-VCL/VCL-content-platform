@@ -5,14 +5,7 @@
 
 .project-default-hero-section {
     background-color: #2A3D5A;
-
 }
-
-/* .project-default-main-title,
-.project-default-number-title,
-.project-default-title-underline {
-    padding: 0 2rem;
-} */
 
 .project-default-content-section {
     padding: 3rem 2rem;
@@ -46,6 +39,24 @@
     color: #92AED8;
 }
 
+.project-description-emphasis-div {
+    margin: 1.5rem 0;
+}
+
+#project-description-emphasis-quotes-left {
+    padding: 0 1.5rem;
+}
+
+.project-emphasis-text-div {
+    padding: 0 2.25rem;
+    color: white;
+    text-align: center;
+}
+
+#project-dexcription-emphasis-quotes-right {
+    float: right;
+}
+
 #project-default-hero-description-1 {
     margin-bottom: 1rem;
 }
@@ -53,7 +64,6 @@
 .project-default-QA-question {
     color: #60779A;
     font-weight: 700;
-    line-height: 23.17px;
     letter-spacing: 0.126px;
 
     margin-bottom: 1rem;

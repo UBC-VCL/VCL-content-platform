@@ -95,7 +95,7 @@ const ProjectV2Default = (props: PropOBJ) => {
           }
         </div>
       </div>
-      <div className="project-default-back-to-top">
+      <div className="project-default-back-to-top" onClick={() => {window.scrollTo(0, 0)}}>
         <div className="project-default-back-to-top-arrow">
           <MdKeyboardDoubleArrowUp size={45} />
         </div>

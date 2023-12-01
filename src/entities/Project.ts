@@ -17,7 +17,7 @@ interface Publication {
     link: string
 }
 interface Description {
-    first: string,
+    first: any,
     second: string,
     emp?: string,
 }

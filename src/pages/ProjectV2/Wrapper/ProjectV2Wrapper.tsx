@@ -29,7 +29,6 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
                 </div>
             </div>
             <div className='project-router-div'>
-                
                 <ProjectRouter project_id={match.params.project_id}/>
             </div>
         </div>

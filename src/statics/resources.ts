@@ -2,24 +2,23 @@ interface Resource {
     // PAGE_LIST: string[];
     CONTENT: {
         title: string;
+        page_title: string;
         content: {
             title: string;
             intro: string;
             href: string;
-            release: Date;
+            release: Date | string;
         }[];
+        // categories: string[];
     }[];
 
 }
 
 const RESOURCES: Resource = {
-    // PAGE_LIST: [
-    //     "COGS 402",
-    //     "lorem ipsum",
-    // ],
     CONTENT: [
         {
             title: "COGS 402",
+            page_title: "COGS 402 Projects",
             content: [
                 {
                     title: 'Lorem Ipsum',
@@ -45,10 +44,12 @@ const RESOURCES: Resource = {
                     href: 'https://www.google.com',
                     release: new Date("2023-10-24"),
                 }
-            ]
+            ],
         },
         {
             title: "lorem ipsum",
+            page_title: "Lorem Ipsum Projects",
+
             content: [
                 {
                     title: 'Lorem Ipsum',
@@ -77,6 +78,7 @@ const RESOURCES: Resource = {
             ]
         }, {
             title: "COGS 402 2",
+            page_title: "COGS 402 2 Projects",
             content: [
                 {
                     title: 'Lorem Ipsum',
@@ -106,6 +108,8 @@ const RESOURCES: Resource = {
         },
         {
             title: "lorem ipsum2",
+            page_title: "Lorem Ipsum2 Projects",
+
             content: [
                 {
                     title: 'Lorem Ipsum',

@@ -26,7 +26,11 @@ const baseRoutes = {
 } as const;
 
 const timelineRoutes = {
-  RESOURCES: '/resources',
+  RESOURCES: {
+    PATH: '/resources/:resource_id/',
+    BASE: '/resources',
+    OVERVIEW: '/resources',
+  },
   TIMELINE: '/timeline',
 } as const;
 

@@ -30,7 +30,7 @@ const baseNav = [
 			},
 			{
 				TITLE: TEXT.PAGE_TITLES.RESOURCES,
-				REF: ROUTES.RESOURCES
+				REF: ROUTES.RESOURCES!.BASE
 			},
 		]
 		: []),

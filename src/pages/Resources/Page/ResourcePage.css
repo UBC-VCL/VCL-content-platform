@@ -1,0 +1,23 @@
+.resource-page-title-container {
+    margin: auto;
+}
+
+.resource-page-title {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    color: white;
+    background-color: #1C426D;
+    padding: 2rem;
+    font-size: x-large;
+}
+
+.resource-grid-menu {
+    display: grid;
+    margin: auto;
+}
+
+.resource-grid-menu-item {
+    text-align: center;
+    cursor: pointer;
+}

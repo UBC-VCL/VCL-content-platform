@@ -30,14 +30,13 @@ const RESOURCES: Resource = {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
                     href: 'https://www.google.com',
-                    release: new Date("2021-2-24"),
+                    release: new Date("2021-02-24"),
                 },
                 {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
                     href: 'https://www.google.com',
-                    release: new Date("2023-4-24"),
-                },
+                    release: new Date("2023-04-24"),                },
                 {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
@@ -61,13 +60,13 @@ const RESOURCES: Resource = {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
                     href: 'https://www.google.com',
-                    release: new Date("2021-2-24"),
+                    release: new Date("2021-12-24"),
                 },
                 {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
                     href: 'https://www.google.com',
-                    release: new Date("2023-4-24"),
+                    release: new Date("2020-12-24"),
                 },
                 {
                     title: 'Lorem Ipsum',

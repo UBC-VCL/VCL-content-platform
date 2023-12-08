@@ -4,10 +4,17 @@ interface Resource {
         title: string;
         page_title: string;
         content: {
+            img?: string;
             title: string;
             intro: string;
             href: string;
-            release: Date | string;
+            release: string;
+        }[] | {
+            img?: string;
+            title: string;
+            intro: string;
+            href: string;
+            release: Date;
         }[];
         // categories: string[];
     }[];
@@ -36,7 +43,8 @@ const RESOURCES: Resource = {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
                     href: 'https://www.google.com',
-                    release: new Date("2023-04-24"),                },
+                    release: new Date("2023-04-24"),
+                },
                 {
                     title: 'Lorem Ipsum',
                     intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus. Sed vitae nisi euismod, tincidunt nisl ac, tincidunt libero. Nullam euismod, nisl ac tincidunt tincidunt, ligula quam ultrices massa, nec aliquet arcu velit eu odio. Sed ut nunc eget urna ultricies consequat. Sed et semper lacus.',
@@ -78,6 +86,7 @@ const RESOURCES: Resource = {
         }, {
             title: "COGS 402 2",
             page_title: "COGS 402 2 Projects",
+
             content: [
                 {
                     title: 'Lorem Ipsum',

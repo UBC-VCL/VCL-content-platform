@@ -14,7 +14,7 @@
 
 .resource-grid-menu {
     display: grid;
-    margin: auto;
+    margin: .75rem auto;
 }
 
 .resource-grid-menu-item {

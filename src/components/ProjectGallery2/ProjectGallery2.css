@@ -1,0 +1,29 @@
+.project-gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+}
+
+.gallery-dots {
+    display: flex;
+    width: fit-content;
+}
+
+.gallery-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.gallery-dot-active {
+    height: 12px;
+    width: 12px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}

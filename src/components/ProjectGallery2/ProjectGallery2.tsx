@@ -39,7 +39,10 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ index }) => {
     );
 };
 
-const ProjectGallery2: React.FC = () => {
+interface CarouselProp {
+    darkmode: boolean;
+}
+const ProjectGallery2: React.FC<CarouselProp> = ({darkmode}) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [touchStart, setTouchStart] = useState<number>(0);
     const [touchEnd, setTouchEnd] = useState<number>(0);
@@ -116,7 +119,9 @@ const ProjectGallery2: React.FC = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
         >
-            <div className="project-gallery-container">
+            <div className="project-gallery-container" 
+            style={{backgroundColor: `${darkmode ? '#1B283A': 'white'}`, color: `${darkmode ? 'white': 'black'}`}}
+            >
             {data.length > 1 && (
                 <div className="LeftArrow" onClick={previous}>
                     <CarouselItem index={currentIndex === 0 ? 0 : currentIndex - 1} />

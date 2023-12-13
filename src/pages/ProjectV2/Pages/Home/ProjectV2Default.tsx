@@ -6,7 +6,7 @@ const ProjectV2Default = () => {
     return (
         <div id="project-home-container">
             <h1>home</h1>
-            <ProjectGallery2 />
+            <ProjectGallery2 darkmode={true}/>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import PROJECT_TEXT, { PROJECT } from "@statics/projectsV2";
 import { useHistory } from "react-router-dom";
+import ProjectGallery2 from "@components/ProjectGallery2/ProjectGallery2";
 
 interface PropOBJ {
   project_id: string;
@@ -60,12 +61,17 @@ const ProjectV2Default = (props: PropOBJ) => {
             </div>
           )}
         </div>
-        <div className="project-default-gallery-slider">
+        {/* <div className="project-default-gallery-slider">
           {
             // TODO
           }
-        </div>
+        </div> */}
       </div>
+      {
+        currentProject?.galleryList && <ProjectGallery2 data={currentProject.galleryList} darkmode={true} />
+      }
+
+
       {currentProject?.qa && (
         <div>
           <div className="project-default-QA-section project-default-content-section">

@@ -68,7 +68,7 @@ const ProjectV2Default = (props: PropOBJ) => {
         </div> */}
       </div>
       {
-        currentProject?.galleryList && <ProjectGallery2 data={currentProject.galleryList} darkmode={true} />
+        currentProject?.galleryList && <ProjectGallery2 title={'Gallery'} titleNum={"02"} data={currentProject.galleryList} darkmode={true} />
       }
 
 

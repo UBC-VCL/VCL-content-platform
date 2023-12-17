@@ -5,6 +5,7 @@ import { PROJECT } from '@statics/projectsV2';
 const AUTO_TIME = 10; // Seconds.
 
 interface CarouselItemProps {
+    active: boolean;
     data: {
         img?: string;
         title?: string;
@@ -32,18 +33,20 @@ interface CarouselItemProps {
 //     // }
 // ]
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ data }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({ data, active }) => {
     const carousel = useRef<HTMLDivElement>(null);
 
     return (
         <div className="carousel-item" ref={carousel}>
-            <img src={data.img} alt="" />
-            <h1>
+            <div style={{width:"100%", justifyContent:'center', alignContent:'center', display:'flex'}}>
+                <img src={data.img} alt="" className="carousel-item-img"/>
+            </div>
+            <h1 className="carousel-item-title">
                 {
                     data.title
                 }
             </h1>
-            <p>
+            <p className="carousel-item-desc">
                 {
                     data.description
                 }
@@ -53,6 +56,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ data }) => {
 };
 
 interface CarouselProp {
+    title: string;
+    titleNum: string;
     darkmode: boolean;
     data: {
         img?: string;
@@ -63,7 +68,7 @@ interface CarouselProp {
         position?: string; // only if the card is of type 'testimony'}[];
     }[];
 }
-const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data }) => {
+const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleNum }) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [touchStart, setTouchStart] = useState<number>(0);
     const [touchEnd, setTouchEnd] = useState<number>(0);
@@ -142,19 +147,27 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data }) => {
             style={{ backgroundColor: `${darkmode ? '#1B283A' : 'white'}`, color: `${darkmode ? 'white' : 'black'}` }}
             className="project-gallery-container"
         >
+            <div className="project-gallery-titles">
+                <h1 className="project-gallery-title">
+                    {titleNum}
+                </h1>
+                <h2 className="project-gallery-title">
+                    {title} 
+                </h2>
+            </div>
             <div className="project-gallery-content-container"
             >
                 {data.length > 1 && windowSize >= 1024 && (
                     <div className="LeftArrow" onClick={previous}>
-                        <CarouselItem data={currentIndex === 0 ? data[0] : data[currentIndex - 1]} />
+                        <CarouselItem data={currentIndex === 0 ? data[0] : data[currentIndex - 1]} active={false}/>
                     </div>
                 )}
 
-                <CarouselItem data={data[currentIndex]} />
+                <CarouselItem data={data[currentIndex]} active={true}/>
 
                 {data.length > 1 && windowSize >= 1024 && (
                     <div className="RightArrow" onClick={next}>
-                        <CarouselItem data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} />
+                        <CarouselItem data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} active={false}/>
                     </div>
                 )}
             </div>

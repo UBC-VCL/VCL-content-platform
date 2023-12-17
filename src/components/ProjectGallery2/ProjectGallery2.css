@@ -12,6 +12,15 @@
     margin: auto;
 }
 
+.project-gallery-title {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.project-gallery-titles {
+    margin-bottom: 2rem;
+}
+
 .gallery-dots {
     display: flex;
     width: fit-content;
@@ -40,13 +49,13 @@
 
 .carousel-item {
     background-color: #2A3749;
-    min-height: 50vh;
+    min-height: 60vh;
     width: 80%;
     border-radius: 6.504px;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
-.carousel-item h1 {
+.carousel-item-title {
     font-size: medium;
     color: white;
     text-decoration: underline;
@@ -54,9 +63,17 @@
     margin: 1rem 0 1rem 0;
 }
 
-.carousel-item img {
-    width: 100%;
+.carousel-item-img {
+    margin: 0 auto;
+    width: 90%;
     object-fit: cover;
     border-radius: 6.504px;
     border-radius: 0px;
+}
+
+@media screen and (min-width: 1024px) {
+    .carousel-item {
+        width: 100%;
+    }
+    
 }

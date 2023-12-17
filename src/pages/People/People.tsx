@@ -73,6 +73,24 @@ const People = () => {
         // do nothing with the error
         // console.log(err);
       });
+
+    // axios({
+    //   method: "get",
+    //   url: `${baseURL}/api/members`,
+    //   headers: {
+    //     key: process.env.API_KEY
+    //   }
+    // })
+    // // axios
+    // //   .get(`${baseURL}/api/members`)
+    //   .then((response) => {
+    //     setList(response.data.data);
+    //     setSuccess(true);
+    //   })
+    //   .catch((err) => {
+    //     // do nothing with the error
+    //     // console.log(err);
+    //   });
   };
 
   return (

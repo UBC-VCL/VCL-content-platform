@@ -230,6 +230,18 @@ const PROJECT_TEXT: PROJECT[] = [
         description:
           "Scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
         cardType: "default",
+      },{
+        img: correlationGallery2,
+        title: "Figure 1.2",
+        description:
+          "Scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
+        cardType: "default",
+      },{
+        img: correlationGallery2,
+        title: "Figure 1.2",
+        description:
+          "Scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
+        cardType: "default",
       },
     ],
     testimonials: [

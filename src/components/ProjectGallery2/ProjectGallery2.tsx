@@ -39,7 +39,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
     // `${side == 'left' ? "flex-end" : ""}`
     return (
         <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`}}>
-            <div className="carousel-item" ref={carousel} style={{ width: `${active ? "100%" : "20%"}`, height:`${side == 'center' ? "100%" : "40vh"}` }}>
+            <div className="carousel-item" ref={carousel} style={{ width: `${active ? "100%" : "20%"}`, height:`${side == 'center' ? "100%" : "45vh"}` }}>
                 <div style={{ width: "100%", justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
                     {active && <img src={data.img} alt="" className="carousel-item-img" />}
                 </div>

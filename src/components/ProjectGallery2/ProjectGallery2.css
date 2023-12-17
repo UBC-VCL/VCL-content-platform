@@ -10,6 +10,7 @@
     width: 100%;
     height: fit-content;
     margin: auto;
+    max-width: 1500px;
 }
 
 .project-gallery-title {
@@ -93,12 +94,8 @@
     }
 
     .carousel-item-img {
-        width: 75%;
+        width: 70%;
     }
-    .carousel-grid-item {
-        max-width: 900px;
-    }
-
     /* .carousel-grid-item {
         display: flex;
         justify-content: center;

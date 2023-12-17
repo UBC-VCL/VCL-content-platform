@@ -6,6 +6,7 @@ const AUTO_TIME = 10; // Seconds.
 
 interface CarouselItemProps {
     active: boolean;
+    side: string;
     data: {
         img?: string;
         title?: string;
@@ -33,24 +34,32 @@ interface CarouselItemProps {
 //     // }
 // ]
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ data, active }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
     const carousel = useRef<HTMLDivElement>(null);
-
+    // `${side == 'left' ? "flex-end" : ""}`
     return (
-        <div className="carousel-item" ref={carousel}>
-            <div style={{width:"100%", justifyContent:'center', alignContent:'center', display:'flex'}}>
-                <img src={data.img} alt="" className="carousel-item-img"/>
+        <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`}}>
+            <div className="carousel-item" ref={carousel} style={{ width: `${active ? "100%" : "20%"}`, height:`${side == 'center' ? "100%" : "40vh"}` }}>
+                <div style={{ width: "100%", justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
+                    {active && <img src={data.img} alt="" className="carousel-item-img" />}
+                </div>
+                {
+                    active ? (
+                        <div>
+                            <h1 className="carousel-item-title">
+                                {
+                                    data.title
+                                }
+                            </h1>
+                            <p className="carousel-item-desc">
+                                {
+                                    data.description
+                                }
+                            </p>
+                        </div>
+                    ) : ""
+                }
             </div>
-            <h1 className="carousel-item-title">
-                {
-                    data.title
-                }
-            </h1>
-            <p className="carousel-item-desc">
-                {
-                    data.description
-                }
-            </p>
         </div>
     );
 };
@@ -110,13 +119,13 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [previous, next]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            next();
-        }, AUTO_TIME * 1000);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         next();
+    //     }, AUTO_TIME * 1000);
 
-        return () => clearInterval(interval);
-    }, [next]);
+    //     return () => clearInterval(interval);
+    // }, [next]);
 
     useEffect(() => {
         // Function to update window size
@@ -152,24 +161,24 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
                     {titleNum}
                 </h1>
                 <h2 className="project-gallery-title">
-                    {title} 
+                    {title}
                 </h2>
             </div>
             <div className="project-gallery-content-container"
             >
-                {data.length > 1 && windowSize >= 1024 && (
+                {currentIndex != 0 ? data.length > 1 && windowSize >= 1024 && (
                     <div className="LeftArrow" onClick={previous}>
-                        <CarouselItem data={currentIndex === 0 ? data[0] : data[currentIndex - 1]} active={false}/>
+                        <CarouselItem side={"left"} data={currentIndex === 0 ? data[0] : data[currentIndex - 1]} active={false} />
                     </div>
-                )}
+                ) : <div></div>}
 
-                <CarouselItem data={data[currentIndex]} active={true}/>
+                <CarouselItem data={data[currentIndex]} active={true} side={"center"} />
 
-                {data.length > 1 && windowSize >= 1024 && (
+                {currentIndex != data.length-1 ? data.length > 1 && windowSize >= 1024 &&  (
                     <div className="RightArrow" onClick={next}>
-                        <CarouselItem data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} active={false}/>
+                        <CarouselItem side={"right"} data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} active={false} />
                     </div>
-                )}
+                ) : <div></div>}
             </div>
             <div className="gallery-dots">
                 {data.map((_, index: number) => {

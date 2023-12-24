@@ -96,9 +96,12 @@
     .carousel-item-img {
         width: 70%;
     }
-    /* .carousel-grid-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
+
+    .carousel-item {
+        min-height: 80%;
+    }
+
+    .carousel-grid-item {
+        min-height: 200.39px;
+    }
 }

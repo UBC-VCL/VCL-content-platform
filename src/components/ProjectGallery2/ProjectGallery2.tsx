@@ -16,30 +16,12 @@ interface CarouselItemProps {
         position?: string; // only if the card is of type 'testimony'}[];
     };
 }
-// const data = [
-//     {
-//         title: 'title1',
-//         description: 'description1',
-//         image: 'image1'
-//     },
-//     {
-//         title: 'title2',
-//         description: 'description2',
-//         image: 'image2'
-//     },
-//     // {
-//     //     title: 'title3',
-//     //     description: 'description3',
-//     //     image: 'image3'
-//     // }
-// ]
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
     const carousel = useRef<HTMLDivElement>(null);
-    // `${side == 'left' ? "flex-end" : ""}`
     return (
-        <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`}}>
-            <div className="carousel-item" ref={carousel} style={{ width: `${active ? "100%" : "20%"}`, height:`${side == 'center' ? "100%" : "45vh"}` }}>
+        <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height:`${side == 'center' ? "100%" : "30vh"}`}}>
+            <div className="carousel-item" ref={carousel} style={{ width: `${active ? "100%" : "20%"}`}}>
                 <div style={{ width: "100%", justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
                     {active && <img src={data.img} alt="" className="carousel-item-img" />}
                 </div>
@@ -167,7 +149,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
             <div className="project-gallery-content-container"
             >
                 {currentIndex != 0 ? data.length > 1 && windowSize >= 1024 && (
-                    <div className="LeftArrow" onClick={previous}>
+                    <div onClick={previous}>
                         <CarouselItem side={"left"} data={currentIndex === 0 ? data[0] : data[currentIndex - 1]} active={false} />
                     </div>
                 ) : <div></div>}
@@ -175,7 +157,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
                 <CarouselItem data={data[currentIndex]} active={true} side={"center"} />
 
                 {currentIndex != data.length-1 ? data.length > 1 && windowSize >= 1024 &&  (
-                    <div className="RightArrow" onClick={next}>
+                    <div onClick={next}>
                         <CarouselItem side={"right"} data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} active={false} />
                     </div>
                 ) : <div></div>}

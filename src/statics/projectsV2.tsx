@@ -16,6 +16,15 @@ import ideo2 from "@statics/images/ideo/ideo2.png";
 import it1 from "@statics/images/it/it1.png";
 import it2 from "@statics/images/it/it2.png";
 
+export interface GALLERY_ITEM {
+  img?: string;
+  title?: string;
+  description: string;
+  cardType: string;
+  name?: string; // only if the card is of type 'testimony'
+  position?: string; // only if the card is of type 'testimony'}[];
+}
+
 export interface PROJECT {
   project_title: string;
   description: {
@@ -35,31 +44,10 @@ export interface PROJECT {
       second: React.ReactNode;
       emphasis?: string;
     };
-    galleryList: {
-      img?: string;
-      title?: string;
-      description: string;
-      cardType: string;
-      name?: string; // only if the card is of type 'testimony'
-      position?: string; // only if the card is of type 'testimony'}[];
-    }[];
+    galleryList: GALLERY_ITEM[];
   }[];
-  galleryList?: {
-    img?: string;
-    title?: string;
-    description: string;
-    cardType: string;
-    name?: string; // only if the card is of type 'testimony'
-    position?: string; // only if the card is of type 'testimony'}[];
-  }[];
-  testimonials?: {
-    img?: string;
-    title?: string;
-    description: string;
-    cardType: string;
-    name?: string; // only if the card is of type 'testimony'
-    position?: string; // only if the card is of type 'testimony'
-  }[];
+  galleryList?: GALLERY_ITEM[];
+  testimonials?: GALLERY_ITEM[];
   pastProjects?: { title: string; description: string }[];
   joinTeam: { whatWeDo: string[] };
 }
@@ -225,11 +213,11 @@ const PROJECT_TEXT: PROJECT[] = [
         cardType: "default",
       },
       {
-        img: correlationGallery2,
-        title: "Figure 1.2",
         description:
           "Scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
-        cardType: "default",
+        cardType: "no-photo-test",
+        position: "Leader",
+        name:"John Doe"
       },{
         img: correlationGallery2,
         title: "Figure 1.2",

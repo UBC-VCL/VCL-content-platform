@@ -1,49 +1,80 @@
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './ProjectGallery2.css';
-import { PROJECT } from '@statics/projectsV2';
+import { GALLERY_ITEM } from '@statics/projectsV2';
+import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+
 
 const AUTO_TIME = 10; // Seconds.
 
 interface CarouselItemProps {
     active: boolean;
     side: string;
-    data: {
-        img?: string;
-        title?: string;
-        description: string;
-        cardType: string;
-        name?: string; // only if the card is of type 'testimony'
-        position?: string; // only if the card is of type 'testimony'}[];
-    };
+    data: GALLERY_ITEM;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
-    const carousel = useRef<HTMLDivElement>(null);
-    return (
-        <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height:`${side == 'center' ? "100%" : "30vh"}`}}>
-            <div className="carousel-item" ref={carousel} style={{ width: `${active ? "100%" : "20%"}`}}>
-                <div style={{ width: "100%", justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
-                    {active && <img src={data.img} alt="" className="carousel-item-img" />}
-                </div>
-                {
-                    active ? (
-                        <div>
-                            <h1 className="carousel-item-title">
-                                {
-                                    data.title
-                                }
-                            </h1>
-                            <p className="carousel-item-desc">
-                                {
-                                    data.description
-                                }
-                            </p>
+
+    switch (data.cardType) {
+        case "no-photo-test": {
+            return (
+                <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height: `${side == 'center' ? "100%" : "30vh"}` }}>
+                    <div className="carousel-item" style={{ width: `${active ? "100%" : "20%"}` }}>
+                        <div id='no-photo-test-quote-container'>
+                            <ImQuotesLeft id='no-photo-test-left-quote' size={25} />
                         </div>
-                    ) : ""
-                }
-            </div>
-        </div>
-    );
+                        <p className="carousel-item-desc" id="no-photo-test-description">
+                            {
+                                data.description
+                            }
+                        </p>
+                        <div id='no-photo-test-quote-container'>
+                            <ImQuotesRight id='no-photo-test-right-quote' size={25} />
+                        </div>
+                        <div className='no-photo-test-identification-container'>
+                            <div className='no-photo-test-fullName'>
+                                {data.name}
+                            </div>
+                            {
+                                ","
+                            }
+                            &nbsp;
+                            <div className='no-photo-test-position'>
+                                {data.position}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+        }
+        default: {
+            return (
+                <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height: `${side == 'center' ? "100%" : "30vh"}` }}>
+                    <div className="carousel-item" style={{ width: `${active ? "100%" : "20%"}` }}>
+                        <div style={{ width: "100%", justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
+                            {active && <img src={data.img} alt="" className="carousel-item-img" />}
+                        </div>
+                        {
+                            active ? (
+                                <div>
+                                    <h1 className="carousel-item-title">
+                                        {
+                                            data.title
+                                        }
+                                    </h1>
+                                    <p className="carousel-item-desc">
+                                        {
+                                            data.description
+                                        }
+                                    </p>
+                                </div>
+                            ) : ""
+                        }
+                    </div>
+                </div>
+            );
+        }
+    }
 };
 
 interface CarouselProp {
@@ -156,7 +187,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
 
                 <CarouselItem data={data[currentIndex]} active={true} side={"center"} />
 
-                {currentIndex != data.length-1 ? data.length > 1 && windowSize >= 1024 &&  (
+                {currentIndex != data.length - 1 ? data.length > 1 && windowSize >= 1024 && (
                     <div onClick={next}>
                         <CarouselItem side={"right"} data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} active={false} />
                     </div>

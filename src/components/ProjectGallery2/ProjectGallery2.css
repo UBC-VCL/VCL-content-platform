@@ -72,6 +72,23 @@
     border-radius: 0px;
 }
 
+#no-photo-test-right-quote {
+    float: right;
+}
+
+#no-photo-test-description {
+    padding: 0 2rem;
+    color: #BFD1EC;
+}
+
+.no-photo-test-identification-container {
+    margin-top: 1.5rem;
+    float: right;
+    display: flex;
+    font-weight: 700;
+    color: #E1EFFF;
+}
+
 @media screen and (max-width: 700px) {
     .carousel-item-img {
         width: 90%;

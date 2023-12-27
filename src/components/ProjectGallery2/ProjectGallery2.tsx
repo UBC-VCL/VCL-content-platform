@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import './ProjectGallery2.css';
 import { GALLERY_ITEM } from '@statics/projectsV2';
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
 
 const AUTO_TIME = 10; // Seconds.
@@ -181,7 +182,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
             >
                 {currentIndex != 0 ? data.length > 1 && windowSize >= 1024 && (
                     <div onClick={previous}>
-                        <CarouselItem side={"left"} data={currentIndex === 0 ? data[0] : data[currentIndex - 1]} active={false} />
+                        <IoIosArrowDropleft size={60} style={{ float: 'right' }} />
                     </div>
                 ) : <div></div>}
 
@@ -189,7 +190,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
 
                 {currentIndex != data.length - 1 ? data.length > 1 && windowSize >= 1024 && (
                     <div onClick={next}>
-                        <CarouselItem side={"right"} data={currentIndex === (data.length - 1) ? data[0] : data[currentIndex + 1]} active={false} />
+                        <IoIosArrowDropright size={60} />
                     </div>
                 ) : <div></div>}
             </div>

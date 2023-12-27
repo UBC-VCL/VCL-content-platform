@@ -89,6 +89,8 @@
     color: #E1EFFF;
 }
 
+
+
 @media screen and (max-width: 700px) {
     .carousel-item-img {
         width: 90%;
@@ -120,5 +122,10 @@
 
     .carousel-grid-item {
         min-height: 200.39px;
+    }
+
+    .project-default-back-to-top:hover{
+        transform: scale(1.2);
+        transition: all 0.25s ease-in;
     }
 }

@@ -122,6 +122,7 @@
 
     .carousel-grid-item {
         min-height: 200.39px;
+        user-select: none;
     }
 
     .project-default-back-to-top:hover{

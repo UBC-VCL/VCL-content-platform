@@ -1,14 +1,12 @@
 .projectV2-default-content-container {
     width: 100vw;
     text-align: left;
-}
-
-.project-default-hero-section {
     background-color: #2A3D5A;
+
 }
 
 .project-default-content-section {
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 4rem 2rem;
 }
 
 .project-default-description {
@@ -35,7 +33,7 @@
     margin-bottom: 2rem;
 }
 
-.project-default-hero-description {
+.project-default-hero {
     color: #92AED8;
 }
 
@@ -61,6 +59,10 @@
     margin-bottom: 1rem;
 }
 
+.project-default-QA-section {
+    background-color: white;
+}
+
 .project-default-QA-question {
     color: #60779A;
     font-weight: 700;
@@ -77,16 +79,19 @@
 }
 
 .project-default-back-to-top {
-    display: block;
-}
-
-
-.project-default-back-to-top {
     width: fit-content;
     height: fit-content;
     margin: auto;
     margin-bottom: 2rem;
     cursor: pointer;
+    display: block;
+    background-color: white;
+}
+
+.project-default-back-to-top-container {
+    background-color: white;
+    width: 100%;
+    user-select: none;
 }
 
 
@@ -104,4 +109,46 @@
 
 .project-default-back-to-top-title {
     font-size: medium;
+}
+
+.project-description-emphasis-div {
+    max-width: 900px;
+}
+
+@media screen and (min-width: 1024px) {
+    /* .project-default-hero {
+        padding-right: 2rem;
+        padding-left: 2rem;
+        margin: auto;
+    } */
+
+    /* .project-default-titles {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    } */
+
+    .project-default-hero-section {
+        min-height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-default-titles {
+        margin-top: auto;
+    }
+
+    .project-description-emphasis-div {
+        margin: auto;
+    }
+
+    .project-default-hero-descriptions  {
+        display: grid;
+        grid-template-columns: 3fr 0.25fr 3fr;
+    }
+
+    .project-default-content-section {
+        padding-right: 5rem;
+        padding-left: 5rem;
+    }
 }

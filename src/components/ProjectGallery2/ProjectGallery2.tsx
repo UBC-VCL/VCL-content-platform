@@ -133,13 +133,13 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [previous, next]);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         next();
-    //     }, AUTO_TIME * 1000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            next();
+        }, AUTO_TIME * 1000);
 
-    //     return () => clearInterval(interval);
-    // }, [next]);
+        return () => clearInterval(interval);
+    }, [next]);
 
     useEffect(() => {
         // Function to update window size
@@ -159,7 +159,6 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
             window.removeEventListener('resize', updateWindowSize);
         };
     }, []); // Empty dependency array ensures that the effect runs only on mount and unmount
-
 
     return (
         <div
@@ -181,7 +180,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
             <div className="project-gallery-content-container"
             >
                 {currentIndex != 0 ? data.length > 1 && windowSize >= 1024 && (
-                    <div onClick={previous}>
+                    <div onClick={previous} className='project-gallery-arrows'>
                         <IoIosArrowDropleft size={60} style={{ float: 'right' }} />
                     </div>
                 ) : <div></div>}
@@ -189,7 +188,7 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
                 <CarouselItem data={data[currentIndex]} active={true} side={"center"} />
 
                 {currentIndex != data.length - 1 ? data.length > 1 && windowSize >= 1024 && (
-                    <div onClick={next}>
+                    <div onClick={next} className='project-gallery-arrows'>
                         <IoIosArrowDropright size={60} />
                     </div>
                 ) : <div></div>}

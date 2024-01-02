@@ -18,6 +18,10 @@
     font-size: 1.5rem;
 }
 
+.project-gallery-arrows:hover {
+    cursor: pointer;
+}
+
 .project-gallery-titles {
     margin-bottom: 2rem;
 }
@@ -110,18 +114,14 @@
         grid-template-columns: 1fr 3fr 1fr;
         margin: auto;
         gap: 10px;
+        min-height: 400px;
     }
 
     .carousel-item-img {
-        width: 70%;
-    }
-
-    .carousel-item {
-        min-height: 80%;
+        width: 60%;
     }
 
     .carousel-grid-item {
-        min-height: 200.39px;
         user-select: none;
     }
 

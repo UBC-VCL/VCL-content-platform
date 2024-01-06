@@ -2,6 +2,39 @@
     margin: auto;
 }
 
+.resource-content-containers {
+    margin: auto;
+    display: grid;
+    width: 60%;
+    margin: 0.5rem auto;
+}
+
+.single-resource-content-section {
+    /* width: fit-content; */
+}
+
+.single-resource-grid-item {
+    width: fit-content;
+    padding: 0.5rem 2.5rem;
+    margin: auto;
+    font-weight: 600;
+    color: #000;
+    line-height: normal;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+}
+
+.single-resource-grid-item:hover {
+    background-color: #1C426D;
+    color: white;
+}
+
+.selected-item {
+    background-color: #1C426D;
+    color: white;
+}
+
 .resource-page-title {
     text-align: center;
     justify-content: center;

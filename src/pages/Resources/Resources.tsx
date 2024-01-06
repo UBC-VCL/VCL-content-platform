@@ -5,6 +5,7 @@ import ResourceCards from './Cards/ResourceCards';
 import ROUTES from '@statics/routes';
 
 const Resources = () => {
+
 	return (
 		<div className='resources-overview-container'>
 			<div>
@@ -14,6 +15,7 @@ const Resources = () => {
 			<div className='resource-content-container'>
 				{
 					RESOURCES.CONTENT.map((item, index) => {
+
 						return (
 							<ResourceCards title={item.title} link={`${ROUTES.RESOURCES!.BASE}/${item.title}`} key={index} />
 						)

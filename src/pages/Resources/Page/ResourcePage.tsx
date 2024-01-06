@@ -14,18 +14,26 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
     const history = useHistory();
     const currDate = new Date();
 
-    const [navHeight, setNavHeight] = useState<number>(0);
-    const [filterList, setFilterList] = useState<string[]>([]);
-    const [filterDates, setFilterDates] = useState<string[]>([currDate.getFullYear().toString(), (currDate.getFullYear() - 1).toString(), (currDate.getFullYear() - 2).toString()]);
-
     const currentResource = RESOURCES.CONTENT.find((resource) => resource.title === match.params.resource_id);
 
-    // to keep track of the height of the navbar
+    const [navHeight, setNavHeight] = useState<number>(0);
+    const [filterDates, setFilterDates] = useState<string[]>([currDate.getFullYear().toString(), (currDate.getFullYear() - 1).toString(), (currDate.getFullYear() - 2).toString(), "Older Content"]);
+    const [currentFilter, setFilter] = useState<string>(currentResource!.headers ? currentResource!.headers[0] : filterDates[0]);
+
     useEffect(() => {
+        document
+            .getElementById(currentFilter)!
+            .classList.add("selected-item");
+    }, [])
+
+    useEffect(() => {
+        // error handling for pages that do not exist yet
         if (currentResource === undefined) {
             // throw new Error('Resource not found');
             history.push('/');
         }
+
+        // to keep track of the height of the navbar
 
         if (window.innerWidth <= 700) {
             setNavHeight(document.getElementById("mobile-navbar-container")!.offsetHeight);
@@ -35,18 +43,6 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
 
     }, []); // Empty dependency array ensures that the effect runs only once on mount
 
-    currentResource?.content.map((item) => {
-        if (typeof item.release === 'string') {
-            if (!filterList.includes(item.release)) {
-                setFilterList([...filterList, item.release]);
-            }
-        } else {
-            if (!filterList.includes(item.release.getFullYear().toString())) {
-                setFilterList([...filterList, item.release.getFullYear().toString()]);
-            }
-        }
-    })
-
     return (
         <div className='resource-page-container' style={{ marginTop: navHeight }}>
             <div className='resource-page-title-container'>
@@ -54,35 +50,51 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                     {currentResource?.page_title}
                 </h1>
             </div>
-            {/* <div className='resource-grid-menu' style={{ gridTemplateColumns: `repeat(${filterList.length}, 1fr)` }}>
+            <div className='resource-content-containers' style={{ gridTemplateColumns: `repeat(${currentResource!.headers ? currentResource!.headers.length : 4}, 1fr)` }}>
                 {
-                    filterList.map((item, index) => {
+                    currentResource!.headers ? currentResource!.headers.map((title, index) => {
+
                         return (
-                            <div className='resource-grid-menu-item' key={index} style={{ borderLeft: index !== 0 ? '0.5px solid black' : 'none',  borderRight: index !== filterList.length-1 ? '0.5px solid black' : 'none'}}>
-                                {item}
+                            <div className='single-resource-content-section' key={index} style={{ borderRight: `${index != currentResource!.headers!.length - 1 ? "2px solid #000" : ""}` }}>
+                                <div className='single-resource-grid-item' id={title}
+                                    onClick={() => {
+                                        // remove the 'selected-items' className before setting a new currentProject
+                                        document
+                                            .getElementById(currentFilter)!
+                                            .classList.remove("selected-item");
+                                        setFilter(title);
+                                        document
+                                            .getElementById(title)!
+                                            .classList.add("selected-item");
+                                    }}
+                                >
+                                    {title}
+                                </div>
                             </div>
                         );
-                    })
-                }
-            </div> */}
-            <div className='resource-content-containers'>
-                {
-                    filterDates.map((date, index) => {
+                    }) : filterDates.map((date, index) => {
 
                         return (
                             <div className='single-resource-content-section' key={index}>
-                                <h1 className='resource-content-section-title'>
+                                <div className='single-resource-grid-item'
+                                    id={date}
+                                    onClick={() => {
+                                        // remove the 'selected-items' className before setting a new currentProject
+                                        document
+                                            .getElementById(currentFilter)!
+                                            .classList.remove("selected-item");
+                                        setFilter(date);
+                                        document
+                                            .getElementById(date)!
+                                            .classList.add("selected-item");
+                                    }}
+                                >
                                     {date}
-                                </h1>
+                                </div>
                             </div>
                         );
                     })
                 }
-                <div className='single-resource-content-section'>
-                    <h1 className='resource-content-section-title'>
-                        Older Content
-                    </h1>
-                </div>
             </div>
         </div>
     );

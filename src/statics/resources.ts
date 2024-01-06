@@ -3,6 +3,7 @@ interface Resource {
     CONTENT: {
         title: string;
         page_title: string;
+        headers?: string[]; // exists only if the page has header categories that are not the past 3 years 
         content: {
             img?: string;
             title: string;
@@ -25,7 +26,8 @@ const RESOURCES: Resource = {
     CONTENT: [
         {
             title: "COGS 402",
-            page_title: "COGS 402 Projects",
+            page_title: "COGS 402 Projects",  
+            headers: ['hello', 'yo'],
             content: [
                 {
                     title: 'Lorem Ipsum',
@@ -56,7 +58,6 @@ const RESOURCES: Resource = {
         {
             title: "lorem ipsum",
             page_title: "Lorem Ipsum Projects",
-
             content: [
                 {
                     title: 'Lorem Ipsum',
@@ -86,7 +87,6 @@ const RESOURCES: Resource = {
         }, {
             title: "COGS 402 2",
             page_title: "COGS 402 2 Projects",
-
             content: [
                 {
                     title: 'Lorem Ipsum',
@@ -117,7 +117,6 @@ const RESOURCES: Resource = {
         {
             title: "lorem ipsum2",
             page_title: "Lorem Ipsum2 Projects",
-
             content: [
                 {
                     title: 'Lorem Ipsum',

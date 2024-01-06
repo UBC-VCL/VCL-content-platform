@@ -11,6 +11,8 @@ const ResourceCards = (props:PropsOBJ) => {
     const {title, link} = props;
     const history = useHistory();
 
+    console.log(link);
+
     return (
         <div 
         className='resource-card-container'

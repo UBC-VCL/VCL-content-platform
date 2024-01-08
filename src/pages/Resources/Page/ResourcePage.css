@@ -5,18 +5,14 @@
 .resource-content-containers {
     margin: auto;
     display: grid;
-    width: 60%;
+    width: fit-content;
     margin: 0.5rem auto;
-}
-
-.single-resource-content-section {
-    /* width: fit-content; */
 }
 
 .single-resource-grid-item {
     width: fit-content;
     padding: 0.5rem 2.5rem;
-    margin: auto;
+    margin: auto 1rem;
     font-weight: 600;
     color: #000;
     line-height: normal;
@@ -53,4 +49,57 @@
 .resource-grid-menu-item {
     text-align: center;
     cursor: pointer;
+}
+
+.resource-content-render-container {
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    max-width: 1400px;
+}
+
+.resource-content-single-render-category-title {
+    font-size: medium;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.resource-content-single-render {
+    display: flex;
+}
+
+.resource-content-single-render-image-container, .resource-content-single-render-text-container {
+    margin: auto;
+
+}
+
+.resource-content-single-render-image-container {
+    width: 15%;
+}
+
+.resource-content-single-render-text-container {
+    padding: 1rem;
+    width: 85%;
+}
+
+.resource-content-single-render-text-container h1 {
+    font-size: medium;
+    text-decoration: underline;
+}
+
+.resource-content-single-render-text-container p {
+    font-size: small;
+}
+
+.resource-content-single-render-text-names-container {
+    display: flex;
+    font-size: medium;
+}
+
+.resource-content-single-render-text-names-container h2 {
+    font-size: medium;
+    font-weight: 600;
 }

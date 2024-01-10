@@ -3,6 +3,7 @@ import { RouteComponentProps } from "react-router-dom";
 import RESOURCES from '@statics/resources';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import AddResource from './AddResource/AddResource';
 
 interface MatchParams {
     resource_id: string;
@@ -221,9 +222,12 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                         )
                                     })
                                 }
-                            </div></>
-
+                            </div>
+                        </>
                 }
+            </div>
+            <AddResource />
+            <div className='add-resource-button-container'>
 
             </div>
         </>

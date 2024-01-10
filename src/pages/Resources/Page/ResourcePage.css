@@ -2,6 +2,10 @@
     margin: auto;
 }
 
+/* .resource-page-container, .resource-content-render-container {
+    filter: blur(10px);
+} */
+
 .resource-content-containers {
     margin: auto;
     display: grid;

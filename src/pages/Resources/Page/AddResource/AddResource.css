@@ -1,0 +1,88 @@
+.add-resource-content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    z-index: 9999; /* Adjust the z-index based on your needs */
+    width: 100%;
+    height: 100%;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+}
+
+.add-resource-content {
+    background-color: white;
+    width: 90%;
+    padding: 1rem;
+    box-shadow: 0px 30px 30px 0px rgba(0, 0, 0, 0.25);
+    max-width: 1200px;
+}
+
+.add-resource-close-tab-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.add-resource-input-containers {
+    display: grid;
+    grid-template-rows: 1fr 3fr 2fr 2fr 1fr;
+    height: 90%;
+    padding: 1rem;
+    grid-row-gap: 10px;
+    margin: auto;
+}
+
+.add-resource-input h2 {
+    font-size: medium;
+    height: 20%;
+}
+
+#add-resource-description-input-container h2, #add-resource-file-input-container h2 {
+    margin-bottom: 0.25rem;  
+}
+
+.add-resource-input input, .add-resource-input textarea {
+    width: 100%;
+    height: 75%;
+}
+
+#add-resource-title-input-container h2, 
+#add-resource-title-input-container input {
+    height: 50% !important; 
+}
+
+.add-resource-input input, .add-resource-input textarea {
+    font-size: small;
+    font-family: 'Poppins';
+}
+
+.add-resource-submit-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-resource-submit-button {
+    height: 100%;
+    padding: 0 1rem;
+    background-color: #1C426D;
+    border-radius: 8.076px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-resource-submit-button h2 {
+    font-size: medium;
+}
+
+.add-resource-input-containers-child {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 0;
+    width: 80%;
+    height: 100%;
+}

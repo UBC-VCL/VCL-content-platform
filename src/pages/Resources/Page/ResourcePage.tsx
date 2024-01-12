@@ -56,52 +56,54 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                             {currentResource?.page_title}
                         </h1>
                     </div>
-                    {/* <div className='resource-content-containers' style={{ gridTemplateColumns: `repeat(${currentResource!.headers ? currentResource!.headers.length : 3}, 1fr)` }}>
                     {
-                        currentResource!.headers ? currentResource!.headers.map((title, index) => {
-
-                            return (
-                                <div className='single-resource-content-section' key={index} style={{ borderRight: `${index != currentResource!.headers!.length - 1 ? "2px solid #000" : ""}` }}>
-                                    <div className='single-resource-grid-item' id={title}
-                                        onClick={() => {
-                                            // remove the 'selected-items' className before setting a new currentProject
-                                            document
-                                                .getElementById(currentFilter)!
-                                                .classList.remove("selected-item");
-                                            setFilter(title);
-                                            document
-                                                .getElementById(title)!
-                                                .classList.add("selected-item");
-                                        }}
-                                    >
-                                        {title}
+                        /* <div className='resource-content-containers' style={{ gridTemplateColumns: `repeat(${currentResource!.headers ? currentResource!.headers.length : 3}, 1fr)` }}>
+                        {
+                            currentResource!.headers ? currentResource!.headers.map((title, index) => {
+    
+                                return (
+                                    <div className='single-resource-content-section' key={index} style={{ borderRight: `${index != currentResource!.headers!.length - 1 ? "2px solid #000" : ""}` }}>
+                                        <div className='single-resource-grid-item' id={title}
+                                            onClick={() => {
+                                                // remove the 'selected-items' className before setting a new currentProject
+                                                document
+                                                    .getElementById(currentFilter)!
+                                                    .classList.remove("selected-item");
+                                                setFilter(title);
+                                                document
+                                                    .getElementById(title)!
+                                                    .classList.add("selected-item");
+                                            }}
+                                        >
+                                            {title}
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        }) : filterDates.map((date, index) => {
-
-                            return (
-                                <div className='single-resource-content-section' key={index}>
-                                    <div className='single-resource-grid-item'
-                                        id={date}
-                                        onClick={() => {
-                                            // remove the 'selected-items' className before setting a new currentProject
-                                            document
-                                                .getElementById(currentFilter)!
-                                                .classList.remove("selected-item");
-                                            setFilter(date);
-                                            document
-                                                .getElementById(date)!
-                                                .classList.add("selected-item");
-                                        }}
-                                    >
-                                        {date}
+                                );
+                            }) : filterDates.map((date, index) => {
+    
+                                return (
+                                    <div className='single-resource-content-section' key={index}>
+                                        <div className='single-resource-grid-item'
+                                            id={date}
+                                            onClick={() => {
+                                                // remove the 'selected-items' className before setting a new currentProject
+                                                document
+                                                    .getElementById(currentFilter)!
+                                                    .classList.remove("selected-item");
+                                                setFilter(date);
+                                                document
+                                                    .getElementById(date)!
+                                                    .classList.add("selected-item");
+                                            }}
+                                        >
+                                            {date}
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })
+                                );
+                            })
+                        }
+                    </div> */
                     }
-                </div> */}
                 </div>
                 <div className='resource-content-render-container'>
                     {

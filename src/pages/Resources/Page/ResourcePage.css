@@ -117,7 +117,7 @@
     color: white;
     margin: 2rem 0 2rem 7rem;
     cursor: pointer;
-    /* float: left; */
+    user-select: none;
 }
 
 @media screen and (max-width: 1023px) {

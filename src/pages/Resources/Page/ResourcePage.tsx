@@ -1,7 +1,7 @@
 import './ResourcePage.css'
 import { RouteComponentProps } from "react-router-dom";
 import RESOURCES from '@statics/resources';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import AddResource from './AddResource/AddResource';
 
@@ -17,17 +17,9 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
 
     const currentResource = RESOURCES.CONTENT.find((resource) => resource.title === match.params.resource_id);
 
-
     const [navHeight, setNavHeight] = useState<number>(0);
     const [filterDates, setFilterDates] = useState<string[]>([currDate.getFullYear().toString(), (currDate.getFullYear() - 1).toString(), (currDate.getFullYear() - 2).toString()]);
-    // const [currentFilter, setFilter] = useState<string>(currentResource!.headers ? currentResource!.headers[0] : filterDates[0]);
     const [isAddMenuVisible, setAddMenuVisible] = useState<boolean>(false);
-
-    // useEffect(() => {
-    //     document
-    //         .getElementById(currentFilter)!
-    //         .classList.add("selected-item");
-    // }, [])
 
     useEffect(() => {
         // error handling for pages that do not exist yet
@@ -57,52 +49,59 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                         </h1>
                     </div>
                     {
-                        /* <div className='resource-content-containers' style={{ gridTemplateColumns: `repeat(${currentResource!.headers ? currentResource!.headers.length : 3}, 1fr)` }}>
-                        {
-                            currentResource!.headers ? currentResource!.headers.map((title, index) => {
-    
-                                return (
-                                    <div className='single-resource-content-section' key={index} style={{ borderRight: `${index != currentResource!.headers!.length - 1 ? "2px solid #000" : ""}` }}>
-                                        <div className='single-resource-grid-item' id={title}
-                                            onClick={() => {
-                                                // remove the 'selected-items' className before setting a new currentProject
-                                                document
-                                                    .getElementById(currentFilter)!
-                                                    .classList.remove("selected-item");
-                                                setFilter(title);
-                                                document
-                                                    .getElementById(title)!
-                                                    .classList.add("selected-item");
-                                            }}
-                                        >
-                                            {title}
+                        <div className='resource-content-containers' style={{ gridTemplateColumns: `repeat(${currentResource!.headers ? currentResource!.headers.length : 4}, 1fr)` }}>
+                            {
+                                currentResource!.headers ? currentResource!.headers.map((title, index) => {
+
+                                    return (
+                                        <div className='single-resource-content-section' key={index} style={{ borderRight: `${index != currentResource!.headers!.length - 1 ? "2px solid #000" : ""}` }}>
+                                            <div className='single-resource-grid-item' id={title}
+                                                onClick={() => {
+                                                    window.scrollTo({
+                                                        top: document.getElementById(`resource-content-single-render-${title}`)?.offsetTop,
+                                                        behavior: 'smooth'
+                                                    });
+                                                }}
+                                            >
+                                                {title}
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            }) : filterDates.map((date, index) => {
-    
-                                return (
-                                    <div className='single-resource-content-section' key={index}>
+                                    );
+                                }) : <>
+                                    {filterDates.map((date, index) => {
+
+                                        return (
+                                            <div className='single-resource-content-section' key={index}>
+                                                <div className='single-resource-grid-item'
+                                                    id={date}
+                                                    onClick={() => {
+                                                        window.scrollTo({
+                                                            top: document.getElementById(`resource-content-single-render-${date}`)?.offsetTop,
+                                                            behavior: 'smooth'
+                                                        });
+                                                    }}
+                                                >
+                                                    {date}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                    <div className='single-resource-content-section'>
                                         <div className='single-resource-grid-item'
-                                            id={date}
+                                            id='older-content'
                                             onClick={() => {
-                                                // remove the 'selected-items' className before setting a new currentProject
-                                                document
-                                                    .getElementById(currentFilter)!
-                                                    .classList.remove("selected-item");
-                                                setFilter(date);
-                                                document
-                                                    .getElementById(date)!
-                                                    .classList.add("selected-item");
+                                                window.scrollTo({
+                                                    top: document.getElementById("resource-content-single-render-olderContent")?.offsetTop,
+                                                    behavior: 'smooth'
+                                                });
                                             }}
                                         >
-                                            {date}
+                                            Older Content
                                         </div>
                                     </div>
-                                );
-                            })
-                        }
-                    </div> */
+                                </>
+                            }
+                        </div>
                     }
                 </div>
                 <div className='resource-content-render-container'>
@@ -111,7 +110,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                             currentResource!.headers.map((title, index) => {
                                 return (
                                     <>
-                                        <div className='resource-content-single-render-category' key={index}>
+                                        <div className='resource-content-single-render-category' key={index} id={`resource-content-single-render-${title}`}>
                                             <h1 className='resource-content-single-render-category-title'
                                             >
                                                 {title}
@@ -150,12 +149,11 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                     </>
                                 )
                             }) :
-
                             <>
                                 {filterDates.map((date, index) => {
                                     return (
                                         <>
-                                            <div className='resource-content-single-render-category' key={index}>
+                                            <div className='resource-content-single-render-category' key={index} id={`resource-content-single-render-${date}`}>
                                                 <h1 className='resource-content-single-render-category-title'>
                                                     {date}
                                                 </h1>
@@ -195,7 +193,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                     )
                                 })}
                                 <div className='resource-content-single-render-category'>
-                                    <h1 className='resource-content-single-render-category-title'>
+                                    <h1 className='resource-content-single-render-category-title' id="resource-content-single-render-olderContent">
                                         Older Content
                                     </h1>
                                 </div>

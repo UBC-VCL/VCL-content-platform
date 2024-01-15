@@ -25,9 +25,6 @@ const AddResource: React.FC<{ isVisible: boolean, setVisible: (bool: boolean) =>
         <div className='add-resource-content-container' style={{ display: `${isVisible ? '' : 'none'}` }}>
             <div className='add-resource-content'>
                 <div className='add-resource-close-tab-container'>
-                    {/* <div >
-                        close
-                    </div> */}
                     <IoCloseSharp className='add-resource-close-tab-button' size={45}
                         onClick={() => {
                             setVisible(false);

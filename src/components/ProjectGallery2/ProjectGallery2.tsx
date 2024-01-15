@@ -5,7 +5,7 @@ import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
 
-const AUTO_TIME = 10; // Seconds.
+const AUTO_TIME = 5; // Seconds.
 
 interface CarouselItemProps {
     active: boolean;

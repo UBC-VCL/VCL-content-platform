@@ -135,7 +135,6 @@
 @media screen and (max-width:800px) {
   .people-lab-member {
     display: block;
-    margin: auto;
   }
 
   .icon-container, .info-container {

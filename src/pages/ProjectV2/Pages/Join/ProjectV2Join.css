@@ -1,0 +1,55 @@
+.project-join-hero-container {
+    background-color: #E8EFF6;
+}
+
+.project-join-hero-content {
+    padding: 3rem 2rem;
+}
+
+.project-join-hero-content p, .project-join-hero-container h3, .project-join-hero-container h2 {
+    margin-bottom: 1rem;
+}
+
+.project-join-hero-container {
+    color: #4A6999;
+    letter-spacing: 0.6px;
+}
+
+.project-join-hero-container h3 {
+    color: #44618D;
+
+    font-family: "Source Sans Pro";
+    line-height: 17px; /* 121.429% */
+    letter-spacing: 0.28px;
+}
+
+.project-join-hero-container h1 {
+    /* font-family: "Source Sans Pro"; */
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.project-join-hero-title-underline {
+    margin-top: 1rem;
+    height: 1px;
+    width: 20%;
+    border-top: 4px solid #8EA9D2;
+    margin-bottom: 2rem;
+}
+
+.project-join-app-instructions-button {
+    padding: 0.5rem 2.5rem;
+    background-color: #1C426D;
+    color: white;
+    width: fit-content;
+    margin: auto;
+    font-weight: 600;
+}
+
+.project-join-hero-content a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}

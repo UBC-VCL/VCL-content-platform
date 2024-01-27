@@ -22,19 +22,19 @@ const baseNav = [
 		TITLE: TEXT.PAGE_TITLES.GET_INVOLVED,
 		REF: ROUTES.GET_INVOLVED
 	},
-	{
-		TITLE: TEXT.PAGE_TITLES.RESOURCES,
-		REF: ROUTES.RESOURCES
-	},
 	...(IS_WIP
 		? [
+			{
+				TITLE: TEXT.PAGE_TITLES.RESOURCES,
+				REF: ROUTES.RESOURCES
+			},
 			{
 				TITLE: TEXT.PAGE_TITLES.TIMELINE,
 				REF: ROUTES.TIMELINE
 			},
 		]
 		: []),
-	
+
 ];
 
 const NAV = baseNav;

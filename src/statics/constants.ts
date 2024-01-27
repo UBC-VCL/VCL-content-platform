@@ -25,6 +25,17 @@ const constants = {
         color: "#fece25"
       }
   ],
+  RESOURCES: [
+    {
+        name: "COGS 402",
+    }, {
+        name: "Skills Workshops",
+    }, {
+        name: "Presentations",
+    }, {
+        name: "Career Workshops",
+    }
+  ],
   MODALS: {
     LOGIN: 'login',
   },

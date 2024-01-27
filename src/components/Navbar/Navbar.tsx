@@ -16,6 +16,7 @@ import { appActions } from "@redux/slices/AppRedux";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import { selectProjects } from "@redux/slices/ProjectRedux";
 import GenericLink from "@components/generics/Link";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import "./Navbar.css";
 import { ReactComponent as SearchIcon } from "@statics/images/search-icon.svg";
 import VCLIcon from "@statics/images/vcl-logo-2023.png";
@@ -23,7 +24,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MobileMenu from "@components/MobileNavbar";
 require("dotenv").config();
 
-const IS_WIP = process.env.REACT_APP_WIP === 'development';
+const IS_WIP = process.env.REACT_APP_WIP === "development";
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();
@@ -76,61 +77,127 @@ const Navbar: React.FC<{}> = () => {
     setProjectAnchorEl(null);
   };
 
+  const [resourceAnchorEl, setResourceAnchorEl] =
+    React.useState<null | HTMLElement>(null);
+  const resourceOpen = Boolean(resourceAnchorEl);
+
+  const handleResourceMenuOpen = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    setResourceAnchorEl(event.currentTarget);
+  };
+
+  const handleResourceMenuClose = () => {
+    setResourceAnchorEl(null);
+  };
+
   window.addEventListener("handlePageChange", (event) => {});
+
+  // type definition for handleClose
+  type OnCloseHandler = () => void;
 
   //projects = useAppSelector(selectProjects)
 
+  // component for nav links that have dropdown menu
+  const linkWithMenu = (
+    active: string,
+    ref: string,
+    handleClose: OnCloseHandler,
+    handleOpen: React.MouseEventHandler<HTMLButtonElement>,
+    menuOpen: boolean,
+    anchorEl: HTMLElement | null
+  ) => {
+    let title: string;
+    let baseRoute: string;
+    let namesArray;
+    switch (ref) {
+      case ROUTES.PROJECT.BASE:
+        title = TEXT.PAGE_TITLES.PROJECTS;
+        baseRoute = ROUTES.PROJECT.BASE;
+        namesArray = CONSTANTS.PROJECTS;
+        break;
+      default:
+        title = TEXT.PAGE_TITLES.RESOURCES;
+        baseRoute = ROUTES.RESOURCES;
+        namesArray = CONSTANTS.RESOURCES;
+    }
+
+    return (
+      <React.Fragment key={ref}>
+        <div className="nav-link-container">
+          <button
+            className={`nav-link link-style ${active}`}
+            id="basic-button"
+            onClick={handleOpen}
+          >
+            {title}
+          </button>
+          <KeyboardArrowDownIcon />
+        </div>
+        <Menu
+          className="dropdown-menu"
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={menuOpen}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <MenuItem onClick={handleClose}>
+            <GenericLink
+              className="all-item-text"
+              name={"All " + title}
+              to={`${baseRoute}`}
+            />
+            <hr className="all-item-underline" />
+          </MenuItem>
+          {namesArray.map((menuItem, i) => {
+            return (
+              <MenuItem key={i} onClick={handleClose}>
+                <GenericLink
+                  className={`nav-link item-name ${
+                    location.pathname.split("/")[2] === menuItem.name
+                      ? "active"
+                      : ""
+                  }`}
+                  name={menuItem.name}
+                  to={`${baseRoute}/${menuItem.name}`}
+                />
+              </MenuItem>
+            );
+          })}
+        </Menu>
+      </React.Fragment>
+    );
+  };
+
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
     let active = REF === location.pathname ? "active" : "";
-    if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
+    if (
+      TITLE === TEXT.PAGE_TITLES.PROJECTS ||
+      TITLE === TEXT.PAGE_TITLES.RESOURCES
+    ) {
       active = location.pathname.includes(REF) ? "active" : "";
     }
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
-      return (
-        <React.Fragment key={REF}>
-          <button
-            className={`nav-link link-style ${active}`}
-            id="basic-button"
-            onClick={handleProjectMenuClick}
-          >
-            {TEXT.PAGE_TITLES.PROJECTS}
-          </button>
-          <Menu
-            className="dropdown-menu"
-            id="basic-menu"
-            anchorEl={projectAnchorEl}
-            open={projectOpen}
-            onClose={handleProjectMenuClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
-            }}
-          >
-            <MenuItem onClick={handleProjectMenuClose}>
-              <GenericLink
-                className="all-projects-text"
-                name="All Projects"
-                to={`${ROUTES.PROJECT.BASE}`}
-              />
-              <hr className="all-projects-underline" />
-            </MenuItem>
-            {CONSTANTS.PROJECTS.map((project, i) => {
-              return (
-                <MenuItem key={i} onClick={handleProjectMenuClose}>
-                  <GenericLink
-                    className={`nav-link project-name ${
-                      location.pathname.split("/")[2] === project.name
-                        ? "active"
-                        : ""
-                    }`}
-                    name={project.name}
-                    to={`${ROUTES.PROJECT.BASE}/${project.name}`}
-                  />
-                </MenuItem>
-              );
-            })}
-          </Menu>
-        </React.Fragment>
+      return linkWithMenu(
+        active,
+        REF,
+        handleProjectMenuClose,
+        handleProjectMenuClick,
+        projectOpen,
+        projectAnchorEl
+      );
+    } else if (TITLE === TEXT.PAGE_TITLES.RESOURCES) {
+      return linkWithMenu(
+        active,
+        REF,
+        handleResourceMenuClose,
+        handleResourceMenuOpen,
+        resourceOpen,
+        resourceAnchorEl
       );
     } else {
       return (

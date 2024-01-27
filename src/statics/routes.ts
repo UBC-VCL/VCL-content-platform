@@ -23,10 +23,10 @@ const baseRoutes = {
   TIMELINE_EDIT: '/timeline/:timeline_id/edit',
   TIMELINE_ADD: '/timeline/add',
   PROJECT_TIMELINE: '/timeline',
+  RESOURCES: '/resources'
 } as const;
 
 const timelineRoutes = {
-  RESOURCES: '/resources',
   TIMELINE: '/timeline',
 } as const;
 

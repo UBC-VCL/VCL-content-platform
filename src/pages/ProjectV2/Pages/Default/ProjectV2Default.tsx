@@ -4,6 +4,7 @@ import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import PROJECT_TEXT, { PROJECT } from "@statics/projectsV2";
 import { useHistory } from "react-router-dom";
+import ProjectGallery2 from "@components/ProjectGallery2/ProjectGallery2";
 
 interface PropOBJ {
   project_id: string;
@@ -25,20 +26,26 @@ const ProjectV2Default = (props: PropOBJ) => {
   return (
     <div className="projectV2-default-content-container">
       <div className="project-default-hero-section project-default-content-section">
+        <div style={{marginTop:"auto", marginBottom:"auto"}}>
         <div className="project-default-titles">
           <h2 className="project-default-number-title">01</h2>
           <h1 className="project-default-main-title">{project_id}</h1>
           <p className="project-default-title-underline" />
         </div>
-        <div className="project-default-hero-descriptions">
-          <div
-            className="project-default-hero-description project-default-description"
-            id="project-default-hero-description-1"
-          >
-            {currentProject?.description.first}
-          </div>
-          <div className="project-default-hero-description project-default-description">
-            {currentProject?.description.second}
+        <div className="project-default-hero">
+          <div className="project-default-hero-descriptions">
+            <div
+              className="project-default-hero-description project-default-description"
+              id="project-default-hero-description-1"
+            >
+              {currentProject?.description.first}
+            </div>
+            <div>
+
+            </div>
+            <div className="project-default-hero-description project-default-description">
+              {currentProject?.description.second}
+            </div>
           </div>
           {currentProject?.description.emphasis && (
             <div className="project-description-emphasis-div">
@@ -60,14 +67,14 @@ const ProjectV2Default = (props: PropOBJ) => {
             </div>
           )}
         </div>
-        <div className="project-default-gallery-slider">
-          {
-            // TODO
-          }
         </div>
       </div>
+      {
+        currentProject?.galleryList && <ProjectGallery2 title={'Gallery'} titleNum={"02"} data={currentProject.galleryList} darkmode={true} />
+      }
+
+
       {currentProject?.qa && (
-        <div>
           <div className="project-default-QA-section project-default-content-section">
             <h2 className="project-default-number-title">03</h2>
             <h1
@@ -90,19 +97,20 @@ const ProjectV2Default = (props: PropOBJ) => {
               })}
             </div>
           </div>
-          <div
-            className="project-default-back-to-top"
-            onClick={() => {
-              window.scrollTo(0, 0);
-            }}
-          >
-            <div className="project-default-back-to-top-arrow">
-              <MdKeyboardDoubleArrowUp size={45} />
-            </div>
-            <h1 className="project-default-back-to-top-title">Back to Top</h1>
-          </div>
-        </div>
       )}
+      <div className="project-default-back-to-top-container">
+        <div
+          className="project-default-back-to-top"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          <div className="project-default-back-to-top-arrow">
+            <MdKeyboardDoubleArrowUp size={45} />
+          </div>
+          <h1 className="project-default-back-to-top-title">Back to Top</h1>
+        </div>
+      </div>
     </div>
   );
 };

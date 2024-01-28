@@ -19,15 +19,17 @@ const baseRoutes = {
   GET_INVOLVED: '/get_involved',
   PROJECT_PUBLICATIONS: '/publications',
   PEOPLE: '/people',
+} as const;
+
+const timelineRoutes = {
+  RESOURCES:{
+    BASE:'/resources',
+    PATH:'/resources/:resource_id'},
+  TIMELINE: '/timeline',
   TIMELINE_CREATE: '/timeline/create',
   TIMELINE_EDIT: '/timeline/:timeline_id/edit',
   TIMELINE_ADD: '/timeline/add',
   PROJECT_TIMELINE: '/timeline',
-  RESOURCES: '/resources'
-} as const;
-
-const timelineRoutes = {
-  TIMELINE: '/timeline',
 } as const;
 
 const ROUTES = {

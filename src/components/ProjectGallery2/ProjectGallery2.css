@@ -1,0 +1,132 @@
+.project-gallery-container {
+    height: fit-content;
+    padding: 2rem 0;
+}
+
+.project-gallery-content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    max-width: 1500px;
+}
+
+.project-gallery-title {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.project-gallery-arrows:hover {
+    cursor: pointer;
+}
+
+.project-gallery-titles {
+    margin-bottom: 2rem;
+}
+
+.gallery-dots {
+    display: flex;
+    width: fit-content;
+    margin: 1rem auto 0 auto;
+}
+
+.gallery-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    opacity: 0.4;
+
+}
+
+.gallery-dot-active {
+    height: 12px;
+    width: 12px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.carousel-item {
+    background-color: #2A3749;
+    /* min-height: 60vh; */
+    width: 80%;
+    border-radius: 6.504px;
+    padding: 1.5rem;
+}
+
+.carousel-item-title {
+    font-size: medium;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.carousel-item-img {
+    margin: 0 auto;
+    width: 60%;
+    object-fit: cover;
+    border-radius: 6.504px;
+    border-radius: 0px;
+}
+
+#no-photo-test-right-quote {
+    float: right;
+}
+
+#no-photo-test-description {
+    padding: 0 2rem;
+    color: #BFD1EC;
+}
+
+.no-photo-test-identification-container {
+    margin-top: 1.5rem;
+    float: right;
+    display: flex;
+    font-weight: 700;
+    color: #E1EFFF;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .carousel-item-img {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .carousel-item {
+        width: 80% !important;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .project-gallery-content-container {
+        display: grid !important;
+        grid-template-columns: 1fr 3fr 1fr;
+        margin: auto;
+        gap: 10px;
+        min-height: 400px;
+    }
+
+    .carousel-item-img {
+        width: 60%;
+    }
+
+    .carousel-grid-item {
+        user-select: none;
+    }
+
+    .project-default-back-to-top:hover{
+        transform: scale(1.2);
+        transition: all 0.25s ease-in;
+    }
+}

@@ -124,3 +124,28 @@
   margin-left: 35%;
   width: 30%;
 }
+
+@media screen and (max-width:500px) {
+  .page-nav {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 10px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .people-lab-member {
+    display: block;
+  }
+
+  .icon-container, .info-container {
+    margin: auto;
+  }
+  .name h2, .position h3, .message {
+    text-align: center;
+  }
+
+  .message {
+    padding: 0;
+    margin-top: 1rem;
+  }
+}

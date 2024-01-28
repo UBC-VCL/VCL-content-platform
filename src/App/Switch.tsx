@@ -12,6 +12,8 @@ import GetInvolved from "@pages/GetInvolved/GetInvolved";
 import { useAppSelector } from "@redux/hooks";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import People from "@pages/People/People";
+import ResourcePage from "@pages/Resources/Page/ResourcePage";
+
 require("dotenv").config();
 
 const IS_WIP = process.env.REACT_APP_WIP == "development";
@@ -26,11 +28,11 @@ const AppSwitch = () => {
       <Route path={ROUTES.PROJECT.PATH} component={ProjectWrapper} />
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
-      <Route exact path={ROUTES.RESOURCES} component={Resources} />
-      <Route path={ROUTES.PROJECT.PATH2} component={ProjectV2Wrapper} />
-
+      <Route path={ROUTES.PROJECT.PATH2} component={ProjectV2Wrapper}/>
       {IS_WIP && (
         <>
+          <Route exact path={ROUTES.RESOURCES!.BASE} component={Resources} />
+          <Route exact path={ROUTES.RESOURCES!.PATH} component={ResourcePage} />
           <Route exact path={ROUTES.TIMELINE} component={DefaultTimeline} />
           <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry} />
           <Route exact path={ROUTES.TIMELINE_EDIT} component={EditTimelineEntry} />

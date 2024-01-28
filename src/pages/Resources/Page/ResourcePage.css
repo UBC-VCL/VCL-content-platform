@@ -1,0 +1,133 @@
+.resource-page-title-container {
+    margin: auto;
+}
+
+.resource-page-container, .resource-content-render-container {
+    margin-bottom: 1rem;
+}
+
+.resource-content-containers {
+    margin: auto;
+    display: grid;
+    width: fit-content;
+    margin: 0.5rem auto;
+}
+
+.single-resource-grid-item {
+    width: fit-content;
+    padding: 0.5rem 2.5rem;
+    margin: auto 1rem;
+    font-weight: 600;
+    color: #000;
+    line-height: normal;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+}
+
+.single-resource-grid-item:hover {
+    background-color: #1C426D;
+    color: white;
+}
+
+.selected-item {
+    background-color: #1C426D;
+    color: white;
+}
+
+.resource-page-title {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    color: white;
+    background-color: #1C426D;
+    padding: 2rem;
+    font-size: x-large;
+}
+
+.resource-grid-menu {
+    display: grid;
+    margin: .75rem auto;
+}
+
+.resource-grid-menu-item {
+    text-align: center;
+    cursor: pointer;
+}
+
+.resource-content-render-container {
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    max-width: 1400px;
+}
+
+.resource-content-single-render-category-title {
+    font-size: medium;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.resource-content-single-render {
+    display: flex;
+}
+
+.resource-content-single-render-image-container, .resource-content-single-render-text-container {
+    margin: auto;
+
+}
+
+.resource-content-single-render-image-container {
+    width: 15%;
+}
+
+.resource-content-single-render-text-container {
+    padding: 1rem;
+    width: 85%;
+}
+
+.resource-content-single-render-text-container h1 {
+    font-size: medium;
+    text-decoration: underline;
+}
+
+.resource-content-single-render-text-container p {
+    font-size: small;
+}
+
+.resource-content-single-render-text-names-container {
+    display: flex;
+    font-size: medium;
+}
+
+.resource-content-single-render-text-names-container h2 {
+    font-size: medium;
+    font-weight: 600;
+}
+
+.add-resource-button-container {
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: #1C426D;
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    margin: 2rem 0 2rem 7rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .add-resource-button-container {
+        margin: 2rem auto;
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .resource-content-single-render {
+        display: block;
+    }
+}

@@ -118,7 +118,7 @@ const Navbar: React.FC<{}> = () => {
         break;
       default:
         title = TEXT.PAGE_TITLES.RESOURCES;
-        baseRoute = ROUTES.RESOURCES;
+        baseRoute = ROUTES.RESOURCES!.BASE;
         namesArray = CONSTANTS.RESOURCES;
     }
 

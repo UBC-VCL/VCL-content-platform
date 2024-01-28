@@ -10,6 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import { NAV, TEXT, CONSTANTS, ROUTES } from "@statics";
+import RESOURCES from "@statics/resources";
 import { useHandleLogout } from "@services/authService";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { appActions } from "@redux/slices/AppRedux";
@@ -119,7 +120,7 @@ const Navbar: React.FC<{}> = () => {
       default:
         title = TEXT.PAGE_TITLES.RESOURCES;
         baseRoute = ROUTES.RESOURCES!.BASE;
-        namesArray = CONSTANTS.RESOURCES;
+        namesArray = RESOURCES.CONTENT;
     }
 
     return (
@@ -132,7 +133,7 @@ const Navbar: React.FC<{}> = () => {
           >
             {title}
           </button>
-          <KeyboardArrowDownIcon />
+          <KeyboardArrowDownIcon className={`nav-link ${active}`} />
         </div>
         <Menu
           className="dropdown-menu"

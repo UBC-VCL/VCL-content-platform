@@ -169,7 +169,7 @@ const TEXT = {
       COPILOT_DESCRIPTION:
         "Co-Pilots sign a contract with the lab that lasts for a school term, with the possibility for renewal. Co-Pilots are assigned to a particular project team based on their interests, but have the freedom to explore different projects.",
       RESEARCH_BACKGROUND:
-        "No background in research is needed, and co-pilots have the flexibility of helping out whenever they want!",
+        "No background in research is needed, and Co-Pilots have the flexibility of helping out whenever they want!",
       APPPLICATION_INSTRUCTION: "Application Instructions",
     },
     WHAT_WE_DO: {

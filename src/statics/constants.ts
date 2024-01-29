@@ -3,25 +3,25 @@ const constants = {
   MIN_USERNAME_LENGTH: 4,
   PROJECTS: [
       { // dummy projects
-          name: "Correlation",
-          color: "#6776fe"
-      },{
-          name: "NOVA",
+          name: "Coding Team",
           color: "#fece25"
       }, {
-        name: "SHIVA",
-        color: "#fece25"
-      }, {
-          name: "NCIS",
-          color: "#848484"
+          name: "Correlation",
+          color: "#6776fe"
       }, {
           name: "Ideo",
           color: "#f66364"
       }, {
-        name: "Image Transitions",
-        color: "#848484"
+          name: "Image Transitions",
+          color: "#848484"
       }, {
-        name: "Coding Team",
+          name: "NCIS",
+          color: "#848484"
+      }, {
+          name: "NOVA",
+          color: "#fece25"
+      }, {
+        name: "SHIVA",
         color: "#fece25"
       }
   ],

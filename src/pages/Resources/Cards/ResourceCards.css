@@ -1,0 +1,23 @@
+.resource-card-container {
+    width: 100%;
+    font-size: 2rem;
+    padding: 5rem 0;
+    background-color: #AEC7E3;
+    margin: auto;
+    color: white;
+    transition: background-color 0.5s ease-in-out;
+    user-select: none;
+    font-weight: 700;
+}
+
+.resource-card-container:hover {
+    background-color: #1C426D;
+    cursor: pointer;
+}
+
+@media (max-width: 999px) {
+    .resource-card-container {
+        margin-top: 20px;
+    }
+}
+

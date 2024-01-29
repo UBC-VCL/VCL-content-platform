@@ -1,0 +1,154 @@
+.projectV2-default-content-container {
+    width: 100vw;
+    text-align: left;
+    background-color: #2A3D5A;
+
+}
+
+.project-default-content-section {
+    padding: 3rem 2rem 4rem 2rem;
+}
+
+.project-default-description {
+    font-size: large;
+}
+
+.project-default-number-title {
+    color: #8EA9D2;
+
+    font-weight: 700;
+    line-height: 45.12px;
+    letter-spacing: 0.74px;
+}
+
+.project-default-main-title {
+    color: white;
+}
+
+.project-default-title-underline {
+    margin-top: 1rem;
+    height: 1px;
+    width: 20%;
+    border-top: 4px solid #8EA9D2;
+    margin-bottom: 2rem;
+}
+
+.project-default-hero {
+    color: #92AED8;
+}
+
+.project-description-emphasis-div {
+    margin: 1.5rem 0;
+}
+
+#project-description-emphasis-quotes-left {
+    padding: 0 1.5rem;
+}
+
+.project-emphasis-text-div {
+    padding: 0 2.25rem;
+    color: white;
+    text-align: center;
+}
+
+#project-dexcription-emphasis-quotes-right {
+    float: right;
+}
+
+#project-default-hero-description-1 {
+    margin-bottom: 1rem;
+}
+
+.project-default-QA-section {
+    background-color: white;
+}
+
+.project-default-QA-question {
+    color: #60779A;
+    font-weight: 700;
+    letter-spacing: 0.126px;
+
+    margin-bottom: 1rem;
+}
+
+.project-default-QA-answer {
+    color: #60779A;
+    font-weight: 400;
+    line-height: 23.17px;
+    letter-spacing: 0.081px;
+}
+
+.project-default-back-to-top {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    display: block;
+    background-color: white;
+}
+
+.project-default-back-to-top-container {
+    background-color: white;
+    width: 100%;
+    user-select: none;
+}
+
+
+/* THIS IS ONLY FOR DESKTOPS */
+/* .project-default-back-to-top:hover, .project-default-back-to-top-arrow {
+    scale: 1.2;
+    transition: all 1.5s;
+}  */
+
+.project-default-back-to-top-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-default-back-to-top-title {
+    font-size: medium;
+}
+
+.project-description-emphasis-div {
+    max-width: 900px;
+}
+
+@media screen and (min-width: 1024px) {
+    /* .project-default-hero {
+        padding-right: 2rem;
+        padding-left: 2rem;
+        margin: auto;
+    } */
+
+    /* .project-default-titles {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    } */
+
+    .project-default-hero-section {
+        min-height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-default-titles {
+        margin-top: auto;
+    }
+
+    .project-description-emphasis-div {
+        margin: auto;
+    }
+
+    .project-default-hero-descriptions  {
+        display: grid;
+        grid-template-columns: 3fr 0.25fr 3fr;
+    }
+
+    .project-default-content-section {
+        padding-right: 5rem;
+        padding-left: 5rem;
+    }
+}

@@ -10,7 +10,7 @@ interface ProjectProps extends RouteComponentProps<MatchParams> { }
 const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
     return (
-        <div className="project-content-container" style={{ margin: '10rem' }}>
+        <div className="project-content-container">
             <div id="table-contents">
                 <div className="single-table-content">
                     <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/`}>Home</a>
@@ -29,7 +29,6 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
                 </div>
             </div>
             <div className='project-router-div'>
-                
                 <ProjectRouter project_id={match.params.project_id}/>
             </div>
         </div>

@@ -43,18 +43,17 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 			setMenuSize(
 				132
 			)
-			console.log(document.getElementById("mobile-navbar-container")!.offsetHeight)
 		} else {
 			// global-nav-bar
 			setMenuSize(
 				83.5
 			)
 		}
-		console.log(menuSize)
 	}
 
 	useEffect(() => {
 		// Set up the event listener
+        setMenuSize(document.getElementById("nav")!.offsetHeight)
 		window.addEventListener('resize', handleResize);
 		console.log(menuSize)
 

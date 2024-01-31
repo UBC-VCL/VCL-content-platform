@@ -1,7 +1,50 @@
 .project-content-container {
-    margin-top: 10rem;
+    max-width: 1700px;
+    margin: auto;
 }
 
-.table-contents {
+#projectV2-sidebar {
+    width: 25%;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    display: none;
+}
+
+#table-contents {
     width: 100%;
+}
+
+.exit-icon-container {
+    float: right;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+@media screen and (min-width:900px) {
+
+    #projectV2-sidebar {
+        display: block;
+    }
+
+    #table-contents {
+        display: none;
+    }
+
+    .project-content-container {
+        display:flex;
+    }
+
+    .project-router-div {
+        width: 75%
+    }
+}
+
+@media screen and (min-width:1200px) {
+    #projectV2-sidebar {
+        width: 20%;
+    }
+
+    .project-router-div {
+        width: 80%
+    }
 }

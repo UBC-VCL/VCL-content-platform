@@ -37,6 +37,10 @@
 	background-color: transparent !important;
 }
 
+.menu-item {
+	height: 39px;
+}
+
 .all-item-text {
 	font-family: 'Source Sans Pro';
 	font-style: normal;
@@ -131,6 +135,7 @@
 		flex-direction: column;
 		gap: 4px;
 	}
+
 	.logo-container p {
 		font-size: 14px;
 		line-height: 1.2em;
@@ -187,12 +192,12 @@
 
 @media only screen and (max-width: 700px) {
 	.hamburger-menu {
-	  display: block;
+		display: block;
 	}
 
 	.navbar-menu {
-	  display: none;
-	  height: 0% !important;
+		display: none;
+		height: 0% !important;
 	}
 
 	.nav {
@@ -207,14 +212,14 @@
 		text-align: center;
 	}
 
-	.nav-rendered-links > * {
+	.nav-rendered-links>* {
 		font-size: 14px;
 	}
 
 	.vcl-logo {
 		margin-right: 7em;
 	}
-	
+
 	.vcl-title-link {
 		font-size: 14px;
 		margin-top: -5em;
@@ -227,5 +232,3 @@
 		padding-bottom: 4px !important;
 	}
 }
-
-

@@ -67,7 +67,6 @@ const Navbar: React.FC<{}> = () => {
     React.useState<null | HTMLElement>(null);
   const projectOpen = Boolean(projectAnchorEl);
 
-  // change text color of button to blue when clicked
   const handleProjectMenuClick = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -98,6 +97,20 @@ const Navbar: React.FC<{}> = () => {
   type OnCloseHandler = () => void;
 
   //projects = useAppSelector(selectProjects)
+
+  const [isMenuSizeSet, setIsMenuSizeSet] = React.useState<Boolean>(false)
+
+  // dynamically determines dropdown menu width and length on open and maintains that initial size when hovering menu items
+  const setMenuSizeAfterTransition = () => {
+    const menuContainerPaper: HTMLDivElement | null | undefined = document.getElementById("basic-menu")?.querySelector(".MuiList-root");
+    if (menuContainerPaper && !isMenuSizeSet) {
+      setIsMenuSizeSet(true);
+      menuContainerPaper.style.width = menuContainerPaper.getBoundingClientRect().width.toString() + "px";
+      menuContainerPaper.style.height = menuContainerPaper.getBoundingClientRect().height.toString() + "px";
+    } else {
+      setIsMenuSizeSet(false);
+    }
+  }
 
   // component for nav links that have dropdown menu
   const linkWithMenu = (
@@ -141,6 +154,7 @@ const Navbar: React.FC<{}> = () => {
           anchorEl={anchorEl}
           open={menuOpen}
           onClose={handleClose}
+          onTransitionEnd={setMenuSizeAfterTransition}
           MenuListProps={{
             "aria-labelledby": "basic-button",
           }}
@@ -155,7 +169,7 @@ const Navbar: React.FC<{}> = () => {
           </MenuItem>
           {namesArray.map((menuItem, i) => {
             return (
-              <MenuItem key={i} onClick={handleClose}>
+              <MenuItem className="menu-item" key={i} onClick={handleClose}>
                 <GenericLink
                   className={`nav-link item-name ${
                     location.pathname.split("/")[2] === menuItem.name
@@ -210,7 +224,8 @@ const Navbar: React.FC<{}> = () => {
         />
       );
     }
-  });
+  })
+  ;
 
   return (
     <div className="nav" id="nav">

@@ -98,18 +98,18 @@ const Navbar: React.FC<{}> = () => {
 
   //projects = useAppSelector(selectProjects)
 
-  const [isMenuSizeSet, setIsMenuSizeSet] = React.useState<Boolean>(false)
-
-  // dynamically determines dropdown menu width and length on open and maintains that initial size when hovering menu items
+  // dynamically determines dropdown menu width on open and maintains that initial width when hovering menu items
+  //    child elements with transition events will pass those up. to prevent this child elements with transitions 
+  //    call stopTransitionEventPropagation()
   const setMenuSizeAfterTransition = () => {
     const menuContainerPaper: HTMLDivElement | null | undefined = document.getElementById("basic-menu")?.querySelector(".MuiList-root");
-    if (menuContainerPaper && !isMenuSizeSet) {
-      setIsMenuSizeSet(true);
+    if (menuContainerPaper && !menuContainerPaper.style.width) {
       menuContainerPaper.style.width = menuContainerPaper.getBoundingClientRect().width.toString() + "px";
-      menuContainerPaper.style.height = menuContainerPaper.getBoundingClientRect().height.toString() + "px";
-    } else {
-      setIsMenuSizeSet(false);
     }
+  }
+
+  const stopTransitionEventPropagation = (e: React.TransitionEvent) => {
+    e.stopPropagation();
   }
 
   // component for nav links that have dropdown menu
@@ -159,7 +159,7 @@ const Navbar: React.FC<{}> = () => {
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleClose} onTransitionEnd={stopTransitionEventPropagation}>
             <GenericLink
               className="all-item-text"
               name={"All " + title}
@@ -169,7 +169,7 @@ const Navbar: React.FC<{}> = () => {
           </MenuItem>
           {namesArray.map((menuItem, i) => {
             return (
-              <MenuItem className="menu-item" key={i} onClick={handleClose}>
+              <MenuItem className="menu-item" key={i} onClick={handleClose} onTransitionEnd={stopTransitionEventPropagation}>
                 <GenericLink
                   className={`nav-link item-name ${
                     location.pathname.split("/")[2] === menuItem.name

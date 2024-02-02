@@ -99,12 +99,24 @@ const Navbar: React.FC<{}> = () => {
   //projects = useAppSelector(selectProjects)
 
   // dynamically determines dropdown menu width on open and maintains that initial width when hovering menu items
-  //    child elements with transition events will pass those up. to prevent this child elements with transitions 
+  //    child elements with transition events will pass those up. to prevent this, child elements with transitions 
   //    call stopTransitionEventPropagation()
   const setMenuSizeAfterTransition = () => {
     const menuContainerPaper: HTMLDivElement | null | undefined = document.getElementById("basic-menu")?.querySelector(".MuiList-root");
-    if (menuContainerPaper && !menuContainerPaper.style.width) {
+    if (menuContainerPaper && !menuContainerPaper.style.width || menuContainerPaper?.style.width === "calc(100% + 0px)") {
       menuContainerPaper.style.width = menuContainerPaper.getBoundingClientRect().width.toString() + "px";
+      const els = document.getElementsByClassName("item-hoverable");
+      for (let i = 0; i < els.length; i++) {
+        els[i].classList.remove("no-hover");
+      }
+    }
+  }
+
+  // prevents menu items with hover transformations from running before dropdown fully opens
+  const setNoHover = () => {
+    const els = document.getElementsByClassName("item-hoverable");
+    for (let i = 0; i < els.length; i++) {
+      els[i].classList.add("no-hover");
     }
   }
 
@@ -155,11 +167,12 @@ const Navbar: React.FC<{}> = () => {
           open={menuOpen}
           onClose={handleClose}
           onTransitionEnd={setMenuSizeAfterTransition}
+          onTransitionEnter={setNoHover}
           MenuListProps={{
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem onClick={handleClose} onTransitionEnd={stopTransitionEventPropagation}>
+          <MenuItem className="item-hoverable" onClick={handleClose} onTransitionEnd={stopTransitionEventPropagation}>
             <GenericLink
               className="all-item-text"
               name={"All " + title}
@@ -169,7 +182,7 @@ const Navbar: React.FC<{}> = () => {
           </MenuItem>
           {namesArray.map((menuItem, i) => {
             return (
-              <MenuItem className="menu-item" key={i} onClick={handleClose} onTransitionEnd={stopTransitionEventPropagation}>
+              <MenuItem className="menu-item item-hoverable" key={i} onClick={handleClose} onTransitionEnd={stopTransitionEventPropagation}>
                 <GenericLink
                   className={`nav-link item-name ${
                     location.pathname.split("/")[2] === menuItem.name

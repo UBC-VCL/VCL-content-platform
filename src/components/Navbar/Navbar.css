@@ -23,6 +23,10 @@
 	margin-top: 1.25%;
 }
 
+.no-hover {
+	pointer-events: none;
+}
+
 /* .dropdown-menu:hover {
 	max-width: 19%;
 } */

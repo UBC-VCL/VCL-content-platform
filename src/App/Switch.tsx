@@ -29,7 +29,6 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
       <Route path={ROUTES.PROJECT.PATH2} component={ProjectV2Wrapper}/>
-      
       {IS_WIP && (
         <>
           <Route exact path={ROUTES.RESOURCES!.BASE} component={Resources} />

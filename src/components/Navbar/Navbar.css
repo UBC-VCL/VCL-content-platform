@@ -23,6 +23,10 @@
 	margin-top: 1.25%;
 }
 
+.no-hover {
+	pointer-events: none;
+}
+
 /* .dropdown-menu:hover {
 	max-width: 19%;
 } */
@@ -37,7 +41,11 @@
 	background-color: transparent !important;
 }
 
-.all-projects-text {
+.menu-item {
+	height: 39px;
+}
+
+.all-item-text {
 	font-family: 'Source Sans Pro';
 	font-style: normal;
 	font-weight: 700;
@@ -50,18 +58,18 @@
 	transition: font-size 0.5s;
 }
 
-.all-projects-text:hover {
+.all-item-text:hover {
 	font-size: 22px;
 }
 
-.all-projects-underline {
+.all-item-underline {
 	border: 1.5px solid var(--fc-navyblue);
 	width: 115px;
 	margin-top: 20%;
 	position: absolute;
 }
 
-.project-name {
+.item-name {
 	font-family: 'Source Sans Pro';
 	font-style: normal;
 	font-weight: 400;
@@ -72,7 +80,7 @@
 	transition: font-size 0.5s;
 }
 
-.project-name:hover {
+.item-name:hover {
 	color: var(--fc-navyblue);
 	font-weight: 700;
 	font-size: 19px;
@@ -131,6 +139,7 @@
 		flex-direction: column;
 		gap: 4px;
 	}
+
 	.logo-container p {
 		font-size: 14px;
 		line-height: 1.2em;
@@ -177,14 +186,22 @@
 .vcl-title-link:hover {
 	text-decoration: none;
 }
+
+.nav-link-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 4px;
+}
+
 @media only screen and (max-width: 700px) {
 	.hamburger-menu {
-	  display: block;
+		display: block;
 	}
 
 	.navbar-menu {
-	  display: none;
-	  height: 0% !important;
+		display: none;
+		height: 0% !important;
 	}
 
 	.nav {
@@ -199,14 +216,14 @@
 		text-align: center;
 	}
 
-	.nav-rendered-links > * {
+	.nav-rendered-links>* {
 		font-size: 14px;
 	}
 
 	.vcl-logo {
 		margin-right: 7em;
 	}
-	
+
 	.vcl-title-link {
 		font-size: 14px;
 		margin-top: -5em;
@@ -219,5 +236,3 @@
 		padding-bottom: 4px !important;
 	}
 }
-
-

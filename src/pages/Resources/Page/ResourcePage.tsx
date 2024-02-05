@@ -15,7 +15,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
     const history = useHistory();
     const currDate = new Date();
 
-    const currentResource = RESOURCES.CONTENT.find((resource) => resource.title === match.params.resource_id);
+    const currentResource = RESOURCES.CONTENT.find((resource) => resource.name === match.params.resource_id);
 
     const [navHeight, setNavHeight] = useState<number>(0);
     const [filterDates, setFilterDates] = useState<string[]>([currDate.getFullYear().toString(), (currDate.getFullYear() - 1).toString(), (currDate.getFullYear() - 2).toString()]);

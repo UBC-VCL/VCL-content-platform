@@ -242,8 +242,8 @@ const Navbar: React.FC<{}> = () => {
 
   return (
     <div className="nav" id="nav">
-      <div className="navbar-menu">
-        <Toolbar className="nav-toolbar" id="global-nav-bar">
+      <div className="navbar-menu" id="global-nav-bar">
+        <Toolbar className="nav-toolbar" >
           <div className="logo-container">
             <a href={ROUTES.HOME}>
               <img src={VCLIcon} alt="VCL logo" className="vcl-logo" />

@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react'
 import GetInvolvedSidebar from '@components/GetInvolvedSidebar';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import menuIcon from '@statics/images/menu-icon.png';
 
 
@@ -16,6 +16,7 @@ interface GetInvolvedProps { }
 const GetInvolved: React.FC<GetInvolvedProps> = props => {
 
 	const [sidebarState, setbarState] = useState<boolean>(true)
+	const [menuSize, setMenuSize] = useState<number>(132);
 
 	const pRef = useRef<HTMLElement>(null)
 	const labMemberRef = useRef<HTMLElement>(null)
@@ -36,6 +37,33 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 		})
 	}
 
+	function handleResize() {
+		if (window.innerWidth <= 700) {
+			// mobile navbar
+			setMenuSize(
+				132
+			)
+		} else {
+			// global-nav-bar
+			setMenuSize(
+				83.5
+			)
+		}
+	}
+
+	useEffect(() => {
+		// Set up the event listener
+        setMenuSize(document.getElementById("nav")!.offsetHeight)
+		window.addEventListener('resize', handleResize);
+		console.log(menuSize)
+
+		// Clean up the event listener on component unmount
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []); // Empty dependency array ensures the effect runs only on mount and unmount
+
+
 	function applicationInstructions(position: string) {
 		return <details className="app-instructions">
 			<summary className="instruct-summary"> See Application Instructions Here </summary>
@@ -46,15 +74,15 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 				<ul>
 					<li>Your resume/CV</li>
 					<li>A list of related courses you have taken so far</li>
-					<li>The research projects you’re interested in and why you’re interested in them</li> 
+					<li>The research projects you’re interested in and why you’re interested in them</li>
 				</ul>
 			</ol>
 		</details>
 	}
 
 	return (
-		<div className="Join">
-			<GetInvolvedSidebar 
+		<div className="Join" style={{marginTop:`${menuSize}px`}}>
+			<GetInvolvedSidebar
 				pRef={pRef}
 				labMemberRef={labMemberRef}
 				coPilotRef={coPilotRef}
@@ -67,8 +95,20 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 				sidebarState={sidebarState}
 				setbarState={setbarState}
 			/>
+			<div id="get-involved-page-table-menu" style={{paddingTop:"1rem"}}>
+				<ul>
+					<li onClick={() => customAutoScroll(pRef)}>As a Participant</li>
+					<li onClick={() => customAutoScroll(labMemberRef)}>As a Lab Member</li>
+					<li id="co-pilot" className='clickableOption'><a onClick={() => customAutoScroll(coPilotRef)}>Co-Pilot</a></li>
+					<li id="dscico-pilot" className='clickableOption'><a onClick={() => customAutoScroll(dsCoPilotRef)}>Data Science Co-Pilot</a></li>
+					<li id="volunteer" className='clickableOption'><a onClick={() => customAutoScroll(volunteerRef)}>Volunteer</a></li>
+					<li id="directed-studies" className='clickableOption'><a onClick={() => customAutoScroll(directedStudiesRef)}>Directed Studies</a></li>
+					<li id="research-assistant" className='clickableOption'><a onClick={() => customAutoScroll(raRef)}>Research Assistant</a></li>
+					<li id="coding-team" className='clickableOption'><a onClick={() => customAutoScroll(ctRef)}>Coding Team</a></li>
+				</ul>
+			</div>
 			<div id='info-encapsulate'>
-			<div id="info-icon"><img src={menuIcon} alt="Sidebar Icon" width="25" height="25" onClick={() => {
+				<div id="info-icon"><img src={menuIcon} alt="Sidebar Icon" width="25" height="25" onClick={() => {
 					document.getElementById('get-involved-sidebar')!.style.display = 'block'
 					document.getElementById('info-icon')!.style.display = 'none'
 					setbarState(!sidebarState)
@@ -188,10 +228,10 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 								<details>
 									<summary className="instruct-summary"> Details</summary>
 									<p className="app-steps">
-										Volunteers are lab members who have been 
-											<strong><a onClick={() => customAutoScroll(coPilotRef)}> Co-Pilots </a></strong>
-											or 
-											<strong><a onClick={() => customAutoScroll(directedStudiesRef)}> Directed Studies students </a></strong>
+										Volunteers are lab members who have been
+										<strong><a onClick={() => customAutoScroll(coPilotRef)}> Co-Pilots </a></strong>
+										or
+										<strong><a onClick={() => customAutoScroll(directedStudiesRef)}> Directed Studies students </a></strong>
 										for a period of time and have then signed a Volunteer Contract making specific commitments to the lab.
 									</p>
 								</details>
@@ -225,34 +265,34 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 								<li>End of the term, for you to make your case on what grade you deserve (as awkward as this sounds!) This is so that we can capture the truth, and write down
 									evidence when we send in the evaluation over to the instructor.</li>
 							</ol>
-							<br/>
+							<br />
 							<p style={{ color: "#5387a5" }}>
 								{applicationInstructions("VCL Co-Pilots")}
 							</p>
 							<p>
 								<i>Please keep in mind that we typically prefer Directed Studies students to begin with a co-pilot position with our lab. However, exceptions can be made.</i>
 							</p>
-							<p style={{ color: "#1C426D", marginTop: "30px"}}>
+							<p style={{ color: "#1C426D", marginTop: "30px" }}>
 								<details>
 									<summary className="instruct-summary"><strong>COGS 402 FAQ!</strong></summary>
 									<ul>
 										<li><strong>Q:</strong> When should I apply to the VCL for my 402? </li>
 										<li><strong>A:</strong> It is recommended that you apply as a Co-Pilot a term before the start of your 402. That way, you are able to get acquainted with the lab environment and the ongoing research so that you can come up with your own research proposal. </li>
-										<br/>
+										<br />
 										<li><strong>Q:</strong> Who can I contact for more help/information about 402 at the VCL? </li>
 										<li><strong>A:</strong> If you would like more information on how the 402 is conducted at the VCL, please email the lab manager at vclmanager@gmail.com. For general 402 inquiries please contact the instructor or program advisor. </li>
-										<br/>
+										<br />
 										<li><strong>Q:</strong> Why is there a course this in the COGS program? / Why is this course required when I’m not planning on going into research? </li>
 										<li><strong>A:</strong>COGS 402 is designed to give students exposure to research before they graduate and provide them with the opportunity to learn invaluable skills outside of the classroom. </li>
-										<br/>
+										<br />
 										<li><strong>Q:</strong> Do I have to come up with my own project, or can I join one?</li>
 										<li><strong>A:</strong>Students are expected to propose their own extension or focus within an existing project at the VCL or to propose a novel project. </li>
-										<br/>
+										<br />
 										<li><strong>Q:</strong> Is it better to take 402 during the winter session or the summer?</li>
 										<li><strong>A:</strong>It’s all about personal preference, and there are advantages/disadvantages to both. However, it good to know that COGS 402 require 9 hours of lab per week so make sure your schedule can accommodate that. </li>
 
 									</ul>
-								
+
 								</details>
 							</p>
 
@@ -271,17 +311,17 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 							<br></br>
 							<p>
-								An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in 
+								An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in
 								using the lab’s resources. An RA must commit at least 9 hours a week to agreed upon lab duties. Most Project Leaders
-								have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be 
+								have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be
 								approved by Dr. Rensink.
 							</p>
 							<p style={{ color: "#5387a5" }}>
 								<details>
 									<summary className="instruct-summary"> Details</summary>
-									<p className="app-steps">After a  
+									<p className="app-steps">After a
 										<strong><a onClick={() => customAutoScroll(volunteerRef)}> Volunteer </a></strong>
-									 has gained significant handle of the project in which they’re involved, they may be eligible to be an RA. An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in using the lab’s resources. An RA must commit at least 9 hours a week to agreed upon lab duties. Most Project Leaders have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be approved by Dr. Rensink.</p>
+										has gained significant handle of the project in which they’re involved, they may be eligible to be an RA. An RA will be able to do everything that a Volunteer can do, but will be paid and will have priority in using the lab’s resources. An RA must commit at least 9 hours a week to agreed upon lab duties. Most Project Leaders have RA status. Typically, RAs are elected by their Project Leaders but final decisions about who fills these roles must be approved by Dr. Rensink.</p>
 								</details>
 							</p>
 						</section>

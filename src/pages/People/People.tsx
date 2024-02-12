@@ -11,6 +11,7 @@ import { CircularProgress } from "@mui/material";
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
 const IS_WIP = process.env.REACT_APP_WIP === "development";
+const ORDER_OF_POSITIONS = ['lab leader', 'project lead', 'coding team lead', 'lab manager', 'workshop coordinator', 'project manager', 'lead developer', 'project secondary', 'research assistant (co-lead)', 'research assistant', 'co-pilot', 'volunteer', '402 student', '...'];
 
 const People = () => {
   interface MemberOBJ {
@@ -57,7 +58,7 @@ const People = () => {
   // for now it is hardcoded timer because the calls that we make on this page is very fast so
   //    setting the state of svgView in the API call will only show the icon for not even 1 second.
   const loadingTimer = (timer: number) => {
-  setTimeout(() => {
+    setTimeout(() => {
       setSvgView(false);
     }, timer);
   };
@@ -92,6 +93,73 @@ const People = () => {
     //     // console.log(err);
     //   });
   };
+
+  const filterMembers = () => {
+
+    return (
+      currentList
+        .filter((item) => {
+          if (currentProject == "Management") {
+            return item.position == 'Lab Manager' || item.position == 'Lab Leader' || item.position == 'Assistant Lab Manager and Workshop Coordinator' || item.position == 'Workshop Coordinator';
+          }
+          else {
+            return (
+              item.position == currentProject ||
+              item.project == currentProject
+            );
+          }
+        })
+    )
+  }
+
+  function filterAndCreatePersonsByPosition(positions: string[]) {
+
+    // Convert all positions to lower case for case-insensitive comparison
+    const lowerCasePositions = positions.map(position => position.toLowerCase());
+
+    // First, filter and map members as before
+    const filteredAndMappedMembers = filterMembers().filter((item) => {
+      return lowerCasePositions.includes(item.position.toLowerCase());
+    });
+
+    // Then, sort the results based on the order of positions
+    const orderedMembers = filteredAndMappedMembers.sort((a, b) => {
+      const posA = lowerCasePositions.indexOf(a.position.toLowerCase());
+      const posB = lowerCasePositions.indexOf(b.position.toLowerCase());
+      return posA - posB;
+    });
+
+    return orderedMembers.map((item, index) => createSinglePerson(item, index));
+  }
+
+
+  const createSinglePerson = (item: MemberOBJ, index: number) => {
+    return (
+      <div key={index} className="people-lab-member">
+        <div className="icon-container">
+          <MdAccountCircle
+            // className='icon'
+            size={125}
+          />
+        </div>
+        <div className="info-container">
+          <div className="name">
+            <h2>
+              {item.name.firstname + " " + item.name.lastname}
+            </h2>
+          </div>
+          <div className="position">
+            <h3>{item.position}</h3>
+          </div>
+          <div className="message">
+            {item.blurb
+              ? item.blurb
+              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -135,53 +203,16 @@ const People = () => {
             {svgView ? (
               <CircularProgress></CircularProgress>
             ) : resSuccess ? (
-              currentList.filter((item) => {
-                  if (currentProject == "Management") {
-                    return item.position == 'Lab Manager' || item.position == 'Lab Leader' || item.position == 'Assistant Lab Manager and Workshop Coordinator' || item.position == 'Workshop Coordinator';
-                  } else {
-                    return (
-                     item.position == currentProject || item.project == currentProject
-                    );
+              filterMembers().length > 0 ? (
+                // filterMembers().map((item: MemberOBJ, index: number) => {
+                //   return (createSinglePerson(item, index))
+                // })
+                <div>
+                  
+                  {
+                    filterAndCreatePersonsByPosition(ORDER_OF_POSITIONS)
                   }
-                }).length > 0 ? (
-                  currentList
-                    .filter((item) => {
-                      if (currentProject == "Management") {
-                        return item.position == 'Lab Manager' || item.position == 'Lab Leader' || item.position == 'Assistant Lab Manager and Workshop Coordinator' || item.position == 'Workshop Coordinator';
-                      }
-                      else {
-                        return (
-                            item.position == currentProject ||
-                            item.project == currentProject
-                        );
-                      }})
-                  .map((item, index) => {
-                    return (
-                      <div key={index} className="people-lab-member">
-                        <div className="icon-container">
-                          <MdAccountCircle
-                            // className='icon'
-                            size={125}
-                          />
-                        </div>
-                        <div className="info-container">
-                          <div className="name">
-                            <h2>
-                              {item.name.firstname + " " + item.name.lastname}
-                            </h2>
-                          </div>
-                          <div className="position">
-                            <h3>{item.position}</h3>
-                          </div>
-                          <div className="message">
-                            {item.blurb
-                              ? item.blurb
-                              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })
+                </div>
               ) : (
                 <Alert severity="info" className="people-page-prompt-string">
                   {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}

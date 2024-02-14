@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useLocation } from "react-router-dom";
 import {
   AppBar,
@@ -33,6 +33,7 @@ const Navbar: React.FC<{}> = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
 
   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -76,9 +77,26 @@ const Navbar: React.FC<{}> = () => {
     setProjectAnchorEl(null);
   };
 
-  window.addEventListener("handlePageChange", (event) => {});
-
   //projects = useAppSelector(selectProjects)
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize(window.innerWidth);
+      console.log(window.innerWidth)
+    }
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
 
   const renderedLinks = NAV.map(({ TITLE, REF }) => {
     let active = REF === location.pathname ? "active" : "";
@@ -149,11 +167,11 @@ const Navbar: React.FC<{}> = () => {
       <div className="navbar-menu">
         <Toolbar className="nav-toolbar">
           <div className="logo-container">
-            <a href={ROUTES.HOME}>
+            <a href={ROUTES.HOME} style={{width:"fit-content"}}>
               <img src={VCLIcon} alt="VCL logo" className="vcl-logo" />
             </a>
             <a href={ROUTES.HOME} className="vcl-title-link">
-              {TEXT.COMMON.LAB_TITLE_ONLY}
+              {(!IS_WIP || (windowSize >= 820)) && TEXT.COMMON.LAB_TITLE_ONLY}
             </a>
           </div>
           <div className="nav-right">

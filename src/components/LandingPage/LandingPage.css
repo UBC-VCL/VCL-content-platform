@@ -74,6 +74,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 100px;
   }
 
   #info-section {
@@ -105,6 +106,7 @@ a:hover {
 
 @media (max-width: 768px) {
   #landing-page-container {
+    padding-top: 100px;
     width: 100%;
   }
 
@@ -114,6 +116,9 @@ a:hover {
 }
 
 @media (max-width: 540px) {
+  #landing-page-container {
+    padding-top: 50px;
+  }
   #info-section {
     margin-top: 20vh;
   }

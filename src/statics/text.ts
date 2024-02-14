@@ -87,7 +87,7 @@ const TEXT = {
   },
 
   LANDING_PAGE: {
-    TITLE: "Investigating Visual Intelligence",
+    TITLE: "Visual Cognition Lab",
     DESCRIPTION:
       "What is the Visual Cognition Lab? We investigate visual intelligence – " +
       "the way in which the human visual system uses the light entering the eyes to create a variety of perceptual experiences.",

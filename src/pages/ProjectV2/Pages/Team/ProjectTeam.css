@@ -32,10 +32,18 @@ body {
     font-size: 33.05px;
     line-height: 42px;
     display: flex;
-    align-items: left;
-    margin-top: 2em;
     flex-wrap: wrap;
     position: relative;
+}
+
+.team-content {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+p {
+    text-align: center;
 }
 
 hr {
@@ -43,6 +51,10 @@ hr {
     margin-top: 10px;
     margin-bottom: 15px;
     width: 100%;
+}
+
+h2 {
+    text-align: center;
 }
 
 .button_container {
@@ -53,6 +65,14 @@ hr {
     justify-content: flex-end;
     width: 100%;
 
+}
+
+.info-container {
+    padding-top: 2%;
+}
+
+.team-container {
+    padding-bottom: 7.5%;
 }
 
 .add-mem-button-div {

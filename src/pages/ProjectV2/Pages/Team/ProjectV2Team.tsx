@@ -19,37 +19,44 @@ interface Member {
 	isCurrentMember?: boolean;
 }
 
-const ProjectV2Team: React.FC<ProjectProps> = (props) => {
+const members = [
+	{
+		name: "Janie Jones",
+		position: "Technical Lead",
+		description: "Hi I'm Janie. I'm a first year, excited to be in VCL!",
+	},
+	{
+		name: "Bridget Williams",
+		position: "Project Manager",
+		description:
+			"Hi I'm Bob. I'm a first year, excited to be in VCL! Again, hi I'm Bob. I'm a first year, excited to be in VCL! Again again, hi I'm Bob. I'm a first year, excited to be in VCL! Hi I'm Bob. I'm a first year, excited to be in VCL!",
+	},
+	{
+		name: "Joe Smith",
+		position: "Co-Pilot",
+		description: "Hi I'm Joe. I'm a first year, excited to be in VCL!",
+	},
+];
+
+const ProjectV2Team = () => {
 	return (
-		<>
+		<div className="team-container">
 			<div className="team-header">
 				<p>Team Members</p>
 			</div>
-			<div>
-				{props.project.members ? (
-					props.project.members.map((member) => (
-						<>
-							<div className="icon-container">
-								<MdAccountCircle size={125} />
-							</div>
-							<div className="info-container">
-								<div className="name">
-									<h2>{member.name}</h2>
-								</div>
-								<div className="position">
-									<h3>{member.position}</h3>
-								</div>
-								<div className="message">
-									{member.description ? member.description : ""}
-								</div>
-							</div>
-						</>
-					))
-				) : (
-					<></>
-				)}
+			<div className="team-content">
+				{members.map((member) => (
+					<div className="info-container">
+						<h2>
+							{member.name} - {member.position}
+						</h2>
+						<span className="message">
+							{member.description ? member.description : ""}
+						</span>
+					</div>
+				))}
 			</div>
-		</>
+		</div>
 	);
 };
 

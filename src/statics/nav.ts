@@ -25,16 +25,16 @@ const baseNav = [
 	...(IS_WIP
 		? [
 			{
+				TITLE: TEXT.PAGE_TITLES.RESOURCES,
+				REF: ROUTES.RESOURCES!.BASE
+			},
+			{
 				TITLE: TEXT.PAGE_TITLES.TIMELINE,
 				REF: ROUTES.TIMELINE
 			},
-			{
-				TITLE: TEXT.PAGE_TITLES.RESOURCES,
-				REF: ROUTES.RESOURCES
-			},
 		]
 		: []),
-	
+
 ];
 
 const NAV = baseNav;

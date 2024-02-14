@@ -17,8 +17,16 @@ html {
 }
 
 .join-header {
-    padding-top: 130px;
+    /* padding-top: 130px; */
     font-family: 'Open Sans', sans-serif;
+}
+
+#get-involved-page-table-menu {
+    padding-top: 10rem;
+}
+
+#get-involved-page-table-menu li {
+    margin-bottom: 1rem;
 }
 
 #info-icon {
@@ -40,6 +48,7 @@ html {
 
 #info-encapsulate {
     display:relative;
+    padding-top: 2rem;
 }
 
 .join-header * {
@@ -146,5 +155,23 @@ html {
     }
     .Join .join-sub-header {
         font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #get-involved-page-table-menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    #get-involved-sidebar {
+        display: none;
+    }
+    .Join {
+        display: block;
+    }
+    #info-encapsulate {
+        padding-top: 0;
     }
 }

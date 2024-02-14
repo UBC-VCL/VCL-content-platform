@@ -69,7 +69,7 @@ const MobileNavbar = () => {
 
   return (
     <div className="container">
-      <AppBar position="fixed" className="mobile-header">
+      <AppBar position="fixed" className="mobile-header" id="mobile-navbar-container">
         <div>
           <img src={VCLIcon} alt="VCL logo" className="mobile-vcl-logo" />
           <div className="title">{TEXT.COMMON.TITLE}</div>

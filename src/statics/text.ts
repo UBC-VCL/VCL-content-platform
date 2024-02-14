@@ -87,7 +87,7 @@ const TEXT = {
   },
 
   LANDING_PAGE: {
-    TITLE: "Investigating Visual Intelligence",
+    TITLE: "Visual Cognition Lab",
     DESCRIPTION:
       "What is the Visual Cognition Lab? We investigate visual intelligence – " +
       "the way in which the human visual system uses the light entering the eyes to create a variety of perceptual experiences.",
@@ -169,7 +169,7 @@ const TEXT = {
       COPILOT_DESCRIPTION:
         "Co-Pilots sign a contract with the lab that lasts for a school term, with the possibility for renewal. Co-Pilots are assigned to a particular project team based on their interests, but have the freedom to explore different projects.",
       RESEARCH_BACKGROUND:
-        "No background in research is needed, and co-pilots have the flexibility of helping out whenever they want!",
+        "No background in research is needed, and Co-Pilots have the flexibility of helping out whenever they want!",
       APPPLICATION_INSTRUCTION: "Application Instructions",
     },
     WHAT_WE_DO: {

@@ -26,13 +26,13 @@ const People = () => {
   }
 
   const dummyList: Array<string> = [
-    "Supervisors",
+    "Management",
+    "Coding Team",
     "Correlation",
     "IDEO",
     "IT",
     "NOVA",
     "SHIVA",
-    "Coding Team"
   ];
 
   // the page will be defaulted to bein on the first grid item
@@ -73,6 +73,24 @@ const People = () => {
         // do nothing with the error
         // console.log(err);
       });
+
+    // axios({
+    //   method: "get",
+    //   url: `${baseURL}/api/members`,
+    //   headers: {
+    //     key: process.env.API_KEY
+    //   }
+    // })
+    // // axios
+    // //   .get(`${baseURL}/api/members`)
+    //   .then((response) => {
+    //     setList(response.data.data);
+    //     setSuccess(true);
+    //   })
+    //   .catch((err) => {
+    //     // do nothing with the error
+    //     // console.log(err);
+    //   });
   };
 
   return (
@@ -85,8 +103,8 @@ const People = () => {
           </h4>
         </div>
         {/*
-                    The items within the grid should be done dynamically, it should have inline styling for the number of items, instead of it being inside the css 
-                     - An issue that comes with this is the that the nav bar width will become too wide and some titles will not fit within each grid component 
+                    The items within the grid should be done dynamically, it should have inline styling for the number of items, instead of it being inside the css
+                     - An issue that comes with this is the that the nav bar width will become too wide and some titles will not fit within each grid component
                 */}
         <div className="page-nav">
           {dummyList.map((item: string, index: number) => {
@@ -118,18 +136,25 @@ const People = () => {
               <CircularProgress></CircularProgress>
             ) : resSuccess ? (
               currentList.filter((item) => {
-                return (
-                  item.position == currentProject || item.project == currentProject
-                );
-
-              }).length > 0 ? (
-                currentList
-                  .filter((item) => {
+                  if (currentProject == "Management") {
+                    return item.position == 'Lab Manager' || item.position == 'Lab Leader' || item.position == 'Assistant Lab Manager and Workshop Coordinator' || item.position == 'Workshop Coordinator';
+                  } else {
                     return (
-                      item.position == currentProject ||
-                      item.project == currentProject
+                     item.position == currentProject || item.project == currentProject
                     );
-                  })
+                  }
+                }).length > 0 ? (
+                  currentList
+                    .filter((item) => {
+                      if (currentProject == "Management") {
+                        return item.position == 'Lab Manager' || item.position == 'Lab Leader' || item.position == 'Assistant Lab Manager and Workshop Coordinator' || item.position == 'Workshop Coordinator';
+                      }
+                      else {
+                        return (
+                            item.position == currentProject ||
+                            item.project == currentProject
+                        );
+                      }})
                   .map((item, index) => {
                     return (
                       <div key={index} className="people-lab-member">

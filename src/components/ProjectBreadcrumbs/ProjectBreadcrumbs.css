@@ -1,14 +1,13 @@
 #project-breadcrumbs {
-    color: #798FB0;
-    font-size: 15px;
-    line-height: normal;
-    letter-spacing: 0.3px;
-    padding-left: 25px;
-    padding-right: 25px;
-
+  color: #798fb0;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .current-page {
-    color: #AEC7EC;
-    padding-left: 25px;
+  color: #aec7ec;
+  padding-left: 25px;
 }

@@ -29,7 +29,7 @@
 
 .header-text {
   text-align: center;
-  font-size: 28px;
+  font-size: 35px;
   font-weight: 700;
   padding: 16px 0;
 }
@@ -60,6 +60,7 @@ body {
 
 .about-description {
   text-align: justify;
+  font-size: 25px;
 }
 
 .About .main-body ul {
@@ -94,18 +95,22 @@ body {
 
 .responsibilities-subheader {
   margin-bottom: 20px;
+  font-size: 25px;
+}
+.responsibility-list {
+  font-size: 25px ;
 }
 
 h2 {
   text-align: left;
   font-family: "Source Sans Pro" !important;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 30px;
   margin: 0.8em 0;
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 30px;
   color: #000000;
   max-width: 100%;
 }
@@ -134,10 +139,15 @@ h3 {
 
 .responsibility-list li::before {
   background-image: url("task.png");
+  margin-top: 4px;
 }
 
 .value-list li::before {
   background-image: url("tick.png");
+  margin-top: 4px;
+}
+.value-list {
+  font-size: 25px;
 }
 
 .gain-section {
@@ -149,6 +159,7 @@ h3 {
 .gain-section h2 {
   text-align: center;
   margin-top: 0;
+  font-size: 35px;
 }
 
 .gain-card-container {
@@ -158,6 +169,7 @@ h3 {
   gap: 8px;
   flex-wrap: wrap;
   width: 100%;
+  font-size: 22px;
 }
 
 .contact {
@@ -176,24 +188,29 @@ h3 {
 
 .contact-info {
   text-align: left;
+  font-size: 22px;
 }
 
 .contact-info h2 {
   margin-top: 0;
   letter-spacing: 0.04em;
+  font-size: 35px;
 }
 
 .contact-info a {
   color: black;
+  font-size: 22px;
 }
 
 .contact-info ul {
   margin-top: 8px;
   margin-left: 16px;
+  font-size: 22px;
 }
 
 .contact-info ul li {
   margin: 0;
+  font-size: 22px;
 }
 
 .lab-address {
@@ -208,7 +225,7 @@ h3 {
   }
 
   .About .sub-header {
-    font-size: 14px;
+    font-size: 28px;
     font-weight: 500;
   }
 

@@ -78,8 +78,21 @@ const Navbar: React.FC<{}> = () => {
     setProjectAnchorEl(null);
   };
 
+  const [resourceAnchorEl, setResourceAnchorEl] =
+    React.useState<null | HTMLElement>(null);
+  const resourceOpen = Boolean(resourceAnchorEl);
 
-  //projects = useAppSelector(selectProjects)
+  const handleResourceMenuOpen = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    setResourceAnchorEl(event.currentTarget);
+  };
+
+  const handleResourceMenuClose = () => {
+    setResourceAnchorEl(null);
+  };
+
+  window.addEventListener("handlePageChange", (event) => {});
 
   useEffect(() => {
     // Handler to call on window resize
@@ -99,26 +112,6 @@ const Navbar: React.FC<{}> = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []); // Empty array ensures that effect is only run on mount and unmount
 
-
-  const renderedLinks = NAV.map(({ TITLE, REF }) => {
-    let active = REF === location.pathname ? "active" : "";
-    if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
-
-  const [resourceAnchorEl, setResourceAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-  const resourceOpen = Boolean(resourceAnchorEl);
-
-  const handleResourceMenuOpen = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    setResourceAnchorEl(event.currentTarget);
-  };
-
-  const handleResourceMenuClose = () => {
-    setResourceAnchorEl(null);
-  };
-
-  window.addEventListener("handlePageChange", (event) => {});
 
   // type definition for handleClose
   type OnCloseHandler = () => void;
@@ -272,11 +265,11 @@ const Navbar: React.FC<{}> = () => {
       <div className="navbar-menu" id="global-nav-bar">
         <Toolbar className="nav-toolbar" >
           <div className="logo-container">
-            <a href={ROUTES.HOME} style={{width:"fit-content"}}>
+            <a href={ROUTES.HOME}>
               <img src={VCLIcon} alt="VCL logo" className="vcl-logo" />
             </a>
             <a href={ROUTES.HOME} className="vcl-title-link">
-              {(!IS_WIP || (windowSize >= 820)) && TEXT.COMMON.LAB_TITLE_ONLY}
+              {(!IS_WIP || (windowSize >= 920)) && TEXT.COMMON.LAB_TITLE_ONLY}
             </a>
           </div>
           <div className="nav-right">

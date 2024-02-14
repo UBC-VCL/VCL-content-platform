@@ -139,12 +139,13 @@ h3 {
 
 .responsibility-list li::before {
   background-image: url("task.png");
+  margin-top: 4px;
 }
 
 .value-list li::before {
   background-image: url("tick.png");
+  margin-top: 4px;
 }
-
 .value-list {
   font-size: 25px;
 }

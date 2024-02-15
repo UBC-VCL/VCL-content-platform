@@ -55,7 +55,7 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
                         <div style={{ textAlign: "center", marginTop: "1rem" }}>
                             <div className="project-sidebar-title">
                                 <h2>Now Viewing</h2>
-                                <h1>{match.params.project_id}</h1>
+                                <h1>{match.params.project_id == 'Image Transitions' ? "I.T." : match.params.project_id}</h1>
                             </div>
                             <div className="project-sidebar-clickable-content">
                                 <div className="single-table-content">

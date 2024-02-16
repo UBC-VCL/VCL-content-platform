@@ -36,6 +36,7 @@
 
 .project-sidebar-title h1 {
     color: #1C426D;
+    font-size: 1.5rem;
 }
 
 .project-sidebar-title h2 {
@@ -45,10 +46,12 @@
 }
 
 .project-sidebar-title {
-    margin: auto;
+    /* margin: auto;  */
+    margin-right:auto;
+    padding-left: 3rem;
     width: fit-content;
-    padding-right: 2rem;
-    border-bottom: 1px solid #B2C9EC;
+    /* padding-right: 2rem; */
+    /* border-bottom: 1px solid #B2C9EC; */
     margin-bottom: 2rem;
 }
 
@@ -60,9 +63,11 @@
 .project-sidebar-clickable-content {
     /* padding-right:2rem;
     padding-left:4rem; */
-    margin: auto;
+    /* margin: auto; */
     width: fit-content;
-    padding-right: 4rem;
+    /* padding-right: 4rem; */
+    margin-right: auto;
+    padding-left: 4.5rem;
 }
 @media screen and (min-width:900px) {
 
@@ -92,3 +97,9 @@
         width: 80%
     }
 }
+
+/* @media screen and (min-width:900px) and (max-width:1140px) {
+    .project-sidebar-title {
+        padding-left: 2rem;
+    }
+} */

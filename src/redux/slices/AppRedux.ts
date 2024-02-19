@@ -12,12 +12,14 @@ export type ValidModalKey =
 
 interface AppState {
   isReady: boolean;
+  inProjectsPage: boolean;
   modals: Record<ValidModalKey, ModalState>;
   alert: string | null;
 }
 
 const initialState: AppState = {
   isReady: false,
+  inProjectsPage: false,
   modals: {
     login: {
       visible: false,
@@ -32,6 +34,9 @@ export const appSlice = createSlice({
   reducers: {
     setIsReady: (state, { payload }: PayloadAction<boolean>) => {
       state.isReady = payload;
+    },
+    setInProjectsPage: (state, { payload }: PayloadAction<boolean>) => {
+      state.inProjectsPage = payload;
     },
     openModal: (
       state,
@@ -65,6 +70,7 @@ export const appSlice = createSlice({
 export const selectApp = (state: RootState) => state.app;
 export const selectModal = (modalKey: ValidModalKey) => (state: RootState) =>
   state.app.modals[modalKey];
+export const selectInProjectsPage = (state: RootState) => state.app.inProjectsPage;
 
 export const appActions = appSlice.actions;
 export default appSlice.reducer;

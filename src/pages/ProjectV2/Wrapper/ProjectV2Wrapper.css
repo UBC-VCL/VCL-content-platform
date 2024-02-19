@@ -12,11 +12,17 @@
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    overflow:"visible"
+    overflow: "visible"
 }
 
 #table-contents {
     width: 100%;
+    position: fixed;
+    padding-top: 8.25rem;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .exit-icon-container {
@@ -26,11 +32,14 @@
 }
 
 #projectV2-sidebar a {
-    color: inherit; /* Makes the link color the same as its parent */
-    text-decoration: none; /* Removes the underline */
+    color: inherit;
+    /* Makes the link color the same as its parent */
+    text-decoration: none;
+    /* Removes the underline */
 }
 
-.project-sidebar-title h2, .project-sidebar-title h1 {
+.project-sidebar-title h2,
+.project-sidebar-title h1 {
     margin-bottom: 1rem;
 }
 
@@ -47,7 +56,7 @@
 
 .project-sidebar-title {
     /* margin: auto;  */
-    margin-right:auto;
+    margin-right: auto;
     padding-left: 3rem;
     width: fit-content;
     /* padding-right: 2rem; */
@@ -57,7 +66,7 @@
 
 .project-sidebar-clickable-content div {
     width: fit-content;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 1.5rem;
 }
 
 .project-sidebar-clickable-content {
@@ -69,6 +78,7 @@
     margin-right: auto;
     padding-left: 4.5rem;
 }
+
 @media screen and (min-width:900px) {
 
     #projectV2-sidebar {
@@ -80,7 +90,7 @@
     }
 
     .project-content-container {
-        display:flex;
+        display: flex;
     }
 
     .project-router-div {
@@ -97,6 +107,48 @@
         width: 80%
     }
 }
+
+@media screen and (min-width: 701px) {
+    #table-contents {
+        top: 0;
+        padding-top: 5.25rem;
+    }
+}
+
+@media screen and (max-width: 899px) {
+
+    .single-table-content {
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 12px;
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            font-family: 'Open Sans';
+        }
+    }
+
+    .project-content-container-title {
+        color: black;
+        font-weight: bold;
+    }
+
+    .project-content-container-href {
+        color: #1C426D;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
 
 /* @media screen and (min-width:900px) and (max-width:1140px) {
     .project-sidebar-title {

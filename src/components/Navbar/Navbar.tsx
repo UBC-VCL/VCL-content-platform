@@ -13,9 +13,8 @@ import { NAV, TEXT, CONSTANTS, ROUTES } from "@statics";
 import RESOURCES from "@statics/resources";
 import { useHandleLogout } from "@services/authService";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { appActions } from "@redux/slices/AppRedux";
+import { appActions, selectInProjectsPage } from "@redux/slices/AppRedux";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
-import { selectProjects } from "@redux/slices/ProjectRedux";
 import GenericLink from "@components/generics/Link";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import "./Navbar.css";
@@ -33,6 +32,7 @@ const Navbar: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  const inProjectsPage = useAppSelector(selectInProjectsPage);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
@@ -261,7 +261,7 @@ const Navbar: React.FC<{}> = () => {
   ;
 
   return (
-    <div className="nav" id="nav">
+    <div className={inProjectsPage ? 'nav-no-shadow' : 'nav'} id="nav">
       <div className="navbar-menu" id="global-nav-bar">
         <Toolbar className="nav-toolbar" >
           <div className="logo-container">

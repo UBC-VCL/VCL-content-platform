@@ -37,8 +37,9 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
         dispatch(appActions.setInProjectsPage(true));
         setMenuSize(document.getElementById("global-nav-bar")!.offsetHeight)
 
-        // Set up the event listener
+        // handle initial resize on window depending on screen size
         handleResize();
+        // Set up the event listener
         window.addEventListener('resize', handleResize);
         console.log(menuSize)
 

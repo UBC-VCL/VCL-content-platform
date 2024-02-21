@@ -21,7 +21,7 @@
     padding-top: 8.25rem;
     top: 0;
     z-index: 999;
-    background-color: white;
+    background-color: #F8F8F8;
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
@@ -112,6 +112,7 @@
     #table-contents {
         top: 0;
         padding-top: 5.25rem;
+        background-color: white;
     }
 }
 
@@ -135,7 +136,7 @@
 
     .project-content-container-title {
         color: black;
-        font-weight: bold;
+        font-weight: 700;
     }
 
     .project-content-container-href {

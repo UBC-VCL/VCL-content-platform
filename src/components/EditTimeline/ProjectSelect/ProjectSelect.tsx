@@ -34,4 +34,4 @@ const ProjectSelect = ({timeline, setTimeline}:Props) => {
   )
 }
 
-export default ProjectSelect
+export default ProjectSelect;

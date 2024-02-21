@@ -12,6 +12,7 @@ import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import { selectAuth } from "@redux/slices/AuthRedux";
 import ConfirmationDailog from "@components/ConfirmationWindow";
 import Alert from "@mui/material/Alert";
+import EditTimelineEntry from "./EditTimelineEntry/EditTimelineEntry";
 
 require('dotenv').config();
 
@@ -64,6 +65,24 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   // This state variable tracks which timeline item the user is about to delete by that timeline item's id
   // Once user click the delete icon on the top right of each timeline box, then idToDelete = the id of timeline user is deleting
   const [idToDelete, setIdToDelete] = useState<string>("");
+
+  //This state variable indicates whether the edit timeline entry dialog box should be opened or not 
+  // If user clicks on the edit icon on the top right corner of each timeline entry, editEntry = true
+  // If user saves or cancels on the edit entry pop up, editEntry = false.
+
+  const [editEntry,setEditEntry] = useState<boolean>(false);
+
+ 
+
+  // handles the Edit click button
+  const handleClickEdit = () => {
+    setEditEntry(true);
+  };
+
+  const handleClickEditClose = () => {
+    setEditEntry(false);
+  }
+   
 
   // handle the close and open of dialog opened when delete the delete icon on the top right of each timeline box is clicked
   const handleClose = () => {
@@ -231,6 +250,9 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                   setIdToDelete(commit._id);
                   handleClickOpen();
                 }}
+                onClickEdit={() => {
+                  handleClickEdit();
+                }}
               />
             </li>
           );
@@ -296,6 +318,10 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         deleteSnapshot={() => {
           return deleteCommit(idToDelete);
         }}
+      />
+      <EditTimelineEntry 
+        open = {editEntry} 
+        onClose={handleClickEditClose}
       />
     </div>
   );

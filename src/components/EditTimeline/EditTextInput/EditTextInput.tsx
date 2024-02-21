@@ -127,4 +127,4 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
   )
 }
 
-export default EditTextInput
+export default EditTextInput;

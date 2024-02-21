@@ -19,7 +19,8 @@ interface TimelineCommitBlockProps {
     updatedTime: string;
     isLoggedIn: boolean;
     categories: Array<string>;
-    onClickDelete: () => void
+    onClickDelete: () => void;
+    onClickEdit: () => void
 }
 
 const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
@@ -35,7 +36,7 @@ const TimelineCommitBlock: React.FC<TimelineCommitBlockProps> = (props) => {
 
 const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
-    const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete, isLoggedIn} = props;
+    const {author, title, date, project, descriptions, hyperlinks, contributors, updatedTime, categories, onClickDelete, onClickEdit, isLoggedIn} = props;
 
     let colorOfProject = '#848484';
     CONSTANTS.PROJECTS.forEach(element => {
@@ -51,7 +52,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
             {isLoggedIn ?
                 <div className="timeline-commit-header-icons">
-                    <BorderColorIcon className="edit-entry-icon" /> 
+                    <BorderColorIcon className="edit-entry-icon" onClick={onClickEdit}/> 
                     <div className="vl"></div>
                     <DeleteIcon className="delete-entry-icon" onClick={onClickDelete} />
                 </div>
@@ -108,7 +109,7 @@ const ExpandedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
 const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
-    const { author, title, date, project, categories, onClickDelete, isLoggedIn} = props;
+    const { author, title, date, project, categories, onClickDelete, onClickEdit, isLoggedIn} = props;
 
     let colorOfProject = '#848484';
     // assuming all valid project props are the same as CONSTANTS.PROJECTS listed
@@ -127,7 +128,7 @@ const ClosedTimelineContent: React.FC<TimelineCommitBlockProps> = (props) => {
 
             {isLoggedIn ?
                 <div className="timeline-commit-header-icons">
-                    <BorderColorIcon className="edit-entry-icon" /> 
+                    <BorderColorIcon className="edit-entry-icon" onClick={onClickEdit}/> 
                     <div className="vl"></div>
                     <DeleteIcon className="delete-entry-icon" onClick={onClickDelete} />
                 </div>

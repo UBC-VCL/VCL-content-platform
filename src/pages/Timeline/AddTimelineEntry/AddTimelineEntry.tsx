@@ -11,7 +11,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import styles from './AddTimelineEntry.module.css';
 import { appActions } from '@redux/slices/AppRedux';
 
-interface TimelineProps { }
+
 
 interface TimelineInfo {
   title: string,
@@ -24,7 +24,7 @@ interface TimelineInfo {
 }
 
 const baseURL = process.env.REACT_APP_API_URL;
-const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
+const AddTimelineEntry = () => {
   const { access_token } = useAppSelector(selectAuth);
   const dispatch = useAppDispatch();
 
@@ -94,4 +94,4 @@ const AddTimelineEntry: React.FC<TimelineProps> = (props) => {
   )
 }
 
-export default AddTimelineEntry
+export default AddTimelineEntry;

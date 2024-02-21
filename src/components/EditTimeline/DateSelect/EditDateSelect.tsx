@@ -45,4 +45,4 @@ const EditDateSelect = ({timeline, setTimeline}:Props) => {
   )
 }
 
-export default EditDateSelect
+export default EditDateSelect;

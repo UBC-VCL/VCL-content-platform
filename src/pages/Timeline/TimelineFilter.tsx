@@ -12,6 +12,7 @@ import ProjectsFilter from '@components/FilterDropdown/ProjectsFilter';
 import { useHistory } from "react-router-dom";
 import { selectAuth, selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { useAppSelector } from '@redux/hooks';
+import AddTimelineEntry from './AddTimelineEntry/AddTimelineEntry';
 
 
 
@@ -44,6 +45,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   const [dateRange, setRange] = React.useState<[dateTuple, dateTuple]>([['initial', ""], ['target', ""]]);
   const [authorSelected, setAuthorSelected] = React.useState<string[]>(filterBy.author);
 
+  const [showAddEntry,setShowAddEntry] = React.useState<boolean>(false);
 
   useEffect(() => {
     setProjectSelected(dynamicProjects)
@@ -74,6 +76,8 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
 
   const handleAddEntry = () => {
     history.push('./timeline/add');
+    setShowAddEntry(true);
+    
   }
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -116,6 +120,9 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
               </div>
             }
           </div>
+          {/* <div>
+            {showAddEntry && <AddTimelineEntry />}
+          </div> */}
         </div>
       )}
     </div>)

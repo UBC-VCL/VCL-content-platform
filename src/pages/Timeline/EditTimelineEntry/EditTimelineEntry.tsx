@@ -9,6 +9,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styles from './EditTimelineEntry.module.css';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 type TimelineParams = {
   timeline_id: string;
@@ -24,7 +31,12 @@ export type TimelineInfo = {
   contributors: string,
 }
 
-const EditTimelineEntry = () => {
+export interface EditTimelineProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+const EditTimelineEntry = ({open,onClose}: EditTimelineProps) => {
   const { access_token } = useAppSelector(selectAuth);
 
   const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "", project: "", author: "", categories: [], contributors: ""});
@@ -64,19 +76,29 @@ const EditTimelineEntry = () => {
     });
     if (editResponse.status === 200) {
       history.push("/timeline");
+      handleClose();
       //TODO: success message
       return;
     }
     //TODO: handle error
   }
 
+  const handleClose = () => {
+    onClose();
+  }
+
   return (
-    <div className={styles.page}>
-      <div className={styles.container}>
-      <div className={styles.headers}>
-        <h1 className={styles.header}>Edit Timeline Entry</h1>
-        <h2 className={styles.subHeader}>Edit the blanks below to edit the timeline entry</h2>
-      </div>
+    <Dialog
+    open={open}
+    onClose={handleClose}
+    >
+    <DialogTitle>
+     <h1 className={styles.header}>Edit Timeline Entry</h1>
+    </DialogTitle>
+    <DialogContent>
+      <DialogContentText>  
+      <h2 className={styles.subHeader}>Edit the blanks below to edit the timeline entry</h2>
+      </DialogContentText>
       <main>
         <div className={styles.gridContainer}>
           <div className={styles.basicInfo}>
@@ -92,12 +114,18 @@ const EditTimelineEntry = () => {
           </div>
         </div>
         <div className={styles.controls}>
-          <button className={styles.cancelButton} onClick={() => history.push("/timeline")}>Cancel</button>
+          <button className={styles.cancelButton} 
+                  onClick={() => {
+                    history.push("/timeline");
+                    handleClose();
+                  }}>
+                    Cancel
+          </button>
           <button className={styles.saveButton} disabled={!timeline.author || !timeline.title} onClick={save}>Save</button>
         </div>
       </main>
-      </div>
-    </div>
+    </DialogContent>
+  </Dialog> 
   )
 }
 

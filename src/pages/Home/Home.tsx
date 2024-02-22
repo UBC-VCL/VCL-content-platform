@@ -3,9 +3,13 @@ import LandingPage from "@components/LandingPage";
 import "./Home.css";
 import { TEXT, ROUTES, CONSTANTS } from "@statics";
 import About from "../../components/About";
+import ProjectGallery2 from "@components/ProjectGallery2/ProjectGallery2";
 
 import { useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
+import image1 from '@statics/images/homepage/project-logos.png';
+import image2 from '@statics/images/homepage/project-logos-2.png';
+
 
 interface HomeProps {}
 
@@ -48,6 +52,20 @@ const Home: React.FC<HomeProps> = (props) => {
           </p>
         </div>
       </div>
+      <ProjectGallery2 data={[{
+        img:image1,
+        title:"",
+        description:"",
+        cardType:"default"
+      }, {
+        img:image2,
+        title:"",
+        description:"",
+        cardType:"default"
+      }]}
+      title={""}
+      titleNum=""
+      darkmode={true}/>
       <div className="projects-container">
         <div className="projects-title">
           <p>{TEXT.LANDING_PAGE.CURRENT_PROJECTS.TITLE}</p>

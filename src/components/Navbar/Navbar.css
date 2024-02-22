@@ -10,6 +10,19 @@
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 2px;
 }
 
+.nav-no-shadow {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	height: auto;
+
+	@media screen and (min-width: 900px) {
+		box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 2px;
+	}
+}
+
 .hamburger-menu {
 	display: none;
 }

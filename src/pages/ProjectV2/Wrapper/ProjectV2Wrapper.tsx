@@ -2,7 +2,11 @@ import { RouteComponentProps } from "react-router-dom";
 import './ProjectV2Wrapper.css';
 import ProjectRouter from '../ProjectRouter/ProjectRouter';
 import { useState, useEffect } from 'react';
-import { MdExitToApp } from "react-icons/md";
+import { useAppDispatch } from "@redux/hooks";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Collapse } from "@mui/material";
+import { appActions } from "@redux/slices/AppRedux";
 
 interface MatchParams {
     project_id: string;
@@ -12,6 +16,8 @@ interface ProjectProps extends RouteComponentProps<MatchParams> { }
 const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
 
     const [menuSize, setMenuSize] = useState<number>(0);
+    const [openMobileDropdown, setOpenMobileDropdown] = useState<boolean>(false);
+    const dispatch = useAppDispatch();
 
     function handleResize() {
         if (window.innerWidth <= 700) {
@@ -28,8 +34,11 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
     }
 
     useEffect(() => {
+        dispatch(appActions.setInProjectsPage(true));
         setMenuSize(document.getElementById("global-nav-bar")!.offsetHeight)
 
+        // handle initial resize on window depending on screen size
+        handleResize();
         // Set up the event listener
         window.addEventListener('resize', handleResize);
         console.log(menuSize)
@@ -37,6 +46,7 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
         // Clean up the event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
+            dispatch(appActions.setInProjectsPage(false));
         };
     }, []); // Empty dependency array ensures the effect runs only on mount and unmount
 
@@ -78,25 +88,31 @@ const ProjectV2Wrapper: React.FC<ProjectProps> = ({ match }) => {
                         </div>
                     </div>
                 </div>
-                <div id="table-contents" style={{
-                    paddingTop: // `${menuSize}px` 
-                        "8rem"
-                }}>
-                    <div className="single-table-content">
-                        <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/`}>Home</a>
+                <div id="table-contents">
+                    <div className="single-table-content" onClick={() => {setOpenMobileDropdown(!openMobileDropdown)}}>
+                        <a className="project-content-container-title">{match.params.project_id}</a>
+                        {openMobileDropdown ? <KeyboardArrowUpIcon sx={{width: '27px', height: '27px'}}/> : <KeyboardArrowDownIcon sx={{width: '27px', height: '27px'}}/>}
                     </div>
-                    <div className="single-table-content">
-                        <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/join`}>Join</a>
-                    </div>
-                    <div className="single-table-content">
-                        <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/team`}>Team</a>
-                    </div>
-                    <div className="single-table-content">
-                        <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/resources`}>Resources</a>
-                    </div>
-                    <div className="single-table-content">
-                        <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/publications`}>Publications</a>
-                    </div>
+                    <Collapse
+                        in={openMobileDropdown}
+                    >
+                        <div className="single-table-content">
+                            <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/`}>Home</a>
+                        </div>
+                        <div className="single-table-content">
+                            <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/join`}>Join</a>
+                        </div>
+                        <div className="single-table-content">
+                            <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/team`}>Team</a>
+                        </div>
+                        <div className="single-table-content">
+                            <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/resources`}>Resources</a>
+                        </div>
+                        <div className="single-table-content">
+                            <a className="project-content-container-href" href={`/projectsV2/${match.params.project_id}/publications`}>Publications</a>
+                        </div>
+                    </Collapse>
+                   
                 </div>
                 <div className='project-router-div' style={{ paddingTop: `${menuSize}px` }}>
                     <ProjectRouter project_id={match.params.project_id} />

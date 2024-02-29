@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.project-gallery-arrows {
+    user-select: none;
+}
+
 .project-gallery-titles {
     margin-bottom: 2rem;
 }
@@ -83,7 +87,7 @@
     border-radius: 0px;
 }
 
-#no-photo-test-right-quote, #no-photo-test-left-quote {
+#no-photo-test-right-quote {
     float: right;
 }
 

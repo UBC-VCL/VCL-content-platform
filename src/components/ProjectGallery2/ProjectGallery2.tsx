@@ -20,7 +20,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
             return (
                 <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height: `${side == 'center' ? "100%" : "30vh"}` }}>
                     <div className="carousel-item" style={{ width: `${active ? "100%" : "20%"}` }}>
-                        <div className='no-photo-test-quote-container' style={{}}>
+                        <div className='no-photo-test-quote-container'>
                             <ImQuotesLeft id='no-photo-test-left-quote' size={25} />
                         </div>
                         <p className="carousel-item-desc" id="no-photo-test-description">

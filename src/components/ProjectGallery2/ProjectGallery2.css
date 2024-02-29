@@ -13,6 +13,8 @@
     max-width: 1500px;
 }
 
+
+
 .project-gallery-title {
     text-align: center;
     font-size: 1.5rem;
@@ -30,6 +32,11 @@
     display: flex;
     width: fit-content;
     margin: 1rem auto 0 auto;
+}
+
+.no-photo-test-quote-container {
+    width: 100%;
+    height: 25px;
 }
 
 .gallery-dot {
@@ -76,8 +83,12 @@
     border-radius: 0px;
 }
 
-#no-photo-test-right-quote {
+#no-photo-test-right-quote, #no-photo-test-left-quote {
     float: right;
+}
+
+#no-photo-test-left-quote {
+    float: left;
 }
 
 #no-photo-test-description {

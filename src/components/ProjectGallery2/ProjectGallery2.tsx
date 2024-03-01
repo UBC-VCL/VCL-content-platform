@@ -11,15 +11,16 @@ interface CarouselItemProps {
     active: boolean;
     side: string;
     data: GALLERY_ITEM;
+    darkmode: boolean;
 }
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side, darkmode }) => {
 
     switch (data.cardType) {
         case "no-photo-test": {
             return (
                 <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height: `${side == 'center' ? "100%" : "30vh"}` }}>
-                    <div className="carousel-item" style={{ width: `${active ? "100%" : "20%"}` }}>
+                    <div className="carousel-item" style={{ backgroundColor: `${darkmode ? "#2A3749" : "#bbb"}`, width: `${active ? "100%" : "20%"}` }}>
                         <div id='no-photo-test-quote-container'>
                             <ImQuotesLeft id='no-photo-test-left-quote' size={25} />
                         </div>
@@ -51,7 +52,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ data, active, side }) => {
         default: {
             return (
                 <div className='carousel-grid-item' style={{ display: "flex", justifyContent: `${active ? "center" : `${side == 'left' ? "end" : ""}`}`, alignItems: `${active ? "center" : ""}`, height: `${side == 'center' ? "100%" : "30vh"}` }}>
-                    <div className="carousel-item" style={{ width: `${active ? "100%" : "20%"}` }}>
+                    <div className="carousel-item" style={{ backgroundColor: `${darkmode ? "#2A3749" : "white"}`, width: `${active ? "100%" : "20%"}` }}>
                         <div style={{ width: "100%", justifyContent: 'center', alignContent: 'center', display: 'flex' }}>
                             {active && <img src={data.img} alt="" className="carousel-item-img" />}
                         </div>
@@ -181,15 +182,15 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
             >
                 {currentIndex != 0 ? data.length > 1 && windowSize >= 1024 && (
                     <div onClick={previous} className='project-gallery-arrows'>
-                        <IoIosArrowDropleft size={60} style={{ float: 'right' }} />
+                        <IoIosArrowDropleft size={60} style={{marginLeft:'auto'}}/>
                     </div>
                 ) : <div></div>}
 
-                <CarouselItem data={data[currentIndex]} active={true} side={"center"} />
+                <CarouselItem data={data[currentIndex]} active={true} side={"center"} darkmode={darkmode}/>
 
                 {currentIndex != data.length - 1 ? data.length > 1 && windowSize >= 1024 && (
                     <div onClick={next} className='project-gallery-arrows'>
-                        <IoIosArrowDropright size={60} />
+                        <IoIosArrowDropright size={60} style={{marginRight:'auto'}}/>
                     </div>
                 ) : <div></div>}
             </div>
@@ -199,8 +200,9 @@ const ProjectGallery2: React.FC<CarouselProp> = ({ darkmode, data, title, titleN
                         <div
                             key={index}
                             className={
-                                index === currentIndex ? 'gallery-dot-active' : 'gallery-dot'
+                                index === currentIndex ? 'gallery-dot-active ' : 'gallery-dot'
                             }
+                            style={{ backgroundColor:`${darkmode ? `${index === currentIndex ? "white" : "#bbb"}` : `${index === currentIndex ? "black" : "#bbb"}`}`}}
                             onClick={() => setCurrentIndex(index)}
                         />
                     );

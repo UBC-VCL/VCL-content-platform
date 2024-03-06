@@ -26,19 +26,19 @@ const ProjectV2Publications = (props: PropOBJ) => {
             </div>
             <div className='project-publications-items-container'>
                 {
-                    (currentProject?.publications?.length != 0) ?
-                        currentProject?.publications!.map((item, index) => {
-                            return (
-                                <div key={index} style={{width:'80%', height:'fit-content', marginTop:'1.5rem', marginLeft:'auto', marginRight:'auto', backgroundColor:'#fafafa', padding:'1rem', maxWidth:'1000px'}}>
-                                    <h1 onClick={() => window.open(item.link)}>{item.name} <FaExternalLinkAlt style={{marginLeft:'0.5rem'}}/></h1>
-                                    <p>
-                                        {item.citation}
-                                    </p>
-                                </div>
-                            );
-                        })
-                        :
-                        <></>
+                    currentProject!.publications ? 
+                    currentProject!.publications!.map((item, index) => {
+                        return (
+                            <div key={index} style={{width:'80%', height:'fit-content', marginTop:'1.5rem', marginLeft:'auto', marginRight:'auto', backgroundColor:'#fafafa', padding:'1rem', maxWidth:'1000px'}}>
+                                <h1 onClick={() => window.open(item.link)}>{item.name} <FaExternalLinkAlt style={{marginLeft:'0.5rem'}}/></h1>
+                                <p>
+                                    {item.citation}
+                                </p>
+                            </div>
+                        );
+                    })
+                    :
+                    <h1 style={{width:'fit-content', margin:'auto', paddingTop:'2rem', paddingBottom:'2rem'}}>No Publications</h1>
 
                 }
             </div>

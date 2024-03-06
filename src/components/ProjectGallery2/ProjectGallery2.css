@@ -45,7 +45,7 @@
 
 .gallery-dot-active {
     height: 12px;
-    width: 12px;
+    /* width: 12px; */
     background-color: white;
     border-radius: 50%;
     display: inline-block;

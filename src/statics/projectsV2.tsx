@@ -203,6 +203,7 @@ const PROJECT_TEXT: PROJECT[] = [
         ],
       },
     ],
+    
     galleryList: [
       {
         img: correlationGallery1,

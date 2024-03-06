@@ -203,20 +203,20 @@ const Timeline: React.FC<TimelineProps> = (props) => {
       <ul>
         {listFilter.map((commit: SnapshotOBJ, i) => {
 
-          let prj:string;
+          // console.log(commit._id)
 
-          console.log(
-            CONSTANTS.PROJECTS.some(
-              (item) => item.name.toLowerCase() == commit.project.toLowerCase()
-            )
-              ? prj=commit.project.toLowerCase()
-              : prj="others"
-          );
+          let prj:string;
+          CONSTANTS.PROJECTS.some(
+            (item) => item.name.toLowerCase() == commit.project.toLowerCase()
+          )
+            ? prj=commit.project.toLowerCase()
+            : prj="others"
 
           return (
             <li key={i}>
               <span className={"timeline-container-span-" + prj}></span>
               <TimelineCommitBlock
+                _id={commit._id}
                 author={commit.author}
                 title={commit.title}
                 project={commit.project}

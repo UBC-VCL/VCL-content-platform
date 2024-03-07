@@ -82,7 +82,7 @@ html {
 .join-main-body {
     text-align: left;
     width: min(80%, 1000px);
-    margin: 48px auto;
+    margin: 2rem auto;
 }
 
 .join-main-body p {

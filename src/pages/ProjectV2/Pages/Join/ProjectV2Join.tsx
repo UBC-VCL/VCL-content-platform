@@ -1,5 +1,4 @@
 import './ProjectJoinV2.css';
-import ResearchIMG from '@statics/images/JoinTeam/ResearchImage.png';
 import { TEXT, ROUTES } from "@statics";
 import PROJECT_TEXT, { PROJECT } from "@statics/projectsV2";
 import visualAttention from '@statics/images/JoinTeam/visualAttention.png';
@@ -29,37 +28,10 @@ const ProjectV2Join = (props: PropsOBJ) => {
 
     return (
         <div >
-            <div
-                className='project-join-hero-section'
-            >
-                <div style={{ maxWidth: '1600px', margin: 'auto', display: 'flex' }}>
-                    <div className='project-join-hero-title-section'>
-                        <h2>01</h2>
-                        <div style={{ width: 'fit-content', marginBottom: '2rem' }}>
-                            <h1>Join Our Team</h1>
-                            <div className='project-join-title-bottomBorder'></div>
-                        </div>
-                        <p className='project-join-description-bold'>Interested in research? Good news, we’re always looking for new co-pilots. </p>
-                        <p className='project-join-description'>
-                            Co-Pilots sign a contract with the lab that lasts for a school term, with the possibility for renewal. Co-Pilots are assigned to a particular project team based on their interests but have the freedom to explore different projects.
-                        </p>
-                        <p className='project-join-description'>
-                            No background in research is needed, and co-pilots have the flexibility of helping out whenever they want!
-                        </p>
-                        <a href={ROUTES.GET_INVOLVED}>
-                            <div className='project-join-joinInstructions-button'>
-                                Application Instructions
-                            </div>
-                        </a>
-                    </div>
-                    <div className='project-join-hero-image-section'>
-                        <img src={ResearchIMG} style={{ maxWidth: "500px" }} />
-                    </div>
-                </div>
-            </div>
+            
 
             <div className='project-join-whatWeDo-section'>
-                <h2>02</h2>
+                <h2>01</h2>
                 <h1>What We Do</h1>
                 {
                     currentProject?.joinTeam.whatWeDo.map((item, index) => {
@@ -85,7 +57,7 @@ const ProjectV2Join = (props: PropsOBJ) => {
             <div
                 className='project-join-pastProjectSection-section'
             >
-                <h2>03</h2>
+                <h2>02</h2>
                 <h1>Past Projects</h1>
                 {
                     currentProject?.pastProjects?.map((item, index) => {
@@ -104,12 +76,12 @@ const ProjectV2Join = (props: PropsOBJ) => {
             <div
                 className='project-join-testimony-section'
             >
-                <ProjectGallery2 data={currentProject!.testimonials!} title='What our team members say...' titleNum='04' darkmode={true} />
+                <ProjectGallery2 data={currentProject!.testimonials!} title='What our team members say...' titleNum='03' darkmode={true} />
             </div>
             <div
                 className='project-join-applicationInstructions-section'
             >
-                <h2>05</h2>
+                <h2>04</h2>
                 <h1>Application Instructions</h1>
                 <div style={{ backgroundColor: 'white', width: '30%', padding: '2rem', margin: 'auto', marginTop: '3rem', minWidth:'300px',maxWidth:'500px' }}>
                     <div className="app-instructions-title-section" style={{ display: 'flex', width: 'fit-content' }}>

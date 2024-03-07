@@ -26,6 +26,7 @@
 
 .project-gallery-arrows {
     user-select: none;
+    display: flex;
 }
 
 .project-gallery-titles {
@@ -64,7 +65,7 @@
 }
 
 .carousel-item {
-    background-color: #2A3749;
+    /* background-color: #2A3749; */
     /* min-height: 60vh; */
     width: 80%;
     border-radius: 6.504px;
@@ -76,7 +77,7 @@
     color: white;
     text-decoration: underline;
     text-align: center;
-    margin: 1rem 0 1rem 0;
+    margin: 1rem auto 1rem auto;
 }
 
 .carousel-item-img {

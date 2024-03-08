@@ -118,7 +118,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
             >
                 <div style={{ maxWidth: '1600px', margin: 'auto', display: 'flex' }}>
                     <div className='project-join-hero-title-section'>
-                        <div style={{ width: 'fit-content', marginBottom: '2rem' }}>
+                        <div style={{ width: 'fit-content', marginBottom:'2rem' }}>
                             <h1>Join Our Team</h1>
                             <div className='project-join-title-bottomBorder'></div>
                         </div>
@@ -129,11 +129,11 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
                         <p className='project-join-description'>
                             No background in research is needed, and co-pilots have the flexibility of helping out whenever they want!
                         </p>
-                        <a href={ROUTES.GET_INVOLVED}>
+                        {/* <a href={ROUTES.GET_INVOLVED}>
                             <div className='project-join-joinInstructions-button'>
                                 Application Instructions
                             </div>
-                        </a>
+                        </a> */}
                     </div>
                     <div className='project-join-hero-image-section'>
                         <img src={ResearchIMG} style={{ maxWidth: "500px" }} />

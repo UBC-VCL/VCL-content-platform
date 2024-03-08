@@ -155,6 +155,7 @@ html {
 
 .project-join-hero-title-section {
     max-width: 600px;
+    margin: auto;
 }
 
 .project-join-hero-title-section h2, .project-join-pastProjectSection-section h2{

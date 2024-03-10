@@ -2,13 +2,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 10; /* Adjust the z-index based on your needs */
+    z-index: 10;
+    /* Adjust the z-index based on your needs */
     width: 100%;
     height: 100%;
-    display: flex;  
+    display: flex;
     align-items: center;
     justify-content: center;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
 
 }
 
@@ -21,7 +22,8 @@
     border-radius: 8.076px;
 }
 
-.add-resource-content-title-container,  .add-resource-content-title-container h1{
+.add-resource-content-title-container,
+.add-resource-content-title-container h1 {
     margin: auto;
     text-align: center;
     font-size: x-large;
@@ -35,7 +37,7 @@
 
 .add-resource-input-containers {
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr 2fr 1fr;
+    /* grid-template-rows: 1fr 3fr 1fr 1fr 1fr; */
     height: 90%;
     padding: 1rem;
     grid-row-gap: 10px;
@@ -44,28 +46,23 @@
 
 .add-resource-input h2 {
     font-size: medium;
-    height: 20%;
+}
+
+.add-resource-input p {
+    margin: 0;
 }
 
 .add-resource-file-input {
     margin: 1rem 0;
 }
 
-#add-resource-description-input-container h2, #add-resource-file-input-container h2 {
-    margin-bottom: 0.25rem;  
+.add-resource-title-input-container h2,
+.add-resource-title-input-container input {
+    height: fit-content;
 }
 
-.add-resource-input input, .add-resource-input textarea {
-    width: 100%;
-    height: 75%;
-}
-
-#add-resource-title-input-container h2, 
-#add-resource-title-input-container input {
-    height: 50% !important; 
-}
-
-.add-resource-input input, .add-resource-input textarea {
+.add-resource-input input,
+.add-resource-input textarea {
     font-size: small;
     font-family: 'Poppins';
 }
@@ -78,7 +75,7 @@
 }
 
 #add-resource-submit-button {
-    height: 100%;
+    height: 40px;
     padding: 0 1rem;
     background-color: #1C426D;
     border-radius: 8.076px;
@@ -94,21 +91,22 @@
         height: 80%;
     }
 } */
- 
+
 #add-resource-submit-button h2 {
     font-size: medium;
 }
 
 .add-resource-input-containers-child {
     max-width: 600px;
-    margin: auto;
+    margin: auto !important;
     margin-top: 0;
     width: 80%;
     height: 100%;
+    text-align: start;
 }
 
 .add-resource-close-tab-button {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .add-resource-file-input-delete-button {
@@ -119,4 +117,8 @@
     font-weight: 600;
     cursor: pointer;
     user-select: none;
+}
+
+.after-submit-message {
+    text-align: center;
 }

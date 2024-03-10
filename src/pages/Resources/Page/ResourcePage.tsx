@@ -25,9 +25,11 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
 
     const currentResource = RESOURCES.find((resource) => resource.name === match.params.resource_id);
 
-    // If the reuqest for the list of timelines is successful then success = true,
+    // If the request for the list of resources is successful then success = true,
     //  else success = false with "success" defaulted to true
     const [success, setSuccess] = useState<boolean>(true);
+
+    // List of subcategories for the current category
     const [categoryHeaders, setCategoryHeaders] = useState<string[]>([]);
     const [resources, setResources] = useState<Resource[][]|null>(null);
     const [navHeight, setNavHeight] = useState<number>(0);
@@ -54,9 +56,15 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
     }
 
     const { access_token, username } = useAppSelector(selectAuth);
+
+    // Message that will be displayed after attempting to create a new resource, either error message or success message
     const [message, setMessage] = useState<string>('');
+
+    // Message that will be displayed in the delete resource dialogs, either error or success depending on deletion call
     const [dialogMessage, setDialogMessage] = useState<string>('');
     const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
+
+    // stores the id of the resource to delete when the resource deletion process starts
     const [resourceToDelete, setResourceToDelete] = useState<string>('');
 
     const handleCreateResource = async (reqBody: ResourceRequestBody): Promise<boolean> => {
@@ -135,7 +143,6 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
         }
 
         // to keep track of the height of the navbar
-
         if (window.innerWidth <= 700) {
             setNavHeight(document.getElementById("mobile-navbar-container")!.offsetHeight);
         } else {
@@ -143,6 +150,8 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
         }
     }, []); // Empty dependency array ensures that the effect runs only once on mount
 
+
+    // updates resources state when switching to viewing a different resource category, i.e. switching from viewing COGS 402 resources to Skills Workshops resources
     useEffect(() => {
         handleGetAllResourcesInCategory(match.params.resource_id);
     }, [match])
@@ -198,19 +207,6 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                         </div>
                                     );
                                 })
-                                    // <div className='single-resource-content-section'>
-                                    //     <div className='single-resource-grid-item'
-                                    //         id='older-content'
-                                    //         onClick={() => {
-                                    //             window.scrollTo({
-                                    //                 top: document.getElementById("resource-content-single-render-olderContent")?.offsetTop,
-                                    //                 behavior: 'smooth'
-                                    //             });
-                                    //         }}
-                                    //     >
-                                    //         Older Content
-                                    //     </div>
-                                    // </div>
                             }
                         </div>
                     }
@@ -249,11 +245,6 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                                                     </div>
                                                                     <div className='resource-content-single-render-text-names-container'>
                                                                         {resource.author}
-                                                                        {/* {
-                                                                            resource.author.map((name, index) => {
-                                                                                return index !== resource.author.length - 1 ? <h2>{name}, &nbsp;</h2> : <h2>{name}</h2>
-                                                                            })
-                                                                        } */}
                                                                     </div>
                                                                     <p>
                                                                         {resource.description}
@@ -282,11 +273,6 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                 {TEXT.RESOURCE_PAGE.RESPONSE_ERROR}
                             </Alert>
                         )
-                                // <div className='resource-content-single-render-category'>
-                                //     <h1 className='resource-content-single-render-category-title' id="resource-content-single-render-olderContent">
-                                //         Older Content
-                                //     </h1>
-                                // </div>
                     }
                 </div>
                 {success && isLoggedIn &&

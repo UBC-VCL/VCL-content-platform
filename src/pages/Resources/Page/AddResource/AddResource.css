@@ -37,7 +37,6 @@
 
 .add-resource-input-containers {
     display: grid;
-    /* grid-template-rows: 1fr 3fr 1fr 1fr 1fr; */
     height: 90%;
     padding: 1rem;
     grid-row-gap: 10px;
@@ -85,12 +84,6 @@
     justify-content: center;
     cursor: pointer;
 }
-
-/* @media screen and (min-width: 767px) {
-    #add-resource-submit-button {
-        height: 80%;
-    }
-} */
 
 #add-resource-submit-button h2 {
     font-size: medium;

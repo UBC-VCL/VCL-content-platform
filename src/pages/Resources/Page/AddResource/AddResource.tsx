@@ -13,6 +13,7 @@ const AddResource: React.FC<{ isVisible: boolean, setVisible: (bool: boolean) =>
     message: string, handleSubmit: (reqBody: ResourceRequestBody) => Promise<boolean> }> = ({ isVisible, setVisible, resourceCategory, subcategories, message, handleSubmit }) => {
 
     const { username } = useAppSelector(selectAuth);
+    // Determines the color of the post-submission message, true == green, false == red
     const [submitSuccessful, setSubmitSuccessful] = useState<boolean>(false);
     
     const schema = useMemo(
@@ -53,7 +54,7 @@ const AddResource: React.FC<{ isVisible: boolean, setVisible: (bool: boolean) =>
             title: '',
             description: '',
             category: {
-                main: resourceCategory, // passed in as prop from ResourcePage
+                main: resourceCategory,
                 sub: subcategories ? '' : (new Date().getFullYear().toString()),
             },
             author: '',
@@ -72,6 +73,7 @@ const AddResource: React.FC<{ isVisible: boolean, setVisible: (bool: boolean) =>
         },
     });
 
+    // updates username in form when user logs in
     useEffect(() => {
       form.values.username = username;
     }, [username])

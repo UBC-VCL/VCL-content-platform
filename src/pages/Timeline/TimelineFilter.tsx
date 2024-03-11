@@ -73,7 +73,7 @@ const TimelineFilterContainer = (props: PropsOBJ) => {
   const history = useHistory();
 
   const handleAddEntry = () => {
-    history.push('./timeline/add');
+    history.push('/timeline/add');
   }
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);

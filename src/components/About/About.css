@@ -189,6 +189,7 @@ h3 {
 .contact-info {
   text-align: left;
   font-size: 22px;
+  line-height: 1.6;
 }
 
 .contact-info h2 {
@@ -214,7 +215,6 @@ h3 {
 }
 
 .lab-address {
-  line-height: 16px;
   letter-spacing: 0.04em;
 }
 

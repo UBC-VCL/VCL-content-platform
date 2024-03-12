@@ -42,7 +42,7 @@ const DefaultTimeline: React.FC<void> = () => {
           }
         });
 
-        setDAuthors(dummyAuthors)
+        setDAuthors(dummyAuthors);
         setDProjects(dummyProjects);
         setDCategories(dummyCategories);
       })

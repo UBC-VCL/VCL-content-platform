@@ -14,6 +14,7 @@ import ConfirmationDailog from "@components/ConfirmationWindow";
 import Alert from "@mui/material/Alert";
 import { Pagination } from "@mui/material";
 
+
 require('dotenv').config();
 
 const baseURL = process.env.REACT_APP_API_URL;
@@ -108,10 +109,15 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   const [page, setPage] = useState<number>(1);
 
-  const [itemsPerPage, setItemsPerPage] = useState<number>(2);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(5);
 
   const [totalPages, setTotalPages] = useState<number>(0);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
+
+  
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -313,7 +319,11 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <Pagination
           count={totalPages}
           page={page}
-          onChange={(event, newPage) => setPage(newPage)}
+          onChange={(event, newPage) => {
+            setPage(newPage);
+            
+            }
+          }
         />
       </div>
       <ConfirmationDailog

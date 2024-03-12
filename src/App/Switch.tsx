@@ -13,6 +13,7 @@ import { useAppSelector } from "@redux/hooks";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import People from "@pages/People/People";
 import ResourcePage from "@pages/Resources/Page/ResourcePage";
+import {useEffect, useState} from 'react';
 
 require("dotenv").config();
 
@@ -20,6 +21,12 @@ const IS_WIP = process.env.REACT_APP_WIP == "development";
 
 const AppSwitch = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+
+
+  }, [isLoggedIn])
+
   return (
     <Switch>
       <Route exact path={ROUTES.HOME} component={Home} />
@@ -29,18 +36,20 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
       <Route path={ROUTES.PROJECT.PATH2} component={ProjectV2Wrapper}/>
+
       {IS_WIP && (
         <>
           <Route exact path={ROUTES.RESOURCES!.BASE} component={Resources} />
           <Route exact path={ROUTES.RESOURCES!.PATH} component={ResourcePage} />
           <Route exact path={ROUTES.TIMELINE} component={DefaultTimeline} />
-          <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry} />
+          {/* <Route exact path={ROUTES.TIMELINE_CREATE} component={TimelineEntry} /> */}
           <Route exact path={ROUTES.TIMELINE_EDIT} component={EditTimelineEntry} />
+          <Route exact path={ROUTES.TIMELINE_ADD} component={AddTimelineEntry} />
         </>
       )}
-      {isLoggedIn && (
-        <Route exact path={ROUTES.TIMELINE_ADD} component={AddTimelineEntry} />
-      )}
+      {
+        // This seems like maybe its a problem with how the site is storing this loggedIn variable, every page refresh will clear the login token
+      }
       {/* <Route path="*" 
       render={() => {
         return (

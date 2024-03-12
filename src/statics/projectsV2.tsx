@@ -211,19 +211,6 @@ const PROJECT_TEXT: PROJECT[] = [
           "An experiment design displaying side-by-side graphs. Initially, two scatter plots are shown for durations of 100, 400, and 1600 ms. Next, a mask is displayed for 200 ms, followed by an indefinite display of a blank screen where participants make decisions.",  
         // "Two side-by-side scatter plots. The scatterplot on the left shows a high correlation while the one on the right shows a low correlation. In a scatter plot, data is presented in a graphic form by placing points on a cartesian (x-y) coordinate plane according to their values on each variable. For simple linear data, correlation in a scatter plot corresponds to the degree to which the points form a straight line. We use classic methods from psychophysics to derive our measures – discrimination tasks using the staircase method to measure precision. Performance in this aspect is regular and well described by Weber and Fechner laws regardless of visual variable choice used to represent the data.",
         cardType: "default",
-      },
-      {
-        description:
-          "Scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
-        cardType: "no-photo-test",
-        position: "Leader",
-        name:"John Doe"
-      },{
-        img: correlationGallery2,
-        title: "Figure 1.2",
-        description:
-          "Scatterplot for the mixed colour condition (left). Scatterplot with size 8mm dots for the size condition (right)",
-        cardType: "default",
       },{
         img: correlationGallery2,
         title: "Figure 1.2",

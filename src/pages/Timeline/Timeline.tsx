@@ -211,7 +211,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         }
       }
     });
-
+    
     const totalItems = listFilter.length;
 
     const newTotalPages = Math.ceil(totalItems / itemsPerPage);

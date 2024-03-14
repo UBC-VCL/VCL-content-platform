@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Project } from "@entities/Project";
 import ProjectBreadcrumbs from "@components/ProjectBreadcrumbs";
 import { Person } from "../../components/ProjectPeople/ProjectPeople";
@@ -7,31 +7,109 @@ import { TEXT } from "@statics";
 import "./ProjectTeam.css";
 import "./Project.css";
 import { useState } from "react";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import axios from "axios";
+import dotenv from "dotenv";
 
 import { useAppSelector } from "@redux/hooks";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
+import { Alert, CircularProgress, Collapse } from "@mui/material";
 
 interface ProjectProps {
   project: Project;
 }
 
-interface Member {
-  name: string;
-  position: string;
-  education: string;
-  description?: string;
-  email?: string;
-  phone?: string;
-  linkedIn?: string;
-  isCurrentMember?: boolean;
+interface NameInfo {
+  firstname: string;
+  lastname: string;
 }
+
+interface ContactInfo {
+  phoneNumber?: string;
+  linkedIn?: string;
+  email?: string;
+}
+
+interface Member {
+  name: NameInfo;
+  project: string;
+  position: string;
+  contact?: ContactInfo;
+  blurb?: string;
+  isAlumni: boolean;
+}
+
+dotenv.config();
+const baseURL = process.env.REACT_APP_API_URL;
+const ORDER_OF_POSITIONS = ['lab leader', 'project lead', 'coding team lead', 'lab manager', 'workshop coordinator', 'project manager', 'lead developer', 'project secondary', 'research assistant (co-lead)', 'research assistant', 'co-pilot', 'volunteer', '402 student', '...'];
+
 
 const ProjectTeam: React.FC<ProjectProps> = (props) => {
   // This is the state in which the add member tab will be dispalyed to the user
   // - Toggled by a single button className='add-mem-button-div'
   const [viewState, setViewState] = useState<boolean>(false);
 
+  const { project } = props;
+
+  const [openAlumniCollapse, setOpenAlumniCollapse] = useState<boolean>(false);
+
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
+  const [teamMembers, setTeamMembers] = useState<Array<Member>>([]);
+
+  const [callComplete, setCallComplete] = useState<boolean>(false);
+  const [resSuccess, setSuccess] = useState<boolean>(false);
+
+  const getMembers = async () => {
+    axios
+      .get(`${baseURL}/api/members`)
+      .then((response) => {
+        filterMembers(response.data.data);
+        setSuccess(true);
+      })
+      .catch((err) => {
+        // do nothing with the error
+      });
+    setCallComplete(true);
+  };
+
+  useEffect(() => {
+    getMembers();
+  }, [])
+  
+
+  const filterMembers = (members: Array<Member>) => {
+    setTeamMembers(
+      members
+        .filter((item) => {
+            return (
+              item.position == project.name ||
+              item.project == project.name
+            );
+        })
+    )
+  }
+
+  function filterByPosition(positions: string[]) {
+
+    // Convert all positions to lower case for case-insensitive comparison
+    const lowerCasePositions = positions.map(position => position.toLowerCase());
+
+    // First, filter and map members as before
+    const filteredAndMappedMembers = teamMembers.filter((item) => {
+      return lowerCasePositions.includes(item.position.toLowerCase());
+    });
+
+    // Then, sort the results based on the order of positions
+    const orderedMembers = filteredAndMappedMembers.sort((a, b) => {
+      const posA = lowerCasePositions.indexOf(a.position.toLowerCase());
+      const posB = lowerCasePositions.indexOf(b.position.toLowerCase());
+      return posA - posB;
+    });
+
+    return orderedMembers;
+  }
 
   return (
     <div className="project-subcontent-container">
@@ -67,24 +145,66 @@ const ProjectTeam: React.FC<ProjectProps> = (props) => {
         )}
       </div>
       <div>
-        {props.project.members ? (
-          props.project.members.map((member) => (
-            <Person
-              name={member.name}
-              involvement={
-                member.position
-                // + ', ' + member.education
-              }
-              description={member.description ? member.description : ""}
-              email={member.email ? member.email : "not available"}
-              phone={member.phone ? member.phone : "not available"}
-              linkedIn={member.linkedIn ? member.linkedIn : "not available"}
-              isCurrentMember={false}
-            />
-          ))
-        ) : (
-          <></>
-        )}
+        {resSuccess ? 
+          (teamMembers ? (
+            <>
+              <div>
+                {teamMembers.length > 0 ? (
+                    filterByPosition(ORDER_OF_POSITIONS).map((member) => (
+                      <Person
+                        name={member.name.firstname + " " + member.name.lastname}
+                        involvement={member.position}
+                        description={member.blurb ? member.blurb : ''}
+                        phone={member.contact?.phoneNumber ? member.contact.phoneNumber : ''}
+                        linkedIn={member.contact?.linkedIn ? member.contact.linkedIn : ''}
+                        email={member.contact?.email ? member.contact.email : ''}
+                        isAlumni={member.isAlumni}
+                      />
+                    ))
+                  ) : (
+                    <Alert severity="info" className="people-page-prompt-string">
+                      {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}
+                    </Alert> 
+                  )
+                }
+              </div>
+              <div className="team-header">
+                <p>Alumni</p>
+              </div>
+              <hr />
+              <Collapse in={openAlumniCollapse}>
+                {teamMembers.length > 0 ? (
+                    filterByPosition(ORDER_OF_POSITIONS).map((member) => (
+                      <Person
+                        name={member.name.firstname + " " + member.name.lastname}
+                        involvement={member.position}
+                        description={member.blurb ? member.blurb : ''}
+                        phone={member.contact?.phoneNumber ? member.contact.phoneNumber : ''}
+                        linkedIn={member.contact?.linkedIn ? member.contact.linkedIn : ''}
+                        email={member.contact?.email ? member.contact.email : ''}
+                        isAlumni={member.isAlumni}
+                      />
+                    ))
+                  ) : (
+                    <Alert severity="info" className="people-page-prompt-string">
+                      {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}
+                    </Alert> 
+                  )
+                }
+              </Collapse>
+              <div className="project-alumni-collapse-button" onClick={() => setOpenAlumniCollapse(!openAlumniCollapse)}>
+                {openAlumniCollapse ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
+              </div>
+            </>
+            ) : (
+              <CircularProgress></CircularProgress>
+            )
+          ) : (
+          <Alert severity="error" className="people-page-prompt-string">
+            {TEXT.PEOPLE_PAGE.RESPONSE_ERROR}
+          </Alert>
+          )
+        }
       </div>
     </div>
   );

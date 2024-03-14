@@ -6,7 +6,9 @@ import dotenv from "dotenv";
 import { MdAccountCircle } from "react-icons/md";
 import Alert from "@mui/material/Alert";
 import TEXT from "@statics/text";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Collapse } from "@mui/material";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
@@ -161,6 +163,8 @@ const People = () => {
     )
   }
 
+  const [openAlumniCollapse, setOpenAlumniCollapse] = useState<boolean>(false);
+
   return (
     <>
       <div className="main-content">
@@ -207,12 +211,41 @@ const People = () => {
                 // filterMembers().map((item: MemberOBJ, index: number) => {
                 //   return (createSinglePerson(item, index))
                 // })
-                <div>
-                  
-                  {
-                    filterAndCreatePersonsByPosition(ORDER_OF_POSITIONS)
-                  }
-                </div>
+                <>
+                  <div>
+                    
+                    {
+                      filterAndCreatePersonsByPosition(ORDER_OF_POSITIONS)
+                    }
+                  </div>
+                  <div className='people-member-alumni-divider'/>
+                  <Collapse in={openAlumniCollapse}>
+                      {svgView ? (
+                        <CircularProgress></CircularProgress>
+                      ) : resSuccess ? (
+                        filterMembers().length > 0 ? (
+                          <div>
+                            
+                            {
+                              filterAndCreatePersonsByPosition(ORDER_OF_POSITIONS)
+                            }
+                          </div>
+                        ) : (
+                          <Alert severity="info" className="people-page-prompt-string">
+                            {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}
+                          </Alert>
+                        )
+                      ) : (
+                        <Alert severity="error" className="people-page-prompt-string">
+                          {TEXT.PEOPLE_PAGE.RESPONSE_ERROR}
+                        </Alert>
+                      )}
+                  </Collapse>
+                  <div className="people-alumni-collapse-button" onClick={() => setOpenAlumniCollapse(!openAlumniCollapse)}>
+                    {openAlumniCollapse ? 'Hide Alumni' : 'Show Alumni'}
+                    {openAlumniCollapse ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
+                  </div>
+                </>
               ) : (
                 <Alert severity="info" className="people-page-prompt-string">
                   {TEXT.PEOPLE_PAGE.EMPTY_DISPLAY_LIST}
@@ -224,6 +257,7 @@ const People = () => {
               </Alert>
             )}
           </div>
+          
         </div>
       </div>
     </>

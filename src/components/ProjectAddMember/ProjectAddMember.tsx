@@ -40,7 +40,7 @@ const ProjectAddMember = (props: PropsOBJ) => {
 
             // a call to our backend API that inserts an memeber with the information that the user has inputted
             await axios.post(`${baseURL}/api/members`,
-                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isActive: true }).catch(err => {throw err}).then(() => setVisibility(false))
+                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isAlumni: false }).catch(err => {throw err}).then(() => setVisibility(false))
         } catch(err) {
             console.log(err)
         }

@@ -15,7 +15,7 @@ interface PersonDetails {
   email: string;
   phone: string;
   linkedIn: string;
-  isCurrentMember: boolean; // if person is current member or alumni
+  isAlumni: boolean; // if person is current member or alumni
   edit?: () => void;
   delete?: () => void;
 }
@@ -27,7 +27,7 @@ export const Person: React.FC<PersonDetails> = (props) => {
         <h1 className="card__title">{props.name}</h1>
         <div className="card__header__icons">
           {(() => {
-            if (props.isCurrentMember) {
+            if (props.isAlumni) {
               return (
                 <>
                   <span id="alumni-tag">Alumni</span>

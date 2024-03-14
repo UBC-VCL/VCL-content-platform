@@ -55,7 +55,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
         })
     }
 
-    const { access_token, username } = useAppSelector(selectAuth);
+    const { access_token, username, permissions } = useAppSelector(selectAuth);
 
     // Message that will be displayed after attempting to create a new resource, either error message or success message
     const [message, setMessage] = useState<string>('');
@@ -237,7 +237,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
                                                                         <a href={resource.resource_link.includes('://') ? resource.resource_link : "//" + resource.resource_link} target='_blank' rel="noopener noreferrer">
                                                                             {resource.title}
                                                                         </a>
-                                                                        {resource.owner.username === username && 
+                                                                        {(permissions === "admin" || resource.owner.username === username) && 
                                                                             <div onClick={initDeleteResourceProcess} data-id={resource._id}>
                                                                                 <DeleteIcon/>
                                                                             </div>

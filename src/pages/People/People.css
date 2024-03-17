@@ -65,7 +65,7 @@
   border: 1px rgba(0, 0, 0, 0.05) solid;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem 0;
-}
+} 
 
 .icon-container {
   width: 20%;
@@ -78,18 +78,23 @@
   width: 80%;
 }
 
-.name {
+.name h2 {
   color: black;
+  font-size: x-large;
+  margin-bottom: 10px;
 }
 
-.position {
+.position h3 {
+  font-size: small;
   color: #a1a1a1;
+  margin-bottom: 10px;
 }
 
 .message {
   font-size: small;
   text-align: left;
   padding: 5px 30px 5px 0px;
+  margin-bottom: 10px;
 }
 
 .contact-container {

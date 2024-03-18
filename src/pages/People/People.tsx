@@ -36,21 +36,12 @@ const People = () => {
     "SHIVA",
   ];
 
-  const dummyMembers: Array<MemberOBJ> = [ 
-    {
-      name: { firstname: "John", lastname: "Doe" },
-      project: "Project A",
-      position: "Lab Leader",
-      blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-  ];
-
   // the page will be defaulted to bein on the first grid item
   const [currentProject, setCurrProject] = useState<string>(dummyList[0]);
 
-  const [currentList, setList] = useState<Array<MemberOBJ>>(dummyMembers);
+  const [currentList, setList] = useState<Array<MemberOBJ>>([]);
 
-  const [resSuccess, setSuccess] = useState<boolean>(true);
+  const [resSuccess, setSuccess] = useState<boolean>(false);
 
   const [svgView, setSvgView] = useState<boolean>(true);
 
@@ -58,6 +49,7 @@ const People = () => {
   // This is for styles, will highlight the first select nav-item for the user
   useEffect(() => {
     loadingTimer(2000);
+    getMembers();
     document
       .getElementById(dummyList[0].toLowerCase())!
       .classList.add("selected-item");

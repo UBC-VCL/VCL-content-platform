@@ -1,7 +1,8 @@
 import React from "react";
 import { Project } from "@entities/Project";
 import { MdAccountCircle } from "react-icons/md";
-import "./ProjectTeam.css";
+// import "./ProjectTeam.css";
+import "./ProjectTeamMobile.css";
 import "../../Project.css";
 
 interface ProjectProps {
@@ -43,19 +44,23 @@ const ProjectV2Team = () => {
 		<div className="team-container">
 			<div className="team-header">
 				<p>Team Members</p>
+				<hr />
 			</div>
-			<div className="team-content">
-				{members.map((member) => (
-					<div className="info-container">
-						<h2>
-							{member.name} - {member.position}
-						</h2>
-						<span className="message">
-							{member.description ? member.description : ""}
-						</span>
-					</div>
-				))}
-			</div>
+			{members.map((member) => (
+				<div className="team-member">
+					<h3 className="member-name">{member.name}</h3>
+					<p>
+						<br />
+						<span className="member-role">{member.position}</span>
+						<br />
+						<br />
+						{member.description ? member.description : ""}
+						<br />
+						<br />
+						Contact info: abc@gmail.com{" "}
+					</p>
+				</div>
+			))}
 		</div>
 	);
 };

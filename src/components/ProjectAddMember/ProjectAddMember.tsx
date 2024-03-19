@@ -17,18 +17,21 @@ const ProjectAddMember = (props: PropsOBJ) => {
     
 
     // useRefs for getting the values, provided by the user, in the inputs.
-    const usernameRef = useRef<HTMLInputElement>(null);
     const firstnameRef = useRef<HTMLInputElement>(null);
     const lastnameRef = useRef<HTMLInputElement>(null);
+    const projectRef = useRef<HTMLInputElement>(null);
+    const positionRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const linkedInRef = useRef<HTMLInputElement>(null);
+    const phoneNumberRef = useRef<HTMLInputElement>(null);
+    const blurbRef = useRef<HTMLTextAreaElement>(null);
 
     // This is to determine the visibility of the add member page, false for non-visible and true for is-visible.
     const { isVisible, setVisibility } = props;
 
     // This highlights the amount of inputted projects and will be displayed the on the screen.
     //   Currently there is no way for a user to delete an already inputted project
-    const [inputtedProjects, setProjects] = useState<Array<string>>([])
+    const [inputtedProjects, setProjects] = useState<Array<string>>([]) // TODO: implement into form, requires a refactoring of the backend first as member model has project set to string not array of string
 
     // This useState is used inorder to extract a user input for their current input
     const [currentPInput, setPInput] = useState<string>("")
@@ -36,11 +39,37 @@ const ProjectAddMember = (props: PropsOBJ) => {
     const handleSubmit = async () => {
         try {
             // a single line variable instantiation
-            const [usernameData, firstnameData, lastnameData, projectsData, emailData, linkedInData] = [usernameRef.current?.value, firstnameRef.current?.value, lastnameRef.current?.value, inputtedProjects, emailRef.current?.value, linkedInRef?.current!.value]
+            const [firstnameData, lastnameData, projectsData, positionData, phoneNumber, email, linkedIn, blurb] = 
+                [
+                    firstnameRef.current?.value, 
+                    lastnameRef.current?.value, 
+                    // inputtedProjects, 
+                    projectRef.current?.value,
+                    positionRef.current?.value,
+                    phoneNumberRef.current?.value,
+                    emailRef.current?.value, 
+                    linkedInRef.current?.value,
+                    blurbRef.current?.value,
+                ]
 
             // a call to our backend API that inserts an memeber with the information that the user has inputted
-            await axios.post(`${baseURL}/api/members`,
-                { username: usernameData, firstName: firstnameData, lastName: lastnameData, projects: projectsData, email: emailData, linkedIn: linkedInData, isAlumni: false }).catch(err => {throw err}).then(() => setVisibility(false))
+            await axios.post(`${baseURL}/api/members`, {
+                    name: {
+                        firstname: firstnameData, 
+                        lastname: lastnameData, 
+                    },
+                    project: projectsData,
+                    position: positionData,
+                    contact: {
+                        email, 
+                        linkedIn, 
+                        phoneNumber,
+                    },
+                    blurb,
+                    isAlumni: false 
+                })
+                .catch(err => {throw err})
+                .then(() => setVisibility(false))
         } catch(err) {
             console.log(err)
         }
@@ -64,15 +93,17 @@ const ProjectAddMember = (props: PropsOBJ) => {
                 <div className='content-viewing-div'>
                     <div className='inputs-div'>
                         <div className='input-div'>
-                            <input type='text' id='username-input' className='input' placeholder=" Username" ref={usernameRef} />
                             <input type='text' id='firstname-input' className='input' placeholder=" First name" ref={firstnameRef} />
                             <input type='text' id='lastname-input' className='input' placeholder=" Last name" ref={lastnameRef} />
-                            <input type='text' id='project-input' className='input' placeholder=" Projects"
-                                onChange={(e) => setPInput(e.target.value)}
-                                onKeyDown={handleKeyDown}
+                            <input type='text' id='project-input' className='input' placeholder=" Projects" ref={projectRef}
+                                // onChange={(e) => setPInput(e.target.value)}  TODO: uncomment after inputtedProjects can be properly used
+                                // onKeyDown={handleKeyDown}  TODO: uncomment after inputtedProjects can be properly used
                             />
+                            <input type='text' id='position-input' className='input' placeholder=" Position" ref={positionRef}/>
+                            <input type='text' id='phone-number-input' className='input' placeholder=' ###-###-####' ref={phoneNumberRef} />
                             <input type='text' id='linkedIn-input' className='input' placeholder=" LinkedIn" ref={linkedInRef} />
                             <input type='text' id='email-input' className='input' placeholder=' email123@email.com' ref={emailRef} />
+                            <textarea id='blurb-input' className='input' placeholder=' Let us know about you' ref={blurbRef} />
                         </div>
                         <div className='display-involvement'>
                             {

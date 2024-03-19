@@ -6,3 +6,23 @@ export interface SlideShowOBJ {
     name?: string; // only if the card is of type 'testimony'
     position?: string; // only if the card is of type 'testimony'
 }
+
+interface NameInfo {
+    firstname: string;
+    lastname: string;
+}
+
+interface ContactInfo {
+    phoneNumber?: string;
+    linkedIn?: string;
+    email?: string;
+}
+
+export interface Member {
+    name: NameInfo;
+    project: string;
+    position: string;
+    contact?: ContactInfo;
+    blurb?: string;
+    isAlumni: boolean;
+}

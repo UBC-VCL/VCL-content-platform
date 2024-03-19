@@ -9,13 +9,6 @@ body {
     width: 100%;
 }
 
-.content-container {
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-}
-
 .project-team {
     display: flex;
     position: relative;
@@ -89,4 +82,8 @@ hr {
     margin-bottom: 2%;
     margin-left: 35%;
     width: 30%;
+}
+
+.project-team-main-container {
+    text-align: center;
 }

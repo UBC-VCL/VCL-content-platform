@@ -45,6 +45,7 @@ const People = () => {
 
   const [svgView, setSvgView] = useState<boolean>(true);
 
+
   // This is for styles, will highlight the first select nav-item for the user
   useEffect(() => {
     loadingTimer(2000);
@@ -136,7 +137,7 @@ const People = () => {
   const createSinglePerson = (item: MemberOBJ, index: number) => {
     return (
       <div key={index} className="people-lab-member">
-        <div className="icon-container">
+        <div className="icon-container"> 
           <MdAccountCircle
             // className='icon'
             size={125}

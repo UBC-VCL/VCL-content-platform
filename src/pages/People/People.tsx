@@ -10,6 +10,7 @@ import { CircularProgress, Collapse } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Member } from "@pages/Project/types";
+import { setTimeout } from "timers";
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
@@ -34,28 +35,19 @@ const People = () => {
 
   const [resSuccess, setSuccess] = useState<boolean>(false);
 
-  const [svgView, setSvgView] = useState<boolean>(true);
+  const [callComplete, setCallComplete] = useState<boolean>(true);
 
   // This is for styles, will highlight the first select nav-item for the user
+  //  Also, makes an api call to get all the lab's members 
   useEffect(() => {
-    loadingTimer(2000);
     getMembers();
     document
       .getElementById(dummyList[0].toLowerCase())!
       .classList.add("selected-item");
   }, []);
 
-  // timer in milliseconds, sets how long the loading icon should be shown.
-  // for now it is hardcoded timer because the calls that we make on this page is very fast so
-  //    setting the state of svgView in the API call will only show the icon for not even 1 second.
-  const loadingTimer = (timer: number) => {
-    setTimeout(() => {
-      setSvgView(false);
-    }, timer);
-  };
-
   const getMembers = async () => {
-    axios
+    await axios
       .get(`${baseURL}/api/members`)
       .then((response) => {
         setList(response.data.data);
@@ -65,7 +57,19 @@ const People = () => {
         // do nothing with the error
         // console.log(err);
       });
+    setCallComplete(false);
+    // Height of content container is set to a preset value to ensure footer isn't right up against the
+    //  people page nav. This call ensures the height matches the correct height of the displayed data
+    var element = document.getElementById('content-display-transition');
+    if (element) {
+      element.style.height = 'fit-content';
+    }
 
+    // Allows for the backend data to be displayed via a transition
+    element = document.getElementById('member-list-transition');
+    if (element) {
+      element.style.opacity = '1';
+    }
     // axios({
     //   method: "get",
     //   url: `${baseURL}/api/members`,
@@ -73,16 +77,6 @@ const People = () => {
     //     key: process.env.API_KEY
     //   }
     // })
-    // // axios
-    // //   .get(`${baseURL}/api/members`)
-    //   .then((response) => {
-    //     setList(response.data.data);
-    //     setSuccess(true);
-    //   })
-    //   .catch((err) => {
-    //     // do nothing with the error
-    //     // console.log(err);
-    //   });
   };
 
   // filters members to ensure they match the current viewed project and their alumni status
@@ -192,9 +186,9 @@ const People = () => {
             );
           })}
         </div>
-        <div className="content-display">
-          <div className="member-list">
-            {svgView ? (
+        <div className="content-display" id='content-display-transition'>
+          <div className="member-list" id='member-list-transition'>
+            {callComplete ? (
               <CircularProgress></CircularProgress>
             ) : (resSuccess ? (
               <>

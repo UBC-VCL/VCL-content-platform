@@ -219,10 +219,21 @@ const TEXT = {
         },
       },
     },
-  },PEOPLE_PAGE: {
+  },
+  PEOPLE_PAGE: {
     EMPTY_DISPLAY_LIST: "No Members Found Here, Try Another Section!",
     RESPONSE_ERROR: "Something Went Wrong! Check Your Connection!"
+  },
+  RESOURCE_PAGE: {
+    EMPTY_DISPLAY_LIST: "No Resources Found Here, Try Another Category!",
+    RESPONSE_ERROR: "Something Went Wrong! Check Your Connection!",
+    TITLE_EMPTY_ERROR: "Please provide a title for the resource",
+    AUTHOR_EMPTY_ERROR: "Please provide the author(s) for the resource",
+    LINK_EMPTY_ERROR: "Please provide a link to the resource",
+    INVALID_URL_LINK_ERROR: 'Please enter a valid url',
+    CATEGORY_EMPTY_ERROR: "Please select a category for the resource"
   }
+
 } as const;
 
 export default TEXT;

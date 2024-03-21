@@ -2,7 +2,8 @@
     margin: auto;
 }
 
-.resource-page-container, .resource-content-render-container {
+.resource-page-container,
+.resource-content-render-container {
     margin-bottom: 1rem;
 }
 
@@ -14,9 +15,8 @@
 }
 
 .single-resource-grid-item {
-    width: fit-content;
     padding: 0.5rem 2.5rem;
-    margin: auto 1rem;
+    margin: auto 0.5rem;
     font-weight: 600;
     color: #000;
     line-height: normal;
@@ -75,7 +75,8 @@
     display: flex;
 }
 
-.resource-content-single-render-image-container, .resource-content-single-render-text-container {
+.resource-content-single-render-image-container,
+.resource-content-single-render-text-container {
     margin: auto;
 
 }
@@ -87,11 +88,25 @@
 .resource-content-single-render-text-container {
     padding: 1rem;
     width: 85%;
+    cursor: default;
 }
 
-.resource-content-single-render-text-container h1 {
-    font-size: medium;
-    text-decoration: underline;
+.resource-content-single-render-text-container a {
+    display: block;
+    text-align: left;
+    color: black;
+    font-weight: 600;
+    font-family: Poppins;
+    font-size: 18px;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    width: fit-content;
+}
+
+.resource-content-single-render-text-container a:hover {
+    transform-origin: bottom left;
+    transform: scale(1.05);
+    transition: ease;
 }
 
 .resource-content-single-render-text-container p {
@@ -101,6 +116,9 @@
 .resource-content-single-render-text-names-container {
     display: flex;
     font-size: medium;
+    font-family: Poppins;
+    line-height: 1;
+    font-weight: 600;
 }
 
 .resource-content-single-render-text-names-container h2 {
@@ -118,6 +136,44 @@
     margin: 2rem 0 2rem 7rem;
     cursor: pointer;
     user-select: none;
+}
+
+.resource-page-prompt-string {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 35%;
+    width: 30%;
+}
+
+.resource-title-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resource-title-container div {
+    cursor: pointer;
+}
+
+.delete-dialog-container div {
+    padding: 8px 24px;
+}
+
+.delete-dialog-title {
+    font-family: Poppins !important;
+    font-weight: 600;
+}
+
+.delete-dialog-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    gap: 16px;
+}
+
+.delete-dialog-buttons-container button {
+    font-family: Poppins;
+    font-weight: 600;
 }
 
 @media screen and (max-width: 1023px) {

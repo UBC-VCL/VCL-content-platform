@@ -165,7 +165,7 @@ const Navbar: React.FC<{}> = () => {
       default:
         title = TEXT.PAGE_TITLES.RESOURCES;
         baseRoute = ROUTES.RESOURCES!.BASE;
-        namesArray = RESOURCES.CONTENT;
+        namesArray = RESOURCES;
     }
 
     return (

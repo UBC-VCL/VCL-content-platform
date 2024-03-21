@@ -14,7 +14,7 @@ const Resources = () => {
 			</div>
 			<div className='resource-content-container'>
 				{
-					RESOURCES.CONTENT.map((item, index) => {
+					RESOURCES.map((item, index) => {
 
 						return (
 							<ResourceCards title={item.name} link={`${ROUTES.RESOURCES!.BASE}/${item.name}`} key={index} />

@@ -37,6 +37,7 @@ const People = () => {
 
   const [callComplete, setCallComplete] = useState<boolean>(true);
 
+
   // This is for styles, will highlight the first select nav-item for the user
   //  Also, makes an api call to get all the lab's members 
   useEffect(() => {
@@ -121,7 +122,7 @@ const People = () => {
   const createSinglePerson = (item: Member, index: number) => {
     return (
       <div key={index} className="people-lab-member">
-        <div className="icon-container">
+        <div className="icon-container"> 
           <MdAccountCircle
             // className='icon'
             size={125}

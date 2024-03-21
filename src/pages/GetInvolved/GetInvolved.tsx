@@ -141,7 +141,6 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
                 </div>
             </div>
 					<div className="join-main-body">
-						<div className='role-divider' />
 						<section ref={pRef}>
 							<h2>Get Involved as a Participant</h2>
 							<p>

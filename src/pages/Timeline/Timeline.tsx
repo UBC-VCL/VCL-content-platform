@@ -12,6 +12,8 @@ import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import { selectAuth } from "@redux/slices/AuthRedux";
 import ConfirmationDailog from "@components/ConfirmationWindow";
 import Alert from "@mui/material/Alert";
+import { Pagination } from "@mui/material";
+
 
 require('dotenv').config();
 
@@ -105,6 +107,17 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   const [projectFilterList, setProjectFilterList] = useState<string[]>([]);
 
+  const [page, setPage] = useState<number>(1);
+
+  const [itemsPerPage, setItemsPerPage] = useState<number>(5);
+
+  const [totalPages, setTotalPages] = useState<number>(0);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
+
+  
   // creates a http request
   const objCommitHTTPS = async () => {
     /* 
@@ -198,76 +211,89 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         }
       }
     });
+    
+    const totalItems = listFilter.length;
 
+    const newTotalPages = Math.ceil(totalItems / itemsPerPage);
+    
+    const paginatedList = listFilter.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+    if (totalPages != newTotalPages) {
+      setTotalPages(newTotalPages);
+    }
+    
     return (
-      <ul>
-        {listFilter.map((commit: SnapshotOBJ, i) => {
-
-          // console.log(commit._id)
-
-          let prj:string;
-          CONSTANTS.PROJECTS.some(
-            (item) => item.name.toLowerCase() == commit.project.toLowerCase()
-          )
-            ? prj=commit.project.toLowerCase()
-            : prj="others"
-
-          return (
-            <li key={i}>
-              <span className={"timeline-container-span-" + prj}></span>
-              <TimelineCommitBlock
-                _id={commit._id}
-                author={commit.author}
-                title={commit.title}
-                project={commit.project}
-                date={commit.date}
-                descriptions={commit.descriptions}
-                contributors={commit.contributors}
-                hyperlinks={commit.hyperlinks}
-                updatedTime={commit.updatedTime}
-                categories={commit.categories}
-                isLoggedIn={isLoggedIn}
-                onClickDelete={() => {
-                  setIdToDelete(commit._id);
-                  handleClickOpen();
-                }}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      <>
+        <ul>
+          {paginatedList.map((commit: SnapshotOBJ, i) => {
+            
+            let prj:string;
+            
+            console.log(
+              CONSTANTS.PROJECTS.some(
+                (item) => item.name.toLowerCase() == commit.project.toLowerCase()
+                )
+                ? prj=commit.project.toLowerCase()
+                : prj="others"
+                );
+                
+                return (
+                  <li key={i}>
+                <span className={"timeline-container-span-" + prj}></span>
+                <TimelineCommitBlock
+                  _id={commit._id}
+                  author={commit.author}
+                  title={commit.title}
+                  project={commit.project}
+                  date={commit.date}
+                  descriptions={commit.descriptions}
+                  contributors={commit.contributors}
+                  hyperlinks={commit.hyperlinks}
+                  updatedTime={commit.updatedTime}
+                  categories={commit.categories}
+                  isLoggedIn={isLoggedIn}
+                  onClickDelete={() => {
+                    setIdToDelete(commit._id);
+                    handleClickOpen();
+                  }}
+                  />
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   };
-
+  
   // The functions within the useEffect will only be called when the user mounts on to the page
   // so once at the very start of the user entering the Timeline page
   useEffect(() => {
     objCommitHTTPS();
   }, []);
-
+  
   let prjs: any[] = [];
-
+  
   // hardcode className to display corresponding colors
   // commitsArray.forEach((commit: SnapshotOBJ) => {
-  //   let prj = 'others';
-  //   switch (commit.project.toLowerCase()) {
-  //     case 'correlation':
-  //       prj = 'correlation'
-  //       break;
-  //     case 'nova':
-  //       prj = 'nova'
-  //       break;
-  //     case 'ideo':
-  //       prj = 'ideo';
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  //   prjs.push(prj);
-  // })
-
-  return (
-    <div className="timeline">
+    //   let prj = 'others';
+    //   switch (commit.project.toLowerCase()) {
+      //     case 'correlation':
+      //       prj = 'correlation'
+      //       break;
+      //     case 'nova':
+      //       prj = 'nova'
+      //       break;
+      //     case 'ideo':
+      //       prj = 'ideo';
+      //       break;
+      //     default:
+      //       break;
+      //   }
+      //   prjs.push(prj);
+      // })
+      
+      return (
+        <div className="timeline">
       <div className="timeline-header">
         <h1>{TEXT.TIMELINE_PAGE.TITLE}</h1>
       </div>
@@ -286,9 +312,20 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         <div className="timeline-container">
           {
             success ?
-              filterList(commitsArray, filterBy) : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
+            filterList(commitsArray, filterBy) : <Alert severity="error" className="error-string">{TEXT.TIMELINE_PAGE.ERROR_MESSAGE}</Alert>
           }
         </div>
+      </div>
+      <div className="timeline-pagination">
+        <Pagination
+          count={totalPages}
+          page={page}
+          onChange={(event, newPage) => {
+            setPage(newPage);
+            
+            }
+          }
+        />
       </div>
       <ConfirmationDailog
         open={openDialog}
@@ -297,7 +334,16 @@ const Timeline: React.FC<TimelineProps> = (props) => {
           return deleteCommit(idToDelete);
         }}
       />
+      
     </div>
+      /** 
+       * filter list actualy stires the number of blocks that are rendered
+       * have to use filter list to calculate the number of items that are rendered and 
+       * change the pagination values according to that
+       * Add the pagination in the const filterList function, so that the function itself handles the rendering 
+       * of the pagination object as well
+       * Since we have to use the objects that are dynamically changed in that list
+       * */ 
   );
 };
 

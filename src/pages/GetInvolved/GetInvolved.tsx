@@ -149,6 +149,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 								Sign up for experiments at: <Link to="//www.reservax.com/ubcviscog/" style={{ color: "#5387a5" }} target="_blank" rel="noreferrer">www.reservax.com/ubcviscog/</Link>
 							</p>
 						</section>
+						<div className='role-divider' />
 						<section ref={labMemberRef}>
 							<h2>Get Involved as a Lab Member</h2>
 							<p>

@@ -70,6 +70,8 @@ hr {
     justify-content: center;
     border-radius: 16px;
     cursor: pointer;
+    margin: auto;
+    max-width: 80px;
 }
 
 .project-alumni-collapse-button:hover {

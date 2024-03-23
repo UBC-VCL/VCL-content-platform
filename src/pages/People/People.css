@@ -72,7 +72,7 @@
   border: 1px rgba(0, 0, 0, 0.05) solid;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem 0;
-} 
+}
 
 .icon-container {
   width: 20%;
@@ -146,6 +146,7 @@
   margin: 1rem auto;
   align-items: center;
   font-weight: 700;
+  max-width: 400px;
 }
 
 .people-alumni-collapse-button:hover {

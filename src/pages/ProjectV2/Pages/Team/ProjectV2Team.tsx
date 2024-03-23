@@ -92,17 +92,10 @@ const ProjectTeamV2: React.FC<PropsOBJ> = (props) => {
           filter: viewState ? "blur(5px)" : "",
         }}
       >
-        <div>
-          <ProjectBreadcrumbs
-            project_name={project}
-            page_name={TEXT.PROJECT_NAV.TEAM_AND_ALUMNI}
-          />
-        </div>
         <div className="team-header">
           <p>Team Members</p>
         </div>
         <hr />
-
         {isLoggedIn ? (
           <div
             className="add-mem-button-div"

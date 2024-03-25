@@ -9,13 +9,6 @@ body {
     width: 100%;
 }
 
-.content-container {
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-}
-
 .project-team {
     display: flex;
     position: relative;
@@ -70,4 +63,29 @@ hr {
     user-select: none;
     background-color: #3980d0;
     transition: background-color .25s;
+}
+
+.project-alumni-collapse-button {
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+    cursor: pointer;
+    margin: auto;
+    max-width: 80px;
+}
+
+.project-alumni-collapse-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.project-team-prompt-string {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 35%;
+    width: 30%;
+}
+
+.project-team-main-container {
+    text-align: center;
 }

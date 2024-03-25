@@ -221,7 +221,13 @@ const TEXT = {
     },
   },
   PEOPLE_PAGE: {
-    EMPTY_DISPLAY_LIST: "No Members Found Here, Try Another Section!",
+    EMPTY_MEMBER_LIST: "No Members Found Here, Try Another Section!",
+    EMPTY_ALUMNI_LIST: "No Alumni Members In This Section!",
+    RESPONSE_ERROR: "Something Went Wrong! Check Your Connection!"
+  },
+  PROJECT_TEAM_PAGE: {
+    EMPTY_MEMBER_LIST: 'This Project has no Team Members',
+    EMPTY_ALUMNI_LIST: 'This Project has no Alumni',
     RESPONSE_ERROR: "Something Went Wrong! Check Your Connection!"
   },
   RESOURCE_PAGE: {

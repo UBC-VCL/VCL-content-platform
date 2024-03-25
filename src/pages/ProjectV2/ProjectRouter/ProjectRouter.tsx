@@ -37,7 +37,9 @@ const ProjectRouter = (props: PropsOBJ) => {
       <Route
         exact
         path={`/projectsV2/${project_id}/team`}
-        component={ProjectV2Team}
+        render={() => {
+          return <ProjectV2Team project={project_id} />;
+        }}
       />
       <Route
         exact

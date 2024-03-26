@@ -14,15 +14,10 @@ interface ResourceResponse extends BaseResponse {
   data?: Resource;
 }
 
-export const createResource = async (reqBody: ResourceRequestBody, access_token: string | undefined): Promise<ResourceResponse> => {
+export const createResource = async (reqBody: ResourceRequestBody): Promise<ResourceResponse> => {
   try {
     const res = await axios.post(`${baseURL}/api/resources`,
       reqBody,
-      {
-        headers: {
-          authorization: access_token,
-        }
-      }
     );
     return res.data as ResourceResponse;
   } catch (err: any) {
@@ -48,15 +43,10 @@ export const getResourceById = async (id: string): Promise<ResourceResponse> => 
   }
 }
 
-export const updateResource = async (reqBody: ResourceRequestBody, id: string, access_token: string): Promise<ResourceResponse> => {
+export const updateResource = async (reqBody: ResourceRequestBody, id: string): Promise<ResourceResponse> => {
   try {
     const res = await axios.patch(`${baseURL}/api/resources/${id}`,
       reqBody,
-      {
-        headers: {
-          authorization: access_token,
-        }
-      }
     );
     return res.data as ResourceResponse;
   } catch (err: any) {
@@ -64,16 +54,9 @@ export const updateResource = async (reqBody: ResourceRequestBody, id: string, a
   }
 }
 
-export const deleteResource = async (id: string, username: string | undefined, access_token: string | undefined): Promise<BaseResponse> => {
+export const deleteResource = async (id: string): Promise<BaseResponse> => {
   try {
-    const res = await axios.delete(`${baseURL}/api/resources/${id}`,
-      {
-        headers: {
-          authorization: access_token,
-          username
-        }
-      }
-    );
+    const res = await axios.delete(`${baseURL}/api/resources/${id}`);
     return res.data as BaseResponse;
   } catch (err: any) {
     return err.response.data as BaseResponse;

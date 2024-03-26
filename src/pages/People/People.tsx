@@ -10,7 +10,6 @@ import { CircularProgress, Collapse } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Member } from "@pages/Project/types";
-import { setTimeout } from "timers";
 
 dotenv.config();
 const baseURL = process.env.REACT_APP_API_URL;
@@ -71,13 +70,6 @@ const People = () => {
     if (element) {
       element.style.opacity = '1';
     }
-    // axios({
-    //   method: "get",
-    //   url: `${baseURL}/api/members`,
-    //   headers: {
-    //     key: process.env.API_KEY
-    //   }
-    // })
   };
 
   // filters members to ensure they match the current viewed project and their alumni status

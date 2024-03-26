@@ -3,7 +3,6 @@ import type { RootState } from '@redux/store';
 import { UserType } from '@services/adapters/authAdapter';
 
 interface AuthState {
-  access_token?: string;
   refresh_token?: string;
   username?: string;
   permissions: UserType;
@@ -19,9 +18,6 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setAccessToken: (state, { payload }: PayloadAction<string>) => {
-      state.access_token = payload;
-    },
     setRefreshToken: (state, { payload }: PayloadAction<string>) => {
       state.refresh_token = payload;
     },
@@ -33,7 +29,6 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.username = undefined;
-      state.access_token = undefined;
       state.refresh_token = undefined;
       state.permissions = 'default';
     },

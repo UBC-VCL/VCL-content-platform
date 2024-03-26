@@ -19,6 +19,7 @@ interface ContactInfo {
 }
 
 export interface Member {
+    _id: string;
     name: NameInfo;
     project: string;
     position: string;

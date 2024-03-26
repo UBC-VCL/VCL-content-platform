@@ -2,22 +2,15 @@ import { TimelineInfo } from '@pages/Timeline/EditTimelineEntry/EditTimelineEntr
 import React, { useEffect, useState } from 'react';
 import styles from './EditTextInput.module.css';
 import axios from 'axios';
-import { useAppSelector, useAppDispatch } from '@redux/hooks';
-import { selectAuth } from '@redux/slices/AuthRedux';
+import { useAppDispatch } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
-import { FormControl, MenuItem, InputLabel, OutlinedInput, Checkbox } from '@mui/material';
+import { FormControl, MenuItem, InputLabel, OutlinedInput } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Member } from "@pages/Project/types";
 
 type Props = {
   timeline: TimelineInfo,
   setTimeline: React.Dispatch<React.SetStateAction<TimelineInfo>>,
-}
-
-interface memberProps {
-  isActive: boolean;
-  firstName: string;
-  lastName: string;
-  _id: string;
 }
 
 const MenuProps = {
@@ -33,17 +26,13 @@ const baseURL = process.env.REACT_APP_API_URL;
 const EditTextInput = ({timeline, setTimeline}: Props) => {
   const [contributors, setContributors] = React.useState<string[]>([]);
   const [isValid, setIsValid] = useState({author: true, title: true});
-  const { access_token } = useAppSelector(selectAuth);
-  const [members, setMembers] = useState<memberProps[]>([]);
+  const [members, setMembers] = useState<Member[]>([]);
   const dispatch = useAppDispatch();
 
   async function fetchData() {
     try { await axios({
       method: "get",
       url: `${baseURL}/api/members`,
-      headers: {
-        authorization: access_token
-      }
     })
     .then((response) => {
       setMembers([...response.data.data]);
@@ -95,7 +84,7 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
         >
           {members.map((member, i) => (
             <MenuItem key={i} value={member._id}>
-              {member.firstName + " " + member.lastName}
+              {member.name.firstname + " " + member.name.lastname}
             </MenuItem>
           ))}
         </Select>
@@ -118,7 +107,7 @@ const EditTextInput = ({timeline, setTimeline}: Props) => {
         >
           {members.map((member, i) => (
             <MenuItem key={i} value={member._id}>
-              {member.firstName + " " + member.lastName}
+              {member.name.firstname + " " + member.name.lastname}
             </MenuItem>
           ))}
         </Select>

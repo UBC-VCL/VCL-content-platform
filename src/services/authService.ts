@@ -15,7 +15,6 @@ export const useHandleCheckAuth = () => {
       checkAuth(refresh_token)
         .then((res) => {
           if (res.data) {
-            dispatch(authActions.setAccessToken(res.data.access_token));
             dispatch(
               appActions.setAlert(TEXT.ALERTS.AUTH_SUCCESS)
             );
@@ -59,8 +58,7 @@ export const useHandleLogin = () => {
     loginUser(username, password)
       .then((res) => {
         if (res.data) {
-          dispatch(authActions.setAccessToken(res.data.access_token));
-          dispatch(authActions.setRefreshToken(res.data.refresh_token));
+          dispatch(authActions.setRefreshToken("res.data.refresh_token"));
           dispatch(authActions.setUsername(res.data.username));
           dispatch(authActions.setPermissions(res.data.permissions));
 
@@ -86,11 +84,11 @@ export const useHandleLogin = () => {
 export const useHandleLogout = () => {
   const dispatch = useAppDispatch();
 
-  const { access_token, isLoggingIn } = useAppSelector(selectAuth);
+  const { isLoggingIn } = useAppSelector(selectAuth);
 
   const logout = async () => {
-    if (access_token && !isLoggingIn) {
-      logoutUser(access_token)
+    if (!isLoggingIn) {
+      logoutUser()
         .then(() => {
           dispatch(authActions.logout());
           dispatch(appActions.setAlert(TEXT.ALERTS.LOGOUT_SUCCESS));

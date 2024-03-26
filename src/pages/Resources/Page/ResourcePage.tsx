@@ -55,7 +55,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
         })
     }
 
-    const { access_token, username, permissions } = useAppSelector(selectAuth);
+    const { username, permissions } = useAppSelector(selectAuth);
 
     // Message that will be displayed after attempting to create a new resource, either error message or success message
     const [message, setMessage] = useState<string>('');
@@ -68,7 +68,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
     const [resourceToDelete, setResourceToDelete] = useState<string>('');
 
     const handleCreateResource = async (reqBody: ResourceRequestBody): Promise<boolean> => {
-        const result = await createResource(reqBody, access_token)
+        const result = await createResource(reqBody, )
         .then((res) => {
             if (res.error) {
                 setMessage(res.message);
@@ -119,7 +119,7 @@ const ResourcePage: React.FC<ProjectProps> = ({ match }) => {
 
     const handleDeleteResource = () => {
         if (resourceToDelete) {
-            deleteResource(resourceToDelete, username, access_token)
+            deleteResource(resourceToDelete)
             .then((res) => {
                 if (res.error) {
                     setDialogMessage(res.message);

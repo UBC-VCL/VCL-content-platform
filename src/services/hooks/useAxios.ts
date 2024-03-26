@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_API_KEY;
+axios.defaults.withCredentials = true;
 
 const useAxios = (axiosParams: AxiosRequestConfig) => {
   const [response, setResponse] = useState<AxiosResponse>();
@@ -11,18 +11,18 @@ const useAxios = (axiosParams: AxiosRequestConfig) => {
 
   const fetchData = async (params: AxiosRequestConfig) => {
     try {
-    const result = await axios.request(params);
-    setResponse(result.data);
-    } catch( err ) {
-    setError(err as AxiosError);
+      const result = await axios.request(params);
+      setResponse(result.data);
+    } catch (err) {
+      setError(err as AxiosError);
     } finally {
-    setLoading(false);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchData(axiosParams);
-  },[]);
+  }, []);
 
   return { response, error, loading };
 }

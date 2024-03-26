@@ -1,8 +1,7 @@
-import { color } from '@mui/system';
 import './ProjectAddMember.css'
 import { GrClose } from "react-icons/gr";
 import { useState, useRef } from 'react';
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios from 'axios';
 import dotenv from 'dotenv';
 
 dotenv.config();

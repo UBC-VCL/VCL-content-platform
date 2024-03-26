@@ -9,8 +9,7 @@ export type UserType = 'default' | 'member' | 'admin';
 
 interface LoginResponse extends BaseResponse {
   data?: {
-    access_token: string;
-    refresh_token: string;
+    refresh_token?: string;
     username: string;
     permissions: UserType;
   };
@@ -30,7 +29,8 @@ export const loginUser = async (
       },
       {
         baseURL,
-      }
+      },
+
     );
 
     return res.data as LoginResponse;
@@ -51,9 +51,6 @@ export const checkAuth = async (
   try {
     const res = await axios.get('/api/tokens/access_token', {
       baseURL,
-      headers: {
-        authorization: refresh_token,
-      },
     });
 
     return res.data as CheckAuthResponse;
@@ -62,15 +59,10 @@ export const checkAuth = async (
   }
 };
 
-export const logoutUser = async (
-  access_token: string
-): Promise<BaseResponse> => {
+export const logoutUser = async (): Promise<BaseResponse> => {
   try {
     const res = await axios.post('/api/users/logout', null, {
       baseURL,
-      headers: {
-        authorization: access_token,
-      },
     });
 
     return res.data as BaseResponse;

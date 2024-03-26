@@ -1,6 +1,6 @@
 import React from "react";
 import "./Timeline.css";
-import { SearchFilter, SnapshotOBJ, ProjectOBJ } from "./types";
+import { SearchFilter } from "./types";
 import TimelineSearchbar from "@components/TimelineSearchbar";
 import TimelineFilter from "./TimelineFilter";
 import TimelineCommitBlock from "@components/TimelineCommitBlock";
@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAppSelector } from "@redux/hooks";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
-import { selectAuth } from "@redux/slices/AuthRedux";
 import ConfirmationDailog from "@components/ConfirmationWindow";
 import Alert from "@mui/material/Alert";
 import { Pagination } from "@mui/material";
@@ -33,7 +32,6 @@ const Timeline: React.FC<TimelineProps> = (props) => {
   const { defaultFilter, dynamicProjects, dynamicAuthors, dynamicCategories } =
     props;
 
-  const { access_token } = useAppSelector(selectAuth);
   // the response from the server will be a list of objects, and the structure of a single obj is CommitOBJ
   interface SnapshotOBJ {
     _id: string;
@@ -77,11 +75,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
 
   const deleteCommit = async (_id: string) => {
     return axios
-      .delete(`${baseURL}/api/snapshots/${_id}`, {
-        headers: {
-          authorization: access_token,
-        },
-      })
+      .delete(`${baseURL}/api/snapshots/${_id}`)
       .then((response) => {
         if (response.status != 200) {
           throw new Error("did not delete it successfully");

@@ -2,10 +2,9 @@ import CategorySelect from '@components/EditTimeline/CategorySelect/CategorySele
 import EditDateSelect from '@components/EditTimeline/DateSelect/EditDateSelect';
 import EditTextInput from '@components/EditTimeline/EditTextInput/EditTextInput';
 import ProjectSelect from '@components/EditTimeline/ProjectSelect/ProjectSelect';
-import { selectAuth } from '@redux/slices/AuthRedux';
 import useAxios from '@services/hooks/useAxios';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styles from './EditTimelineEntry.module.css';
 import { useAppSelector } from '@redux/hooks';
@@ -27,8 +26,6 @@ export type TimelineInfo = {
 }
 
 const EditTimelineEntry = () => {
-  const { access_token } = useAppSelector(selectAuth);
-
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "", project: "", author: "", categories: [], contributors: ""});
@@ -64,13 +61,11 @@ const EditTimelineEntry = () => {
 
   const save = async () => {
     const updatedTimeline = {...timeline, contributors: timeline.contributors.split(",").map((c: string) => c.trim())};
+    console.log(updatedTimeline);
     const editResponse = await axios({
       method: 'put',
       url: `/api/snapshots/${timeline_id}`,
       data: updatedTimeline,
-      headers: {
-        authorization: access_token
-      }
     });
     if (editResponse.status === 200) {
       history.push("/timeline");

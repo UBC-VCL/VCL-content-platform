@@ -8,7 +8,10 @@
 
 .lab-goals-footer {
     padding: 8px 15% clamp(48px, 4vw, 62px);
-    background-color: #D9E3E7;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    background-color: #fafafa;
 }
 
 .lab-goals-text {

@@ -139,6 +139,8 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
                         <img src={ResearchIMG} style={{ maxWidth: "500px" }} />
                     </div>
                 </div>
+				<LabGoalsFooter />
+
             </div>
 					<div className="join-main-body">
 						<section ref={pRef}>
@@ -372,7 +374,6 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 							</p>
 						</section>
 					</div>
-					<LabGoalsFooter />
 				</div>
 			</div>
 

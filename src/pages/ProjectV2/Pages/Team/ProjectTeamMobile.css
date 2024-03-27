@@ -33,3 +33,11 @@ br {
   content: "";
   margin-top: 7px;
 }
+
+.member-photo-container {
+  padding-right:15px;
+}
+
+.member-flex-wrapper {
+  display:flex;
+}

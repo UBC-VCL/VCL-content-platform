@@ -1,6 +1,7 @@
 .people-page-title {
   text-align: center;
 }
+
 .people-page-description {
   color: #535353;
   margin: 2rem 0;
@@ -47,12 +48,18 @@
 }
 
 .page-nav .nav-item:first-child {
-  border-left: none; /* Remove border from the first item */
+  border-left: none;
+  /* Remove border from the first item */
+}
+
+.content-display {
+  height: 100vh;
 }
 
 .member-list {
-  width: full;
+  opacity: 0;
   padding: 1rem 0;
+  transition: opacity 1s ease-in;
 }
 
 .people-lab-member {
@@ -78,18 +85,23 @@
   width: 80%;
 }
 
-.name {
+.name h2 {
   color: black;
+  font-size: x-large;
+  margin-bottom: 10px;
 }
 
-.position {
+.position h3 {
+  font-size: small;
   color: #a1a1a1;
+  margin-bottom: 10px;
 }
 
 .message {
   font-size: small;
   text-align: left;
   padding: 5px 30px 5px 0px;
+  margin-bottom: 10px;
 }
 
 .contact-container {
@@ -125,6 +137,29 @@
   width: 30%;
 }
 
+.people-alumni-collapse-button {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 1rem auto;
+  align-items: center;
+  font-weight: 700;
+  max-width: 400px;
+}
+
+.people-alumni-collapse-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.people-member-alumni-divider {
+  width: 60%;
+  margin: auto;
+  margin-top: 1rem;
+  border: 1px solid black;
+}
+
 @media screen and (max-width:500px) {
   .page-nav {
     grid-template-columns: 1fr 1fr 1fr;
@@ -137,10 +172,14 @@
     display: block;
   }
 
-  .icon-container, .info-container {
+  .icon-container,
+  .info-container {
     margin: auto;
   }
-  .name h2, .position h3, .message {
+
+  .name h2,
+  .position h3,
+  .message {
     text-align: center;
   }
 

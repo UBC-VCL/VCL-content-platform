@@ -11,12 +11,13 @@
   flex: 1;
   margin-top: 13%;
   margin-right: 3%;
+  
 }
 
 #title {
   font-weight: 700;
   color: #000000;
-  font-size: 4vw;
+  font-size: 3.5vw;
   font-style: normal;
   letter-spacing: 0.035em;
   display: flex;
@@ -25,12 +26,12 @@
 
 #lab-description {
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
+  font-size: 30px;
+  letter-spacing: 0.025em;
   display: flex;
   text-align: left;
-  margin-top: 30px;
+  margin-top: 30px; 
+
 }
 
 .btn-ubc-home {
@@ -74,6 +75,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 100px;
   }
 
   #info-section {
@@ -105,6 +107,7 @@ a:hover {
 
 @media (max-width: 768px) {
   #landing-page-container {
+    padding-top: 100px;
     width: 100%;
   }
 
@@ -114,6 +117,9 @@ a:hover {
 }
 
 @media (max-width: 540px) {
+  #landing-page-container {
+    padding-top: 50px;
+  }
   #info-section {
     margin-top: 20vh;
   }

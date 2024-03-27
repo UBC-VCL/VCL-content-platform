@@ -28,7 +28,7 @@
     width: fit-content;
     text-align: left;
     background-color: #FFFFFF;
-    margin-top: 3%;
+    /* margin-top: 3%; */
     white-space: nowrap;
 
 }
@@ -69,7 +69,7 @@ ul {
 
 #contentEncapsulate {
     margin-right: 3rem;
-    margin-top: 8%;
+    /* margin-top: 8%; */
 }
 
 .text-component {
@@ -175,6 +175,9 @@ ul {
         transform: translateX(-100%);
     }
 }
+
+
+
 
 
 /* #co-pilot {

@@ -1,0 +1,80 @@
+@import '../../../../index.css';
+
+.project-subcontent-container {
+  background-color: #FAFAFA;
+  margin-bottom: -38px;
+}
+
+body {
+  width: 100%;
+}
+
+.project-team {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.team-header {
+  font-weight: 700;
+  color: var(--fc-navyblue);
+  font-family: 'Source Sans Pro';
+  font-size: 33.05px;
+  line-height: 42px;
+  display: flex;
+  align-items: left;
+  margin-top: 2em;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+hr {
+  border-left: 10px solid #8ea9d2;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.add-mem-button-div {
+  color: white;
+  width: fit-content;
+  padding: .5rem 1.25rem;
+  height: full;
+  background-color: #80A3CC;
+  border-radius: 25px;
+  margin-left: auto;
+}
+
+.add-mem-button-div:hover {
+  cursor: pointer;
+  user-select: none;
+  background-color: #3980d0;
+  transition: background-color .25s;
+}
+
+.project-alumni-collapse-button {
+  display: flex;
+  justify-content: center;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: auto;
+  max-width: 80px;
+}
+
+.project-alumni-collapse-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.project-team-prompt-string {
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 35%;
+  width: 30%;
+}
+
+.project-team-main-container {
+  text-align: center;
+}

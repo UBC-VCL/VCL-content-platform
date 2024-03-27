@@ -1,7 +1,158 @@
 .project-content-container {
-    margin-top: 10rem;
+    max-width: 2000px;
+    margin: auto;
 }
 
-.table-contents {
-    width: 100%;
+#projectV2-sidebar {
+    width: 25%;
+    height: 80vh;
+    padding-top: 7rem;
+    padding-right: 1rem;
+    display: none;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    overflow: "visible"
 }
+
+#table-contents {
+    width: 100%;
+    position: fixed;
+    padding-top: 8.25rem;
+    top: 0;
+    z-index: 999;
+    background-color: #F8F8F8;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.exit-icon-container {
+    float: right;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+#projectV2-sidebar a {
+    color: inherit;
+    /* Makes the link color the same as its parent */
+    text-decoration: none;
+    /* Removes the underline */
+}
+
+.project-sidebar-title h2,
+.project-sidebar-title h1 {
+    margin-bottom: 1rem;
+}
+
+.project-sidebar-title h1 {
+    color: #1C426D;
+    font-size: 1.5rem;
+}
+
+.project-sidebar-title h2 {
+    font-size: 18.69px;
+    font-weight: 600;
+    color: #AEC7E3;
+}
+
+.project-sidebar-title {
+    /* margin: auto;  */
+    margin-right: auto;
+    padding-left: 3rem;
+    width: fit-content;
+    /* padding-right: 2rem; */
+    /* border-bottom: 1px solid #B2C9EC; */
+    margin-bottom: 2rem;
+}
+
+.project-sidebar-clickable-content div {
+    width: fit-content;
+    margin-bottom: 1.5rem;
+}
+
+.project-sidebar-clickable-content {
+    /* padding-right:2rem;
+    padding-left:4rem; */
+    /* margin: auto; */
+    width: fit-content;
+    /* padding-right: 4rem; */
+    margin-right: auto;
+    padding-left: 4.5rem;
+}
+
+@media screen and (min-width:900px) {
+
+    #projectV2-sidebar {
+        display: block;
+    }
+
+    #table-contents {
+        display: none;
+    }
+
+    .project-content-container {
+        display: flex;
+    }
+
+    .project-router-div {
+        width: 75%
+    }
+}
+
+@media screen and (min-width:1200px) {
+    #projectV2-sidebar {
+        width: 20%;
+    }
+
+    .project-router-div {
+        width: 80%
+    }
+}
+
+@media screen and (min-width: 701px) {
+    #table-contents {
+        top: 0;
+        padding-top: 5.25rem;
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 899px) {
+
+    .single-table-content {
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 12px;
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            font-family: 'Open Sans';
+        }
+    }
+
+    .project-content-container-title {
+        color: black;
+        font-weight: 700;
+    }
+
+    .project-content-container-href {
+        color: #1C426D;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+/* @media screen and (min-width:900px) and (max-width:1140px) {
+    .project-sidebar-title {
+        padding-left: 2rem;
+    }
+} */

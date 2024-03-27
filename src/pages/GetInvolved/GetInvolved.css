@@ -17,8 +17,16 @@ html {
 }
 
 .join-header {
-    padding-top: 130px;
+    /* padding-top: 130px; */
     font-family: 'Open Sans', sans-serif;
+}
+
+#get-involved-page-table-menu {
+    padding-top: 10rem;
+}
+
+#get-involved-page-table-menu li {
+    margin-bottom: 1rem;
 }
 
 #info-icon {
@@ -53,6 +61,7 @@ html {
 
 
 .role-divider {
+    margin-top: 1rem;
 	border: 1.2px solid #8c9fc2;
 }
 
@@ -74,7 +83,7 @@ html {
 .join-main-body {
     text-align: left;
     width: min(80%, 1000px);
-    margin: 48px auto;
+    margin: 2rem auto;
 }
 
 .join-main-body p {
@@ -140,11 +149,55 @@ html {
     cursor: pointer;
 }
 
+.project-join-hero-section {
+    padding: 4rem;
+    background-color: #E8EFF6;
+}
+
+.project-join-hero-title-section {
+    max-width: 600px;
+    margin: auto;
+}
+
+.project-join-hero-title-section h2, .project-join-pastProjectSection-section h2{
+    font-size: 1.5rem;
+    color: #8EA9D2;
+}
+
+.project-join-hero-section h1 {
+    color: #4A6999;
+    padding-bottom: 1rem;
+}
+
+.project-join-hero-title-section a {
+    text-decoration: none; /* Removes underline */
+    font-style: normal; /* Ensures the font style is normal */
+    color: white;
+}
+
 @media (max-width: 1023px) {
     .join-main-body {
         width: 90%;
     }
     .Join .join-sub-header {
         font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #get-involved-page-table-menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    #get-involved-sidebar {
+        display: none;
+    }
+    .Join {
+        display: block;
+    }
+    #info-encapsulate {
+        padding-top: 0;
     }
 }

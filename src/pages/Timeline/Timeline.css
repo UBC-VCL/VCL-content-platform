@@ -95,6 +95,14 @@
     left: -12px;
 }
 
+.timeline-pagination {
+    margin: 2rem auto;
+}
+
+.timeline-pagination ul {
+    justify-content: center;
+}
+
 @media (max-width: 650px) {
     .timeline {
         width: 647px;

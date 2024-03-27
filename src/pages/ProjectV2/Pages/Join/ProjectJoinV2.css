@@ -1,0 +1,153 @@
+.project-join-hero-section {
+    padding: 4rem;
+    background-color: #E8EFF6;
+}
+
+.project-join-hero-title-section {
+    max-width: 600px;
+}
+
+.project-join-pastProjectSection-section h2{
+    font-size: 1.5rem;
+    color: #8EA9D2;
+}
+
+.project-join-hero-section h1 {
+    color: #4A6999;
+    padding-bottom: 1rem;
+}
+
+.project-join-title-bottomBorder {
+    width: 40%;
+    border-bottom: solid 3px #8EA9D2;
+}
+
+.project-join-description-bold {
+    font-weight: 700;
+}
+
+.project-join-description-bold, .project-join-description {
+    color: #44618D;
+    margin-bottom: 2rem;
+}
+
+.project-join-hero-image-section {
+    margin-left: auto;
+}
+
+.app-instructions-content-section a{
+    text-decoration: none; /* Removes underline */
+    font-style: normal; /* Ensures the font style is normal */
+    color: white;
+}
+
+.project-join-joinInstructions-button {
+    padding: 0.75rem 1.25rem;
+    background-color: #1C426D;
+    width: fit-content;
+    border-radius: 7px;
+}
+
+.project-join-whatWeDo-section {
+    background-color: #6E87A3;
+    padding: 4rem 1rem;
+    overflow: hidden;
+}
+
+.project-join-whatWeDo-section h1, .project-join-whatWeDo-section p {
+    color: white;
+}
+
+.project-join-whatWeDo-section h1, .project-join-whatWeDo-section h2, .project-join-pastProjectSection-section h2, .project-join-pastProjectSection-section h1, .project-join-applicationInstructions-section h2, .project-join-applicationInstructions-section h1  {
+    width: fit-content;
+    margin: auto;
+}
+
+.project-join-whatWeDo-section h2 {
+    color: #B2C9EC;
+}
+
+.project-join-whatWeDo-section h1 {
+    margin: 1.5rem auto;
+    margin-bottom: 4rem;
+}
+
+.project-join-whatWeDo-section p {
+    text-align: center;
+    width: 70%;
+    margin: 2rem auto;
+    max-width: 1060px;
+}
+
+.project-join-carousel-items {
+    padding: 2rem;
+}
+
+.project-join-carousel-items p {
+    width: fit-content;
+    margin: auto;
+    font-weight: 700;
+    color: #455C6C;
+}
+
+.project-item-carousel-items {
+    display: flex;
+}
+
+.project-join-pastProjectSection-section {
+    background-color: #FAFAFA;    
+    padding: 3rem;
+}
+
+.project-join-pastProjectSection-section h1 {
+    color: #5387A5;
+}
+
+.project-join-applicationInstructions-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #FBFBFB;
+}
+
+.project-join-applicationInstructions-section h2 {
+    color: #B2C9EC;
+}
+
+.project-join-applicationInstructions-section h1 {
+    color: #5387A5;
+}
+
+.app-instructions-content-section {
+    /* width: 40%; */
+}
+
+.app-instructions-title-section {
+    margin-bottom: 2rem;
+    margin-left: auto;
+}
+
+.app-instructions-content-section h2{
+    font-size: 1rem;
+    color: black;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+
+.app-instructions-content-section li {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width:1204px) {
+    .project-item-carousel-items {
+        display: block;
+    }
+}
+
+@media screen and (max-width:799px) {
+    .project-join-hero-image-section{
+        display: none;
+    }
+}

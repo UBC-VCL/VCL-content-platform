@@ -48,17 +48,21 @@ const ProjectV2Team = () => {
 			</div>
 			{members.map((member) => (
 				<div className="team-member">
-					<h3 className="member-name">{member.name}</h3>
-					<p>
-						<br />
-						<span className="member-role">{member.position}</span>
-						<br />
-						<br />
-						{member.description ? member.description : ""}
-						<br />
-						<br />
-						Contact info: abc@gmail.com{" "}
-					</p>
+					<div className="member-flex-wrapper">
+						<div className="member-photo-container">
+							<img src="image.png"></img>
+						</div>
+						<div>
+							<h3 className="member-name">{member.name}</h3>
+							<p>
+								<br />
+								<span className="member-role">{member.position}</span>
+								<br />
+								<br />
+								{member.description ? member.description : ""}
+							</p>
+						</div>
+					</div>
 				</div>
 			))}
 		</div>

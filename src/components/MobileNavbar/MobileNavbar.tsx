@@ -3,7 +3,7 @@ import { AppBar, IconButton, Menu, MenuItem } from "@mui/material";
 import { TEXT, CONSTANTS } from "@statics";
 import { useHandleLogout } from "@services/authService";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { appActions } from "@redux/slices/AppRedux";
+import { appActions, selectInProjectsPage } from "@redux/slices/AppRedux";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import "./MobileNavbar.css";
@@ -28,6 +28,7 @@ const MobileNavbar = () => {
   const history = useHistory();
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  const inProjectsPage = useAppSelector(selectInProjectsPage);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -69,7 +70,7 @@ const MobileNavbar = () => {
 
   return (
     <div className="container">
-      <AppBar position="fixed" className="mobile-header" id="mobile-navbar-container">
+      <AppBar position="fixed" className="mobile-header" id="mobile-navbar-container" sx={inProjectsPage ? {boxShadow: 0} : {}}>
         <div>
           <img src={VCLIcon} alt="VCL logo" className="mobile-vcl-logo" />
           <div className="title">{TEXT.COMMON.TITLE}</div>

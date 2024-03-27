@@ -30,12 +30,17 @@ const ProjectRouter = (props: PropsOBJ) => {
 			<Route
 				exact
 				path={`/projectsV2/${project_id}/join`}
-				component={ProjectV2Join}
+				render={() => {
+					return <ProjectV2Join project_id={project_id} />;
+				}}
 			/>
 			<Route
 				exact
 				path={`/projectsV2/${project_id}/team`}
 				component={ProjectV2Team}
+				// render={() => {
+				// 	return <ProjectV2Team project={project_id} />;
+				// }}
 			/>
 			<Route
 				exact
@@ -45,7 +50,9 @@ const ProjectRouter = (props: PropsOBJ) => {
 			<Route
 				exact
 				path={`/projectsV2/${project_id}/publications`}
-				component={ProjectV2Publications}
+				render={() => {
+					return <ProjectV2Publications project_id={project_id} />;
+				}}
 			/>
 		</BrowserRouter>
 	);

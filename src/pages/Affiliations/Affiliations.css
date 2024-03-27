@@ -1,0 +1,131 @@
+.main-content {
+    margin-top: 5.3rem;
+  }
+  
+.project-header {
+    margin-top: 10rem;
+}
+
+.affiliation-page-title {
+    text-align: center;
+}
+
+.affiliation-page-description {
+    color: #535353;
+    margin: 2rem 0;
+}
+
+.page-nav {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.nav-item {
+    border-left: 1px rgba(0, 0, 0, 0.2) solid;
+}
+
+.page-nav .nav-item:first-child {
+    border-left: none; /* Remove border from the first item */
+}
+
+.hover-item {
+    border-radius: 10px;
+    margin: 0 0.5rem;
+    transition: background-color 1s ease-in;
+    transition: color 0.1s ease-out;
+    padding: 0.5rem 0;
+    user-select: none;
+  }
+  
+.hover-item:hover {
+    cursor: pointer;
+    background-color: rgb(28, 66, 109);
+    color: white;
+    font-weight: 600;
+}
+
+.selected-item {
+    background-color: rgb(28, 66, 109);
+    color: white;
+    font-weight: 600;
+}
+
+.affiliations-list {
+    width: full;
+    padding: 1rem 0;
+    margin: 3rem 0;
+}
+
+.affiliation {
+  width: 80%;
+  min-height: 7.5rem;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
+  color: black;
+  border: 1px rgba(0, 0, 0, 0.05) solid;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem 3rem;
+}
+
+.info-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.name {
+  color: #1C426D;
+}
+
+.position {
+  color: #535353;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: start;
+}
+
+.icon-container {
+  width: 20%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.icon{
+    width: 1.6rem;
+    height: 1.6rem;
+    color: #1C426D;
+}
+
+
+@media screen and (max-width: 500px){
+  .affiliation{
+    justify-content: center;
+    padding: 1rem 1rem;
+  }
+  .info-container{
+    align-items: center;
+  }
+  .info-container{
+    align-items: center;
+  }
+  .name h2{
+    color: #1C426D;
+    text-align: center;
+  }
+  .name a {
+    text-decoration-color: #1C426D;
+  }
+  .position{
+    text-align: center;
+  }
+}

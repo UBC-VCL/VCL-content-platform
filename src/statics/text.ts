@@ -33,7 +33,8 @@ const TEXT = {
     GET_INVOLVED: 'Get Involved',
     PROJECT_PUBLICATIONS: 'Publications',
     PROJECT_TIMELINE: 'Timeline',
-    PEOPLE: 'People'
+    PEOPLE: 'People',
+    AFFILIATIONS: 'Affiliations',
   },
   PROJECT_NAV: {
     PROJECT_DESCRIPTION: "Project Description",

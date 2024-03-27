@@ -19,6 +19,7 @@ const baseRoutes = {
   GET_INVOLVED: '/get_involved',
   PROJECT_PUBLICATIONS: '/publications',
   PEOPLE: '/people',
+  AFFILIATIONS: '/affiliations',
 } as const;
 
 const timelineRoutes = {

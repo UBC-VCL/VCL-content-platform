@@ -1,0 +1,38 @@
+.project-publication-content-container {
+    /* margin-top: 3rem; */
+    background-color: #1c426d;
+    color: white;
+    max-width: 1400px;
+    /* height: 100%; */
+}
+
+.project-publications-title-container h1 {
+    margin: auto;
+    width: fit-content;
+    padding: 1rem 0;
+}
+
+.project-publications-items-container { 
+    background-color: white;
+    padding: 1rem 0;
+}
+
+.project-publications-items-container h1, .project-publications-items-container p {
+    color: black;
+}
+
+.project-publications-items-container h1 {
+    font-size: large;
+    display: flex;
+    cursor: pointer;
+}
+
+.project-publications-items-container p {
+    font-size: medium;
+}
+
+@media screen and (max-width: 900px) {
+    .project-publication-content-container {
+        padding-top: 3rem;
+    }
+}

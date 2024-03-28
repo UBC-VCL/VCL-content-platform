@@ -7,7 +7,7 @@
     max-width: 600px;
 }
 
-.project-join-hero-title-section h2, .project-join-pastProjectSection-section h2{
+.project-join-pastProjectSection-section h2{
     font-size: 1.5rem;
     color: #8EA9D2;
 }
@@ -35,7 +35,7 @@
     margin-left: auto;
 }
 
-.project-join-hero-title-section a, .app-instructions-content-section a{
+.app-instructions-content-section a{
     text-decoration: none; /* Removes underline */
     font-style: normal; /* Ensures the font style is normal */
     color: white;

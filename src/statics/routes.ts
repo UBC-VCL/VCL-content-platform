@@ -27,7 +27,7 @@ const timelineRoutes = {
     BASE:'/resources',
     PATH:'/resources/:resource_id'},
   TIMELINE: '/timeline',
-  TIMELINE_CREATE: '/timeline/create',
+  // TIMELINE_CREATE: '/timeline/create',
   TIMELINE_EDIT: '/timeline/:timeline_id/edit',
   TIMELINE_ADD: '/timeline/add',
   PROJECT_TIMELINE: '/timeline',

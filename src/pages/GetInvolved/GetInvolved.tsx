@@ -8,8 +8,7 @@ import { useRef } from 'react'
 import GetInvolvedSidebar from '@components/GetInvolvedSidebar';
 import { useState, useEffect } from 'react'
 import menuIcon from '@statics/images/menu-icon.png';
-
-
+import ResearchIMG from '@statics/images/JoinTeam/ResearchImage.png';
 
 interface GetInvolvedProps { }
 
@@ -114,12 +113,34 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 					setbarState(!sidebarState)
 				}} /></div>
 				<div id='getInvolvedInfo'>
-					<div className="join-header">
-						<h1>GET INVOLVED</h1>
-						<p className='join-sub-header'>Interested in what we do? Find out how you can join our activities here.</p>
-					</div>
+				<div
+                className='project-join-hero-section'
+            >
+                <div style={{ maxWidth: '1600px', margin: 'auto', display: 'flex' }}>
+                    <div className='project-join-hero-title-section'>
+                        <div style={{ width: 'fit-content', marginBottom:'2rem' }}>
+                            <h1>Join Our Team</h1>
+                            <div className='project-join-title-bottomBorder'></div>
+                        </div>
+                        <p className='project-join-description-bold'>Interested in research? Good news, we’re always looking for new co-pilots. </p>
+                        <p className='project-join-description'>
+                            Co-Pilots sign a contract with the lab that lasts for a school term, with the possibility for renewal. Co-Pilots are assigned to a particular project team based on their interests but have the freedom to explore different projects.
+                        </p>
+                        <p className='project-join-description'>
+                            No background in research is needed, and co-pilots have the flexibility of helping out whenever they want!
+                        </p>
+                        {/* <a href={ROUTES.GET_INVOLVED}>
+                            <div className='project-join-joinInstructions-button'>
+                                Application Instructions
+                            </div>
+                        </a> */}
+                    </div>
+                    <div className='project-join-hero-image-section'>
+                        <img src={ResearchIMG} style={{ maxWidth: "500px" }} />
+                    </div>
+                </div>
+            </div>
 					<div className="join-main-body">
-						<div className='role-divider' />
 						<section ref={pRef}>
 							<h2>Get Involved as a Participant</h2>
 							<p>
@@ -128,6 +149,7 @@ const GetInvolved: React.FC<GetInvolvedProps> = props => {
 								Sign up for experiments at: <Link to="//www.reservax.com/ubcviscog/" style={{ color: "#5387a5" }} target="_blank" rel="noreferrer">www.reservax.com/ubcviscog/</Link>
 							</p>
 						</section>
+						<div className='role-divider' />
 						<section ref={labMemberRef}>
 							<h2>Get Involved as a Lab Member</h2>
 							<p>

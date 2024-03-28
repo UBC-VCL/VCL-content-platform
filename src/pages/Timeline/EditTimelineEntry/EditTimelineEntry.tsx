@@ -2,13 +2,15 @@ import CategorySelect from '@components/EditTimeline/CategorySelect/CategorySele
 import EditDateSelect from '@components/EditTimeline/DateSelect/EditDateSelect';
 import EditTextInput from '@components/EditTimeline/EditTextInput/EditTextInput';
 import ProjectSelect from '@components/EditTimeline/ProjectSelect/ProjectSelect';
-import { useAppSelector } from '@redux/hooks';
 import { selectAuth } from '@redux/slices/AuthRedux';
 import useAxios from '@services/hooks/useAxios';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styles from './EditTimelineEntry.module.css';
+import { useAppSelector } from '@redux/hooks';
+import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
+
 
 type TimelineParams = {
   timeline_id: string;
@@ -27,9 +29,17 @@ export type TimelineInfo = {
 const EditTimelineEntry = () => {
   const { access_token } = useAppSelector(selectAuth);
 
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
   const [timeline, setTimeline] = useState<TimelineInfo>({title: "", description: "", date: "", project: "", author: "", categories: [], contributors: ""});
 
   const history = useHistory();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      history.push('/');
+    }
+  }, [])
 
   let { timeline_id } = useParams<TimelineParams>();
 

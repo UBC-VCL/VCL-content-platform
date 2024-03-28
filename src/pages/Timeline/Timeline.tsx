@@ -211,7 +211,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
         }
       }
     });
-
+    
     const totalItems = listFilter.length;
 
     const newTotalPages = Math.ceil(totalItems / itemsPerPage);
@@ -241,6 +241,7 @@ const Timeline: React.FC<TimelineProps> = (props) => {
                   <li key={i}>
                 <span className={"timeline-container-span-" + prj}></span>
                 <TimelineCommitBlock
+                  _id={commit._id}
                   author={commit.author}
                   title={commit.title}
                   project={commit.project}

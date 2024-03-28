@@ -12,6 +12,7 @@ import GetInvolved from "@pages/GetInvolved/GetInvolved";
 import { useAppSelector } from "@redux/hooks";
 import { selectIsLoggedIn } from "@redux/slices/AuthRedux";
 import People from "@pages/People/People";
+import Affiliations from "@pages/Affiliations/Affiliations";
 import ResourcePage from "@pages/Resources/Page/ResourcePage";
 import {useEffect, useState} from 'react';
 
@@ -36,6 +37,7 @@ const AppSwitch = () => {
       <Route exact path={ROUTES.GET_INVOLVED} component={GetInvolved} />
       <Route exact path={ROUTES.PEOPLE} component={People} />
       <Route path={ROUTES.PROJECT.PATH2} component={ProjectV2Wrapper}/>
+      <Route exact path={ROUTES.AFFILIATIONS} component={Affiliations}/>
 
       {IS_WIP && (
         <>

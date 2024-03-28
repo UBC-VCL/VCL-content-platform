@@ -36,8 +36,12 @@ interface AffiliationContent {
 
 
 const SingleAffiliation = (props: {data: AffiliationContent, index: number}) => {
+    // This checks whether the user is browsing the website on a phone 
+    // This would help us render certain components differently
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 500);
 
+    // This is there just to check if the user resizes the screen width on a device
+    // it will mount the changes if the screen width changes
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 500);
@@ -61,16 +65,16 @@ const SingleAffiliation = (props: {data: AffiliationContent, index: number}) => 
     return (
         <div key={props.index} className="affiliation">
           <div className="info-container">
-            <div className="name">
+            <div className="affiliation-name">
                 {titleWithLink}
             </div>
             {props.data.pi &&
-                <div className="position">
+                <div className="affiliation-position">
                     <span>{"PI: " + props.data.pi.map((item:string) => item)}</span>
                 </div>
             }
             {props.data.faculty &&  
-                <div className="position">
+                <div className="affiliation-position">
                     <span>{"Faculty: " +  props.data.faculty.map((item:string) => item)}</span>
                 </div>
             }
@@ -120,13 +124,13 @@ const Affiliations = () => {
 
                     }
                 </div>
-                <div className="content-display">
-                    <div className="affiliations-list">
-                        {filteredAffiliations[0].content.map((item: AffiliationContent, index: number) => 
-                            <SingleAffiliation data={item} index={index}></SingleAffiliation>
-                        )}
-                    </div>
+               
+                <div className="affiliations-list">
+                    {filteredAffiliations[0].content.map((item: AffiliationContent, index: number) => 
+                        <SingleAffiliation data={item} index={index}></SingleAffiliation>
+                    )}
                 </div>
+                
             </div>
         </>
     );

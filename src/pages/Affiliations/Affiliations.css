@@ -82,11 +82,11 @@
   gap: 0.5rem;
 }
 
-.name {
+.affiliation-name {
   color: #1C426D;
 }
 
-.position {
+.affiliation-position {
   color: #535353;
   font-size: 1rem;
   font-weight: 500;
@@ -118,14 +118,14 @@
   .info-container{
     align-items: center;
   }
-  .name h2{
+  .affiliation-name h2{
     color: #1C426D;
     text-align: center;
   }
-  .name a {
+  .affiliation-name a {
     text-decoration-color: #1C426D;
   }
-  .position{
+  .affiliation-position{
     text-align: center;
   }
 }
